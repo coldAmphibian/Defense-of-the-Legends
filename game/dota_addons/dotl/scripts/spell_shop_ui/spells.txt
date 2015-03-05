@@ -1,0 +1,883 @@
+"Spells" {
+
+	"0000" // Do not change this, it is registered by flash as the skill that buys points (the skill is not added to the player)
+	{
+		"_ID"			"0000" // Do not change this, flash registers it as the skill that buys points (the skill is not added to the player)
+		"_name"			"spell_shop_ui_point" 
+		"_texture"		"spell_shop_ui_point" // if you want to have a custom texture for your skill point
+		"_isSellable"	"true" // do not change tis
+		"_isOwned"		"false" // do not change this
+		"_cost"			"100" // this is the cost of the skill point
+		"_sellFactor"	"0.75" // this is the sell factor of the skill point (sells for _sellFactor x _cost)
+		"_upgFactor"	"1"  // do not change this
+		"_curLvl"		"0" // do not change this
+		"_maxLvl"		"1" // do not change this
+		"_isUpg"		"false" // do not change this
+		"_pntCost"		"0" // do not change this
+		"_pntSellFac"	"1" // do not change this
+		"_pntIncrement"	"0" // do not change this
+		"_pntIncLvl"	"0" // do not change this
+	}
+	
+	// everything other than _ID can be defaulted in the spells_default.txt
+	// if you dont set _texture, it is defaulted to _name
+
+	"0001" // keep this the same as the _ID, keep it unique and in "XXXX" format. it's also the order in which your spells will show up
+	{
+		"_ID"			"0001" // see comment above
+		"_name"			"abaddon_aphotic_shield" // the name of the ability recognized by Lua
+		"_texture"		"abaddon_aphotic_shield" // the texture of the ability inside images/spellicons/
+		"_isSellable"	"true" // if you can sell the ability
+		"_isOwned"		"true" // if the ability is owned by the player. you might want to set this to false
+		"_cost"			"1000" // the gold cost of the ability
+		"_sellFactor"	"0.75" // how much the ability sells for (_sellFactor x _cost) x _curLvl
+		"_upgFactor"	"1" // the factor for increasing gold cost on upgrade (lvl 1 is _cost, lvl 2+ is _upgFactor * _cost)
+		"_curLvl"		"1" // the current level of the ability for the player.. you might want to set this to 0
+		"_maxLvl"		"4" // the max lvl of the ability
+		"_isUpg"		"true" // if you can upgrade the ability (skill it up)
+		"_pntCost"		"1" // how much skillpoints the ability costs
+		"_pntSellFac"	"1" // the sell factor of the skillpoint cost (it will be sold for minimum 1 skillpoint)
+		"_pntIncrement"	"1" // how much the point cost increments every _pntIncLvl
+		"_pntIncLvl"	"3" // if _pntCost == 1, _pntIncrement == 1 and _pntIncLvl == 1, this is how it'll look:
+		// Level: 1 2 3 4
+		// Cost:  1 1 1 2
+	}
+	
+	"0002"
+	{
+		"_ID"			"0002"
+		"_name"			"abaddon_borrowed_time"
+		"_texture"		"abaddon_borrowed_time"
+		"_isSellable"	"true"
+		"_isOwned"		"true"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"1"
+		"_maxLvl"		"4"
+		"_isUpg"		"false"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0003"
+	{
+		"_ID"			"0003"
+		"_name"			"abaddon_death_coil"
+		"_texture"		"abaddon_death_coil"
+		"_isSellable"	"true"
+		"_isOwned"		"true"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"1"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0004"
+	{
+		"_ID"			"0004"
+		"_name"			"abaddon_frostmourne"
+		"_texture"		"abaddon_frostmourne"
+		"_isSellable"	"true"
+		"_isOwned"		"true"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"1"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0005"
+	{
+		"_ID"			"0005"
+		"_name"			"alchemist_acid_spray"
+		"_texture"		"alchemist_acid_spray"
+		"_isSellable"	"false"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0006"
+	{
+		"_ID"			"0006"
+		"_name"			"alchemist_chemical_rage"
+		"_texture"		"alchemist_chemical_rage"
+		"_isSellable"	"false"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0007"
+	{
+		"_ID"			"0007"
+		"_name"			"alchemist_goblins_greed"
+		"_texture"		"alchemist_goblins_greed"
+		"_isSellable"	"false"
+		"_isOwned"		"false"
+		"_cost"			"450"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0008"
+	{
+		"_ID"			"0008"
+		"_name"			"alchemist_unstable_concoction"
+		"_texture"		"alchemist_unstable_concoction"
+		"_isSellable"	"false"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0009"
+	{
+		"_ID"			"0009"
+		"_name"			"ancient_apparition_chilling_touch"
+		"_texture"		"ancient_apparition_chilling_touch"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0010"
+	{
+		"_ID"			"0010"
+		"_name"			"ancient_apparition_cold_feet"
+		"_texture"		"ancient_apparition_cold_feet"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0011"
+	{
+		"_ID"			"0011"
+		"_name"			"ancient_apparition_ice_blast"
+		"_texture"		"ancient_apparition_ice_blast"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0012"
+	{
+		"_ID"			"0012"
+		"_name"			"beastmaster_wild_axes"
+		"_texture"		"beastmaster_wild_axes"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0013"
+	{
+		"_ID"			"0013"
+		"_name"			"ancient_apparition_ice_vortex"
+		"_texture"		"ancient_apparition_ice_vortex"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0014"
+	{
+		"_ID"			"0014"
+		"_name"			"antimage_blink"
+		"_texture"		"antimage_blink"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0015"
+	{
+		"_ID"			"0015"
+		"_name"			"antimage_mana_break"
+		"_texture"		"antimage_mana_break"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0016"
+	{
+		"_ID"			"0016"
+		"_name"			"antimage_mana_void"
+		"_texture"		"antimage_mana_void"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0017"
+	{
+		"_ID"			"0017"
+		"_name"			"antimage_spell_shield"
+		"_texture"		"antimage_spell_shield"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0018"
+	{
+		"_ID"			"0018"
+		"_name"			"axe_battle_hunger"
+		"_texture"		"axe_battle_hunger"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0019"
+	{
+		"_ID"			"0019"
+		"_name"			"axe_berserkers_call"
+		"_texture"		"axe_berserkers_call"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0020"
+	{
+		"_ID"			"0020"
+		"_name"			"axe_counter_helix"
+		"_texture"		"axe_counter_helix"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0021"
+	{
+		"_ID"			"0021"
+		"_name"			"axe_culling_blade"
+		"_texture"		"axe_culling_blade"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0022"
+	{
+		"_ID"			"0022"
+		"_name"			"bane_brain_sap"
+		"_texture"		"bane_brain_sap"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0023"
+	{
+		"_ID"			"0023"
+		"_name"			"bane_enfeeble"
+		"_texture"		"bane_enfeeble"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0024"
+	{
+		"_ID"			"0024"
+		"_name"			"bane_fiends_grip"
+		"_texture"		"bane_fiends_grip"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0025"
+	{
+		"_ID"			"0025"
+		"_name"			"bane_nightmare"
+		"_texture"		"bane_nightmare"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0026"
+	{
+		"_ID"			"0026"
+		"_name"			"batrider_firefly"
+		"_texture"		"batrider_firefly"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0027"
+	{
+		"_ID"			"0027"
+		"_name"			"batrider_flamebreak"
+		"_texture"		"batrider_flamebreak"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0028"
+	{
+		"_ID"			"0028"
+		"_name"			"batrider_flaming_lasso"
+		"_texture"		"batrider_flaming_lasso"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0029"
+	{
+		"_ID"			"0029"
+		"_name"			"batrider_sticky_napalm"
+		"_texture"		"batrider_sticky_napalm"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0030"
+	{
+		"_ID"			"0030"
+		"_name"			"bloodseeker_bloodrage"
+		"_texture"		"bloodseeker_bloodrage"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0031"
+	{
+		"_ID"			"0031"
+		"_name"			"bloodseeker_blood_bath"
+		"_texture"		"bloodseeker_blood_bath"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0032"
+	{
+		"_ID"			"0032"
+		"_name"			"bloodseeker_rupture"
+		"_texture"		"bloodseeker_rupture"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0033"
+	{
+		"_ID"			"0033"
+		"_name"			"bloodseeker_thirst"
+		"_texture"		"bloodseeker_thirst"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0034"
+	{
+		"_ID"			"0034"
+		"_name"			"brewmaster_drunken_brawler"
+		"_texture"		"brewmaster_drunken_brawler"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0035"
+	{
+		"_ID"			"0035"
+		"_name"			"brewmaster_drunken_haze"
+		"_texture"		"brewmaster_drunken_haze"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0036"
+	{
+		"_ID"			"0036"
+		"_name"			"brewmaster_thunder_clap"
+		"_texture"		"brewmaster_thunder_clap"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0037"
+	{
+		"_ID"			"0037"
+		"_name"			"brewmaster_primal_split"
+		"_texture"		"brewmaster_primal_split"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+	"0038"
+	{
+		"_ID"			"0038"
+		"_name"			"abaddon_aphotic_shield"
+		"_texture"		"abaddon_aphotic_shield"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+		
+	"0039"
+	{
+		"_ID"			"0039"
+		"_name"			"bristleback_bristleback"
+		"_texture"		"bristleback_bristleback"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0040"
+	{
+		"_ID"			"0040"
+		"_name"			"bristleback_quill_spray"
+		"_texture"		"bristleback_quill_spray"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0041"
+	{
+		"_ID"			"0041"
+		"_name"			"bristleback_viscous_nasal_goo"
+		"_texture"		"bristleback_viscous_nasal_goo"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0042"
+	{
+		"_ID"			"0042"
+		"_name"			"bristleback_warpath"
+		"_texture"		"bristleback_warpath"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0043"
+	{
+		"_ID"			"0043"
+		"_name"			"broodmother_incapacitating_bite"
+		"_texture"		"broodmother_incapacitating_bite"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0044"
+	{
+		"_ID"			"0044"
+		"_name"			"broodmother_insatiable_hunger"
+		"_texture"		"broodmother_insatiable_hunger"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+		
+	"0045"
+	{
+		"_ID"			"0045"
+		"_name"			"broodmother_spin_web"
+		"_texture"		"broodmother_spin_web"
+		"_isSellable"	"true"
+		"_isOwned"		"false"
+		"_cost"			"100"
+		"_sellFactor"	"0.75"
+		"_upgFactor"	"1"
+		"_curLvl"		"0"
+		"_maxLvl"		"4"
+		"_isUpg"		"true"
+		"_pntCost"		"1"
+		"_pntSellFac"	"1"
+		"_pntIncrement"	"1"
+		"_pntIncLvl"	"3"
+	}
+	
+}

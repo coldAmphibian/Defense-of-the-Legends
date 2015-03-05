@@ -1,0 +1,20 @@
+"Settings" {
+	"_limit"		"4"
+	"_size"			"64"
+	"_dist"			"8"
+	"_max_row"		"5"
+	"_max_column"	"4"
+	"_canOpen"		"true"
+	"_useRes"		"false"
+	"_useGold"		"true"
+}
+
+
+//	"_limit"		- the maximum amount of different spells you can buy, can change during runtime using "spell_shop_ui_change_limit" event
+//	"_size"			- the size of the icon. suggested values are 32 and 64
+//	"_dist"			- the distance between icons. suggested values are 4 for 32 and 8 for 64
+//	"_max_row"		- number of rows. suggested value 4 for size 64 and 8 for size 32
+//	"_max_column"	- number of columns. suggested value 5 for size64 and 10 for size 32
+//	"_canOpen"		- boolean if you can open the shop, can change during runtime using "spell_shop_ui_toggle_state" event
+//	"_useRes"		- boolean if you are using special resource aka skillpoints
+//	"_useGold"		- boolean if you are using gold to buy spells

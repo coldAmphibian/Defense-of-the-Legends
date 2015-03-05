@@ -1,0 +1,9 @@
+summonersrift
+{
+	material 	materials/overviews/summonersrift.vmat
+	pos_x		-5500			// X coordinate
+	pos_y		5400			// Y coordinate
+	scale		10.4 			// scale used when taking the screenshot
+	rotate		0				// map was rotated by 90 degrees in image editor
+	zoom		1.0				// optimal zoom factor if map is shown in full size
+}

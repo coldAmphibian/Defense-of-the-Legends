@@ -7,8 +7,8 @@
 
 	"1"
 	{
-	"File"		"SpellShopUI"
-	"Depth"		"12"
+	"File"		"PipNumbers"
+	"Depth"		"18"
 	}
 }
 

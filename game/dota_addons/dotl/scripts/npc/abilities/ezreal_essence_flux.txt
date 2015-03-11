@@ -1,0 +1,100 @@
+// LoL's Ezreal Dota port
+// Author: wFX
+// Date: 03/2015
+"ezreal_essence_flux"
+{
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"ezreal_essence_flux"
+	"MaxLevel"						"5"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"733"
+	"AbilityCastPoint"				"0.0"
+	"AbilityCooldown"				"9"
+	"AbilityManaCost"				"50 60 70 80 90"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AbilityDamage"					"70 115 160 205 250"
+	
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+	}
+
+	// Special	
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"1100"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"radius"				"150"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"range"					"733"	
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bonus_attack_speed" 	"20 25 30 35 40"
+		}
+
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/hero_ezreal/ezreal_essence_flux.lua"
+			"Function"			"ezreal_essence_flux_on_spell_start"
+			"projectile_speed"	"%projectile_speed"
+			"radius"			"%radius"
+			"range"				"%range"
+			"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"Target"			"POINT"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"0"
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/hero_ezreal/ezreal_essence_flux.lua"
+			"Function"			"ezreal_essence_flux_on_hit_unit"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/hero_ezreal/ezreal_rising_spell_force.lua"
+			"Function"		"ezreal_rising_spell_force_on_spell_hit"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_essence_flux"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsBuff"			"1"
+
+			"Attributes" 		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+			}
+		}
+	}
+}

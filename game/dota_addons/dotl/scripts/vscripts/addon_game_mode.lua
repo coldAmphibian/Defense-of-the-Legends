@@ -49,8 +49,19 @@ function CAddonLeagueOfLegends:InitGameMode()
 	GameRules:GetGameModeEntity():SetCameraDistanceOverride(1134)
 	GameRules:SetPreGameTime(0)
 	GameRules:SetGoldPerTick(100000)
-
 	print("GameMode Initialised")
+end
+
+-- PipUI and easy debug
+function CAddonLeagueOfLegends:OnPlayerPickHero(keys)
+	local hero = EntIndexToHScript(keys.heroindex)
+	local player = EntIndexToHScript(keys.player)
+	local playerID = hero:GetPlayerID()
+	FireGameEvent( 'send_hero_ent', { player_ID = playerID, _ent = PlayerResource:GetSelectedHeroEntity(playerID):GetEntityIndex() } )
+	local level = 25
+	for i=1,level-1 do
+		hero:HeroLevelUp(false)
+	end
 end
 
 -- Evaluate the state of the game

@@ -1,0 +1,8 @@
+brush_test
+{
+	material materials/overviews/brush_test.vmat
+	pos_x -3072
+	pos_y 3072
+	scale 6.000
+}
+

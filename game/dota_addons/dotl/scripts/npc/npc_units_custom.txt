@@ -1,0 +1,1148 @@
+// Units File
+"DOTAUnits"
+{
+	"Version"	"1"
+	//=================================================================================
+	// Map Unit: Brush
+	//=================================================================================
+	"npc_lol_brush_vision"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/development/invisiblebox.mdl"								// Model.
+		//"Model"						"models\items\wards\esp_eye_of_thunderkeg\esp_eye_of_thunderkeg.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"0"								// Name of sound set.
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_brush_revealer_passive"			// Ability 1
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"9001"			// Physical protection.
+		"MagicalResistance"			"9001"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"			// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"0"		// Range within a target can be acquired.
+		"AttackRange"				"0"		// Range within a target can be attacked.
+		"ProjectileModel"			"" // Particle system model for projectile.
+		"ProjectileSpeed"			"900"		// Speed of projectile.
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"			// Experience earn.
+		"BountyGoldMin"				"0"			// Gold earned min.
+		"BountyGoldMax"				"0"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"		// Speed
+		"MovementTurnRate"			"9999"		// Turning rate.
+		"FollowRange"				"0"		// Distance to keep when following
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"9001"			// Base health.
+		"StatusHealthRegen"			"1000"			// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------	
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"0"		// Range of vision during day light.
+		"VisionNighttimeRange"		"0"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}	
+
+	//=================================================================================
+	// Building: Turrets
+	//=================================================================================
+	"npc_lol_blue_turret_t1"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models\buildings\ha_order_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"1500"
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_penetrating_bullets"				// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_fortification"					// Ability 5.
+		"Ability6"					"lol_building_invincibility"				// Ability 6 - Extra.
+		"Ability7"					""											// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"5"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"152"												// Damage range min.
+		"AttackDamageMax"			"152"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"1.2048"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/fountain_attack.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"1000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_turret_t1"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/chaos_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"600"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_penetrating_bullets"			// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"			// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"					// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"				// Ability 4.
+		"Ability5"					"lol_tower_fortification"				// Ability 5.
+		"Ability6"					"lol_building_invincibility"			// Ability 6 - Extra.
+		"Ability7"					""										// Ability 7 - Extra.
+		"Ability8"					""										// Ability 8 - Extra.
+		
+		"AbilityLayout"				"5"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+		"MagicalResistance"			"50"				// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"152"												// Damage range min.
+		"AttackDamageMax"			"152"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"1.2048"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/fountain_attack.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"1000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_blue_turret_t2"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models\buildings\ha_order_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"1500"
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_penetrating_bullets"				// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_vanguard"						// Ability 5.
+		"Ability6"					"lol_tower_fortification"					// Ability 6.
+		"Ability7"					"lol_building_invincibility"				// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"6"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"170"												// Damage range min.
+		"AttackDamageMax"			"170"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"1.2048"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/fountain_attack.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"1000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_turret_t2"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/chaos_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"600"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_penetrating_bullets"				// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_vanguard"						// Ability 5.
+		"Ability6"					"lol_tower_fortification"					// Ability 6.
+		"Ability7"					"lol_building_invincibility"				// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"6"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"170"												// Damage range min.
+		"AttackDamageMax"			"170"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"1.2048"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/fountain_attack.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"1000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_blue_turret_t3"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models\buildings\ha_order_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"1500"
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_lightning_rod"					// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_fortification"					// Ability 5.
+		"Ability6"					"lol_building_invincibility"				// Ability 6 - Extra.
+		"Ability7"					""											// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"5"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"170"												// Damage range min.
+		"AttackDamageMax"			"170"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"0.25"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"10000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"1"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_turret_t3"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/chaos_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"600"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_lightning_rod"					// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_fortification"					// Ability 5.
+		"Ability6"					"lol_building_invincibility"				// Ability 6 - Extra.
+		"Ability7"					""											// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"5"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"170"												// Damage range min.
+		"AttackDamageMax"			"170"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"0.25"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"10000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"1"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_blue_turret_t4"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models\buildings\ha_order_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"1500"
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_lightning_rod"					// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_fortification"					// Ability 5.
+		"Ability6"					"lol_building_invincibility"				// Ability 6 - Extra.
+		"Ability7"					""											// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"5"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"150"												// Damage range min.
+		"AttackDamageMax"			"150"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"0.25"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"10000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"1"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_turret_t4"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/chaos_tower.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_tower45"
+		"ModelScale"				"600"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_lightning_rod"					// Ability 1.
+		"Ability2"					"lol_tower_reinforced_armor"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		"Ability4"					"lol_tower_a_wizard_did_it"					// Ability 4.
+		"Ability5"					"lol_tower_fortification"					// Ability 5.
+		"Ability6"					"lol_building_invincibility"				// Ability 6 - Extra.
+		"Ability7"					""											// Ability 7 - Extra.
+		"Ability8"					""											// Ability 8 - Extra.
+		
+		"AbilityLayout"				"5"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14.2857"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"150"												// Damage range min.
+		"AttackDamageMax"			"150"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_physical"
+		"AttackRate"				"0.25"											// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"10000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusHealthRegen"			"1"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	//=================================================================================
+	// Building: Inhibitor
+	//=================================================================================
+	"npc_lol_blue_inhibitor"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/inhibitor.vmdl"	// Model.
+		"ModelScale"				"2"
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_racks45"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_a_wizard_did_it"					// Ability 1.
+		"Ability2"					"lol_inhibitor_armor"						// Ability 2.
+		
+		"AbilityLayout"				"2"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"0"												// Damage range min.
+		"AttackDamageMax"			"0"												// Damage range max.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"50"			// Gold earned min.
+		"BountyGoldMax"				"50"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_BUILDING"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"4000"			// Base health.
+		"StatusHealthRegen"			"1"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_inhibitor"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/inhibitor.vmdl"	// Model.
+		"ModelScale"				"2"
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_racks45"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_a_wizard_did_it"					// Ability 1.
+		"Ability2"					"lol_inhibitor_armor"						// Ability 2.
+		
+		"AbilityLayout"				"2"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"0"												// Damage range min.
+		"AttackDamageMax"			"0"												// Damage range max.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"50"			// Gold earned min.
+		"BountyGoldMax"				"50"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_BUILDING"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"4000"			// Base health.
+		"StatusHealthRegen"			"1"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	//=================================================================================
+	// Building: Nexus
+	//=================================================================================
+	"npc_lol_blue_nexus"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/old_nexus.vmdl"	// Model.
+		"BaseClass"					"npc_dota_fort"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_ancient"
+		"ModelScale"				"1.75"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_a_wizard_did_it"					// Ability 1.
+		"Ability2"					"lol_nexus_end"
+		
+		"AbilityLayout"				"2"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"0"												// Damage range min.
+		"AttackDamageMax"			"0"												// Damage range max.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"50"			// Gold earned min.
+		"BountyGoldMax"				"50"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5500"			// Base health.
+		"StatusHealthRegen"			"5"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_nexus"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/buildings/old_nexus.vmdl"	// Model.
+		"BaseClass"					"npc_dota_fort"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_ancient"
+		"ModelScale"				"1.75"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_tower_a_wizard_did_it"					// Ability 1.
+		"Ability2"					"lol_nexus_end"
+		
+		"AbilityLayout"				"2"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"0"												// Damage range min.
+		"AttackDamageMax"			"0"												// Damage range max.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"50"			// Gold earned min.
+		"BountyGoldMax"				"50"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5500"			// Base health.
+		"StatusHealthRegen"			"5"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	//=================================================================================
+	// Building: Nexus Obelisk
+	//=================================================================================
+	"npc_lol_blue_obelisk"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/props_structures/tower_good_sfm.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_shield"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_obelisk_laser"							// Ability 1.
+		"Ability2"					"lol_obelisk_overkill"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		
+		"AbilityLayout"				"3"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"200"												// Damage range min.
+		"AttackDamageMax"			"200"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_PURE"
+		"AttackRate"				"0.1"												// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"1000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"9001"			// Base health.
+		"StatusHealthRegen"			"1000"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+
+	"npc_lol_red_obelisk"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/props_structures/tower_bad_sfm.vmdl"	// Model.
+		"BaseClass"					"npc_dota_tower"
+		"SoundSet"					"Tower.Fire"								// Name of sound set.
+		"MinimapIcon"				"minimap_shield"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"lol_obelisk_laser"							// Ability 1.
+		"Ability2"					"lol_obelisk_ignore_abilities"				// Ability 2.
+		"Ability3"					"lol_tower_wardens_eye"						// Ability 3.
+		
+		"AbilityLayout"				"3"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"						// Type of attack - melee, ranged, etc.
+		"AttackDamageMin"			"200"												// Damage range min.
+		"AttackDamageMax"			"200"												// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_PURE"
+		"AttackRate"				"0.1"												// Time for 1 attack.
+		"AttackAnimationPoint"		"0"													// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"568"												// Range within a target can be acquired.
+		"AttackRange"				"568"												// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"		// Particle system model for projectile.
+
+		"ProjectileSpeed"			"1000"												// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"				// Experience earn.
+		"BountyGoldMin"				"150"			// Gold earned min.
+		"BountyGoldMax"				"150"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"		// Type of locomotion - ground, air
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"9001"			// Base health.
+		"StatusHealthRegen"			"1000"				// Health regeneration rate.
+		"StatusMana"				"0"				// Base mana.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"803"		// Range of vision during day light.
+		"VisionNighttimeRange"		"803"		// Range of vision at night time.	
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
+	}
+}

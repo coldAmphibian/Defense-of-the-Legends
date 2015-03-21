@@ -1,0 +1,112 @@
+// No spaces in event names, max length 32
+// All strings are case sensitive
+//
+// valid data key types are:
+//   string : a zero terminated string
+//   bool   : unsigned int, 1 bit
+//   byte   : unsigned int, 8 bit
+//   short  : signed int, 16 bit
+//   long   : signed int, 32 bit
+//   float  : float, 32 bit
+//   uint64 : unsigned int 64 bit
+//   local  : any data, but not networked to clients
+//
+// following key names are reserved:
+//   local      : if set to 1, event is not networked to clients
+//   unreliable : networked, but unreliable
+//   suppress   : never fire this event
+//   time	: firing server time
+//   eventid	: holds the event ID
+
+"CustomEvents"
+{
+	
+	"spell_shop_ui_spell_add"
+	{
+		"player_ID"		"short"
+		"_ID"			"string"
+		"_name"			"string"
+		"_texture"		"string"
+		"_isSellable"	"bool"
+		"_isOwned"		"bool"
+		"_cost"			"short"
+		"_sellFactor"	"short"
+		"_upgFactor"	"short"
+		"_curLvl"		"short"
+		"_maxLvl"		"short"
+		"_isUpg"		"bool"
+		"_pntCost"		"short"
+		"_pntSellFac"	"short"
+		"_pntIncrement"	"short"
+		"_pntIncLvl"	"short"
+	}
+	
+	"spell_shop_ui_spell_change"
+	{
+		"player_ID"		"short"
+		"_ID"			"string"
+		"_name"			"string"
+		"_isSellable"	"bool"
+		"_isOwned"		"bool"
+		"_cost"			"short"
+		"_sellFactor"	"short"
+		"_upgFactor"	"short"
+		"_curLvl"		"short"
+		"_maxLvl"		"short"
+		"_isUpg"		"bool"
+		"_pntCost"		"short"
+		"_pntSellFac"	"short"
+		"_pntIncrement"	"short"
+		"_pntIncLvl"	"short"
+	}
+	
+	"spell_shop_ui_spell_buy"
+	{
+		"player_ID"		"short"
+		"_ID"			"string"
+		"_success"		"bool"
+	}
+	
+	"spell_shop_ui_spell_sell"
+	{
+		"player_ID"		"short"
+		"_ID"			"string"
+		"_success"		"bool"
+	}
+	
+	"spell_shop_ui_spell_upgrade"
+	{
+		"player_ID"		"short"
+		"_ID"			"string"
+		"_success"		"bool"
+	}
+	
+	"spell_shop_ui_shop_open"
+	{
+		"player_ID"		"short"
+	}
+	
+	"spell_shop_ui_shop_close"
+	{
+		"player_ID"		"short"
+	}
+	
+	"spell_shop_ui_toggle_state"
+	{
+		"player_ID"		"short"
+	}
+	
+	"spell_shop_ui_change_limit"
+	{
+		"player_ID"		"short"
+		"_limit"		"short"
+	}
+	
+	"spell_shop_ui_update_res"
+	{
+		"player_ID"		"short"
+		"_res"			"short"
+	}
+	
+}
+

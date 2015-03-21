@@ -1,0 +1,138 @@
+"InfoTab" {
+	
+	//"exampleName" 				- please keep it UNIQUE to this file, it's used for storing the variables in flash
+	//{
+	//	"_pos"		"1" 			- the "position" of the text, starts at 1. used for showing elements in correct order, please keep it UNIQUE
+	//	"_color"	"0xFFFFFF"		- the hex code color of the text
+	//	"_fontSize" "24"			- the font size
+	//	"_font"		"$TitleFont"	- usable fonts are: "$TitleFont", "$TextFont", "$TitleFontBold", "$TextFontBold"
+	//	"_bg"		"false"			- whether the text should have a background or not. "true" or "false"
+	//	"_bgColor"	"0x000000"		- the hex code color of the background
+	//	"_align"	"center"		- the text alignment: "left", "center" or "right"
+	//	"_text"		"Spell Shop"	- the text value. use \n for linebreak
+	//								- if you want to have a separator(line), just change _bg to "true", choose the "_bgColor" and set text to ""
+	//								- don't change, add or remove variable names unless you are modifying the source code
+	//}
+	
+	"text01"
+	{
+		"_pos"		"1"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "24"
+		"_font"		"$TitleFont"
+		"_bg"		"false"
+		"_bgColor"	"0x000000"
+		"_align"	"center"
+		"_text"		"Spell Shop"
+	}
+	
+	"text02"
+	{
+		"_pos"		"2"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "14"
+		"_font"		"$TextFont"
+		"_bg"		"false"
+		"_bgColor"	"0x000000"
+		"_align"	"left"
+		"_text"		"This is a UI module for Dota2 mad/mop makers. If you intend to use it, please check the relevant readme files. Source is available at github.com/zedor/SpellShop_UI."
+	}
+	
+	"text3"
+	{
+		"_pos"		"3"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "18"
+		"_font"		"$TitleFont"
+		"_bg"		"false"
+		"_bgColor"	"0x000000"
+		"_align"	"left"
+		"_text"		"Features"
+	}
+	
+	"text4"
+	{
+		"_pos"		"4"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "12"
+		"_font"		"$TextFont"
+		"_bg"		"true"
+		"_bgColor"	"0x000000"
+		"_align"	"left"
+		"_text"		"Buying spells\nSelling spells\nChanging text in the info tab\nIt's managed by events so change the appropriate LUA code!!"
+	}
+	
+	"text5"
+	{
+		"_pos"		"5"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "18"
+		"_font"		"$TitleFont"
+		"_bg"		"false"
+		"_bgColor"	"0x000000"
+		"_align"	"left"
+		"_text"		"Contact"
+	}
+	
+	"text6"
+	{
+		"_pos"		"6"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "14"
+		"_font"		"$TextFont"
+		"_bg"		"true"
+		"_bgColor"	"0x000000"
+		"_align"	"left"
+		"_text"		"zed` or zed``\non #dota2mods @ irc.gamesurge.net\nhttp://www.reddit.com/user/SelenaGomez_\nSource: github.com/zedor/SpellShop_UI"
+	}
+	
+	"text7"
+	{
+		"_pos"		"7"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "18"
+		"_font"		"$TitleFont"
+		"_bg"		"true"
+		"_bgColor"	"0xCC0000"
+		"_align"	"center"
+		"_text"		""
+	}
+	
+	"text8"
+	{
+		"_pos"		"8"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "18"
+		"_font"		"$TitleFont"
+		"_bg"		"false"
+		"_bgColor"	"0x000000"
+		"_align"	"center"
+		"_text"		"Filler\nText"
+	}
+	
+	"text9"
+	{
+		"_pos"		"9"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "18"
+		"_font"		"$TitleFont"
+		"_bg"		"true"
+		"_bgColor"	"0xCC0000"
+		"_align"	"center"
+		"_text"		""
+	}
+	
+	
+	"text10"
+	{
+		"_pos"		"10"
+		"_color"	"0xFFFFFF"
+		"_fontSize" "12"
+		"_font"		"$TextFont"
+		"_bg"		"false"
+		"_bgColor"	"0x000000"
+		"_align"	"left"
+		"_text"		"	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	}
+	
+}

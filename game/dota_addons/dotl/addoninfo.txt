@@ -1,4 +1,0 @@
-"AddonInfo"
-{
-	maps			"dota_pvp summonersrift howling_abyss howling_abyss_45 brush_test"
-}

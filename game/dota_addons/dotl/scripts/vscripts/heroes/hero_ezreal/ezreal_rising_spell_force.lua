@@ -17,5 +17,6 @@ function ezreal_rising_spell_force_on_spell_hit(event)
 			current_stack = current_stack + 1
 			caster:SetModifierStackCount("modifier_rising_spell_force", innate, current_stack)
 		end
+
 	end
 end

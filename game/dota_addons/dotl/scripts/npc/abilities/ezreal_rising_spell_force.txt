@@ -1,6 +1,6 @@
 "ezreal_rising_spell_force"
 {
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"// | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AURA"
 	"BaseClass"						"ability_datadriven"
 	"AbilityTextureName"			"ezreal_rising_spell_force"
 	"MaxLevel"						"1"
@@ -21,6 +21,7 @@
 
 	"Modifiers"
 	{
+
 		"modifier_rising_spell_force"
 		{
 			"Passive"			"0"

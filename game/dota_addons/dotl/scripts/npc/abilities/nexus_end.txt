@@ -1,0 +1,11 @@
+//=================================================================================
+// Nexus End
+//=================================================================================
+"lol_nexus_end"
+{
+	"AbilityName"			"lol_nexus_end"
+	"BaseClass" 			"ability_datadriven"
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" 	"dotl_placeholder"
+	"IsHidden"				"0"
+}

@@ -1,16 +1,38 @@
 //Generated using Dota Custom KVScript Files Merger by cris9696
-"DotaHeroes"
+"DOTAHeroes"
 {
 	//This is a comment
 
 
-	//Start of file npc_dota_hero_ancient_apparition_dotl.txt
-	"npc_dota_hero_ancient_apparition_dotl"
+	//Start of file npc_champion_lux.txt
+	"npc_lol_champion_lux"
+	{
+		"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
+		"MovementTurnRate"			"10"										// Turning rate.
+		"VisionDaytimeRange"		"800"										// Range of vision at day time
+		"VisionNighttimeRange"		"800"										// Range of vision at night time.
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"			"4"
+		"Ability1"				"lux_light_binding"						// Ability 1
+		"Ability2"				"lux_prismatic_barrier"					// Ability 2
+		"Ability3"				"lux_lucent_singularity"				// Ability 3a
+		//"Ability4"				"lux_final_spark"						// Ultimate
+		"Ability5"				"lux_illumination"						// Passive
+		"Ability6"				"lux_lucent_singularity_detonate"		// Ability 3b
+	}
+	//End of file npc_champion_lux.txt
+
+
+	//Start of file npc_lol_champion_ezreal.txt
+	"npc_lol_champion_ezreal"
 	{
 		"AbilityLayout" 		"6"
 		"override_hero"			"npc_dota_hero_zuus"
 		"SoundSet"				"0"	
 		"Model"					"models/champions/ezreal.vmdl"
+		
 		"Ability1"				"ezreal_mystic_shot" 
 		"Ability2"				"ezreal_essence_flux" 
 		"Ability3"				"ezreal_arcane_shift"
@@ -52,5 +74,5 @@
 	
 		"VisionNighttimeRange"		"800"									// Range of vision at night time.
 	}
-	//End of file npc_dota_hero_ancient_apparition_dotl.txt
+	//End of file npc_lol_champion_ezreal.txt
 }

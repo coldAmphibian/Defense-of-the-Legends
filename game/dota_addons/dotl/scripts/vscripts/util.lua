@@ -238,6 +238,12 @@ function LogDeepPrint(debugInstance, prefix)
     LogEndLine(LogDeepToString(debugInstance, prefix))
 end
 
+--[[
+    You can now apply data driven modifiers straight from an ability e.g
+    ability:ApplyDataDrivenModifier(source, target, modifier, {})
+    This function is therefore not needed anymore
+    - Capruce
+]]
 function giveUnitDataDrivenModifier(source, target, modifier, dur)
     --source and target should be hscript-units. The same unit can be in both source and target
     local item = CreateItem( "lol_modifiers", source, source)
@@ -257,4 +263,14 @@ function string:Split( inSplitPattern, outResults )
     end
     table.insert( outResults, string.sub( self, theStart ) )
     return outResults
+end
+
+--[[
+    Simple test function which can be called from any "RunScript"
+    Use it to make sure your scripts are actually being called
+]]
+function Test ( keys )
+    local caster_name = keys.caster:GetName()
+    local ability_name = keys.ability:GetAbilityName()
+    print("The script is being called from " .. ability_name .. " by " .. caster_name)
 end

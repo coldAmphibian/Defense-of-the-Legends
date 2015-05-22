@@ -1,4 +1,4 @@
-require("util")
+--[[require("util")
 
 inhibitor_respawn = {["blue"] = 20, ["red"] = 20}
 base_towers = {["blue"] = 2, ["red"] = 2}
@@ -103,5 +103,6 @@ ListenToGameEvent("entity_killed", EntityKilled, nil)
 
 Init()
 --InitTable()
+]]
 
 print("Howling Abyss Tower Logic Loaded")

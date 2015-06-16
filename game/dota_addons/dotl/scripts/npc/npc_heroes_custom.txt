@@ -2,17 +2,19 @@
 {
 	"npc_lol_champion_ezreal"
 	{
-		"AbilityLayout" 		"6"
 		"override_hero"			"npc_dota_hero_zuus"
 		"SoundSet"				"0"	
 		"Model"					"models/champions/ezreal.vmdl"
-		
+	
+		"AbilityLayout" 		"6"
 		"Ability1"				"ezreal_mystic_shot" 
 		"Ability2"				"ezreal_essence_flux" 
 		"Ability3"				"ezreal_arcane_shift"
-		"Ability4"				"ezreal_rising_spell_force" 
-		"Ability5"				"lol_tower_a_wizard_did_it"
+		"Ability4"				"dotl_dummy_unit"
+		"Ability5"				"dotl_dummy_unit"
 		"Ability6"				"ezreal_trueshot_barrage"
+		"Ability7"				"ezreal_rising_spell_force" 
+		
 		
 	
 		"ArmorPhysical"				"2.67"									    // Physical protection.

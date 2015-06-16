@@ -1,9 +1,5 @@
-//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAAbilities"
 {
-
-
-	//Start of file brush_revealer.txt
 	"lol_brush_revealer_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -35,10 +31,6 @@
 			}
 		}
 	}
-	//End of file brush_revealer.txt
-
-
-	//Start of file dotl_dummy_unit.txt
 	//-------------------
 	// Dummy stuff
 	//-------------------
@@ -65,10 +57,6 @@
 	      }
 		}
 	  }
-	//End of file dotl_dummy_unit.txt
-
-
-	//Start of file ezreal_arcane_shift.txt
 	"ezreal_arcane_shift"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -150,10 +138,6 @@
 			}
 		}
 	}
-	//End of file ezreal_arcane_shift.txt
-
-
-	//Start of file ezreal_essence_flux.txt
 	"ezreal_essence_flux"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -257,10 +241,6 @@
 			}
 		}
 	}
-	//End of file ezreal_essence_flux.txt
-
-
-	//Start of file ezreal_mystic_shot.txt
 	"ezreal_mystic_shot"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -342,10 +322,6 @@
 			}
 		}
 	}
-	//End of file ezreal_mystic_shot.txt
-
-
-	//Start of file ezreal_rising_spell_force.txt
 	"ezreal_rising_spell_force"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AURA"
@@ -384,10 +360,6 @@
 			}
 		}
 	}
-	//End of file ezreal_rising_spell_force.txt
-
-
-	//Start of file ezreal_trueshot_barrage.txt
 	// LoL's Ezreal Dota port
 	// Author: wFX
 	// Date: 03/2015
@@ -458,10 +430,6 @@
 			}
 		}
 	}
-	//End of file ezreal_trueshot_barrage.txt
-
-
-	//Start of file inhibitor_armor.txt
 	//=================================================================================
 	// Inhibitor Armor
 	//=================================================================================
@@ -473,10 +441,6 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}	
-	//End of file inhibitor_armor.txt
-
-
-	//Start of file lux_illumination.txt
 	// Lux' Illumination (Passive)
 	// Author: Capruce
 	// Date: 
@@ -490,7 +454,6 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"lux_illumination"
-		"MaxLevel"						"1"
 		"ChampionPassive"				"1"
 	
 		// Casting
@@ -593,10 +556,6 @@
 			}
 		}
 	}
-	//End of file lux_illumination.txt
-
-
-	//Start of file lux_light_binding.txt
 	// Lux' Light Binding (Q)
 	// Author: Capruce
 	// Date: 
@@ -714,10 +673,6 @@
 			
 		}
 	}
-	//End of file lux_light_binding.txt
-
-
-	//Start of file lux_lucent_singularity.txt
 	// Lux' Lucent Singularity (E)
 	// Author: Capruce
 	// Date: 
@@ -974,10 +929,6 @@
 			}
 		}
 	}
-	//End of file lux_lucent_singularity.txt
-
-
-	//Start of file lux_lucent_singularity_detonate.txt
 	// Lux' Lucent Singularity (Sub Ability) (E)
 	// Author: Capruce
 	// Date: 
@@ -1021,10 +972,6 @@
 			}
 		}
 	}
-	//End of file lux_lucent_singularity_detonate.txt
-
-
-	//Start of file lux_prismatic_barrier.txt
 	// Author: Capruce
 	// Date: 
 	// Notes: 
@@ -1097,10 +1044,6 @@
 		{
 		}
 	}
-	//End of file lux_prismatic_barrier.txt
-
-
-	//Start of file nexus_end.txt
 	//=================================================================================
 	// Nexus End
 	//=================================================================================
@@ -1112,10 +1055,6 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}
-	//End of file nexus_end.txt
-
-
-	//Start of file obelisk_laser.txt
 	//=================================================================================
 	// Obelisk Laser
 	//=================================================================================
@@ -1141,10 +1080,6 @@
 			}
 		}
 	}
-	//End of file obelisk_laser.txt
-
-
-	//Start of file obelisk_over_kill.txt
 	//=================================================================================
 	// Obelisk Overkill
 	//=================================================================================
@@ -1156,10 +1091,6 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}
-	//End of file obelisk_over_kill.txt
-
-
-	//Start of file tower_a_wizard_did_it.txt
 	//=================================================================================
 	// A Wizard Did It
 	//=================================================================================
@@ -1172,10 +1103,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_a_wizard_did_it.txt
-
-
-	//Start of file tower_fortification.txt
 	//=================================================================================
 	// Fortification
 	//=================================================================================
@@ -1188,10 +1115,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_fortification.txt
-
-
-	//Start of file tower_invincibility.txt
 	//=================================================================================
 	// Building Invincibility
 	//=================================================================================
@@ -1211,10 +1134,6 @@
 			}
 		}
 	}
-	//End of file tower_invincibility.txt
-
-
-	//Start of file tower_lightning_rod.txt
 	//=================================================================================
 	// Lightning Rod - This one is actually just here for show
 	//=================================================================================
@@ -1239,10 +1158,6 @@
 			}
 		}
 	}
-	//End of file tower_lightning_rod.txt
-
-
-	//Start of file tower_penetrating_bullets.txt
 	//=================================================================================
 	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
 	//=================================================================================
@@ -1266,10 +1181,6 @@
 			}
 		}
 	}
-	//End of file tower_penetrating_bullets.txt
-
-
-	//Start of file tower_reinforced_armor.txt
 	//=================================================================================
 	// Reinforced Armor
 	//=================================================================================
@@ -1282,10 +1193,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_reinforced_armor.txt
-
-
-	//Start of file tower_vanguard.txt
 	//=================================================================================
 	// Vanguard
 	//=================================================================================
@@ -1298,10 +1205,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_vanguard.txt
-
-
-	//Start of file tower_wardens_eye.txt
 	//=================================================================================
 	// Wardens Eye
 	//=================================================================================
@@ -1386,5 +1289,4 @@
 			}
 		}
 	}
-	//End of file tower_wardens_eye.txt
 }

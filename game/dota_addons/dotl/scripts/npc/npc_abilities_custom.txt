@@ -1,5 +1,752 @@
+//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAAbilities"
 {
+
+
+	//Start of file blitzcrank_mana_barrier.txt
+	"blitzcrank_mana_barrier"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"blitzcrank_mana_barrier"
+		"MaxLevel"						"1"
+	
+		"AbilityCooldown"				"90"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"OnSpellStart"
+	    {
+	        "ApplyModifier"     
+	        {
+	            "ModifierName"      "modifier_mana_barrier_check"
+	            "Target"            "CASTER"
+	        }
+	    }
+	    
+	    "Modifiers"
+	    {
+	        "modifier_mana_barrier_check"
+	        {
+	            "Passive"		"1"
+	            "IsHidden"		"1"
+	            
+	            "OnTakeDamage"
+	            {
+	            	"RunScript"
+	            	{
+	                	"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+						"Function"			"ManaBarrierCheck"
+						"Target"			"CASTER"
+	            	}   
+	            }
+	        }
+	        
+	        //Currently all this does is heal the unit the correct amount and show a shield particle. It does not remove the health given after the 5 seconds.
+	        //TODO: Create a 'barrier' that goes away after 5 seconds if the health is not depleted.
+	
+	        "modifier_mana_barrier"
+	        {
+	        	"IsBuff"		"1"
+	        	"Duration"		"5"
+	
+	        	"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"EffectAttachType"	"follow_origin"	
+	  			
+	  			"OnCreated"
+	  			{
+	        		"RunScript"
+	            	{
+	                	"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+						"Function"			"ManaBarrier"
+						"Target"			"CASTER"
+	            	}   
+	     		}
+	    	}
+		}
+	}
+	//End of file blitzcrank_mana_barrier.txt
+
+
+	//Start of file blitzcrank_overdrive.txt
+	"blitzcrank_overdrive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName" 	"blitzcrank_overdrive"
+		"MaxLevel"						"5"
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		 {	  
+		  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		  "particle"	"particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
+		 }
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75 75 75 75 75"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 19 18 17 16"
+		"AbilitySpecial"	
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attackspeed"			"30 38 46 54 62"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_speed"				"20 28 36 44"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5"
+			}
+		}
+	
+		"OnSpellStart"
+	    {
+	        "ApplyModifier"
+	        {
+	            "Target" "CASTER"
+	            "ModifierName" "modifier_overdrive"
+	        }
+	        "FireSound"
+	        {
+	        	"EffectName" "Hero_Slardar.Sprint"
+	        	"Target"	 "CASTER"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_overdrive"
+	    	{
+	    		"IsBuff" "1"
+	    		"Duration" "%duration"
+	    		"EffectName"	"particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
+		    	"EffectAttachType"	"follow_origin"
+	
+	    		"Properties"
+		    	{
+		    		"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+		    		"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_speed"
+		    	}
+	    	}
+	    }
+	}
+	//End of file blitzcrank_overdrive.txt
+
+
+	//Start of file blitzcrank_power_fist.txt
+	"blitzcrank_power_fist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"blitzcrank_power_fist"
+		"MaxLevel"						"5"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"air_time"			"1.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"modifier_duation"  "5"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+			"particle"				"particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_blitzcrank_power_fist"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blitzcrank_power_fist"
+			{
+				"IsBuff"	"1"
+				"duration"	"%modifier_duation"
+				
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"		"modifier_blitzcrank_power_fist_silence"
+						"Target"			"TARGET"
+					}
+					"Knockback"
+					{
+						"Target"			"TARGET"
+						"Center"			"CASTER"
+						"Distance"			"0"
+						"Duration"			"%air_time"
+						"Height"			"500"
+						"IsFixedDistance"	"1"
+					}
+					
+					"Stun"
+					{
+						"Target"			"TARGET"
+						"Duration"			"%duration"
+					}
+					
+					"DelayedAction"
+					{
+						"Delay"				"%air_time"
+						"Action"
+						{
+							"FireSound"
+							{
+								"Target"			"TARGET"
+								"EffectName"		"Hero_NyxAssassin.Impale.TargetLand" 
+							}
+						
+							"Damage"
+							{
+								"Target"			"TARGET"
+								"Damage"			"%AbilityDamage"
+								"Type"				"DAMAGE_TYPE_MAGICAL"
+							}
+							"RemoveModifier"
+							{
+								"ModifierName"				"modifier_blitzcrank_power_fist"
+								"Target"					"CASTER"
+							}
+						}
+					}	
+				}
+			}
+			"modifier_blitzcrank_power_fist_silence"
+			{
+				"IsDebuff"		"1"
+				
+				"EffectName"		"particles/generic_gameplay/generic_silenced.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"Duration"		"%duration"
+	
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//End of file blitzcrank_power_fist.txt
+
+
+	//Start of file blitzcrank_rocket_grab.txt
+	"blitzcrank_rocket_grab"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"blitzcrank_rocket_grab"
+		"MaxLevel"						"5"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"675.25 675.25 675.25 675.25 675.25"
+		"AbilityCastPoint"				"0.25 0.25 0.25 0.25 0.25"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0 19.0 18.0 17.0 16.0"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 135 190 245 300" //-- +100% Ability Power
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 100 100 100 100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hook_speed"			"1600.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"hook_width"		"100"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"hook_distance"		"675.25 675.25 675.25 675.25 675.25"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vision_radius"		"500 500 500 500 500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_duration"	"4.0 4.0 4.0 4.0 4.0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"caster_duration"	"0.25 0.25 0.25 0.25 0.25"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Pudge.AttackHookExtend"
+				"Target"		"CASTER"
+			}
+	
+			"LinearProjectile"
+			{
+				"Target"      	"POINT"
+			    "EffectName"  	""
+			    "MoveSpeed"   	"%hook_speed"
+			    "StartRadius"   "%hook_width"
+			    "StartPosition" "attach_origin"
+			    "EndRadius"     "%hook_width"
+			    "FixedDistance" "%hook_distance"
+			    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			    "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
+			    "HasFrontalCone"    "0"
+			    "ProvidesVision" "0"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_meat_hook_caster_datadriven"
+				"Target"		"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_meat_hook_phased_datadriven"
+				"Target"		"CASTER"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/heroes/hero_blitzcrank/blitzcrank_rocket_grab.lua"
+				"Function"				"LaunchMeatHook"
+				"Target"				"POINT"
+				"sound_extend"			"Hero_Pudge.AttackHookExtend"
+				"hook_particle"			"particles/units/heroes/hero_pudge/pudge_meathook_chain.vpcf"
+				"dummy_modifier"		"modifier_meat_hook_dummy_datadriven"
+			}
+	
+		}
+	
+		"OnProjectileHitUnit"
+		{	
+			"DeleteOnHit"	"1"
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"		"TARGET"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Pudge.AttackHookImpact"
+				"Target"		"TARGET"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Pudge.AttackHookRetract"
+				"Target"		"CASTER"
+			}
+			
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/heroes/hero_blitzcrank/blitzcrank_rocket_grab.lua"
+				"Function"				"RetractMeatHook"
+				"meat_hook_modifier"	"modifier_meat_hook_target_datadriven"
+				"sound_extend"			"Hero_Pudge.AttackHookExtend"
+				"sound_retract"			"Hero_Pudge.AttackHookRetract"
+				"sound_retract_stop"	"Hero_Pudge.AttackHookRetractStop"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_meat_hook_target_datadriven"
+				"Target"		"TARGET"
+			}
+		}
+	
+	
+		"Modifiers"
+		{
+			"modifier_meat_hook_phased_datadriven"
+			{
+				"IsHidden"	"1"	
+				"Duration"	"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_OUT_OF_GAME"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	
+			"modifier_meat_hook_caster_datadriven"
+			{
+				"IsHidden"	"1"
+				"Duration"	"%caster_duration"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	
+			"modifier_meat_hook_target_datadriven"
+			{
+				"IsDebuff"				"1"
+				"OverrideAnimation"		"ACT_DOTA_FLAIL"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	
+			"modifier_meat_hook_dummy_datadriven"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE" 	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR" 	"MODIFIER_STATE_VALUE_ENABLED"				
+					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE" 	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//End of file blitzcrank_rocket_grab.txt
+
+
+	//Start of file blitzcrank_static_field.txt
+	"blitzcrank_static_field"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"blitzcrank_static_field"
+		"MaxLevel"						"3"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		 {
+		  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		  "particle"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		  "particle"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+		 }
+	
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.1 0.1 0.1"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+		"AbilityDuration"				"1"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"250 375 500" //-- +100% AP
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+	
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crush_radius"				"438"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"silence_duration"				"1"
+			}
+			//only for tooltip
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"passive_damage"				"100 200 300"
+			}
+		}
+		"OnUpgrade"
+		{
+			"AddAbility"
+			{
+				"AbilityName"		"blitzcrank_static_field_passive"
+				"Target"			"CASTER"
+			}
+			"LevelUpAbility"
+			{
+				"AbilityName"		"blitzcrank_static_field_passive"
+				"Target"			"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Target"	"CASTER"
+	
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+				"EffectAttachType" "attach_origin"
+				"Target"	"CASTER" 
+			}
+			"FireSound"
+			{
+				"EffectName" "Hero_Slardar.Slithereen_Crush"
+				"Target"	"CASTER"
+			}
+			"RemoveModifier"
+			{
+				"ModifierName"			"modifier_blitzcrank_static_field_passive"
+				"Target"				"CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center" "CASTER"
+					"Radius" "%crush_radius"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+					"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+				"Action"
+				{
+					"ApplyModifier"
+					{
+						"Target" "TARGET"
+						"ModifierName" 	"modifier_blitzcrank_static_field_silence"
+						"Duration"		"%silence_duration"
+					}
+					
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_PHYSICAL"
+						"Damage"	"%AbilityDamage"
+					}
+	
+				}
+			}
+			
+		}
+		"Modifiers"
+		{
+			"modifier_blitzcrank_static_field_silence"
+			{
+				"IsDebuff"			"1"
+	
+				"EffectName"		"particles/generic_gameplay/generic_silenced.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}			
+			}
+			
+		}
+	
+	}
+	//End of file blitzcrank_static_field.txt
+
+
+	//Start of file blitzcrank_static_field_passive.txt
+	"blitzcrank_static_field_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"blitzcrank_static_field"
+		"MaxLevel"						"3"
+		"AbilityCooldown"				"0.0"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityDamage"					"100 200 300" //-- +20% AP
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"OnUpgrade"
+	    {
+	        "ApplyModifier"
+			{
+				"ModifierName"		"modifier_blitzcrank_static_field_passive_check"
+				"Target"			"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_blitzcrank_static_field_passive"
+				"Target"			"CASTER"
+			}
+	    }
+	    
+	    "Modifiers"
+	    {
+	        "modifier_blitzcrank_static_field_passive"
+			{
+				"IsBuff"				"1"
+				"IsPassive"				"1"
+				"ThinkInterval" 		"2.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_static_field_passive.lua"
+						"Function"			"BlitzcrankStaticFieldPassive"
+					}
+				}
+			}
+			
+			//As of writing this there is no OffCooldown action so there is not any good way to reapply the passive from blitzcrank ult.
+			//This modifier checks if there is no modifier and the ult is off cooldown. You COULD run it on OnIntervalThink but having it on autoattack is alot less proccess intensive.
+	
+			"modifier_blitzcrank_static_field_passive_check"
+			{
+				"IsHidden"				"1"
+				
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_static_field_passive.lua"
+						"Function"			"BlitzcrankStaticFieldPassiveApply"
+					}
+				}
+			}
+		}
+	}
+	//End of file blitzcrank_static_field_passive.txt
+
+
+	//Start of file brush_revealer.txt
 	"lol_brush_revealer_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -31,6 +778,10 @@
 			}
 		}
 	}
+	//End of file brush_revealer.txt
+
+
+	//Start of file dotl_dummy_unit.txt
 	//-------------------
 	// Dummy stuff
 	//-------------------
@@ -57,6 +808,10 @@
 	      }
 		}
 	  }
+	//End of file dotl_dummy_unit.txt
+
+
+	//Start of file ezreal_arcane_shift.txt
 	"ezreal_arcane_shift"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -138,6 +893,10 @@
 			}
 		}
 	}
+	//End of file ezreal_arcane_shift.txt
+
+
+	//Start of file ezreal_essence_flux.txt
 	"ezreal_essence_flux"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -241,6 +1000,10 @@
 			}
 		}
 	}
+	//End of file ezreal_essence_flux.txt
+
+
+	//Start of file ezreal_mystic_shot.txt
 	"ezreal_mystic_shot"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -322,6 +1085,10 @@
 			}
 		}
 	}
+	//End of file ezreal_mystic_shot.txt
+
+
+	//Start of file ezreal_rising_spell_force.txt
 	"ezreal_rising_spell_force"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
@@ -360,6 +1127,10 @@
 			}
 		}
 	}
+	//End of file ezreal_rising_spell_force.txt
+
+
+	//Start of file ezreal_trueshot_barrage.txt
 	// LoL's Ezreal Dota port
 	// Author: wFX
 	// Date: 03/2015
@@ -430,6 +1201,10 @@
 			}
 		}
 	}
+	//End of file ezreal_trueshot_barrage.txt
+
+
+	//Start of file inhibitor_armor.txt
 	//=================================================================================
 	// Inhibitor Armor
 	//=================================================================================
@@ -441,6 +1216,10 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}	
+	//End of file inhibitor_armor.txt
+
+
+	//Start of file lux_illumination.txt
 	// Lux' Illumination (Passive)
 	// Author: Capruce
 	// Date: 
@@ -556,6 +1335,10 @@
 			}
 		}
 	}
+	//End of file lux_illumination.txt
+
+
+	//Start of file lux_light_binding.txt
 	// Lux' Light Binding (Q)
 	// Author: Capruce
 	// Date: 
@@ -673,6 +1456,10 @@
 			
 		}
 	}
+	//End of file lux_light_binding.txt
+
+
+	//Start of file lux_lucent_singularity.txt
 	// Lux' Lucent Singularity (E)
 	// Author: Capruce
 	// Date: 
@@ -929,6 +1716,10 @@
 			}
 		}
 	}
+	//End of file lux_lucent_singularity.txt
+
+
+	//Start of file lux_lucent_singularity_detonate.txt
 	// Lux' Lucent Singularity (Sub Ability) (E)
 	// Author: Capruce
 	// Date: 
@@ -972,6 +1763,10 @@
 			}
 		}
 	}
+	//End of file lux_lucent_singularity_detonate.txt
+
+
+	//Start of file lux_prismatic_barrier.txt
 	// Author: Capruce
 	// Date: 
 	// Notes: 
@@ -1044,6 +1839,10 @@
 		{
 		}
 	}
+	//End of file lux_prismatic_barrier.txt
+
+
+	//Start of file nexus_end.txt
 	//=================================================================================
 	// Nexus End
 	//=================================================================================
@@ -1055,6 +1854,10 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}
+	//End of file nexus_end.txt
+
+
+	//Start of file obelisk_laser.txt
 	//=================================================================================
 	// Obelisk Laser
 	//=================================================================================
@@ -1080,6 +1883,10 @@
 			}
 		}
 	}
+	//End of file obelisk_laser.txt
+
+
+	//Start of file obelisk_over_kill.txt
 	//=================================================================================
 	// Obelisk Overkill
 	//=================================================================================
@@ -1091,6 +1898,10 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}
+	//End of file obelisk_over_kill.txt
+
+
+	//Start of file tower_a_wizard_did_it.txt
 	//=================================================================================
 	// A Wizard Did It
 	//=================================================================================
@@ -1103,6 +1914,10 @@
 		"IsHidden"				"0"
 	
 	}
+	//End of file tower_a_wizard_did_it.txt
+
+
+	//Start of file tower_fortification.txt
 	//=================================================================================
 	// Fortification
 	//=================================================================================
@@ -1115,6 +1930,10 @@
 		"IsHidden"				"0"
 	
 	}
+	//End of file tower_fortification.txt
+
+
+	//Start of file tower_invincibility.txt
 	//=================================================================================
 	// Building Invincibility
 	//=================================================================================
@@ -1134,6 +1953,10 @@
 			}
 		}
 	}
+	//End of file tower_invincibility.txt
+
+
+	//Start of file tower_lightning_rod.txt
 	//=================================================================================
 	// Lightning Rod - This one is actually just here for show
 	//=================================================================================
@@ -1158,6 +1981,10 @@
 			}
 		}
 	}
+	//End of file tower_lightning_rod.txt
+
+
+	//Start of file tower_penetrating_bullets.txt
 	//=================================================================================
 	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
 	//=================================================================================
@@ -1181,6 +2008,10 @@
 			}
 		}
 	}
+	//End of file tower_penetrating_bullets.txt
+
+
+	//Start of file tower_reinforced_armor.txt
 	//=================================================================================
 	// Reinforced Armor
 	//=================================================================================
@@ -1193,6 +2024,10 @@
 		"IsHidden"				"0"
 	
 	}
+	//End of file tower_reinforced_armor.txt
+
+
+	//Start of file tower_vanguard.txt
 	//=================================================================================
 	// Vanguard
 	//=================================================================================
@@ -1205,6 +2040,10 @@
 		"IsHidden"				"0"
 	
 	}
+	//End of file tower_vanguard.txt
+
+
+	//Start of file tower_wardens_eye.txt
 	//=================================================================================
 	// Wardens Eye
 	//=================================================================================
@@ -1289,4 +2128,5 @@
 			}
 		}
 	}
+	//End of file tower_wardens_eye.txt
 }

@@ -1,5 +1,42 @@
+//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAHeroes"
 {
+	//This is a comment
+
+
+	//Start of file npc_lol_champion_blitzcrank.txt
+	"npc_lol_champion_blitzcrank"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"override_hero"				"npc_dota_hero_pudge"
+		"Model"						"models/heroes/pudge/pudge.mdl"			// Model.
+		"AttackRange"				"60"									// Range within a target can be attacked.
+		"MovementTurnRate"			"10"									// Turning rate.
+												
+		"Ability1"					"blitzcrank_rocket_grab"						// Ability 1
+		"Ability2"					"blitzcrank_overdrive"							// Ability 2
+		"Ability3"					"blitzcrank_power_fist"							// Ability 3
+		"Ability4"					"blitzcrank_mana_barrier"						// Ability 4
+		"Ability5"					"blitzcrank_static_field_passive"				// Ability 5
+		"Ability6"					"blitzcrank_static_field"						// Ability 6
+		"AbilityLayout"				"5"
+		
+		"AttackRate"				"1.6"									// Speed of attack.
+	
+		"MovementSpeed"				"237"									// Speed.
+		"MovementTurnRate"			"10"									// Turning rate.
+		
+		"StatusHealth"				"583"									// Base health.
+		"StatusHealthRegen"			"8.5"									// Health regeneration rate.
+		"StatusMana"				"267"										// Base mana.
+		"StatusManaRegen"			"6.0"									// Mana regeneration rate.
+		
+	}
+	//End of file npc_lol_champion_blitzcrank.txt
+
+
+	//Start of file npc_lol_champion_ezreal.txt
 	"npc_lol_champion_ezreal"
 	{
 		"override_hero"			"npc_dota_hero_zuus"
@@ -50,6 +87,10 @@
 	
 		"VisionNighttimeRange"		"800"									// Range of vision at night time.
 	}
+	//End of file npc_lol_champion_ezreal.txt
+
+
+	//Start of file npc_lol_champion_lux.txt
 	"npc_lol_champion_lux"
 	{
 		"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
@@ -67,4 +108,5 @@
 		"Ability5"				"lux_illumination"						// Passive
 		"Ability6"				"lux_lucent_singularity_detonate"		// Ability 3b
 	}
+	//End of file npc_lol_champion_lux.txt
 }

@@ -21,12 +21,7 @@
         "01"
         {
             "var_type"               "FIELD_INTEGER"
-            "duration"               "5"
-        }
-        "02"
-        {
-            "var_type"               "FIELD_INTEGER"
-            "strength_bonus"         "1 2 3 4 5"
+            "radius"                 "120"
         }
     }
 
@@ -36,27 +31,12 @@
         {
             "ModifierName"          "masochism_buff"
             "Target"                "CASTER"
-            "Duration"              "%duration"
+            "Duration"              "%5"
         }
     }
 
     "Modifiers"
     {
-        "masochism_buff"
-        {
-            "Passive"             "0"
-            "IsHidden"            "0"
-            "IsDebuff"            "0"
-            "IsBuff"              "1"
 
-            "EffectName"          "particle_name"
-            "EffectAttachType"    "follow_origin"
-
-            "Attributes"          "MODIFIER_ATTRIBUTE_MULTIPLE"
-            "Properties"
-            {
-                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_bonus"
-            }
-        }
     }
 }

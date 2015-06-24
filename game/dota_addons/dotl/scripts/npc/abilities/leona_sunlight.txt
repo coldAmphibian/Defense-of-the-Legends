@@ -1,0 +1,74 @@
+"leona_sunlight"
+{
+	//------------------------------------------------------------------------------------------------------------
+	// This is pretty much a dummy passive for looks and consistency with other champions. 
+	// Leonas passive is applied "manualy" from each individual move where appropriate.
+	// Ideally whenever a "OnSpellCast" action is made it is used here instead of being applied per ability.
+	//------------------------------------------------------------------------------------------------------------
+	//
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityTextureName"			"leona_sunlight"
+	"MaxLevel"						"1"
+
+	"AbilityCooldown"				"0"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+	}
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityDamage"					"100"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	
+	"OnUpgrade"
+	{
+		"ApplyModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName" 	"modifier_leona_sunlight_passive"
+		}
+	}
+    
+    "Modifiers"
+    {
+        "modifier_leona_sunlight"
+        {
+            "TextureName"	"leona_sunlight"
+            "IsDebuff"		"1"
+            "Duration"		"3.5"
+             
+            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+			"EffectAttachType"	"follow_origin"	
+
+            "OnAttacked"
+            {
+            	"RemoveModifier"
+            	{
+            		"Target"		"TARGET"
+            		"ModifierName"	"modifier_leona_sunlight"
+            	}
+            	"RunScript"
+				{
+					"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
+					"Function"			"LeonaSunlight"
+				}
+            				
+            }
+        }
+        "modifier_leona_sunlight_passive"
+        {
+            "IsPassive"		"1"
+             
+	    }
+	}
+}

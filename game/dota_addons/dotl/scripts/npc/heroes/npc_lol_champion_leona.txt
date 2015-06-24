@@ -1,0 +1,28 @@
+"npc_lol_champion_leona"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"override_hero"				"npc_dota_hero_dragon_knight"
+	"Model"						"models/heroes/dragon_knight/dragon_knight.mdl"			// Model.
+	"AttackRange"				"60"									// Range within a target can be attacked.
+	"MovementTurnRate"			"1.0"									// Turning rate.
+											
+	"Ability1"					"leona_shield_of_daybreak"						// Ability 1
+	"Ability2"					"leona_eclipse"							// Ability 2
+	"Ability3"					"leona_zenith_blade"							// Ability 3
+	"Ability4"					"leona_sunlight"						// Ability 4
+	"Ability5"					"leona_solar_flare"						// Ability 5
+	
+	"AbilityLayout"				"5"
+	
+	"AttackRate"				"1.6"									// Speed of attack.
+
+	"MovementSpeed"				"237"									// Speed.
+	"MovementTurnRate"			"10"									// Turning rate.
+	
+	"StatusHealth"				"576"									// Base health.
+	"StatusHealthRegen"			"8.4"									// Health regeneration rate.
+	"StatusMana"				"402"									// Base mana.
+	"StatusManaRegen"			"6.0"									// Mana regeneration rate.
+	
+}

@@ -1,0 +1,129 @@
+"leona_shield_of_daybreak"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityTextureName"			"leona_shield_of_daybreak"
+	"MaxLevel"						"5"
+
+	"AbilityCooldown"				"11 10 9 8 7"
+	"AbilityManaCost"				"45 50 55 60 65"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.1"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"40 70 100 130 160"	//-- +30% Ability Power
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"			"FIELD_FLOAT"
+			"stun_duration"		"1.25"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"modifier_duation"  "10"
+		}
+	}
+	
+	// Data driven
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+		"particle"				"particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+	}
+	
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_leona_shield_of_daybreak"
+		}
+
+	}
+	"Modifiers"
+	{
+		"modifier_leona_shield_of_daybreak"
+		{
+			"IsBuff"	"1"
+			"duration"	"%modifier_duation"
+			
+			"OnAttackLanded"
+			{
+				"Stun"
+				{
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+					"Target"			"TARGET"
+					"Duration"			"%stun_duration"
+				}
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_PHYSICAL"
+					"Damage"	"%AbilityDamage"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName"		"modifier_leona_shield_of_daybreak"
+					"Target"			"CASTER"
+				}
+
+				//-- The delay is so the debuff does not get consumed automatically
+				
+				"DelayedAction"
+				{
+					"Delay"				"%0.5"
+					"Action"
+					{
+						"ApplyModifier"
+						{
+							"Target"				"TARGET"
+							"ModifierName"			"modifier_leona_sunlight"
+						}
+					}
+				}
+			}
+		}
+		"modifier_leona_sunlight"
+        {
+            "TextureName"	"leona_sunlight"
+            "IsDebuff"		"1"
+            "Duration"		"3.5"
+             
+            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+			"EffectAttachType"	"follow_origin"	
+
+            "OnAttacked"
+            {
+    			"RunScript"
+				{
+					"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
+					"Function"			"LeonaSunlight"
+				}
+				"RemoveModifier"
+            	{
+            		"Target"		"TARGET"
+            		"ModifierName"	"modifier_leona_sunlight"
+            	}			
+            }
+        }
+	}
+}

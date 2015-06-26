@@ -1,0 +1,39 @@
+"npc_league_hero_garen"
+{
+		"override_hero"				"npc_dota_hero_bloodseeker"			// Hero to override
+		"Model"						"models/champions/garen/garen.vmdl"
+		"Ability1"					"garen_silence"
+		"Ability2"					"garen_courage"
+		"Ability3"					"garen_spin"
+		"Ability6"					"garen_ult"
+		"Ability4"					"garen_perseverance"
+		"AbilityLayout"				"6"
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"HeroID"					"113"
+		"Enabled"					"1"
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable2"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable3"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable4"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable5"
+			{
+				"ItemDef" "0"
+			}
+		}
+		
+		"ItemSlots" {}
+}

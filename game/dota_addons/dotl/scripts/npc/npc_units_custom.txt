@@ -1,5 +1,9 @@
+//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAUnits"
 {
+
+
+	//Start of file npc_dummy_blank.txt
 	"npc_dummy_blank"
 	{
 		// General
@@ -90,6 +94,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
 	}
+	//End of file npc_dummy_blank.txt
+
+
+	//Start of file npc_dummy_unit.txt
 	"npc_dummy_unit"
 	{
 		// General
@@ -180,6 +188,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
 	}	
+	//End of file npc_dummy_unit.txt
+
+
+	//Start of file npc_lol_brush_vision.txt
 	"npc_lol_brush_vision"
 	{
 		// General
@@ -259,6 +271,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 	}	
+	//End of file npc_lol_brush_vision.txt
+
+
+	//Start of file npc_lol_sr_inhibitor.txt
 	"npc_lol_sr_inhibitor"
 	{
 		// General
@@ -324,6 +340,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 	}
+	//End of file npc_lol_sr_inhibitor.txt
+
+
+	//Start of file npc_lol_sr_nexus.txt
 	"npc_lol_sr_nexus"
 	{
 		// General
@@ -389,6 +409,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 	}
+	//End of file npc_lol_sr_nexus.txt
+
+
+	//Start of file npc_lol_sr_obelisk.txt
 	"npc_lol_sr_obelisk"
 		{
 			// General
@@ -462,6 +486,10 @@
 			//----------------------------------------------------------------
 			"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 		}
+	//End of file npc_lol_sr_obelisk.txt
+
+
+	//Start of file npc_lol_sr_turret_t1.txt
 	"npc_lol_sr_turret_t1"
 	{
 		// General
@@ -540,6 +568,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 	}
+	//End of file npc_lol_sr_turret_t1.txt
+
+
+	//Start of file npc_lol_sr_turret_t2.txt
 	"npc_lol_sr_turret_t2"
 	{
 		// General
@@ -618,6 +650,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 	}
+	//End of file npc_lol_sr_turret_t2.txt
+
+
+	//Start of file npc_lol_sr_turret_t3.txt
 	"npc_lol_sr_turret_t3"
 	{
 		// General
@@ -696,6 +732,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 	}
+	//End of file npc_lol_sr_turret_t3.txt
+
+
+	//Start of file npc_lol_sr_turret_t4.txt
 	"npc_lol_sr_turret_t4"
 		{
 			// General
@@ -774,6 +814,10 @@
 			//----------------------------------------------------------------
 			"AttackDesire"				"0"		// How much bots want to attack them vs other non-hero things
 		}
+	//End of file npc_lol_sr_turret_t4.txt
+
+
+	//Start of file npc_precache_everything.txt
 	//------------------------------------------------------------------------------------
 	  //- This unit can be used to precache different models/particles/sounds              -
 	  //- that are needed every game.  Uncomment any model/particle/sound you need to load -
@@ -1036,4 +1080,5 @@
 			//"soundfile"				"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
 		}
 	}
+	//End of file npc_precache_everything.txt
 }

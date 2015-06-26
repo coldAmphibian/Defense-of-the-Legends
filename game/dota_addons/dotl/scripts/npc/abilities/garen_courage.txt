@@ -1,0 +1,73 @@
+"garen_courage"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+				"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+				"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+				"MaxLevel"						"5"
+				"AbilityTextureName"			"Garen_W"
+ 
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCastPoint"                              "0"
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "25 24 23 22 21"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------
+               
+            "OnOwnerSpawned"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_courage_passive"
+                }
+            }
+			"OnSpellStart"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_courage_active"
+                }
+            }
+            "Modifiers"
+            {
+				"garen_courage_passive"
+				{
+				 "Passive" "1"
+				 "IsHidden"                              "1"
+				 "Properties"
+				 {
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"20"
+				 }
+				}
+				"garen_courage_active"
+				{
+				 "Duration" "%duration"
+				 "Properties"
+				 {
+				  "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-30"
+				 }
+				}
+            }
+			 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "duration"				"2 3 4 5 6"
+			 }
+			}
+ 
+}

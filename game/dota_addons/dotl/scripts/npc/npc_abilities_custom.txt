@@ -1204,6 +1204,474 @@
 	//End of file ezreal_trueshot_barrage.txt
 
 
+	//Start of file garen_courage.txt
+	"garen_courage"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+					"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+					"MaxLevel"						"5"
+					"AbilityTextureName"			"Garen_W"
+	 
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCastPoint"                              "0"
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "25 24 23 22 21"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+	               
+	            "OnOwnerSpawned"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_courage_passive"
+	                }
+	            }
+				"OnSpellStart"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_courage_active"
+	                }
+	            }
+	            "Modifiers"
+	            {
+					"garen_courage_passive"
+					{
+					 "Passive" "1"
+					 "IsHidden"                              "1"
+					 "Properties"
+					 {
+						"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"20"
+					 }
+					}
+					"garen_courage_active"
+					{
+					 "Duration" "%duration"
+					 "Properties"
+					 {
+					  "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-30"
+					 }
+					}
+	            }
+				 // Special	
+				//-------------------------------------------------------------------------------------------------------------
+				"AbilitySpecial"
+				{
+				 "02"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "duration"				"2 3 4 5 6"
+				 }
+				}
+	 
+	}
+	//End of file garen_courage.txt
+
+
+	//Start of file garen_perseverance.txt
+	"garen_perseverance"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+					"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+					"MaxLevel"						"1"
+					"AbilityTextureName"			"Garen_Passive"
+	 
+	 				 			            "RunScript"
+	                                        {
+	                                                "Function"              "GarenPassiveLevel"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                                        }
+	 
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCastPoint"                              "0"
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "10"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+	               
+	            "OnSpellStart"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_perseverance_regen"
+	                }
+					"ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_perseverance_main"
+	                }
+	            }
+	            "Modifiers"
+	            {
+					"garen_perseverance_regen"
+					{
+					 "Passive" "1"
+					 "Properties"
+					 {
+						"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"0.4"
+					 }
+					}
+					"garen_perseverance_main"
+					{
+					"Passive" "1"
+					"IsHidden"                              "1"
+								"OnAttacked"
+								{
+					 			            "RunScript"
+	                                        {
+	                                                "Function"              "GarenPassiveOnCooldown"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                                        }
+											"RemoveModifier"
+											{
+											 "Target"                "CASTER"
+											 "ModifierName"      "garen_perseverance_regen"
+											}
+								}
+					}
+	            }
+				 // Special	
+				//-------------------------------------------------------------------------------------------------------------
+				"AbilitySpecial"
+				{
+				 "01"
+				 {
+				 "var_type"				"FIELD_FLOAT"
+				 "duration"				"5.0"
+				 }
+				 "02"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "spin_radius"				"300"
+				 }
+				 "03"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "spin_damage"				"150"
+				 }
+				}
+	 
+	}
+	//End of file garen_perseverance.txt
+
+
+	//Start of file garen_silence.txt
+	        "garen_silence"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+					"AbilityTextureName"			"Garen_Q"
+	         "precache"
+	        {
+	                "particle_folder"                                               "particles/generic_gameplay"
+	        }
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCastPoint"                              "0"
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "15"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+	               
+	            "OnSpellStart"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_speedattack"
+	                }
+	            }
+	            "Modifiers"
+	            {
+					"garen_speedattack"
+					{
+						"OnCreated"
+						{
+	                                 "FireSound"
+	                                   {
+	                                                "EffectName"            "Main.Song"
+	                                                "Target"                        "CASTER"
+	                                   }
+						}
+						"OnAttackLanded"
+						{
+				            "ApplyModifier" //silences enemy and removes the buff from garen
+	                		{
+	                       		 "Target"                "TARGET"
+	                    		 "ModifierName"      "garen_silence_modifier"
+	                		}
+							"RemoveModifier"
+	                		{
+	                       			 "Target"                "CASTER"
+	                    			"ModifierName"      "garen_speedattack"
+	                		}
+						}
+					 "Duration" "4.5"
+					 "Properties"
+					 {
+						"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%garen_speed_bonusdamage"
+						"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
+					 }
+					}
+	
+					"garen_silence_modifier"
+					{
+					 "Duration" "%garen_speed_silenceduration"
+					 "EffectName" "generic_stunned"
+					 "EffectAttachType" "follow_overhead"
+					 "Duration"  "%garen_speed_silenceduration"
+					 "States"
+					 {
+					 "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
+					 }
+					}
+	            }
+							 // Special	
+				//-------------------------------------------------------------------------------------------------------------
+				"AbilitySpecial"
+				{
+				 "01"
+				 {
+				 "var_type"				"FIELD_FLOAT"
+				 "garen_speed_silenceduration"				"2.5"
+				 }
+				 "02"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "garen_speed_bonusdamage"				"135"
+				 }
+				 "03"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "garen_speed_bonusspeedpercent"				"35"
+				 }
+				}
+	 
+	        }
+	//End of file garen_silence.txt
+
+
+	//Start of file garen_spin.txt
+	        "garen_spin"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
+	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
+					"AbilityTextureName"			"Garen_E1"
+	 
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCastPoint"                              "0"
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "10"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+	               
+	            "OnToggleOn"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_damageaura"
+	                }
+	            }
+					"OnToggleOff"
+					{
+	
+							"RemoveModifier"
+	                        {
+	                                "Target"                "CASTER"
+	                                "ModifierName"  "garen_damageaura"
+	                        }
+					}
+	            "Modifiers"
+	            {
+	
+	
+					"garen_damageaura"
+					{
+								"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
+								"OnCreated"
+								{
+								  "ApplyModifier"
+								  {		
+	                                "Target"                "CASTER"
+	                                "ModifierName"  "garen_disarmself"
+								  }
+								}
+								"OnDestroy"
+								{
+				                  "RunScript"
+	                                         {
+	                                                "Function"              "GarenSpin"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                                         }
+								  "RemoveModifier"
+								  {		
+	                                "Target"                "CASTER"
+	                                "ModifierName"  "garen_disarmself"
+								  }
+								}
+							"Duration" "%duration"
+	                        "ThinkInterval" "0.25"
+	                        "OnIntervalThink"
+	                        {
+					                "Damage"
+									{
+	                        		  "Type"          "DAMAGE_TYPE_MAGICAL"
+	                        		  "Damage"        "%spin_damage"
+	                        		  "Target"
+										{
+										"Center"    "CASTER"
+										"Radius"    "%spin_radius"
+										"Teams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+										"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+										}
+									}
+								"FireSound"
+								{
+	                                                "EffectName"            "Tower.Fire.Attack"
+	                                                "Target"                        "CASTER"
+								}
+							}
+					}
+					"garen_disarmself"
+					{	
+					"Duration" "%duration"
+					"States"
+						{
+						"MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
+						}
+					}
+	            }
+				 // Special	
+				//-------------------------------------------------------------------------------------------------------------
+				"AbilitySpecial"
+				{
+				 "01"
+				 {
+				 "var_type"				"FIELD_FLOAT"
+				 "duration"				"2.5"
+				 }
+				 "02"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "spin_radius"				"300"
+				 }
+				 "03"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "spin_damage"				"150"
+				 }
+				}
+	 
+	        }
+	//End of file garen_spin.txt
+
+
+	//Start of file garen_ult.txt
+			"garen_ult"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+					"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+					"AbilityTextureName"			"Garen_R"
+							"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"AbilityCastPoint"				"0.4"
+					"AbilityCastRange"				"300"
+					"MaxLevel"						"3"
+	 
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "60"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+				"OnSpellStart"
+	            {
+	                            "RunScript"
+	                                        {
+	                                                "Function"              "GarenUlt"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+							"MissHPPercent" "%dmgpct"
+							"MagicDamage" "%damage"
+	                                        }
+	            }
+				 // Special	
+				//-------------------------------------------------------------------------------------------------------------
+				"AbilitySpecial"
+				{
+				 "01"
+				 {
+				 "var_type"				"FIELD_FLOAT"
+				 "dmgpct"				"28 33 40"
+				 }
+				 "02"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "damage"				"175 350 525"
+				 }
+				}
+	 
+	        }
+	//End of file garen_ult.txt
+
+
 	//Start of file inhibitor_armor.txt
 	//=================================================================================
 	// Inhibitor Armor

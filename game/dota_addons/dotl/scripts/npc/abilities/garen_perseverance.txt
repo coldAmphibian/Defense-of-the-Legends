@@ -1,0 +1,95 @@
+"garen_perseverance"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+				"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+				"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+				"MaxLevel"						"1"
+				"AbilityTextureName"			"Garen_Passive"
+ 
+ 				 			            "RunScript"
+                                        {
+                                                "Function"              "GarenPassiveLevel"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+                                        }
+ 
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCastPoint"                              "0"
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "10"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------
+               
+            "OnSpellStart"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_perseverance_regen"
+                }
+				"ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_perseverance_main"
+                }
+            }
+            "Modifiers"
+            {
+				"garen_perseverance_regen"
+				{
+				 "Passive" "1"
+				 "Properties"
+				 {
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"0.4"
+				 }
+				}
+				"garen_perseverance_main"
+				{
+				"Passive" "1"
+				"IsHidden"                              "1"
+							"OnAttacked"
+							{
+				 			            "RunScript"
+                                        {
+                                                "Function"              "GarenPassiveOnCooldown"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+                                        }
+										"RemoveModifier"
+										{
+										 "Target"                "CASTER"
+										 "ModifierName"      "garen_perseverance_regen"
+										}
+							}
+				}
+            }
+			 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "duration"				"5.0"
+			 }
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "spin_radius"				"300"
+			 }
+			 "03"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "spin_damage"				"150"
+			 }
+			}
+ 
+}

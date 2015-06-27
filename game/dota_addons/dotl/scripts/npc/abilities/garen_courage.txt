@@ -14,7 +14,7 @@
  
                 // Time        
                 //-------------------------------------------------------------------------------------------------------------
-                "AbilityCooldown"                               "25 24 23 22 21"
+                "AbilityCooldown"                               "24 23 22 21 20"
  
                 // Cost
                 //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +48,7 @@
 				 "Properties"
 				 {
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20"
 				 }
 				}
 				"garen_courage_active"

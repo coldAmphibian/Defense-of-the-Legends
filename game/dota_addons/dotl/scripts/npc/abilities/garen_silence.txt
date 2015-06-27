@@ -3,7 +3,7 @@
                 // General
                 //-------------------------------------------------------------------------------------------------------------
                 "BaseClass"      "ability_datadriven"
-                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
                 "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
 				"AbilityTextureName"			"Garen_Q"
          "precache"
@@ -24,13 +24,18 @@
                
                 // Special
                 //-------------------------------------------------------------------------------------------------------------
-               
+                     
             "OnSpellStart"
             {
                 "ApplyModifier"
                 {
                         "Target"                "CASTER"
                     "ModifierName"      "garen_speedattack"
+                }
+                "RunScript"
+                {
+                        "Function"              "GarenQPurge"
+                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
                 }
             }
             "Modifiers"
@@ -90,7 +95,7 @@
 			 "02"
 			 {
 			 "var_type"				"FIELD_INTEGER"
-			 "garen_speed_bonusdamage"				"135"
+			 "garen_speed_bonusdamage"				"30 55 80 105 130"
 			 }
 			 "03"
 			 {

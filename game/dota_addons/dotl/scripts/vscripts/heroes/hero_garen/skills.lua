@@ -5,6 +5,10 @@
 		end
     end
 	
+		function GarenQPurge(args)
+		args.caster:Purge(false, true, false, false, true)
+	end
+	
         function GarenPassiveOnCooldown(args)
 		aby=args
 		--SetThink( "GarenPassiveAdd", self, "garenpassadd", nil )
@@ -32,8 +36,7 @@
 	end
 	
 	    function GarenPassiveLevel(args)
-		args.ability:SetLevel(1)
-		print("Leveling Passive")
+		local passive = args.ability:SetLevel(1)
     end
 	
 		function GarenPassiveAdd()

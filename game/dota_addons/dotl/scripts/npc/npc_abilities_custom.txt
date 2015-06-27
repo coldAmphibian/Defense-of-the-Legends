@@ -1221,7 +1221,7 @@
 	 
 	                // Time        
 	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCooldown"                               "25 24 23 22 21"
+	                "AbilityCooldown"                               "24 23 22 21 20"
 	 
 	                // Cost
 	                //-------------------------------------------------------------------------------------------------------------
@@ -1255,6 +1255,7 @@
 					 "Properties"
 					 {
 						"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"20"
+						"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20"
 					 }
 					}
 					"garen_courage_active"
@@ -1292,12 +1293,6 @@
 					"MaxLevel"						"1"
 					"AbilityTextureName"			"Garen_Passive"
 	 
-	 				 			            "RunScript"
-	                                        {
-	                                                "Function"              "GarenPassiveLevel"
-	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-	                                        }
-	 
 	                // Casting
 	                //-------------------------------------------------------------------------------------------------------------
 	                "AbilityCastPoint"                              "0"
@@ -1312,7 +1307,16 @@
 	               
 	                // Special
 	                //-------------------------------------------------------------------------------------------------------------
-	               
+	
+	            "OnCreated"
+	            {
+		 		"RunScript"
+		                {
+		                  "Function"              "GarenPassiveLevel"
+		                  "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+		                }
+		    }     
+	  
 	            "OnSpellStart"
 	            {
 	                "ApplyModifier"
@@ -1355,26 +1359,6 @@
 								}
 					}
 	            }
-				 // Special	
-				//-------------------------------------------------------------------------------------------------------------
-				"AbilitySpecial"
-				{
-				 "01"
-				 {
-				 "var_type"				"FIELD_FLOAT"
-				 "duration"				"5.0"
-				 }
-				 "02"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "spin_radius"				"300"
-				 }
-				 "03"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "spin_damage"				"150"
-				 }
-				}
 	 
 	}
 	//End of file garen_perseverance.txt
@@ -1386,7 +1370,7 @@
 	                // General
 	                //-------------------------------------------------------------------------------------------------------------
 	                "BaseClass"      "ability_datadriven"
-	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
 					"AbilityTextureName"			"Garen_Q"
 	         "precache"
@@ -1407,13 +1391,18 @@
 	               
 	                // Special
 	                //-------------------------------------------------------------------------------------------------------------
-	               
+	                     
 	            "OnSpellStart"
 	            {
 	                "ApplyModifier"
 	                {
 	                        "Target"                "CASTER"
 	                    "ModifierName"      "garen_speedattack"
+	                }
+	                "RunScript"
+	                {
+	                        "Function"              "GarenQPurge"
+	                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
 	                }
 	            }
 	            "Modifiers"
@@ -1473,7 +1462,7 @@
 				 "02"
 				 {
 				 "var_type"				"FIELD_INTEGER"
-				 "garen_speed_bonusdamage"				"135"
+				 "garen_speed_bonusdamage"				"30 55 80 105 130"
 				 }
 				 "03"
 				 {
@@ -1509,8 +1498,7 @@
 	                "AbilityManaCost"                               "0"
 	               
 	                // Special
-	                //-------------------------------------------------------------------------------------------------------------
-	               
+	                //-------------------------------------------------------------------------------------------------------------               
 	            "OnToggleOn"
 	            {
 	                "ApplyModifier"
@@ -1557,7 +1545,7 @@
 								  }
 								}
 							"Duration" "%duration"
-	                        "ThinkInterval" "0.25"
+	                        "ThinkInterval" "0.75"
 	                        "OnIntervalThink"
 	                        {
 					                "Damage"
@@ -1595,7 +1583,7 @@
 				 "01"
 				 {
 				 "var_type"				"FIELD_FLOAT"
-				 "duration"				"2.5"
+				 "duration"				"3"
 				 }
 				 "02"
 				 {
@@ -1605,7 +1593,7 @@
 				 "03"
 				 {
 				 "var_type"				"FIELD_INTEGER"
-				 "spin_damage"				"150"
+				 "spin_damage"				"20 45 70 95 120"
 				 }
 				}
 	 
@@ -1642,6 +1630,7 @@
 	               
 	                // Special
 	                //-------------------------------------------------------------------------------------------------------------
+	
 				"OnSpellStart"
 	            {
 	                            "RunScript"

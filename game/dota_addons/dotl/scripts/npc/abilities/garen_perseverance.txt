@@ -8,12 +8,6 @@
 				"MaxLevel"						"1"
 				"AbilityTextureName"			"Garen_Passive"
  
- 				 			            "RunScript"
-                                        {
-                                                "Function"              "GarenPassiveLevel"
-                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-                                        }
- 
                 // Casting
                 //-------------------------------------------------------------------------------------------------------------
                 "AbilityCastPoint"                              "0"
@@ -28,7 +22,16 @@
                
                 // Special
                 //-------------------------------------------------------------------------------------------------------------
-               
+
+            "OnCreated"
+            {
+	 		"RunScript"
+	                {
+	                  "Function"              "GarenPassiveLevel"
+	                  "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                }
+	    }     
+  
             "OnSpellStart"
             {
                 "ApplyModifier"
@@ -71,25 +74,5 @@
 							}
 				}
             }
-			 // Special	
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilitySpecial"
-			{
-			 "01"
-			 {
-			 "var_type"				"FIELD_FLOAT"
-			 "duration"				"5.0"
-			 }
-			 "02"
-			 {
-			 "var_type"				"FIELD_INTEGER"
-			 "spin_radius"				"300"
-			 }
-			 "03"
-			 {
-			 "var_type"				"FIELD_INTEGER"
-			 "spin_damage"				"150"
-			 }
-			}
  
 }

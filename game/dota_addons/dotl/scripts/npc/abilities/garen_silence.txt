@@ -52,6 +52,15 @@
 					}
 					"OnAttackLanded"
 					{
+						"RunScript"
+                         {
+                           "Function"              "GarenSilenceDamage"
+                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+						   "BaseDamage" "%garen_speed_bonusdamage"
+						   "ADRatio" "%adratio"
+						   "TargetEnemy"                "TARGET"
+                         }
+						 
 			            "ApplyModifier" //silences enemy and removes the buff from garen
                 		{
                        		 "Target"                "TARGET"
@@ -66,7 +75,6 @@
 				 "Duration" "4.5"
 				 "Properties"
 				 {
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%garen_speed_bonusdamage"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
 				 }
 				}
@@ -101,6 +109,11 @@
 			 {
 			 "var_type"				"FIELD_INTEGER"
 			 "garen_speed_bonusspeedpercent"				"35"
+			 }
+			 "04"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "adratio"				"40"
 			 }
 			}
  

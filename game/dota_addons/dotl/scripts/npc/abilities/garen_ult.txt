@@ -10,6 +10,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"AbilityCastPoint"				"0.4"
 				"AbilityCastRange"				"300"
+"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
 				"MaxLevel"						"3"
  
                 // Casting

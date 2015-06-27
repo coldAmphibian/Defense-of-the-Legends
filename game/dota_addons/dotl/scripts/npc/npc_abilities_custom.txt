@@ -1290,7 +1290,7 @@
 	                "BaseClass"      "ability_datadriven"
 					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 					"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-					"MaxLevel"						"1"
+					"MaxLevel"						"3"
 					"AbilityTextureName"			"Garen_Passive"
 	 
 	                // Casting
@@ -1299,7 +1299,7 @@
 	 
 	                // Time        
 	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCooldown"                               "10"
+	                "AbilityCooldown"                               "9 6 4"
 	 
 	                // Cost
 	                //-------------------------------------------------------------------------------------------------------------
@@ -1337,7 +1337,7 @@
 					 "Passive" "1"
 					 "Properties"
 					 {
-						"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"0.4"
+						"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%hpregen"
 					 }
 					}
 					"garen_perseverance_main"
@@ -1359,6 +1359,15 @@
 								}
 					}
 	            }
+							//-------------------------------------------------------------------------------------------------------------
+				"AbilitySpecial"
+				{
+				 "01"
+				 {
+				 "var_type"				"FIELD_FLOAT"
+				 "hpregen"				"0.4 0.8 2.6"
+				 }
+				}
 	 
 	}
 	//End of file garen_perseverance.txt
@@ -1419,6 +1428,15 @@
 						}
 						"OnAttackLanded"
 						{
+							"RunScript"
+	                         {
+	                           "Function"              "GarenSilenceDamage"
+	                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+							   "BaseDamage" "%garen_speed_bonusdamage"
+							   "ADRatio" "%adratio"
+							   "TargetEnemy"                "TARGET"
+	                         }
+							 
 				            "ApplyModifier" //silences enemy and removes the buff from garen
 	                		{
 	                       		 "Target"                "TARGET"
@@ -1433,7 +1451,6 @@
 					 "Duration" "4.5"
 					 "Properties"
 					 {
-						"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%garen_speed_bonusdamage"
 						"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
 					 }
 					}
@@ -1469,6 +1486,11 @@
 				 "var_type"				"FIELD_INTEGER"
 				 "garen_speed_bonusspeedpercent"				"35"
 				 }
+				 "04"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "adratio"				"40"
+				 }
 				}
 	 
 	        }
@@ -1482,7 +1504,7 @@
 	                //-------------------------------------------------------------------------------------------------------------
 	                "BaseClass"      "ability_datadriven"
 	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
-	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
+	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
 					"AbilityTextureName"			"Garen_E1"
 	 
 	                // Casting
@@ -1525,6 +1547,19 @@
 								"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
 								"OnCreated"
 								{
+									"RunScript"
+	                                {
+	                                                "Function"              "GarenSpinDamage"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+													"BaseDamage" "%spin_damage"
+													"ADRatio" "%adratio"
+													"Radius" "300"
+	                                }
+									"FireSound"
+									{
+	                                                "EffectName"            "Tower.Fire.Attack"
+	                                                "Target"                        "CASTER"
+									}
 								  "ApplyModifier"
 								  {		
 	                                "Target"                "CASTER"
@@ -1548,18 +1583,14 @@
 	                        "ThinkInterval" "0.75"
 	                        "OnIntervalThink"
 	                        {
-					                "Damage"
-									{
-	                        		  "Type"          "DAMAGE_TYPE_MAGICAL"
-	                        		  "Damage"        "%spin_damage"
-	                        		  "Target"
-										{
-										"Center"    "CASTER"
-										"Radius"    "%spin_radius"
-										"Teams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
-										"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-										}
-									}
+									"RunScript"
+	                                {
+	                                                "Function"              "GarenSpinDamage"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+													"BaseDamage" "%spin_damage"
+													"ADRatio" "%adratio"
+													"Radius" "300"
+	                                }
 								"FireSound"
 								{
 	                                                "EffectName"            "Tower.Fire.Attack"
@@ -1595,6 +1626,11 @@
 				 "var_type"				"FIELD_INTEGER"
 				 "spin_damage"				"20 45 70 95 120"
 				 }
+				 "04"
+				 {
+				 "var_type"				"FIELD_INTEGER"
+				 "adratio"				"70 80 90 100 110"
+				 }
 				}
 	 
 	        }
@@ -1614,6 +1650,7 @@
 			"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 					"AbilityCastPoint"				"0.4"
 					"AbilityCastRange"				"300"
+	"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
 					"MaxLevel"						"3"
 	 
 	                // Casting

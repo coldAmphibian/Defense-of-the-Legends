@@ -4,7 +4,7 @@
                 //-------------------------------------------------------------------------------------------------------------
                 "BaseClass"      "ability_datadriven"
                 "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
-                "AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
+                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
 				"AbilityTextureName"			"Garen_E1"
  
                 // Casting
@@ -47,6 +47,19 @@
 							"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
 							"OnCreated"
 							{
+								"RunScript"
+                                {
+                                                "Function"              "GarenSpinDamage"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+												"BaseDamage" "%spin_damage"
+												"ADRatio" "%adratio"
+												"Radius" "300"
+                                }
+								"FireSound"
+								{
+                                                "EffectName"            "Tower.Fire.Attack"
+                                                "Target"                        "CASTER"
+								}
 							  "ApplyModifier"
 							  {		
                                 "Target"                "CASTER"
@@ -70,18 +83,14 @@
                         "ThinkInterval" "0.75"
                         "OnIntervalThink"
                         {
-				                "Damage"
-								{
-                        		  "Type"          "DAMAGE_TYPE_MAGICAL"
-                        		  "Damage"        "%spin_damage"
-                        		  "Target"
-									{
-									"Center"    "CASTER"
-									"Radius"    "%spin_radius"
-									"Teams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
-									"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-									}
-								}
+								"RunScript"
+                                {
+                                                "Function"              "GarenSpinDamage"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+												"BaseDamage" "%spin_damage"
+												"ADRatio" "%adratio"
+												"Radius" "300"
+                                }
 							"FireSound"
 							{
                                                 "EffectName"            "Tower.Fire.Attack"
@@ -116,6 +125,11 @@
 			 {
 			 "var_type"				"FIELD_INTEGER"
 			 "spin_damage"				"20 45 70 95 120"
+			 }
+			 "04"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "adratio"				"70 80 90 100 110"
 			 }
 			}
  

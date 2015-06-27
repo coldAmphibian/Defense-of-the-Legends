@@ -1,22 +1,96 @@
-        function GarenSpin(args)
+	    --Garen by Swordz
+		
+	function ADDamageCalculator(baseDmg,adRatio,Garen)
+	
+		local GarenAD=Garen:GetBaseDamageMin()
+		
+		local damageAmount=baseDmg+((adRatio/100)*GarenAD)
+		
+		return damageAmount
+		
+	end
+		
+		
+		
+	function GarenSpin(args)
 		local cool=args.ability:GetCooldownTimeRemaining()
 		if cool < 8  then
         args.ability:ToggleAbility()
 		end
     end
 	
-		function GarenQPurge(args)
+	function GarenSpinDamage(args)
+		local damageAmount=ADDamageCalculator(args.BaseDamage,args.ADRatio,args.caster)
+		local teamNumber=args.caster:GetTeam()
+		
+		if teamNumber==2 then
+		teamNumber=3
+		elseif teamNumber==3 then
+		teamNumber=2
+		end
+		
+		--Search for enemies in a radius
+		
+		local TargetArray=FindUnitsInRadius(teamNumber,
+                              args.caster:GetAbsOrigin(),
+                              nil,
+                              args.Radius,
+                              DOTA_UNIT_TARGET_TEAM_FRIENDLY ,
+                              DOTA_UNIT_TARGET_ALL,
+                              DOTA_UNIT_TARGET_FLAG_NONE,
+                              FIND_ANY_ORDER,
+                              false)
+		
+		--Deal Damage
+		
+		for _,enemy in pairs(TargetArray) do
+			
+			--Creep damage reduction
+			if enemy:IsCreep()==true then
+			damageAmount=damageAmount*0.75
+			end
+			
+			local damageTable = {
+			victim = enemy,
+			attacker = args.caster,
+			damage = damageAmount,
+			damage_type = DAMAGE_TYPE_PHYSICAL,
+			}
+		
+			ApplyDamage(damageTable)
+		end
+		
+	end
+	
+	function GarenSilenceDamage(args)
+		local damageAmount=ADDamageCalculator(args.BaseDamage,args.ADRatio,args.caster)
+		local damageTable = {
+		victim = args.target,
+		damage = damageAmount,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		attacker = args.caster,
+		}
+		
+		local dmg = ApplyDamage(damageTable)
+		
+	end
+	
+	function GarenQPurge(args)
 		args.caster:Purge(false, true, false, false, true)
 	end
 	
-        function GarenPassiveOnCooldown(args)
-		aby=args
-		--SetThink( "GarenPassiveAdd", self, "garenpassadd", nil )
-		local cool=args.ability:EndCooldown()
-		cool=args.ability:StartCooldown(10)
-		print("Perseverance on cooldown")
-		GameRules:GetGameModeEntity():SetThink( "GarenPassiveAdd", self, "garenpassadd", 10 )
-    end
+    function GarenPassiveOnCooldown(args)
+		if args.attacker:IsCreep()==false then
+			aby=args
+			--SetThink( "GarenPassiveAdd", self, "garenpassadd", nil )
+			local cool=args.ability:EndCooldown()
+			local cooldownAmount=args.ability:GetCooldown(args.ability:GetLevel())
+		
+			cool=args.ability:StartCooldown(cooldownAmount)
+			print("Perseverance on cooldown")
+			GameRules:GetGameModeEntity():SetThink( "GarenPassiveAdd", self, "garenpassadd", cooldownAmount )
+		end
+	end
 	
 	function GarenUlt(args)
 		local enemy=args.target:GetHealthDeficit()
@@ -41,7 +115,18 @@
 	
 		function GarenPassiveAdd()
 		--aby.ability:SetLevel(0)
-		aby.ability:SetLevel(1)
+		local garenLvl = aby.caster:GetLevel()
+		
+		if garenLvl>=11 then
+		 aby.ability:SetLevel(3)
+		
+		elseif garenLvl>=6 then
+		 aby.ability:SetLevel(2)
+		
+		elseif garenLvl>=0 then
+		 aby.ability:SetLevel(1)
+		end 
+		
 		print("Regained")
 	end
 	

@@ -5,7 +5,7 @@
                 "BaseClass"      "ability_datadriven"
 				"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 				"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-				"MaxLevel"						"1"
+				"MaxLevel"						"3"
 				"AbilityTextureName"			"Garen_Passive"
  
                 // Casting
@@ -14,7 +14,7 @@
  
                 // Time        
                 //-------------------------------------------------------------------------------------------------------------
-                "AbilityCooldown"                               "10"
+                "AbilityCooldown"                               "9 6 4"
  
                 // Cost
                 //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@
 				 "Passive" "1"
 				 "Properties"
 				 {
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"0.4"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%hpregen"
 				 }
 				}
 				"garen_perseverance_main"
@@ -74,5 +74,14 @@
 							}
 				}
             }
+						//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "hpregen"				"0.4 0.8 2.6"
+			 }
+			}
  
 }

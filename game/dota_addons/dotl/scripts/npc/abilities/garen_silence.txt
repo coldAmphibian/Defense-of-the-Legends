@@ -1,0 +1,120 @@
+        "garen_silence"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+				"AbilityTextureName"			"Garen_Q"
+         "precache"
+        {
+                "particle_folder"                                               "particles/generic_gameplay"
+        }
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCastPoint"                              "0"
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "15"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------
+                     
+            "OnSpellStart"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_speedattack"
+                }
+                "RunScript"
+                {
+                        "Function"              "GarenQPurge"
+                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+                }
+            }
+            "Modifiers"
+            {
+				"garen_speedattack"
+				{
+					"OnCreated"
+					{
+                                 "FireSound"
+                                   {
+                                                "EffectName"            "Main.Song"
+                                                "Target"                        "CASTER"
+                                   }
+					}
+					"OnAttackLanded"
+					{
+						"RunScript"
+                         {
+                           "Function"              "GarenSilenceDamage"
+                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+						   "BaseDamage" "%garen_speed_bonusdamage"
+						   "ADRatio" "%adratio"
+						   "TargetEnemy"                "TARGET"
+                         }
+						 
+			            "ApplyModifier" //silences enemy and removes the buff from garen
+                		{
+                       		 "Target"                "TARGET"
+                    		 "ModifierName"      "garen_silence_modifier"
+                		}
+						"RemoveModifier"
+                		{
+                       			 "Target"                "CASTER"
+                    			"ModifierName"      "garen_speedattack"
+                		}
+					}
+				 "Duration" "4.5"
+				 "Properties"
+				 {
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
+				 }
+				}
+
+				"garen_silence_modifier"
+				{
+				 "Duration" "%garen_speed_silenceduration"
+				 "EffectName" "generic_stunned"
+				 "EffectAttachType" "follow_overhead"
+				 "Duration"  "%garen_speed_silenceduration"
+				 "States"
+				 {
+				 "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
+				 }
+				}
+            }
+						 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "garen_speed_silenceduration"				"2.5"
+			 }
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "garen_speed_bonusdamage"				"30 55 80 105 130"
+			 }
+			 "03"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "garen_speed_bonusspeedpercent"				"35"
+			 }
+			 "04"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "adratio"				"40"
+			 }
+			}
+ 
+        }

@@ -1,0 +1,139 @@
+"blitzcrank_power_fist"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"blitzcrank_power_fist"
+	"MaxLevel"						"5"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.5"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"25"
+	
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"0"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"			"FIELD_FLOAT"
+			"duration"			"0.5"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"air_time"			"1.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"modifier_duation"  "5"
+		}
+	}
+	
+	// Data driven
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+		"particle"				"particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+	}
+	
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_blitzcrank_power_fist"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_blitzcrank_power_fist"
+		{
+			"IsBuff"	"1"
+			"duration"	"%modifier_duation"
+			
+			"OnAttackLanded"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"		"modifier_blitzcrank_power_fist_silence"
+					"Target"			"TARGET"
+				}
+				"Knockback"
+				{
+					"Target"			"TARGET"
+					"Center"			"CASTER"
+					"Distance"			"0"
+					"Duration"			"%air_time"
+					"Height"			"500"
+					"IsFixedDistance"	"1"
+				}
+				
+				"Stun"
+				{
+					"Target"			"TARGET"
+					"Duration"			"%duration"
+				}
+				
+				"DelayedAction"
+				{
+					"Delay"				"%air_time"
+					"Action"
+					{
+						"FireSound"
+						{
+							"Target"			"TARGET"
+							"EffectName"		"Hero_NyxAssassin.Impale.TargetLand" 
+						}
+					
+						"Damage"
+						{
+							"Target"			"TARGET"
+							"Damage"			"%AbilityDamage"
+							"Type"				"DAMAGE_TYPE_MAGICAL"
+						}
+						"RemoveModifier"
+						{
+							"ModifierName"				"modifier_blitzcrank_power_fist"
+							"Target"					"CASTER"
+						}
+					}
+				}	
+			}
+		}
+		"modifier_blitzcrank_power_fist_silence"
+		{
+			"IsDebuff"		"1"
+			
+			"EffectName"		"particles/generic_gameplay/generic_silenced.vpcf"
+			"EffectAttachType"	"follow_overhead"
+
+			"Duration"		"%duration"
+
+			"States"
+			{
+				"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

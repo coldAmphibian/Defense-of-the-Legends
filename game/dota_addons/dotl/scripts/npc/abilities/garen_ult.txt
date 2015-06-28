@@ -1,0 +1,57 @@
+		"garen_ult"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+				"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+				"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+				"AbilityTextureName"			"Garen_R"
+						"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"AbilityCastPoint"				"0.4"
+				"AbilityCastRange"				"300"
+"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
+				"MaxLevel"						"3"
+ 
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "60"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------
+
+			"OnSpellStart"
+            {
+                            "RunScript"
+                                        {
+                                                "Function"              "GarenUlt"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+						"MissHPPercent" "%dmgpct"
+						"MagicDamage" "%damage"
+                                        }
+            }
+			 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "dmgpct"				"28 33 40"
+			 }
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "damage"				"175 350 525"
+			 }
+			}
+ 
+        }

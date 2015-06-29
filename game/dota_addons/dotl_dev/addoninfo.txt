@@ -1,0 +1,4 @@
+"AddonInfo"
+{
+	maps			"dota_pvp howling_abyss"
+}

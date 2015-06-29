@@ -1,0 +1,11 @@
+//=================================================================================
+// Obelisk Overkill
+//=================================================================================
+"lol_obelisk_overkill"
+{
+	"AbilityName"			"lol_obelisk_overkill"
+	"BaseClass" 			"ability_datadriven"
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" 	"dotl_placeholder"
+	"IsHidden"				"0"
+}

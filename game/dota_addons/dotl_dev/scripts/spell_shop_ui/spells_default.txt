@@ -1,0 +1,17 @@
+"SpellsDefault" {
+	"_name"			"abaddon_aphotic_shield" // the name of the ability recognized by Lua // if no _texture is set, it defaults to _name
+	"_isSellable"	"true" // if you can sell the ability
+	"_isOwned"		"false" // if the ability is owned by the player. you might want to set this to false
+	"_cost"			"200" // the gold cost of the ability
+	"_sellFactor"	"0.75" // how much the ability sells for (_sellFactor x _cost) x _curLvl
+	"_upgFactor"	"1.25" // the factor for increasing gold cost on upgrade (lvl 1 is _cost, lvl 2+ is _upgFactor * _cost)
+	"_curLvl"		"0" // the current level of the ability for the player.. you might want to set this to 0
+	"_maxLvl"		"4" // the max lvl of the ability
+	"_isUpg"		"true" // if you can upgrade the ability (skill it up)
+	"_pntCost"		"1" // how much skillpoints the ability costs
+	"_pntSellFac"	"1" // the sell factor of the skillpoint cost (it will be sold for minimum 1 skillpoint)
+	"_pntIncrement"	"1" // how much the point cost increments every _pntIncLvl
+	"_pntIncLvl"	"3" // if _pntCost == 1, _pntIncrement == 1 and _pntIncLvl == 1, this is how it'll look:
+	// Level: 1 2 3 4
+	// Cost:  1 1 1 2
+}

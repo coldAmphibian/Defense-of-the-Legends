@@ -1,8 +1,9 @@
-@define TotalLength: 30s;
+@define TotalLength: 12s;
 @define TimingFunc: linear;
-@define IterationCount: 1;
+@define IterationCount: 5;
+@define AnimationDelay: 0s;
 
-.OverthrowLoadingRoot
+.AddonLoadingRoot
 {
     width: 100%;
     height: 100%;
@@ -10,94 +11,125 @@
     overflow: clip;
 }
 
-#GameModeDescription
+.TitlePanel
 {
-    font-size: 27px;
-	text-transform: uppercase;
-	color: #cccccc;
+  width: 100%;
+  height: 100%;
 }
 
-#GameModeHints
+.Fade
 {
-	margin: 10px;
-	font-size: 18px;
-	color: #8f9092;
+  background-color: #000000;
+  z-index: 3;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0;
+
+  animation-name: anim-fade;
+  animation-duration: TotalLength;
+  animation-timing-function: TimingFunc;
+  animation-iteration-count: IterationCount;
 }
 
-#GameModeImage
+@keyframes 'anim-fade'
 {
-	horizontal-align: center;
-	width: 200px;
-	height: 150px;
+  0%
+  {
+    opacity: 1;
+  }
 
-	box-shadow: inset black 5px 5px 10px 10px;
+  25%
+  {
+    opacity: 1;
+  }
+
+  55%
+  {
+    opacity: 0;
+  }
+
+  70%
+  {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
-#TitlePanel
+.Overlay
 {
-	horizontal-align: left;
-	vertical-align: bottom;
-	margin-bottom: 150px;
-	margin-left: 100px;
-	flow-children: right;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-#OverthrowIcon
+.Title
 {
-	width: 80px;
-	height: 80px;
-	vertical-align: center;
-	margin-right: 15px;
+  margin-bottom: -850px;
+  margin-left: 30px;
+  min-width: 100%;
+  vertical-align: center;
+  text-transform: uppercase;
+  font-size: 80px;
+  color: #cccccc;
+  text-shadow: 5px 5px 5px #000000;
+  z-index: 2;
 }
 
-#DotLTitle
+.ScrollingBg
 {
-	margin-bottom: -15px;
-	vertical-align: center;
-	text-transform: uppercase;
-	font-size: 80px;
-	color: #cccccc;
-	text-shadow: 2px 2px 2px #000000;
+  horizontal-align: left;
+  vertical-align: center;
+  width:100%;
+  background-color: #000000;
 }
 
-.SeqImg
+#Leona
 {
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: 100% 100%;
+  horizontal-align: right;
+  vertical-align: center;
+  transform: translatex( -70% );
+
+  animation-name: anim-leona;
+  animation-duration: TotalLength;
+  animation-timing-function: TimingFunc;
+  animation-iteration-count: IterationCount;
 }
 
-.SeqBg
+@keyframes 'anim-leona'
 {
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: 100% 100%;
+  20%
+  {
+    transform: translatex( -70% ) translatey( -2% );
+  }
+
+  100%
+  {
+    transform: translatex( -70% ) translatey( 2% );
+  }
 }
 
-#seq
+#Diana
 {
-    overflow: clip;
-	pre-transform-scale2d: 1.35, 1.35;
+  horizontal-align: left;
+  transform: translatex( 30% );
+
+  animation-name: anim-diana;
+  animation-duration: TotalLength;
+  animation-timing-function: TimingFunc;
+  animation-iteration-count: IterationCount;
 }
 
-@keyframes 'x' {}
-
-#seq_bg
+@keyframes 'anim-diana'
 {
-	animation-name: seq_bg_anim;
-	animation-duration: TotalLength;
-	animation-timing-function: TimingFunc;
-	animation-iteration-count: IterationCount;
-    margin-left: 0px;
-}
+  20%
+  {
+    transform: translatex( 30% ) translatey( 2% );
+  }
 
-@keyframes 'seq_bg_anim'
-{
-	0%
-	{
-	}
-
-	100%
-	{
-	}
+  100%
+  {
+    transform: translatex( 30% ) translatey( -2% );
+  }
 }

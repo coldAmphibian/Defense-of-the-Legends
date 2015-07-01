@@ -11,7 +11,13 @@
     overflow: clip;
 }
 
-#TitlePanel
+#ScrollingBg
+{
+  horizontal-align: center;
+  
+}
+
+/*#TitlePanel
 {
   horizontal-align: left;
   vertical-align: bottom;
@@ -19,8 +25,8 @@
   margin-left: 100px;
   flow-children: right;
 }
-
-#AddonTitle
+*/
+/*#AddonTitle
 {
   margin-bottom: -15px;
   vertical-align: center;
@@ -28,24 +34,24 @@
   font-size: 80px;
   color: #cccccc;
   text-shadow: 2px 2px 2px #000000;
-}
+}*/
 
-.SeqImg
+/*.SeqImg
 {
 
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100% 100%;
-}
+}*/
 
-#CustomBg
+/*#CustomBg
 {
     overflow: clip;
-}
+}*/
 
-#gamemode
+/*#gamemode
 {
   margin-left: 160px;
-  /*margin-bottom: 0px;*/
+  margin-bottom: 0px;
   
-}
+}*/

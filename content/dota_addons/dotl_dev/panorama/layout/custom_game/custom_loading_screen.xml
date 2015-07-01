@@ -1,14 +1,29 @@
 <root>
-	<styles>
-		<include src="file://{resources}/styles/dotastyles.css" />
-		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
-	</styles>
-	<Panel class="DotLRoot">
-		<Panel id="seq" >
-			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/loading_ha_background.png" />
-		</Panel>
-		<Panel id="TitlePanel">
-			<Label id="DotLTitle" text="#addon_game_name" style="" />
-		</Panel>
-	</Panel>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+  </styles>
+
+  <!-- <scripts>
+    <include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
+  </scripts> -->
+
+  <Panel class="AddonLoadingRoot">
+    <!-- <Panel id="CustomBg" >
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/loading_ha_background.png" />
+    </Panel> -->
+
+    <Panel class="ScrollingBg">
+      <Image id="Leona" src="file://{images}/custom_game/loading_screen/Leona.png" />
+      <Image id="Diana" src="file://{images}/custom_game/loading_screen/Diana.png" />
+    </Panel>
+
+    <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>
+
+    <Panel class="Fade" />
+
+    <Panel class="Title">
+      <Label id="Defenseofthe" text="Defense of the Legends" />
+      <!-- <Label id="Legends" text="Legends" /> -->
+    </Panel>
+  </Panel>
 </root>

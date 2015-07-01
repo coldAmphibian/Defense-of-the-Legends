@@ -1,7 +1,7 @@
-@define TotalLength: 12s;
+@define TotalLength: 30s;
 @define TimingFunc: linear;
-@define IterationCount: 5;
-@define AnimationDelay: 0s;
+@define IterationCount: infinite;
+@define AnimationDelay: -5s;
 
 .AddonLoadingRoot
 {
@@ -24,8 +24,8 @@
   min-width: 100%;
   min-height: 100%;
   opacity: 0;
-
-  animation-name: anim-fade;
+}
+ /* animation-name: anim-fade;
   animation-duration: TotalLength;
   animation-timing-function: TimingFunc;
   animation-iteration-count: IterationCount;
@@ -33,29 +33,26 @@
 
 @keyframes 'anim-fade'
 {
-  0%
-  {
+  0%{
     opacity: 1;
   }
 
-  25%
-  {
+  25%{
     opacity: 1;
   }
 
-  55%
-  {
+  55%{
     opacity: 0;
   }
 
-  70%
-  {
+  75%{
     opacity: 0;
   }
+
   100%{
     opacity: 1;
   }
-}
+}*/
 
 .Overlay
 {
@@ -82,54 +79,108 @@
   horizontal-align: left;
   vertical-align: center;
   width:100%;
-  background-color: #000000;
+/*  animation-name: anim-fade;
+  animation-duration: TotalLength;
+  animation-timing-function: TimingFunc;
+  animation-iteration-count: IterationCount;*/
 }
 
-#Leona
+/*@keyframes 'anim-fade'
+{
+  0%{
+    opacity: 1;
+  }
+
+  25%{
+    opacity: 1;
+  }
+
+  55%{
+    opacity: 0;
+  }
+
+  75%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}*/
+
+#PortraitLeft
 {
   horizontal-align: right;
   vertical-align: center;
-  transform: translatex( -70% );
 
-  animation-name: anim-leona;
+  animation-name: animL;
   animation-duration: TotalLength;
   animation-timing-function: TimingFunc;
   animation-iteration-count: IterationCount;
 }
 
-@keyframes 'anim-leona'
+@keyframes 'animL'
 {
-  20%
-  {
+  0%{
     transform: translatex( -70% ) translatey( -2% );
+    opacity: 0;
   }
 
-  100%
-  {
+  25%{
+    transform: translatex( -70% ) translatey( -2% );
+    opacity: 0;
+  }
+
+  45%{
+    transform: translatex( -70% ) translatey( -1% );
+    opacity: 1; 
+  }
+
+  80%{
+    transform: translatex( -70% ) translatey( 1% );
+    opacity: 1; 
+  }
+
+  100%{
     transform: translatex( -70% ) translatey( 2% );
+    opacity:0;
   }
 }
 
-#Diana
+#PortraitRight
 {
   horizontal-align: left;
-  transform: translatex( 30% );
 
-  animation-name: anim-diana;
+  animation-name: animR;
   animation-duration: TotalLength;
   animation-timing-function: TimingFunc;
   animation-iteration-count: IterationCount;
 }
 
-@keyframes 'anim-diana'
+@keyframes 'animR'
 {
-  20%
-  {
+  0%{
     transform: translatex( 30% ) translatey( 2% );
+    opacity: 0;
   }
 
-  100%
-  {
+  25%{
+    transform: translatex( 30% ) translatey( 2% );
+    opacity: 0;
+  }
+
+  45%{
+    transform: translatex( 30% ) translatey( 1% );
+    opacity: 1; 
+  }
+
+  80%{
+    transform: translatex( 30% ) translatey( -1% );
+    opacity: 1; 
+  }
+
+  100%{
     transform: translatex( 30% ) translatey( -2% );
+    opacity:0;
   }
 }

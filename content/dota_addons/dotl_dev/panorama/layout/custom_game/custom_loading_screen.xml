@@ -3,18 +3,14 @@
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
   </styles>
 
-  <!-- <scripts>
+  <scripts>
     <include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
-  </scripts> -->
+  </scripts>
 
   <Panel class="AddonLoadingRoot">
-    <!-- <Panel id="CustomBg" >
-      <Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/loading_screen/loading_ha_background.png" />
-    </Panel> -->
-
     <Panel class="ScrollingBg">
-      <Image id="Leona" src="file://{images}/custom_game/loading_screen/Leona.png" />
-      <Image id="Diana" src="file://{images}/custom_game/loading_screen/Diana.png" />
+      <Image id="PortraitLeft" src="file://{images}/custom_game/loading_screen/Leona2.png" />
+      <Image id="PortraitRight" src="file://{images}/custom_game/loading_screen/Diana2.png" />
     </Panel>
 
     <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>

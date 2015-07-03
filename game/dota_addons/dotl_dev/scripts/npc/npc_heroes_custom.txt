@@ -146,6 +146,7 @@
 		"Model"						"models/heroes/pudge/pudge.mdl"			// Model.
 		"AttackRange"				"60"									// Range within a target can be attacked.
 		"MovementTurnRate"			"10"									// Turning rate.
+		"HeroID"					"121"
 												
 		"Ability1"					"blitzcrank_rocket_grab"						// Ability 1
 		"Ability2"					"blitzcrank_overdrive"							// Ability 2

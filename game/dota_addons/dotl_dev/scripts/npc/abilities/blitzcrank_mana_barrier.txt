@@ -1,29 +1,29 @@
 "blitzcrank_mana_barrier"
 {
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	"AbilityTextureName"			"blitzcrank_mana_barrier"
-	"MaxLevel"						"1"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"            "blitzcrank_mana_barrier"
+    "MaxLevel"                      "1"
 
-	"AbilityCooldown"				"90"
+    "AbilityCooldown"               "90"
 
-	// Precache
-	//-------------------------------------------------------------------------------------------------------------
-	"precache"
-	{
-		"particle"					"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
-	}
-	
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastPoint"				"0.1"
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+        "particle"                  "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+    }
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.1"
 
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	
-	"OnSpellStart"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    
+    "OnSpellStart"
     {
         "ApplyModifier"     
         {
@@ -36,40 +36,47 @@
     {
         "modifier_mana_barrier_check"
         {
-            "Passive"		"1"
-            "IsHidden"		"1"
+            "Passive"       "1"
+            "IsHidden"      "1"
             
             "OnTakeDamage"
             {
-            	"RunScript"
-            	{
-                	"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
-					"Function"			"ManaBarrierCheck"
-					"Target"			"CASTER"
-            	}   
+                "RunScript"
+                {
+                    "ScriptFile"        "heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+                    "Function"          "ManaBarrierCheck"
+                    "Target"            "CASTER"
+                }   
             }
         }
-        
-        //Currently all this does is heal the unit the correct amount and show a shield particle. It does not remove the health given after the 5 seconds.
-        //TODO: Create a 'barrier' that goes away after 5 seconds if the health is not depleted.
-
         "modifier_mana_barrier"
         {
-        	"IsBuff"		"1"
-        	"Duration"		"5"
+            "IsBuff"            "1"
+            "Duration"          "10"
+        
+            "ThinkInterval"     "0.03"
 
-        	"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
-			"EffectAttachType"	"follow_origin"	
-  			
-  			"OnCreated"
-  			{
-        		"RunScript"
-            	{
-                	"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
-					"Function"			"ManaBarrier"
-					"Target"			"CASTER"
-            	}   
-     		}
-    	}
-	}
+            "EffectName"        "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+            "EffectAttachType"  "follow_origin" 
+
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+                    "Function"      "ManaShieldHealth"
+                }
+            }
+
+            "OnTakeDamage"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+                    "Function"      "ManaShieldAbsorb"
+                    "DamageTaken"   "%attack_damage"
+                }
+            }
+        }
+    }
 }

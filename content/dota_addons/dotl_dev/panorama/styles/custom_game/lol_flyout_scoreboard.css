@@ -6,8 +6,8 @@
 	horizontal-align: center;
 	vertical-align: bottom;
     flow-children: down;
-    transform: translatey( -300px );
-    /*transform: translatey( 600px );*/
+    /*transform: translatey( -300px );*/
+    transform: translatey( 600px );
     transition-property: transform;
     transition-duration: 0.05s;
     background-image: url( "file://{images}/custom_game/flyout_scoreboard/lol_flyout_scoreboard_background.psd" );

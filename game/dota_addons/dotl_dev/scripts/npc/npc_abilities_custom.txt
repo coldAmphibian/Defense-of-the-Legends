@@ -840,7 +840,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"particle"  "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
 		}
 	
@@ -1099,9 +1099,10 @@
 	//Start of file ezreal_rising_spell_force.txt
 	"ezreal_rising_spell_force"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"ezreal_rising_spell_force"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"						"1"
 		
 		"AbilitySpecial"
@@ -1115,6 +1116,11 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"max_stacks"					"5"	
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"champion_passive"				"1"
 			}
 		}
 	
@@ -1187,7 +1193,6 @@
 				"Function"			"ezreal_trueshot_barrage_on_spell_start"
 				"projectile_speed"	"%projectile_speed"
 				"radius"			"%radius"
-				"range"				"%range"
 				"vision_radius"		"%vision_radius"
 				"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 				"Target"			"POINT"
@@ -1296,7 +1301,7 @@
 	                // General
 	                //-------------------------------------------------------------------------------------------------------------
 	                "BaseClass"      "ability_datadriven"
-					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+					"AbilityityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 					"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 					"MaxLevel"						"3"
 					"AbilityTextureName"			"Garen_Passive"

@@ -1,6 +1,3 @@
-// LoL's Ezreal Dota port
-// Author: wFX
-// Date: 03/2015
 "ezreal_trueshot_barrage"
 {
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -46,7 +43,6 @@
 			"Function"			"ezreal_trueshot_barrage_on_spell_start"
 			"projectile_speed"	"%projectile_speed"
 			"radius"			"%radius"
-			"range"				"%range"
 			"vision_radius"		"%vision_radius"
 			"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 			"Target"			"POINT"

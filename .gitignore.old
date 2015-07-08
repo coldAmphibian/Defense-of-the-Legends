@@ -1,0 +1,7 @@
+Copy To.py
+Copy From.py
+.gitignore
+Sync Mod.py
+Sync Repo.py
+*/tools_asset_info.bin
+*/tools_thumbnail_cache.bin

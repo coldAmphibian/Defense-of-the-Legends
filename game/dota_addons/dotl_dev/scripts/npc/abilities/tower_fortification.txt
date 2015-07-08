@@ -1,0 +1,12 @@
+//=================================================================================
+// Fortification
+//=================================================================================
+"lol_tower_fortification"
+{
+	"AbilityName"			"lol_tower_fortification"
+	"BaseClass" 			"ability_datadriven"
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" 	"dotl_placeholder"
+	"IsHidden"				"0"
+
+}

@@ -1,0 +1,23 @@
+//=================================================================================
+// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
+//=================================================================================
+"lol_tower_penetrating_bullets"
+{
+	"AbilityName"			"lol_tower_penetrating_bullets"
+	"BaseClass" 			"ability_datadriven"
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" 	"dotl_placeholder"
+
+	"Modifiers"
+	{
+		"Dodge Piercing"
+		{
+			"Passive"						"1"
+			"IsHidden"						"1"
+			"States"
+			{
+				"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

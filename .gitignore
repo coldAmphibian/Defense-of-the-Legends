@@ -1,5 +1,3 @@
-Copy To.py
-Copy From.py
-.gitignore
-Sync Mod.py
-Sync Repo.py
+*.bin
+*.*_c
+*.vpk

@@ -1,0 +1,25 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+  </styles>
+
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
+  </scripts>
+
+  <Panel class="AddonLoadingRoot">
+    <Panel class="ScrollingBg">
+      <Image id="PortraitLeft" src="file://{images}/custom_game/loading_screen/Leona2.png" />
+      <Image id="PortraitRight" src="file://{images}/custom_game/loading_screen/Diana2.png" />
+    </Panel>
+
+    <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>
+
+    <Panel class="Fade" />
+
+    <Panel class="Title">
+      <Label id="Defenseofthe" text="Defense of the Legends" />
+      <!-- <Label id="Legends" text="Legends" /> -->
+    </Panel>
+  </Panel>
+</root>

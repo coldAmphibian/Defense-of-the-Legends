@@ -1,1 +1,0 @@
-This application takes a room.nvr file and converts it to a stack of .obj and .mtl files. Compile then click and drag room.nvr onto the executable. The output is the same folder that contains room.nvr.

@@ -1,0 +1,142 @@
+//=========================================================
+// Veigar's Second Ability: Dark Matter
+// Author: Capruce
+//=========================================================
+"veigar_dark_matter"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"veigar_dark_matter"
+	"AOERadius"						"%explosion_radius"
+
+	//Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+		"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+		"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+	}
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"1650"
+	"AbilityCastPoint"				"0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"10 9.5 9 8.5 8"
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"70 75 80 85 90"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"120 170 220 270 320"
+			
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"ap_scaling"						"1.00"
+		}
+		"02"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"explosion_radius"					"112.5"
+		}
+		"03"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"explosion_delay"					"1.25"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_veigar/veigar_dark_matter.lua"
+			"Function"		"OnSpellStart"
+			"Target"		"POINT"
+		}
+
+		"FireSound"
+		{
+			"EffectName"	"Ability.PreLightStrikeArray"
+			"Target"		"CASTER"
+		}
+
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+			"EffectAttachType"	"start_at_customorigin"
+			"TargetPoint"		"POINT"
+
+			"ControlPoints"
+            {
+            	"01"	"%explosion_radius 0 0"
+            	"03"	"0 0 0"
+            }
+		}
+
+		"DelayedAction"
+		{
+			"Delay"		"%explosion_delay"
+
+			"Action"
+			{
+				"FireSound"
+				{
+					"EffectName"	"Ability.LightStrikeArray"
+					"Target"		"CASTER"
+				}
+
+				"FireEffect"
+				{
+					"EffectName"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+					"EffectAttachType"	"start_at_customorigin"
+					"TargetPoint"		"POINT"
+
+					"ControlPoints"
+		            {
+		            	"00"	"POINT"
+		            	"01"	"%explosion_radius 0 0"
+		            	"03"	"0 0 0"
+		            }
+				}
+
+				"ActOnTargets"
+				{
+					"Target"
+		            {
+		                "Center" "POINT"
+		                "Radius" "%explosion_radius"
+		                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		            }
+
+		            "Action"
+		            {
+		            	"RunScript"
+		            	{
+		            		"ScriptFile"	"heroes/champion_veigar/veigar_dark_matter.lua"
+							"Function"		"OnHit"
+		            	}            	
+		            }
+				}				
+			}
+		}
+	}
+}

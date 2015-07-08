@@ -1,7 +1,7 @@
-// Lux' Light Binding (Q)
+//=========================================================
+// Lux' First Ability: Light Binding
 // Author: Capruce
-// Date: 
-// Notes: 
+//=========================================================
 "lux_light_binding"
 {
 	// General
@@ -15,6 +15,13 @@
 	"MaxLevel"						"5"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"lux_light_binding"
+
+	//Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf"
+	}
 
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
@@ -32,86 +39,90 @@
 	// Damage.
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityDamage"					"60 110 160 210 260"
-	
+			
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilitySpecial"
 	{
 		"01"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"ap_scaling"			"0.70"
+			"var_type"							"FIELD_FLOAT"
+			"light_binding_ap_scaling"			"0.70"
 		}
 		"02"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"projectile_width"		"125"
+			"var_type"							"FIELD_INTEGER"
+			"light_binding_width"				"125"
 		}
 		"03"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"projectile_distance"	"860"
+			"var_type"							"FIELD_INTEGER"
+			"light_binding_distance"			"860"
 		}
 		"04"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"projectile_speed"		"1025"
+			"var_type"							"FIELD_INTEGER"
+			"light_binding_speed"				"1025"
 		}
 		"05"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"disable_duration"		"2.0"
+			"var_type"							"FIELD_INTEGER"
+			"light_binding_damage"				"60 110 160 210 260"
 		}
 		"06"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"extra_targets"			"1"
+			"var_type"							"FIELD_FLOAT"
+			"light_binding_root_duration"		"2.0"
 		}
 		"07"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"extra_target_penalty"	"0.5"
+			"var_type"							"FIELD_INTEGER"
+			"light_binding_max_targets"			"2"
 		}
-	}
-
-	"precache"
-	{	
-		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-		"particle"			"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		"08"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"light_binding_decrease_factor"		"2"
+		}
 	}
 
 	"OnSpellStart"
 	{
-		"FireSound"
+		"RunScript"
 		{
-			"EffectName"			"Hero_Mirana.ArrowCast"
-			"Target"				"CASTER"
-		}
-
-		"LinearProjectile"
-		{
-			"Target"      	"POINT"
-		    "EffectName"  	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-		    "MoveSpeed"   	"%projectile_speed"
-		    "StartRadius"   "%projectile_width"
-		    "StartPosition" "attach_origin"
-		    "EndRadius"     "%projectile_width"
-		    "FixedDistance" "%projectile_distance"
-		    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		    "TargetTypes"   "DOTA_UNIT_TARGET_HERO"
-		    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
-		    "HasFrontalCone"    "0"
-		    "ProvidesVision"	"0"
+			"ScriptFile"		"heroes/champion_lux/lux_light_binding"
+			"Function"			"OnSpellStart"
 		}
 	}
 
 	"OnProjectileHitUnit"
 	{
-		"DeleteOnHit"				"0"
+		"DeleteOnHit"			"0"
+
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/champion_lux/lux_light_binding"
+			"Function"			"OnProjectileHit"
+		}
 	}
 
 	"Modifiers"
-	{
-		
-	}
+    {
+        "modifier_lux_light_binding"
+        {
+            "IsDebuff" "1"
+            "IsHidden" "0"
+            "Passive" "0"
+
+            "OnCreated"
+            {
+            }
+
+            "States"
+            {
+            	"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            	"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_DISABLED"
+            }
+        }
+    }    
 }

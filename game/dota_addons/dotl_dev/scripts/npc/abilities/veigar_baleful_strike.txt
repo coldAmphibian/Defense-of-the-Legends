@@ -1,0 +1,121 @@
+//=========================================================
+// Veigar's First Ability: Baleful Strike
+// Author: Capruce
+//=========================================================
+"veigar_baleful_strike"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"veigar_baleful_strike"
+
+	//Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"					"particles/champions/veigar/veigar_baleful_strike.vpcf"
+	}
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"700"
+	"AbilityCastPoint"				"0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"7 6.5 6 5.5 5"
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"60 65 70 75 80"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"80 125 170 215 260"
+			
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"ap_scaling"						"0.60"
+		}
+		"02"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"projectile_radius"					"75"
+		}
+		"03"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"projectile_distance"				"700"
+		}
+		"04"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"projectile_speed"					"1450"
+		}
+		"04"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"max_targets"						"2"
+		}
+		"06"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"ap_per_champion_kill"				"1 2 3 4 5"
+		}
+		"07"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"ap_per_unit_kill"					"1"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/champion_veigar/veigar_baleful_strike.lua"
+			"Function"			"OnSpellStart"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"			"0"
+
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/champion_veigar/veigar_baleful_strike.lua"
+			"Function"			"OnProjectileHit"
+		}
+	}
+
+	"Modifiers"
+    {
+        "modifier_ap_gain"
+        {
+            "IsBuff" "1"
+            "IsHidden" "1"
+            "Passive" "1"
+
+            "OnHeroKilled"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/champion_veigar/veigar_baleful_strike.lua"
+					"Function"			"OnHeroKilled"
+				}
+			}
+		}
+	}  
+}

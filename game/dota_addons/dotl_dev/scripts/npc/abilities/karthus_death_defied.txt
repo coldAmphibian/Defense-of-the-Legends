@@ -1,0 +1,101 @@
+//=========================================================
+// Karthus' Passive: Death Defied
+// Author: Capruce
+//=========================================================
+"karthus_death_defied"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"MaxLevel"						"1"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"karthus_death_defied"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ghost_duration"		"7.0"
+		}
+	}
+
+	"precache"
+	{
+		
+	}
+
+	"OnOwnerSpawned"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+			"Function"		"OnOwnerSpawned"
+		}
+	}
+
+	"OnOwnerDied"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+			"Function"		"OnOwnerDied"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_karthus_death_defied"
+		{
+			"IsBuff"		"1"
+			"Passive"		"1"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_REINCARNATION"	"5"
+			}
+		}
+		
+		"modifier_karthus_death_defied_ghost_form"
+		{
+			"IsBuff"		"1"
+			"Duration"		"%ghost_duration"
+			"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+					"Function"		"OnCreated"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+					"Function"		"OnDestroy"
+				}
+			}
+
+			"OnAbilityExecuted"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+					"Function"		"OnAbilityExecuted"
+				}
+			}
+
+			"States"
+			{
+				"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

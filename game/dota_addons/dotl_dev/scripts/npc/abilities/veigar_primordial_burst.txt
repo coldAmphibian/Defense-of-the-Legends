@@ -1,0 +1,110 @@
+"veigar_primordial_burst"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"FightRecapLevel"				"2"
+	"AbilityTextureName"			"veigar_primordial_burst"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"475"
+	"AbilityCastPoint"				"0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"120 100 80"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"125"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"250 375 500"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_scaling"			"1.00"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"target_ap_scaling"		"0.80"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"base_damage"			"120 170 220 270 320"
+		}
+		"04"
+		{	
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"2000"
+		}
+		"05"
+		{	
+			"var_type"				"FIELD_INTEGER"
+			"vision_radius"			"300"
+		}
+	}
+
+	"precache"
+	{
+		"particle"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		"particle"	"particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
+		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_veigar/veigar_primordial_burst.lua"
+			"Function"		"OnSpellStart"
+		}
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_Lich.ChainFrost"
+			"Target" 		"TARGET"
+		}
+
+		"TrackingProjectile"
+		{
+			"Target"           	"TARGET"
+			"EffectName"		"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			"Dodgeable"			"1"
+			"ProvidesVision"	"1"
+			"VisionRadius"		"%vision_radius"
+			"MoveSpeed"        	"%projectile_speed"
+			"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_veigar/veigar_primordial_burst.lua"
+			"Function"		"OnProjectileHit"
+		}
+	}
+}

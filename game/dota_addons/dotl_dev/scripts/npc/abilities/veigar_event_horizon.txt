@@ -1,0 +1,129 @@
+"veigar_event_horizon"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"veigar_event_horizon"
+	"AOERadius"						"%ring_radius"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"18 17 16 15 14"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"80 85 90 95 100"
+	
+	// Cast Range
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"550"
+
+	//Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+		"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+		"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+		"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+	}
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"formation_time"			"0.5"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"ring_duration"				"3"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"ring_radius"				"325"
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"edge_thickness"			"50"
+		}
+		"05"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration"				"1.5 1.75 2.0 2.25 2.5"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"DelayedAction"
+		{
+			"Delay"		"%formation_time"
+
+			"Action"
+			{
+				"CreateThinker"
+		        {
+		            "ModifierName" 	"modifier_veigar_event_horizon_thinker"
+		            "Target" 		"POINT"
+		        }			
+			}
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_veigar_event_horizon_thinker"
+		{
+			"Duration"			"%ring_duration"
+			"ThinkInterval"		"0.03"
+			
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_veigar/veigar_event_horizon.lua"
+					"Function"		"OnCreated"
+				}
+			}
+
+
+			"OnIntervalThink"
+			{
+				"RunScript"
+            	{
+            		"ScriptFile"	"heroes/champion_veigar/veigar_event_horizon.lua"
+					"Function"		"OnIntervalThink"
+            	}  
+			}
+		}
+
+		"modifier_veigar_event_horizon"
+		{
+			"Duration"				"%stun_duration"
+			"IsDebuff"				"1"
+			"OverrideAnimation"		"ACT_DOTA_DISABLED"
+
+			"EffectName"			"particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"		"follow_overhead"
+
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}	

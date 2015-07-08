@@ -1,0 +1,102 @@
+//=========================================================
+// Lux' Third Ability: Lucent Singularity
+// Author: Capruce
+//=========================================================
+"lux_final_spark"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"FightRecapLevel"				"2"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName"			"lux_final_spark"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"2450"
+	"AbilityCastPoint"				"0.5"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"80.0 65.0 50.0"
+	
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"300 400 500"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"100"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_scaling"			"0.75"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"beam_range"			"2450"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"beam_width"			"75"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"beam_damage"			"300 400 500"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"vision_duration"		"1.0"
+		}
+	}
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_lux/lux_final_spark.lua"
+			"Function"		"OnSpellStart"
+		}
+
+		"ActOnTargets"
+		{
+			"Target"
+		 	{
+			 	"Center"  		"POINT"
+			 	"Line"
+		 		{
+		 			"Length" 			"2450"
+		 			"Thickness" 		"75"
+		 		}
+		 		"Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"  
+		 		"Types" 		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		 	}
+		 	"Action"
+		 	{
+		 		"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_lux/lux_final_spark.lua"
+					"Function"		"OnBeamHit"
+				}
+		 	}
+		}
+	}
+}

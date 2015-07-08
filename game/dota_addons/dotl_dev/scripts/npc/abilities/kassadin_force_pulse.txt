@@ -1,0 +1,186 @@
+//=========================================================
+// Kassadin's Third Ability: Force Pulse
+// Author: Capruce
+//=========================================================
+"kassadin_force_pulse"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"kassadin_force_pulse"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"510"
+	"AbilityCastPoint"				"0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"6"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"80"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"80 105 130 155 180"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_scaling"			"0.70"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"required_stacks"		"6"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"search_radius"			"1000"
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"projectile_start_radius"	"50"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_end_radius"	"400"
+		}
+		"06"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"500"	
+		}
+		"07"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"slow_pct"				"-50 -60 -70 -80 -90"
+		}
+		"08"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"slow_duration"			"1"
+		}
+	}
+
+	"precache"
+	{
+		
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+			"Function"		"OnSpellStart"
+		}
+
+		"LinearProjectile"
+		{
+			"Target"      		"POINT"
+		    "EffectName"  		"particles/units/heroes/hero_queenofpain/queen_sonic_wave.vpcf"
+		    "MoveSpeed"   		"%projectile_speed"
+		    "StartRadius"   	"%projectile_start_radius"
+		    "StartPosition" 	"attach_origin"
+		    "EndRadius"     	"%projectile_end_radius"
+		    "FixedDistance" 	"510"
+		    "TargetTeams"   	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		    "TargetTypes"   	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		    "TargetFlags"   	"DOTA_UNIT_TARGET_FLAG_NONE"
+		    "HasFrontalCone"    "1"
+		    "ProvidesVision" 	"0"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"0"
+
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_kassadin_force_pulse_slow"
+			"Target"		"TARGET"
+		}
+
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+			"Function"		"OnProjectileHit"
+		}
+	}
+
+	"Modifiers"
+	{	
+		"modifier_kassadin_force_pulse_caster"
+		{
+			"Passive"		"1"
+			"IsPurgable"	"0"
+			"IsHidden"		"0"
+			
+			"Aura" 			"modifier_kassadin_force_pulse_target"
+			"Aura_Radius" 	"%search_radius"
+			"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_BOTH"
+			"Aura_Types" 	"DOTA_UNIT_TARGET_HERO"
+			"Aura_Flags"   	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			//"Aura_ApplyToCaster" "1"
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+					"Function"		"CasterOnCreated"
+				}
+			}
+		}
+
+		"modifier_kassadin_force_pulse_target"
+		{
+			"IsPurgable"	"0"
+			"IsHidden"		"1"
+
+			"OnAbilityExecuted"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+					"Function"		"TargetOnAbilityExecuted"
+				}
+			}
+		}
+
+		"modifier_kassadin_force_pulse_slow"
+		{
+			"IsDebuff"		"1"
+			"IsPurgable"	"1"
+
+			"Duration"		"%slow_duration"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
+			}
+		}
+	}
+}

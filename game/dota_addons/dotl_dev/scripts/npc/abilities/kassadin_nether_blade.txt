@@ -1,0 +1,152 @@
+//=========================================================
+// Kassadin's Second Ability: Nether Blade
+// Author: Capruce
+//=========================================================
+"kassadin_nether_blade"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"kassadin_nether_blade"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"9"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"0"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"40 70 100 130 160"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"passive_ap_scaling"	"0.10"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"active_ap_scaling"		"0.60"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"passive_base_damage"	"20"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_restore_pct"		"4 5 6 7 8"
+		}
+		"05"
+		{	
+			"var_type"				"FIELD_INTEGER"
+			"champion_multiplier"	"5"
+		}
+		"06"
+		{	
+			"var_type"				"FIELD_INTEGER"
+			"extra_range"			"50"
+		}
+	}
+
+	"precache"
+	{
+		"particle"			"particles/units/heroes/hero_earthshaker/earthshaker_enchant_totem.vpcf"
+	}
+
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"	"modifier_kassadin_nether_blade_active"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_kassadin_nether_blade_passive"
+		{
+			"IsBuff"	"1"
+			"Passive"	"1"
+			"IsHidden"	"1"
+
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_kassadin/kassadin_nether_blade.lua"
+					"Function"		"PassiveOnAttackLanded"
+				}
+			}
+		}
+
+		"modifier_kassadin_nether_blade_active"
+		{
+			"IsBuff"	"1"
+
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_earthshaker/earthshaker_enchant_totem.vpcf"
+					"EffectAttachType"  "attach_hitloc"
+					"Target"            "CASTER"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_kassadin/kassadin_nether_blade.lua"
+					"Function"		"OnDestroy"
+				}
+			}
+
+			"OnAttackLanded"
+			{
+				"RemoveModifier"
+				{
+					"Target"		"CASTER"
+					"ModifierName"	"modifier_kassadin_nether_blade_active"
+				}
+
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_kassadin/kassadin_nether_blade.lua"
+					"Function"		"ActiveOnAttackLanded"
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%extra_range"
+			}
+		}
+	}
+}

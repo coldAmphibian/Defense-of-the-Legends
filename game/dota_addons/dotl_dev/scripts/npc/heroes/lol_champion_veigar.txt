@@ -1,0 +1,38 @@
+"lol_champion_veigar"
+{
+	"override_hero"				"npc_dota_hero_lion"					// Hero to override
+	"MovementTurnRate"			"10"										// Turning rate.
+	"VisionDaytimeRange"		"1200"										// Range of vision at day time
+	"VisionNighttimeRange"		"800"										// Range of vision at night time.
+	
+	// Abilities
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityLayout"			"4"
+	"Ability1"				"veigar_equilibrium"			// Passive
+	"Ability2"				"veigar_baleful_strike"			// Ability 1
+	"Ability3"				"veigar_dark_matter"			// Ability 2
+	"Ability4"				"veigar_event_horizon"			// Ability 3
+	"Ability5"				"veigar_primordial_burst"		// Ultimate
+
+	// Attributes
+	//-------------------------------------------------------------------------------------------------------------
+	"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+	"AttributeBaseStrength"		"0"										// Base strength
+	"AttributeStrengthGain"		"0"										// Strength bonus per level.
+	"AttributeBaseIntelligence"	"0"										// Base intelligence
+	"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
+	"AttributeBaseAgility"		"0"										// Base agility
+	"AttributeAgilityGain"		"0"										// Agility bonus per level.
+
+	// Base Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"StatusHealth"				"492.76"								// Base health.
+	"HealthGain"				"82"
+	"StatusHealthRegen"			"5.42"									// Health regeneration rate.
+	"HealthRegenGain"			"0.55"
+	
+	"StatusMana"				"342.4"									// Base mana.
+	"ManaGain"					"55"
+	"StatusManaRegen"			"6"										// Mana regeneration rate.
+	"ManaRegenGain"				"0.8"
+}

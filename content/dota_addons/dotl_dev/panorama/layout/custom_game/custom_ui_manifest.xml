@@ -37,6 +37,6 @@
         //GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_8] = "#8c2af4;";
 	</script>
 	<Panel>
-		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/lol_flyout_scoreboard.xml" /> 
+		<!-- <CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/lol_flyout_scoreboard.xml" /> -->
 	</Panel>
 </root>

@@ -1,0 +1,58 @@
+//=========================================================
+// Veigar's Passive: Equilibrium
+// Author: Capruce
+//=========================================================
+"veigar_equilibrium"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"MaxLevel"						"1"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"veigar_equilibrium"
+
+	//Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+	}
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"0"
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"0"
+			
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"missing_mana_pct"					"1"
+		}
+		"02"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"mana_regen_pct"					"1.5"
+		}
+	}
+
+	"OnUpgrade"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_veigar/veigar_equilibrium.lua"
+			"Function"		"OnUpgrade"
+		}
+	}
+}

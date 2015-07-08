@@ -1,0 +1,129 @@
+//=========================================================
+// Karthus' Third Ability: Defile
+// Author: Capruce
+//=========================================================
+"karthus_defile"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"karthus_defile"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"310"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"0"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"30 50 70 90 110"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_scaling"			"0.20"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_per_second"		"30 42 54 66 78"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"think_interval"		"1.0"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_radius"			"310"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_per_kill"			"20 27 34 41 48"
+		}
+	}
+
+	"precache"
+	{
+		
+	}
+
+	"OnToggleOn"
+	{
+		"RemoveModifier"
+		{
+			"ModifierName"		"modifier_karthus_defile_passive"
+			"Target"			"CASTER"
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"		"modifier_karthus_defile_aura"
+			"Target"			"CASTER"
+		}
+	}
+
+	"OnToggleOff"
+	{
+		"RemoveModifier"
+		{
+			"ModifierName"		"modifier_karthus_defile_aura"
+			"Target"			"CASTER"
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"		"modifier_karthus_defile_passive"
+			"Target"			"CASTER"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_karthus_defile_passive"
+		{
+			"IsHidden"	"1"
+			"Passive"	"1"
+
+			"OnKill"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_karthus/karthus_defile.lua"
+					"Function"		"OnKill"
+				}
+			}
+		}
+
+		"modifier_karthus_defile_aura"
+		{
+			"IsHidden"			"1"
+			"ThinkInterval"		"%think_interval"
+
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/champion_karthus/karthus_defile.lua"
+					"Function"		"OnIntervalThink"
+				}
+			}
+		}
+	}
+}

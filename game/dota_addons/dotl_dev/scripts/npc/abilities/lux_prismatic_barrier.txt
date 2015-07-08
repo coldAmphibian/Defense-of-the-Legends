@@ -1,23 +1,33 @@
+//=========================================================
+// Lux' Second Ability: Prismatic Barrier
 // Author: Capruce
-// Date: 
-// Notes: 
+//=========================================================
 "lux_prismatic_barrier"
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"						"ability_datadriven"
+	"BaseClass"						"ability_lua"
+	"ScriptFile"					"heroes/champion_lux/lux_prismatic_barrier"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-	"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 	"MaxLevel"						"5"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"lux_prismatic_barrier"
 
+	//Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"			"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack.vpcf"
+		"particle_folder"	"particles/prismatic_barrier"
+		"particle"			"particles/econ/generic/generic_projectile_tracking_1/generic_projectile_tracking_1.vpcf"
+	}
+
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastRange"				"790"
-	"AbilityCastPoint"				"0.0"
+	"AbilityCastRange"				"750"
+	"AbilityCastPoint"				"0.1"
 	
 	// Time		
 	//-------------------------------------------------------------------------------------------------------------
@@ -26,47 +36,40 @@
 	// Cost
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityManaCost"				"60"
-	
+			
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilitySpecial"
 	{
 		"01"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"ap_scaling"			"0.35"
+			"var_type"							"FIELD_FLOAT"
+			"ap_scaling"						"0.35"
 		}
 		"02"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"projectile_width"		"125"
+			"var_type"							"FIELD_INTEGER"
+			"projectile_radius"					"100"
 		}
 		"03"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"projectile_speed"		"1025"
+			"var_type"							"FIELD_INTEGER"
+			"projectile_distance"				"750"
 		}
 		"04"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"buff_duration"			"3.0"
+			"var_type"							"FIELD_INTEGER"
+			"projectile_speed"					"1025"
 		}
 		"05"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"damage_absorb"			"80 105 130 155 180"
+			"var_type"							"FIELD_INTEGER"
+			"base_shield_strength"				"80 105 130 155 180"
 		}
-	}
-
-	"precache"
-	{	
-	}
-
-	"OnSpellStart"
-	{	
-	}
-
-	"Modifiers"
-	{
+		"06"
+		{
+			"var_type"							"FIELD_FLOAT"
+			"shield_duration"					"3.0"
+		}
 	}
 }

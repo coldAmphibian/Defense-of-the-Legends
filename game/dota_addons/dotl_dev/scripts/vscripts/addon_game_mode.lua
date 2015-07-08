@@ -2,6 +2,9 @@
 require('spell_shop_UI')
 require('timers')
 require('util')
+require('champions')
+
+LinkLuaModifier("modifier_ap", LUA_MODIFIER_MOTION_NONE)
 
 -- Generated from template
 if CAddonLeagueOfLegends == nil then
@@ -51,6 +54,9 @@ function CAddonLeagueOfLegends:InitGameMode()
 	GameRules:SetPreGameTime(0)
 	GameRules:SetGoldPerTick(100000)
 
+	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(CAddonLeagueOfLegends, 'OnPlayerLevelUp'), self)
+	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonLeagueOfLegends, 'OnNPCSpawned'), self)
+
 	print("GameMode Initialised")
 end
 
@@ -64,39 +70,27 @@ function CAddonLeagueOfLegends:OnThink()
 	return 1
 end
 
---[[
-	Untestested on this branch although works on my own addon
-	A function that checks through every hero's abilities as they spawn
-	If an ability has an AbilitySpecial KV as follows "champion_passive" "1",
-	then the ability will autmatically be leveled up
+-- An NPC has spawned somewhere in game.  This includes heroes
+function CAddonLeagueOfLegends:OnNPCSpawned(keys)
+	-- print("[BAREBONES] NPC Spawned")
+	-- DeepPrintTable(keys)
+	local npc = EntIndexToHScript(keys.entindex)
 
-	This will be moved to a system that does not rely on the AbilitySpecial
-	So if people making champions also include "ChampionPassive" "1" KV somewhere
-	in the ability (like "AbilityDamage" etc) then it wont break when I move the system
+	if npc:IsRealHero() and npc.bFirstSpawned == nil then
+		npc.bFirstSpawned = true
+		CAddonLeagueOfLegends:OnHeroInGame(npc)
+	end
+end
 
-	- Capruce
-]]
 function CAddonLeagueOfLegends:OnHeroInGame( hero )
-  --[[
-  	Move to this system after
-  	local kvpairs = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
-  	PrintTable(kvpairs)
-  ]]
+  	Champion:Create(hero)
+end
 
-  for i = 1, 24 do
-    hero:HeroLevelUp(false)
-  end
+-- A player leveled up
+function CAddonLeagueOfLegends:OnPlayerLevelUp(keys)
+	-- print ('[BAREBONES] OnPlayerLevelUp')
+	-- DeepPrintTable(keys)
 
-  local i = 0
-  local ability = hero:GetAbilityByIndex(i)
-
-  repeat
-    if ability:GetSpecialValueFor("champion_passive") == 1 then
-        ability:SetLevel(1)
-        print("Detected champion passive: " .. ability:GetAbilityName())
-    end
-
-    i = i + 1
-    ability = hero:GetAbilityByIndex(i)
-  until ability == nil
+	local player = EntIndexToHScript(keys.player)
+	local level = keys.level
 end

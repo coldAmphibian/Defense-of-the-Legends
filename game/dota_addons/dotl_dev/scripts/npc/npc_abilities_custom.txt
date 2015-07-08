@@ -1,9 +1,5 @@
-//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAAbilities"
 {
-
-
-	//Start of file blitzcrank_mana_barrier.txt
 	"blitzcrank_mana_barrier"
 	{
 		// General
@@ -79,10 +75,6 @@
 	    	}
 		}
 	}
-	//End of file blitzcrank_mana_barrier.txt
-
-
-	//Start of file blitzcrank_overdrive.txt
 	"blitzcrank_overdrive"
 	{
 		// General
@@ -161,10 +153,6 @@
 	    	}
 	    }
 	}
-	//End of file blitzcrank_overdrive.txt
-
-
-	//Start of file blitzcrank_power_fist.txt
 	"blitzcrank_power_fist"
 	{
 		// General
@@ -304,10 +292,6 @@
 			}
 		}
 	}
-	//End of file blitzcrank_power_fist.txt
-
-
-	//Start of file blitzcrank_rocket_grab.txt
 	"blitzcrank_rocket_grab"
 	{
 		// General
@@ -508,10 +492,6 @@
 			}
 		}
 	}
-	//End of file blitzcrank_rocket_grab.txt
-
-
-	//Start of file blitzcrank_static_field.txt
 	"blitzcrank_static_field"
 	{
 		// General
@@ -665,10 +645,6 @@
 		}
 	
 	}
-	//End of file blitzcrank_static_field.txt
-
-
-	//Start of file blitzcrank_static_field_passive.txt
 	"blitzcrank_static_field_passive"
 	{
 		// General
@@ -743,10 +719,6 @@
 			}
 		}
 	}
-	//End of file blitzcrank_static_field_passive.txt
-
-
-	//Start of file brush_revealer.txt
 	"lol_brush_revealer_passive"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -778,10 +750,6 @@
 			}
 		}
 	}
-	//End of file brush_revealer.txt
-
-
-	//Start of file dotl_dummy_unit.txt
 	//-------------------
 	// Dummy stuff
 	//-------------------
@@ -808,10 +776,6 @@
 	      }
 		}
 	  }
-	//End of file dotl_dummy_unit.txt
-
-
-	//Start of file ezreal_arcane_shift.txt
 	"ezreal_arcane_shift"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -893,10 +857,6 @@
 			}
 		}
 	}
-	//End of file ezreal_arcane_shift.txt
-
-
-	//Start of file ezreal_essence_flux.txt
 	"ezreal_essence_flux"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -1000,10 +960,6 @@
 			}
 		}
 	}
-	//End of file ezreal_essence_flux.txt
-
-
-	//Start of file ezreal_mystic_shot.txt
 	"ezreal_mystic_shot"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -1085,10 +1041,6 @@
 			}
 		}
 	}
-	//End of file ezreal_mystic_shot.txt
-
-
-	//Start of file ezreal_rising_spell_force.txt
 	"ezreal_rising_spell_force"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
@@ -1127,10 +1079,6 @@
 			}
 		}
 	}
-	//End of file ezreal_rising_spell_force.txt
-
-
-	//Start of file ezreal_trueshot_barrage.txt
 	// LoL's Ezreal Dota port
 	// Author: wFX
 	// Date: 03/2015
@@ -1201,10 +1149,6 @@
 			}
 		}
 	}
-	//End of file ezreal_trueshot_barrage.txt
-
-
-	//Start of file garen_courage.txt
 	"garen_courage"
 	        {
 	                // General
@@ -1279,10 +1223,6 @@
 				}
 	 
 	}
-	//End of file garen_courage.txt
-
-
-	//Start of file garen_perseverance.txt
 	"garen_perseverance"
 	        {
 	                // General
@@ -1370,335 +1310,319 @@
 				}
 	 
 	}
-	//End of file garen_perseverance.txt
-
-
-	//Start of file garen_silence.txt
-	        "garen_silence"
-	        {
-	                // General
-	                //-------------------------------------------------------------------------------------------------------------
-	                "BaseClass"      "ability_datadriven"
-	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
-					"AbilityTextureName"			"Garen_Q"
-	         "precache"
-	        {
-	                "particle_folder"                                               "particles/generic_gameplay"
-	        }
-	                // Casting
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCastPoint"                              "0"
-	 
-	                // Time        
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCooldown"                               "15"
-	 
-	                // Cost
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityManaCost"                               "0"
-	               
-	                // Special
-	                //-------------------------------------------------------------------------------------------------------------
-	                     
-	            "OnSpellStart"
-	            {
-	                "ApplyModifier"
-	                {
-	                        "Target"                "CASTER"
-	                    "ModifierName"      "garen_speedattack"
-	                }
-	                "RunScript"
-	                {
-	                        "Function"              "GarenQPurge"
-	                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-	                }
-	            }
-	            "Modifiers"
-	            {
-					"garen_speedattack"
-					{
-						"OnCreated"
-						{
-	                                 "FireSound"
-	                                   {
-	                                                "EffectName"            "Main.Song"
-	                                                "Target"                        "CASTER"
-	                                   }
-						}
-						"OnAttackLanded"
-						{
-							"RunScript"
-	                         {
-	                           "Function"              "GarenSilenceDamage"
-	                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-							   "BaseDamage" "%garen_speed_bonusdamage"
-							   "ADRatio" "%adratio"
-							   "TargetEnemy"                "TARGET"
-	                         }
-							 
-				            "ApplyModifier" //silences enemy and removes the buff from garen
-	                		{
-	                       		 "Target"                "TARGET"
-	                    		 "ModifierName"      "garen_silence_modifier"
-	                		}
-							"RemoveModifier"
-	                		{
-	                       			 "Target"                "CASTER"
-	                    			"ModifierName"      "garen_speedattack"
-	                		}
-						}
-					 "Duration" "4.5"
-					 "Properties"
-					 {
-						"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
-					 }
-					}
-	
-					"garen_silence_modifier"
-					{
-					 "Duration" "%garen_speed_silenceduration"
-					 "EffectName" "generic_stunned"
-					 "EffectAttachType" "follow_overhead"
-					 "Duration"  "%garen_speed_silenceduration"
-					 "States"
-					 {
-					 "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
-					 }
-					}
-	            }
-							 // Special	
-				//-------------------------------------------------------------------------------------------------------------
-				"AbilitySpecial"
+        "garen_silence"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+				"AbilityTextureName"			"Garen_Q"
+         "precache"
+        {
+                "particle_folder"                                               "particles/generic_gameplay"
+        }
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCastPoint"                              "0"
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "15"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------
+                     
+            "OnSpellStart"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_speedattack"
+                }
+                "RunScript"
+                {
+                        "Function"              "GarenQPurge"
+                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+                }
+            }
+            "Modifiers"
+            {
+				"garen_speedattack"
 				{
-				 "01"
+					"OnCreated"
+					{
+                                 "FireSound"
+                                   {
+                                                "EffectName"            "Main.Song"
+                                                "Target"                        "CASTER"
+                                   }
+					}
+					"OnAttackLanded"
+					{
+						"RunScript"
+                         {
+                           "Function"              "GarenSilenceDamage"
+                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+						   "BaseDamage" "%garen_speed_bonusdamage"
+						   "ADRatio" "%adratio"
+						   "TargetEnemy"                "TARGET"
+                         }
+						 
+			            "ApplyModifier" //silences enemy and removes the buff from garen
+                		{
+                       		 "Target"                "TARGET"
+                    		 "ModifierName"      "garen_silence_modifier"
+                		}
+						"RemoveModifier"
+                		{
+                       			 "Target"                "CASTER"
+                    			"ModifierName"      "garen_speedattack"
+                		}
+					}
+				 "Duration" "4.5"
+				 "Properties"
 				 {
-				 "var_type"				"FIELD_FLOAT"
-				 "garen_speed_silenceduration"				"2.5"
-				 }
-				 "02"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "garen_speed_bonusdamage"				"30 55 80 105 130"
-				 }
-				 "03"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "garen_speed_bonusspeedpercent"				"35"
-				 }
-				 "04"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "adratio"				"40"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
 				 }
 				}
-	 
-	        }
-	//End of file garen_silence.txt
+
+				"garen_silence_modifier"
+				{
+				 "Duration" "%garen_speed_silenceduration"
+				 "EffectName" "generic_stunned"
+				 "EffectAttachType" "follow_overhead"
+				 "Duration"  "%garen_speed_silenceduration"
+				 "States"
+				 {
+				 "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
+				 }
+				}
+            }
+						 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "garen_speed_silenceduration"				"2.5"
+			 }
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "garen_speed_bonusdamage"				"30 55 80 105 130"
+			 }
+			 "03"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "garen_speed_bonusspeedpercent"				"35"
+			 }
+			 "04"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "adratio"				"40"
+			 }
+			}
+ 
+        }
+        "garen_spin"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
+                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+				"AbilityTextureName"			"Garen_E1"
+ 
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCastPoint"                              "0"
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "10"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------               
+            "OnToggleOn"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_damageaura"
+                }
+            }
+				"OnToggleOff"
+				{
+
+						"RemoveModifier"
+                        {
+                                "Target"                "CASTER"
+                                "ModifierName"  "garen_damageaura"
+                        }
+				}
+            "Modifiers"
+            {
 
 
-	//Start of file garen_spin.txt
-	        "garen_spin"
-	        {
-	                // General
-	                //-------------------------------------------------------------------------------------------------------------
-	                "BaseClass"      "ability_datadriven"
-	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
-	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
-					"AbilityTextureName"			"Garen_E1"
-	 
-	                // Casting
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCastPoint"                              "0"
-	 
-	                // Time        
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCooldown"                               "10"
-	 
-	                // Cost
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityManaCost"                               "0"
-	               
-	                // Special
-	                //-------------------------------------------------------------------------------------------------------------               
-	            "OnToggleOn"
-	            {
-	                "ApplyModifier"
-	                {
-	                        "Target"                "CASTER"
-	                    "ModifierName"      "garen_damageaura"
-	                }
-	            }
-					"OnToggleOff"
-					{
-	
-							"RemoveModifier"
-	                        {
-	                                "Target"                "CASTER"
-	                                "ModifierName"  "garen_damageaura"
-	                        }
-					}
-	            "Modifiers"
-	            {
-	
-	
-					"garen_damageaura"
-					{
-								"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
-								"OnCreated"
-								{
-									"RunScript"
-	                                {
-	                                                "Function"              "GarenSpinDamage"
-	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-													"BaseDamage" "%spin_damage"
-													"ADRatio" "%adratio"
-													"Radius" "300"
-	                                }
-									"FireSound"
-									{
-	                                                "EffectName"            "Tower.Fire.Attack"
-	                                                "Target"                        "CASTER"
-									}
-								  "ApplyModifier"
-								  {		
-	                                "Target"                "CASTER"
-	                                "ModifierName"  "garen_disarmself"
-								  }
-								}
-								"OnDestroy"
-								{
-				                  "RunScript"
-	                                         {
-	                                                "Function"              "GarenSpin"
-	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-	                                         }
-								  "RemoveModifier"
-								  {		
-	                                "Target"                "CASTER"
-	                                "ModifierName"  "garen_disarmself"
-								  }
-								}
-							"Duration" "%duration"
-	                        "ThinkInterval" "0.75"
-	                        "OnIntervalThink"
-	                        {
-									"RunScript"
-	                                {
-	                                                "Function"              "GarenSpinDamage"
-	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-													"BaseDamage" "%spin_damage"
-													"ADRatio" "%adratio"
-													"Radius" "300"
-	                                }
+				"garen_damageaura"
+				{
+							"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
+							"OnCreated"
+							{
+								"RunScript"
+                                {
+                                                "Function"              "GarenSpinDamage"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+												"BaseDamage" "%spin_damage"
+												"ADRatio" "%adratio"
+												"Radius" "300"
+                                }
 								"FireSound"
 								{
-	                                                "EffectName"            "Tower.Fire.Attack"
-	                                                "Target"                        "CASTER"
+                                                "EffectName"            "Tower.Fire.Attack"
+                                                "Target"                        "CASTER"
 								}
+							  "ApplyModifier"
+							  {		
+                                "Target"                "CASTER"
+                                "ModifierName"  "garen_disarmself"
+							  }
 							}
-					}
-					"garen_disarmself"
-					{	
-					"Duration" "%duration"
-					"States"
-						{
-						"MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
+							"OnDestroy"
+							{
+			                  "RunScript"
+                                         {
+                                                "Function"              "GarenSpin"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+                                         }
+							  "RemoveModifier"
+							  {		
+                                "Target"                "CASTER"
+                                "ModifierName"  "garen_disarmself"
+							  }
+							}
+						"Duration" "%duration"
+                        "ThinkInterval" "0.75"
+                        "OnIntervalThink"
+                        {
+								"RunScript"
+                                {
+                                                "Function"              "GarenSpinDamage"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+												"BaseDamage" "%spin_damage"
+												"ADRatio" "%adratio"
+												"Radius" "300"
+                                }
+							"FireSound"
+							{
+                                                "EffectName"            "Tower.Fire.Attack"
+                                                "Target"                        "CASTER"
+							}
 						}
+				}
+				"garen_disarmself"
+				{	
+				"Duration" "%duration"
+				"States"
+					{
+					"MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
 					}
-	            }
-				 // Special	
-				//-------------------------------------------------------------------------------------------------------------
-				"AbilitySpecial"
-				{
-				 "01"
-				 {
-				 "var_type"				"FIELD_FLOAT"
-				 "duration"				"3"
-				 }
-				 "02"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "spin_radius"				"300"
-				 }
-				 "03"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "spin_damage"				"20 45 70 95 120"
-				 }
-				 "04"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "adratio"				"70 80 90 100 110"
-				 }
 				}
-	 
-	        }
-	//End of file garen_spin.txt
+            }
+			 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "duration"				"3"
+			 }
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "spin_radius"				"300"
+			 }
+			 "03"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "spin_damage"				"20 45 70 95 120"
+			 }
+			 "04"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "adratio"				"70 80 90 100 110"
+			 }
+			}
+ 
+        }
+		"garen_ult"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+				"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+				"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+				"AbilityTextureName"			"Garen_R"
+						"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"AbilityCastPoint"				"0.4"
+				"AbilityCastRange"				"300"
+"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
+				"MaxLevel"						"3"
+ 
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
 
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "60"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------
 
-	//Start of file garen_ult.txt
-			"garen_ult"
-	        {
-	                // General
-	                //-------------------------------------------------------------------------------------------------------------
-	                "BaseClass"      "ability_datadriven"
-					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-					"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-					"AbilityTextureName"			"Garen_R"
-							"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-			"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-					"AbilityCastPoint"				"0.4"
-					"AbilityCastRange"				"300"
-	"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
-					"MaxLevel"						"3"
-	 
-	                // Casting
-	                //-------------------------------------------------------------------------------------------------------------
-	
-	 
-	                // Time        
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityCooldown"                               "60"
-	 
-	                // Cost
-	                //-------------------------------------------------------------------------------------------------------------
-	                "AbilityManaCost"                               "0"
-	               
-	                // Special
-	                //-------------------------------------------------------------------------------------------------------------
-	
-				"OnSpellStart"
-	            {
-	                            "RunScript"
-	                                        {
-	                                                "Function"              "GarenUlt"
-	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-							"MissHPPercent" "%dmgpct"
-							"MagicDamage" "%damage"
-	                                        }
-	            }
-				 // Special	
-				//-------------------------------------------------------------------------------------------------------------
-				"AbilitySpecial"
-				{
-				 "01"
-				 {
-				 "var_type"				"FIELD_FLOAT"
-				 "dmgpct"				"28 33 40"
-				 }
-				 "02"
-				 {
-				 "var_type"				"FIELD_INTEGER"
-				 "damage"				"175 350 525"
-				 }
-				}
-	 
-	        }
-	//End of file garen_ult.txt
-
-
-	//Start of file inhibitor_armor.txt
+			"OnSpellStart"
+            {
+                            "RunScript"
+                                        {
+                                                "Function"              "GarenUlt"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+						"MissHPPercent" "%dmgpct"
+						"MagicDamage" "%damage"
+                                        }
+            }
+			 // Special	
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilitySpecial"
+			{
+			 "01"
+			 {
+			 "var_type"				"FIELD_FLOAT"
+			 "dmgpct"				"28 33 40"
+			 }
+			 "02"
+			 {
+			 "var_type"				"FIELD_INTEGER"
+			 "damage"				"175 350 525"
+			 }
+			}
+ 
+        }
 	//=================================================================================
 	// Inhibitor Armor
 	//=================================================================================
@@ -1710,24 +1634,1068 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}	
-	//End of file inhibitor_armor.txt
-
-
-	//Start of file lux_illumination.txt
-	// Lux' Illumination (Passive)
+	//=========================================================
+	// Karthus' Passive: Death Defied
 	// Author: Capruce
-	// Date: 
-	// Notes: 
+	//=========================================================
+	"karthus_death_defied"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_death_defied"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ghost_duration"		"7.0"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnOwnerSpawned"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+				"Function"		"OnOwnerSpawned"
+			}
+		}
+	
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+				"Function"		"OnOwnerDied"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_death_defied"
+			{
+				"IsBuff"		"1"
+				"Passive"		"1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_REINCARNATION"	"5"
+				}
+			}
+			
+			"modifier_karthus_death_defied_ghost_form"
+			{
+				"IsBuff"		"1"
+				"Duration"		"%ghost_duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+						"Function"		"OnCreated"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+						"Function"		"OnDestroy"
+					}
+				}
+	
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_karthus/karthus_death_defied.lua"
+						"Function"		"OnAbilityExecuted"
+					}
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' Third Ability: Defile
+	// Author: Capruce
+	//=========================================================
+	"karthus_defile"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_defile"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"310"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"30 50 70 90 110"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"0.20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_second"		"30 42 54 66 78"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_interval"		"1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"			"310"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_kill"			"20 27 34 41 48"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnToggleOn"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_passive"
+				"Target"			"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_aura"
+				"Target"			"CASTER"
+			}
+		}
+	
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_aura"
+				"Target"			"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_passive"
+				"Target"			"CASTER"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_defile_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+	
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_karthus/karthus_defile.lua"
+						"Function"		"OnKill"
+					}
+				}
+			}
+	
+			"modifier_karthus_defile_aura"
+			{
+				"IsHidden"			"1"
+				"ThinkInterval"		"%think_interval"
+	
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_karthus/karthus_defile.lua"
+						"Function"		"OnIntervalThink"
+					}
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' First Ability: Lay Waste
+	// Author: Capruce
+	//=========================================================
+	"karthus_lay_waste"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_lay_waste"
+		"AOERadius"						"%explosion_radius"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"650"
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"20 26 32 38 44"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 60 80 100 120"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"0.30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"explosion_delay"		"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"explosion_radius"		"200"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"single_target_multiplier"	"2"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+	        {
+	            "ScriptFile"    "heroes/champion_karthus/karthus_lay_waste.lua"
+	            "Function"  	"OnSpellStart"
+	        }
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_lay_waste_thinker"
+			{
+				"Duration"		"%explosion_delay"
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "heroes/champion_karthus/karthus_lay_waste.lua"
+		            	"Function"  	"OnCreated"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					 "RunScript"
+					{
+						"ScriptFile"    "heroes/champion_karthus/karthus_lay_waste.lua"
+		            	"Function"  	"OnDestroy"
+					}
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Kassadin's Third Ability: Force Pulse
+	// Author: Capruce
+	//=========================================================
+	"kassadin_force_pulse"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"kassadin_force_pulse"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"510"
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 105 130 155 180"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"0.70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"required_stacks"		"6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"search_radius"			"1000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"projectile_start_radius"	"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_end_radius"	"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"500"	
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"-50 -60 -70 -80 -90"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"1"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+				"Function"		"OnSpellStart"
+			}
+	
+			"LinearProjectile"
+			{
+				"Target"      		"POINT"
+			    "EffectName"  		"particles/units/heroes/hero_queenofpain/queen_sonic_wave.vpcf"
+			    "MoveSpeed"   		"%projectile_speed"
+			    "StartRadius"   	"%projectile_start_radius"
+			    "StartPosition" 	"attach_origin"
+			    "EndRadius"     	"%projectile_end_radius"
+			    "FixedDistance" 	"510"
+			    "TargetTeams"   	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			    "TargetTypes"   	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			    "TargetFlags"   	"DOTA_UNIT_TARGET_FLAG_NONE"
+			    "HasFrontalCone"    "1"
+			    "ProvidesVision" 	"0"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_kassadin_force_pulse_slow"
+				"Target"		"TARGET"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+				"Function"		"OnProjectileHit"
+			}
+		}
+	
+		"Modifiers"
+		{	
+			"modifier_kassadin_force_pulse_caster"
+			{
+				"Passive"		"1"
+				"IsPurgable"	"0"
+				"IsHidden"		"0"
+				
+				"Aura" 			"modifier_kassadin_force_pulse_target"
+				"Aura_Radius" 	"%search_radius"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"   	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				//"Aura_ApplyToCaster" "1"
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+						"Function"		"CasterOnCreated"
+					}
+				}
+			}
+	
+			"modifier_kassadin_force_pulse_target"
+			{
+				"IsPurgable"	"0"
+				"IsHidden"		"1"
+	
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_kassadin/kassadin_force_pulse.lua"
+						"Function"		"TargetOnAbilityExecuted"
+					}
+				}
+			}
+	
+			"modifier_kassadin_force_pulse_slow"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+	
+				"Duration"		"%slow_duration"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Kassadin's Second Ability: Nether Blade
+	// Author: Capruce
+	//=========================================================
+	"kassadin_nether_blade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"kassadin_nether_blade"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 70 100 130 160"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"passive_ap_scaling"	"0.10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"active_ap_scaling"		"0.60"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"passive_base_damage"	"20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_restore_pct"		"4 5 6 7 8"
+			}
+			"05"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"champion_multiplier"	"5"
+			}
+			"06"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"extra_range"			"50"
+			}
+		}
+	
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_earthshaker/earthshaker_enchant_totem.vpcf"
+		}
+	
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_kassadin_nether_blade_active"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_kassadin_nether_blade_passive"
+			{
+				"IsBuff"	"1"
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_kassadin/kassadin_nether_blade.lua"
+						"Function"		"PassiveOnAttackLanded"
+					}
+				}
+			}
+	
+			"modifier_kassadin_nether_blade_active"
+			{
+				"IsBuff"	"1"
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_earthshaker/earthshaker_enchant_totem.vpcf"
+						"EffectAttachType"  "attach_hitloc"
+						"Target"            "CASTER"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_kassadin/kassadin_nether_blade.lua"
+						"Function"		"OnDestroy"
+					}
+				}
+	
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_kassadin_nether_blade_active"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_kassadin/kassadin_nether_blade.lua"
+						"Function"		"ActiveOnAttackLanded"
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%extra_range"
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Kassadin's First Ability: Null Sphere
+	// Author: Capruce
+	//=========================================================
+	"kassadin_null_sphere"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"kassadin_null_sphere"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"475"
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 75 80 85 80"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"70 95 120 145 170"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_ap_scaling"		"0.70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shield_ap_scaling"		"0.30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_sheild_strength"	"40 70 100 130 160"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shield_duration"		"1.5"
+			}
+			"05"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1025"
+			}
+		}
+	
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			"particle"	"particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_kassadin/kassadin_null_sphere.lua"
+				"Function"		"OnSpellStart"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Lich.ChainFrost"
+				"Target" 		"TARGET"
+			}
+	
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+				"EffectName"		"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"0"
+				"MoveSpeed"        	"%projectile_speed"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_kassadin/kassadin_null_sphere.lua"
+				"Function"		"OnProjectileHit"
+			}
+		}
+	}
+	//=========================================================
+	// Kassadin's Ultimate: Riftwalk
+	// Author: Capruce
+	//=========================================================
+	"kassadin_riftwalk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/champion_kassadin/kassadin_riftwalk.lua"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"2"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"kassadin_riftwalk"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6 4 2"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"%base_mana_cost"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 100 120"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_mana_scaling"		"0.02"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_mana_scaling"	"0.01"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_mana_cost"		"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_damage"			"40 50 60"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_duration"		"15.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"			"150"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_stacks"			"4"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_mana_multiplier"	"2"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_blink_range"		"370"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	}
+	//=========================================================
+	// Kassadin's Passive: Void Stone
+	// Author: Capruce
+	//=========================================================
+	"kassadin_void_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"kassadin_void_stone"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"magic_damage_reduction_pct"		"15"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_kassadin_void_stone"
+			{
+				"IsBuff"	"1"
+				"Passive"	"1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_damage_reduction_pct"
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Lux' Third Ability: Lucent Singularity
+	// Author: Capruce
+	//=========================================================
+	"lux_final_spark"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"2"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"lux_final_spark"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"2450"
+		"AbilityCastPoint"				"0.5"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"80.0 65.0 50.0"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"300 400 500"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"0.75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"beam_range"			"2450"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"beam_width"			"75"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"beam_damage"			"300 400 500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"1.0"
+			}
+		}
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_lux/lux_final_spark.lua"
+				"Function"		"OnSpellStart"
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+			 	{
+				 	"Center"  		"POINT"
+				 	"Line"
+			 		{
+			 			"Length" 			"2450"
+			 			"Thickness" 		"75"
+			 		}
+			 		"Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"  
+			 		"Types" 		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			 	}
+			 	"Action"
+			 	{
+			 		"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_lux/lux_final_spark.lua"
+						"Function"		"OnBeamHit"
+					}
+			 	}
+			}
+		}
+	}
+	//=========================================================
+	// Lux' Third Ability: Lucent Singularity
+	// Author: Capruce
+	//=========================================================
 	"lux_illumination"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"lux_illumination"
-		"ChampionPassive"				"1"
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -1752,25 +2720,20 @@
 				"var_type"					"FIELD_FLOAT"
 				"ap_scaling"				"0.20"
 			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"champion_passive"			"1"
-			}
-			"03"
+			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"debuff_duration"			"6"
 			}
-			"04"
+			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"base_damage"				"10"
 			}
-			"05"
+			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"level_damage_multiplier"	"8"
+				"level_multiplier"	"8"
 			}
 		}
 	
@@ -1783,9 +2746,8 @@
 		"Modifiers"
 		{
 	
-			"modifier_illumination_caster"
+			"modifier_lux_illumination_caster"
 			{
-				"IsBuff"			"1"
 				"Passive"			"1"
 				"IsHidden"			"0"
 				"IsPurgable"		"0"
@@ -1794,25 +2756,18 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"heroes/hero_ursa/fury_swipes.lua"
-						"Function"				"fury_swipes_attack"
+						"ScriptFile"			"heroes/champion_lux/modifier_lux_illumination.lua"
+						"Function"				"OnAttackLanded"
 					}
 				}
-	
-				//Visual Buff to show that they user has the passive
-			"modifier_illumination_passive"
-			{
-				"Passive"		"1"
-				"IsHidden"		"0"
-				"IsBuff"		"1"
-			}
 			}
 	
-			"modifier_illumination_target"
+			"modifier_lux_illumination"
 			{
 				"IsDebuff"			"1"
 				"IsHidden"			"0"
-				"IsPurgable"		"0"
+				"IsPurgable"		"1"
+				"Duration"			"%debuff_duration"
 	
 				"EffectName"				"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
 				"EffectAttachType"			"follow_overhead"
@@ -1829,14 +2784,10 @@
 			}
 		}
 	}
-	//End of file lux_illumination.txt
-
-
-	//Start of file lux_light_binding.txt
-	// Lux' Light Binding (Q)
+	//=========================================================
+	// Lux' First Ability: Light Binding
 	// Author: Capruce
-	// Date: 
-	// Notes: 
+	//=========================================================
 	"lux_light_binding"
 	{
 		// General
@@ -1850,6 +2801,13 @@
 		"MaxLevel"						"5"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"lux_light_binding"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf"
+		}
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -1867,98 +2825,97 @@
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"60 110 160 210 260"
-		
+				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"ap_scaling"			"0.70"
+				"var_type"							"FIELD_FLOAT"
+				"light_binding_ap_scaling"			"0.70"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_width"		"125"
+				"var_type"							"FIELD_INTEGER"
+				"light_binding_width"				"125"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_distance"	"860"
+				"var_type"							"FIELD_INTEGER"
+				"light_binding_distance"			"860"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"1025"
+				"var_type"							"FIELD_INTEGER"
+				"light_binding_speed"				"1025"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"disable_duration"		"2.0"
+				"var_type"							"FIELD_INTEGER"
+				"light_binding_damage"				"60 110 160 210 260"
 			}
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_targets"			"1"
+				"var_type"							"FIELD_FLOAT"
+				"light_binding_root_duration"		"2.0"
 			}
 			"07"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"extra_target_penalty"	"0.5"
+				"var_type"							"FIELD_INTEGER"
+				"light_binding_max_targets"			"2"
 			}
-		}
-	
-		"precache"
-		{	
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
-			"particle"			"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"08"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"light_binding_decrease_factor"		"2"
+			}
 		}
 	
 		"OnSpellStart"
 		{
-			"FireSound"
+			"RunScript"
 			{
-				"EffectName"			"Hero_Mirana.ArrowCast"
-				"Target"				"CASTER"
-			}
-	
-			"LinearProjectile"
-			{
-				"Target"      	"POINT"
-			    "EffectName"  	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-			    "MoveSpeed"   	"%projectile_speed"
-			    "StartRadius"   "%projectile_width"
-			    "StartPosition" "attach_origin"
-			    "EndRadius"     "%projectile_width"
-			    "FixedDistance" "%projectile_distance"
-			    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-			    "TargetTypes"   "DOTA_UNIT_TARGET_HERO"
-			    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
-			    "HasFrontalCone"    "0"
-			    "ProvidesVision"	"0"
+				"ScriptFile"		"heroes/champion_lux/lux_light_binding"
+				"Function"			"OnSpellStart"
 			}
 		}
 	
 		"OnProjectileHitUnit"
 		{
-			"DeleteOnHit"				"0"
+			"DeleteOnHit"			"0"
+	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/champion_lux/lux_light_binding"
+				"Function"			"OnProjectileHit"
+			}
 		}
 	
 		"Modifiers"
-		{
-			
-		}
+	    {
+	        "modifier_lux_light_binding"
+	        {
+	            "IsDebuff" "1"
+	            "IsHidden" "0"
+	            "Passive" "0"
+	
+	            "OnCreated"
+	            {
+	            }
+	
+	            "States"
+	            {
+	            	"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+	            	"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_DISABLED"
+	            }
+	        }
+	    }    
 	}
-	//End of file lux_light_binding.txt
-
-
-	//Start of file lux_lucent_singularity.txt
-	// Lux' Lucent Singularity (E)
+	//=========================================================
+	// Lux' Third Ability: Lucent Singularity
 	// Author: Capruce
-	// Date: 
-	// Notes: 
-	// Requires "lux_lucent_singularity_detonate" to work correctly
+	//=========================================================
 	"lux_lucent_singularity"
 	{
 		// General
@@ -2001,27 +2958,42 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"1025"
+				"projectile_distance"	"800"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"singularity_radius"	"275"
+				"projectile_speed"		"1025"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"300"
+				"singularity_radius"	"275"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed_pct"	"-20 -24 -28 -32 -36"
+				"vision_radius"			"300"
 			}
 			"06"
 			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_pct"	"-20 -24 -28 -32 -36"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"singularity_damage"	"60 105 150 195 240"
+			}
+			"08"
+			{
 				"var_type"				"FIELD_FLOAT"
 				"singularity_duration"	"5.0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_interval"		"0.03"
 			}
 		}
 	
@@ -2037,10 +3009,7 @@
 			"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
 	
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-			"particle"  		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
-	
-			"particle"			"particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf"
-		}
+			"particle"  		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"	}
 	
 		"OnUpgrade"
 		{
@@ -2055,32 +3024,9 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"heroes/champion_lux/lucent_singularity.lua"
-				"Function"			"SwapAbilities"
-				"current_ability"	"lux_lucent_singularity"
-				"new_ability"		"lux_lucent_singularity_detonate"
-			}
-	
-			"LinearProjectile"
-			{
-				"Target"      	"POINT"
-			    "EffectName"  	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-			    "MoveSpeed"   	"%projectile_speed"
-			    "StartRadius"   "0"
-			    "StartPosition" "attach_origin"
-			    "EndRadius"     "0"
-			    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			    "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-			    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
-			    "HasFrontalCone"    "0"
-			    "ProvidesVision"	"1"
-			    "VisionRadius"	"%vision_aoe"
-			}
-	
-			"FireSound"
-			{
-				"EffectName"			"Hero_Mirana.ArrowCast"
-				"Target"				"CASTER"
+				"ScriptFile"		"heroes/champion_lux/lux_lucent_singularity.lua"
+				"Function"			"OnSpellStart"
+				"Target"			"POINT"
 			}
 		}
 	
@@ -2093,38 +3039,38 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"heroes/champion_lux/lucent_singularity.lua"
-				"Function"			"CreateSingularity"
-				"Target"			"POINT"
-				"modifier"			"modifier_lucent_singularity_unit"
-				"current_ability"	"lux_lucent_singularity_detonate"
-				"new_ability"		"lux_lucent_singularity"
-			}
-	
-			"FireSound"
-			{
-				"EffectName"	"Hero_Ancient_Apparition.IceVortexCast"
-				"Target" 		"CASTER"
+				"ScriptFile"		"heroes/champion_lux/lux_lucent_singularity.lua"
+				"Function"			"OnProjectileHit"
 			}
 		}
 	
 		"Modifiers"
 		{
-			"modifier_lucent_singularity_unit"
+			"modifier_lux_lucent_singularity_thinker"
 			{
-				"Aura"					"modifier_lucent_singularity"
+				"Aura"					"modifier_lux_lucent_singularity"
 				"Aura_Radius"			"%singularity_radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+	
+				"ThinkInterval" 		"%think_interval"
+			    "OnIntervalThink"
+			    {
+			        "RunScript"
+			        {
+			            "ScriptFile" 	"heroes/champion_lux/modifier_lux_lucent_singularity_thinker.lua"
+			            "Function"   	"OnIntervalThink"
+			        }
+			    }
 	
 				"OnCreated"
 				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Ancient_Apparition.IceVortex"
-						"Target" 		"TARGET"
-					}
+	 				"RunScript"
+			        {
+			            "ScriptFile" 	"heroes/champion_lux/modifier_lux_lucent_singularity_thinker.lua"
+			            "Function"   	"OnCreated"
+			        }
 	
 					"AttachEffect"
 					{
@@ -2141,13 +3087,20 @@
 	
 					"ApplyModifier"
 					{
-					   	"Target" 		"CASTER"
-						"ModifierName"	"modifier_lucent_singularity_detonate_timer"
+						"Target" 			"CASTER"
+						"ModifierName"		"modifier_lux_lucent_singularity_detonate_timer"
 					}
 				}
 	
 				"OnDestroy"
 				{
+	
+					"RunScript"
+					{
+						"ScriptFile" 	"heroes/champion_lux/modifier_lux_lucent_singularity_thinker.lua"
+			            "Function"   	"OnDestroy"
+					}
+	
 					"AttachEffect"
 					{
 					 	"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
@@ -2169,34 +3122,25 @@
 					"RemoveModifier"
 					{
 						"Target" 			"CASTER"
-						"ModifierName"		"modifier_lucent_singularity_detonate_timer"
+						"ModifierName"		"modifier_lux_lucent_singularity_detonate_timer"
 					}
-				}
-	
-				"States"
-				{
-					//"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 	
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"%vision_radius"
-				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%vision_radius" 
+					"MODIFIER_PROPERTY_FIXED_DAY_VISION"	"%vision_radius"
+					"MODIFIER_PROPERTY_FIXED_NIGHT_VISION"	"%vision_radius"
+					"MODIFIER_PROPERTY_FORCE_DRAW_MINIMAP"	"1"
 				}
 			}
 	
-			"modifier_lucent_singularity_detonate_timer"
+			"modifier_lux_lucent_singularity_detonate_timer"
 			{
 				"IsBuff"			"1"
 				"Duration"			"%singularity_duration"
 			}
 	
-			"modifier_lucent_singularity"
+			"modifier_lux_lucent_singularity"
 			{
 				"IsDebuff"		"1"
 		
@@ -2210,21 +3154,17 @@
 			}
 		}
 	}
-	//End of file lux_lucent_singularity.txt
-
-
-	//Start of file lux_lucent_singularity_detonate.txt
-	// Lux' Lucent Singularity (Sub Ability) (E)
+	//=========================================================
+	// Lux' Third Ability: Lucent Singularity. Sub Ability: Detonate
 	// Author: Capruce
-	// Date: 
-	// Notes: 
-	// Requires "lux_lucent_singularity" to work correctly
+	//=========================================================
 	"lux_lucent_singularity_detonate"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"						"1"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"lux_lucent_singularity"
@@ -2252,35 +3192,41 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/champion_lux/lucent_singularity.lua"
+				"ScriptFile"	"heroes/champion_lux/modifier_lux_lucent_singularity_thinker.lua"
 				"Function"		"DetonateSingularity"
 			}
 		}
 	}
-	//End of file lux_lucent_singularity_detonate.txt
-
-
-	//Start of file lux_prismatic_barrier.txt
+	//=========================================================
+	// Lux' Second Ability: Prismatic Barrier
 	// Author: Capruce
-	// Date: 
-	// Notes: 
+	//=========================================================
 	"lux_prismatic_barrier"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/champion_lux/lux_prismatic_barrier"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"MaxLevel"						"5"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"lux_prismatic_barrier"
 	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack.vpcf"
+			"particle_folder"	"particles/prismatic_barrier"
+			"particle"			"particles/econ/generic/generic_projectile_tracking_1/generic_projectile_tracking_1.vpcf"
+		}
+	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"790"
-		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.1"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -2289,54 +3235,43 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"60"
-		
+				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"ap_scaling"			"0.35"
+				"var_type"							"FIELD_FLOAT"
+				"ap_scaling"						"0.35"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_width"		"125"
+				"var_type"							"FIELD_INTEGER"
+				"projectile_radius"					"100"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"projectile_speed"		"1025"
+				"var_type"							"FIELD_INTEGER"
+				"projectile_distance"				"750"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_duration"			"3.0"
+				"var_type"							"FIELD_INTEGER"
+				"projectile_speed"					"1025"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_absorb"			"80 105 130 155 180"
+				"var_type"							"FIELD_INTEGER"
+				"base_shield_strength"				"80 105 130 155 180"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"shield_duration"					"3.0"
 			}
 		}
-	
-		"precache"
-		{	
-		}
-	
-		"OnSpellStart"
-		{	
-		}
-	
-		"Modifiers"
-		{
-		}
 	}
-	//End of file lux_prismatic_barrier.txt
-
-
-	//Start of file nexus_end.txt
 	//=================================================================================
 	// Nexus End
 	//=================================================================================
@@ -2348,10 +3283,6 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}
-	//End of file nexus_end.txt
-
-
-	//Start of file obelisk_laser.txt
 	//=================================================================================
 	// Obelisk Laser
 	//=================================================================================
@@ -2377,10 +3308,6 @@
 			}
 		}
 	}
-	//End of file obelisk_laser.txt
-
-
-	//Start of file obelisk_over_kill.txt
 	//=================================================================================
 	// Obelisk Overkill
 	//=================================================================================
@@ -2392,10 +3319,6 @@
 		"AbilityTextureName" 	"dotl_placeholder"
 		"IsHidden"				"0"
 	}
-	//End of file obelisk_over_kill.txt
-
-
-	//Start of file tower_a_wizard_did_it.txt
 	//=================================================================================
 	// A Wizard Did It
 	//=================================================================================
@@ -2408,10 +3331,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_a_wizard_did_it.txt
-
-
-	//Start of file tower_fortification.txt
 	//=================================================================================
 	// Fortification
 	//=================================================================================
@@ -2424,10 +3343,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_fortification.txt
-
-
-	//Start of file tower_invincibility.txt
 	//=================================================================================
 	// Building Invincibility
 	//=================================================================================
@@ -2447,10 +3362,6 @@
 			}
 		}
 	}
-	//End of file tower_invincibility.txt
-
-
-	//Start of file tower_lightning_rod.txt
 	//=================================================================================
 	// Lightning Rod - This one is actually just here for show
 	//=================================================================================
@@ -2475,10 +3386,6 @@
 			}
 		}
 	}
-	//End of file tower_lightning_rod.txt
-
-
-	//Start of file tower_penetrating_bullets.txt
 	//=================================================================================
 	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
 	//=================================================================================
@@ -2502,10 +3409,6 @@
 			}
 		}
 	}
-	//End of file tower_penetrating_bullets.txt
-
-
-	//Start of file tower_reinforced_armor.txt
 	//=================================================================================
 	// Reinforced Armor
 	//=================================================================================
@@ -2518,10 +3421,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_reinforced_armor.txt
-
-
-	//Start of file tower_vanguard.txt
 	//=================================================================================
 	// Vanguard
 	//=================================================================================
@@ -2534,10 +3433,6 @@
 		"IsHidden"				"0"
 	
 	}
-	//End of file tower_vanguard.txt
-
-
-	//Start of file tower_wardens_eye.txt
 	//=================================================================================
 	// Wardens Eye
 	//=================================================================================
@@ -2622,5 +3517,564 @@
 			}
 		}
 	}
-	//End of file tower_wardens_eye.txt
+	//=========================================================
+	// Veigar's First Ability: Baleful Strike
+	// Author: Capruce
+	//=========================================================
+	"veigar_baleful_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_baleful_strike"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/champions/veigar/veigar_baleful_strike.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7 6.5 6 5.5 5"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60 65 70 75 80"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 125 170 215 260"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"ap_scaling"						"0.60"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"projectile_radius"					"75"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"projectile_distance"				"700"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"projectile_speed"					"1450"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"max_targets"						"2"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ap_per_champion_kill"				"1 2 3 4 5"
+			}
+			"07"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ap_per_unit_kill"					"1"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/champion_veigar/veigar_baleful_strike.lua"
+				"Function"			"OnSpellStart"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/champion_veigar/veigar_baleful_strike.lua"
+				"Function"			"OnProjectileHit"
+			}
+		}
+	
+		"Modifiers"
+	    {
+	        "modifier_ap_gain"
+	        {
+	            "IsBuff" "1"
+	            "IsHidden" "1"
+	            "Passive" "1"
+	
+	            "OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/champion_veigar/veigar_baleful_strike.lua"
+						"Function"			"OnHeroKilled"
+					}
+				}
+			}
+		}  
+	}
+	//=========================================================
+	// Veigar's Second Ability: Dark Matter
+	// Author: Capruce
+	//=========================================================
+	"veigar_dark_matter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_dark_matter"
+		"AOERadius"						"%explosion_radius"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1650"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 9.5 9 8.5 8"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 75 80 85 90"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"120 170 220 270 320"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"ap_scaling"						"1.00"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"explosion_radius"					"112.5"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"explosion_delay"					"1.25"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_veigar/veigar_dark_matter.lua"
+				"Function"		"OnSpellStart"
+				"Target"		"POINT"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Ability.PreLightStrikeArray"
+				"Target"		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+				"EffectAttachType"	"start_at_customorigin"
+				"TargetPoint"		"POINT"
+	
+				"ControlPoints"
+	            {
+	            	"01"	"%explosion_radius 0 0"
+	            	"03"	"0 0 0"
+	            }
+			}
+	
+			"DelayedAction"
+			{
+				"Delay"		"%explosion_delay"
+	
+				"Action"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Ability.LightStrikeArray"
+						"Target"		"CASTER"
+					}
+	
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"TargetPoint"		"POINT"
+	
+						"ControlPoints"
+			            {
+			            	"00"	"POINT"
+			            	"01"	"%explosion_radius 0 0"
+			            	"03"	"0 0 0"
+			            }
+					}
+	
+					"ActOnTargets"
+					{
+						"Target"
+			            {
+			                "Center" "POINT"
+			                "Radius" "%explosion_radius"
+			                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+			                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			            }
+	
+			            "Action"
+			            {
+			            	"RunScript"
+			            	{
+			            		"ScriptFile"	"heroes/champion_veigar/veigar_dark_matter.lua"
+								"Function"		"OnHit"
+			            	}            	
+			            }
+					}				
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Veigar's Passive: Equilibrium
+	// Author: Capruce
+	//=========================================================
+	"veigar_equilibrium"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_equilibrium"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"missing_mana_pct"					"1"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"mana_regen_pct"					"1.5"
+			}
+		}
+	
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_veigar/veigar_equilibrium.lua"
+				"Function"		"OnUpgrade"
+			}
+		}
+	}
+	"veigar_event_horizon"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_event_horizon"
+		"AOERadius"						"%ring_radius"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 17 16 15 14"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 85 90 95 100"
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"formation_time"			"0.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"ring_duration"				"3"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"ring_radius"				"325"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"edge_thickness"			"50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.5 1.75 2.0 2.25 2.5"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"DelayedAction"
+			{
+				"Delay"		"%formation_time"
+	
+				"Action"
+				{
+					"CreateThinker"
+			        {
+			            "ModifierName" 	"modifier_veigar_event_horizon_thinker"
+			            "Target" 		"POINT"
+			        }			
+				}
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_veigar_event_horizon_thinker"
+			{
+				"Duration"			"%ring_duration"
+				"ThinkInterval"		"0.03"
+				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/champion_veigar/veigar_event_horizon.lua"
+						"Function"		"OnCreated"
+					}
+				}
+	
+	
+				"OnIntervalThink"
+				{
+					"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/champion_veigar/veigar_event_horizon.lua"
+						"Function"		"OnIntervalThink"
+	            	}  
+				}
+			}
+	
+			"modifier_veigar_event_horizon"
+			{
+				"Duration"				"%stun_duration"
+				"IsDebuff"				"1"
+				"OverrideAnimation"		"ACT_DOTA_DISABLED"
+	
+				"EffectName"			"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"		"follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}	
+	"veigar_primordial_burst"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"veigar_primordial_burst"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"475"
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120 100 80"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"250 375 500"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"1.00"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"target_ap_scaling"		"0.80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"120 170 220 270 320"
+			}
+			"04"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"2000"
+			}
+			"05"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"300"
+			}
+		}
+	
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			"particle"	"particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_veigar/veigar_primordial_burst.lua"
+				"Function"		"OnSpellStart"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Lich.ChainFrost"
+				"Target" 		"TARGET"
+			}
+	
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+				"EffectName"		"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"1"
+				"VisionRadius"		"%vision_radius"
+				"MoveSpeed"        	"%projectile_speed"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/champion_veigar/veigar_primordial_burst.lua"
+				"Function"		"OnProjectileHit"
+			}
+		}
+	}
 }

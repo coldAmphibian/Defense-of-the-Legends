@@ -1,0 +1,113 @@
+//=========================================================
+// Kassadin's First Ability: Null Sphere
+// Author: Capruce
+//=========================================================
+"kassadin_null_sphere"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"MaxLevel"						"5"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"kassadin_null_sphere"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"475"
+	"AbilityCastPoint"				"0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"9"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"70 75 80 85 80"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"70 95 120 145 170"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"damage_ap_scaling"		"0.70"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"shield_ap_scaling"		"0.30"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"base_sheild_strength"	"40 70 100 130 160"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"shield_duration"		"1.5"
+		}
+		"05"
+		{	
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"1025"
+		}
+	}
+
+	"precache"
+	{
+		"particle"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		"particle"	"particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
+		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_kassadin/kassadin_null_sphere.lua"
+			"Function"		"OnSpellStart"
+		}
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_Lich.ChainFrost"
+			"Target" 		"TARGET"
+		}
+
+		"TrackingProjectile"
+		{
+			"Target"           	"TARGET"
+			"EffectName"		"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			"Dodgeable"			"1"
+			"ProvidesVision"	"0"
+			"MoveSpeed"        	"%projectile_speed"
+			"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/champion_kassadin/kassadin_null_sphere.lua"
+			"Function"		"OnProjectileHit"
+		}
+	}
+}

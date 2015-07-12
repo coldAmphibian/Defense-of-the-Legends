@@ -1,0 +1,205 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Taric Shatter
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"taric_shatter"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AbilityTextureName"			"taric_shatter"
+	"MaxLevel"						"5"
+
+	"AbilityCooldown"				"10"
+	"AbilityManaCost"				"50"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"   				"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+	  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+	  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+	  	"particle" 					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityCastRange"				"273"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"40 80 120 160 200"	//-- +20% Armor
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"			"FIELD_FLOAT"
+			"bonus_armor"		"10 15 20 25 30"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"armor_reduction"	"-5 -10 -15 -20 -25"  //-- + 5% armor
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"shatter_radius"			"273"
+		}
+	}
+	"OnUpgrade"
+	{
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_shatter_passive"
+		}
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_shatter_bonus_armor"
+		}
+	}
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_shatter_check"
+		}
+		"RemoveModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_shatter_passive"
+
+		}
+		"RemoveModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_shatter_bonus_armor"
+		}
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+			"Function"			"Gemcraft"
+		}
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"EffectAttachType"	"attach_origin"
+			"Target"	"CASTER"
+
+		}
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+			"EffectAttachType" "attach_origin"
+			"Target"	"CASTER" 
+		}
+		"FireSound"
+		{
+			"EffectName" "Hero_Slardar.Slithereen_Crush"
+			"Target"	"CASTER"
+		}
+		"ActOnTargets"
+		{
+			"Target"
+			{
+				"Center" "CASTER"
+				"Radius" "%shatter_radius"
+				"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			}
+			"Action"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
+					"Function"		"Shatter"
+				}
+			}
+		}
+		
+	}
+	"Modifiers"
+	{
+		"modifier_taric_shatter_bonus_armor"
+		{
+			"IsBuff"		"1"
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+	        }
+		}
+		"modifier_taric_shatter_passive"
+		{
+			"IsBuff"			"1"
+
+			"Aura"        "modifier_taric_shatter_aura"
+    		"Aura_Radius" "365"
+    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        	
+		}
+		"modifier_taric_shatter_aura"
+		{
+	        "IsBuff"		"1"
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20" //-- THIS IS A TEMPORARY VALUE. It is supposed to be whatever 12% of tarics armor is
+	        }
+		}
+		"modifier_taric_shatter_check"
+		{
+			"IsHidden"		"1"
+			
+			"ThinkInterval"		"1"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/hero_taric/taric_shatter.lua"
+					"Function"			"ShatterCheck"
+				}
+			}
+		}
+		"modifier_taric_gemcraft"
+		{
+			"IsBuff"	"1"
+			"TextureName"   "taric_gemcraft"
+
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+					"Function"			"GemcraftHit"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName"		"modifier_taric_gemcraft"
+					"Target"			"CASTER"
+				}
+			}
+		}
+		"modifier_taric_shatter_debuff"
+		{
+	        "IsDebuff"		"1"
+	        "Duration"		"4"
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction" //-- Change to what ability special is +5% of tarics armor
+	        }
+		}
+	}
+}

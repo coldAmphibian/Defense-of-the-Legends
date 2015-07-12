@@ -1,3 +1,8 @@
+--[[
+Name: Blitzcrank Mana Barrier - Branch of Aphotic Shield from D2SpellLibrary
+Author: Zarthbenn
+Date: 06/2015
+--]]
 function ManaBarrierCheck( event )
 	local caster = event.caster
 	local ability = event.ability

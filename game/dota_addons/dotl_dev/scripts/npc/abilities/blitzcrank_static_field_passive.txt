@@ -1,3 +1,8 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Blitzcrank Static Field Passive
+// Author: Zarthbenn
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
 "blitzcrank_static_field_passive"
 {
 	// General
@@ -53,15 +58,12 @@
 				}
 			}
 		}
-		
-		//As of writing this there is no OffCooldown action so there is not any good way to reapply the passive from blitzcrank ult.
-		//This modifier checks if there is no modifier and the ult is off cooldown. You COULD run it on OnIntervalThink but having it on autoattack is alot less proccess intensive.
-
 		"modifier_blitzcrank_static_field_passive_check"
 		{
 			"IsHidden"				"1"
-			
-			"OnAttackLanded"
+
+			"ThinkInterval"			"1"
+			"OnIntervalThink"
 			{
 				"RunScript"
 				{

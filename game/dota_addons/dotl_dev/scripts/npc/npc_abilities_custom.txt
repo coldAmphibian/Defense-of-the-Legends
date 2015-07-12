@@ -4,6 +4,11 @@
 
 
 	//Start of file blitzcrank_mana_barrier.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Blitzcrank Mana Barrier
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"blitzcrank_mana_barrier"
 	{
 	    // General
@@ -90,6 +95,11 @@
 
 
 	//Start of file blitzcrank_overdrive.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Blitzcrank Overdrive
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"blitzcrank_overdrive"
 	{
 		// General
@@ -172,6 +182,11 @@
 
 
 	//Start of file blitzcrank_power_fist.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Blitzcrank Power Fist
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"blitzcrank_power_fist"
 	{
 		// General
@@ -315,6 +330,11 @@
 
 
 	//Start of file blitzcrank_rocket_grab.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Blitzcrank Rocket Grab - Branch of Pudge Hook from D2SpellLibrary
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"blitzcrank_rocket_grab"
 	{
 		// General
@@ -519,6 +539,11 @@
 
 
 	//Start of file blitzcrank_static_field.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Blitzcrank Static Field
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"blitzcrank_static_field"
 	{
 		// General
@@ -677,6 +702,11 @@
 
 
 	//Start of file blitzcrank_static_field_passive.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Blitzcrank Static Field Passive
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"blitzcrank_static_field_passive"
 	{
 		// General
@@ -732,15 +762,12 @@
 					}
 				}
 			}
-			
-			//As of writing this there is no OffCooldown action so there is not any good way to reapply the passive from blitzcrank ult.
-			//This modifier checks if there is no modifier and the ult is off cooldown. You COULD run it on OnIntervalThink but having it on autoattack is alot less proccess intensive.
-	
 			"modifier_blitzcrank_static_field_passive_check"
 			{
 				"IsHidden"				"1"
-				
-				"OnAttackLanded"
+	
+				"ThinkInterval"			"1"
+				"OnIntervalThink"
 				{
 					"RunScript"
 					{
@@ -793,29 +820,28 @@
 	//-------------------
 	// Dummy stuff
 	//-------------------
-	  
-	  "dotl_dummy_unit"
-	  {
-	    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
+	"dotl_dummy_unit"
+	{
+	    "AbilityBehavior" 		        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"            "rubick_empty1"
 	    "MaxLevel"                      "1"
-	    
+	
 	    "Modifiers"
 		{
 			"dummy_unit"
-	      {
-	          "Passive"                        "1"
-	          "IsHidden"                        "1"    
-	          "States"
-	          {
-	              "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+	        {
+	            "Passive"                        "1"
+	            "IsHidden"                       "1"
+	            "States"
+	            {
+	                "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
 	          }
-	      }
+	        }
 		}
-	  }
+	}
 	//End of file dotl_dummy_unit.txt
 
 
@@ -1145,9 +1171,6 @@
 
 
 	//Start of file ezreal_trueshot_barrage.txt
-	// LoL's Ezreal Dota port
-	// Author: wFX
-	// Date: 03/2015
 	"ezreal_trueshot_barrage"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -1301,7 +1324,7 @@
 	                // General
 	                //-------------------------------------------------------------------------------------------------------------
 	                "BaseClass"      "ability_datadriven"
-					"AbilityityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+					"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 					"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 					"MaxLevel"						"3"
 					"AbilityTextureName"			"Garen_Passive"
@@ -1727,6 +1750,11 @@
 
 
 	//Start of file leona_eclipse.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Leona Eclipse
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"leona_eclipse"
 	{
 		// General
@@ -1892,6 +1920,11 @@
 
 
 	//Start of file leona_shield_of_daybreak.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Leona Shield of Daybreak
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"leona_shield_of_daybreak"
 	{
 		// General
@@ -2020,6 +2053,11 @@
 
 
 	//Start of file leona_solar_flare.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Leona Solar Flare
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"leona_solar_flare"
 	{
 		// General
@@ -2204,10 +2242,15 @@
 
 
 	//Start of file leona_sunlight.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Leona Sunlight
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"leona_sunlight"
 	{
 		//------------------------------------------------------------------------------------------------------------
-		// This is pretty much a dummy passive for looks and consistency with other champions. 
+		// This is a dummy passive for looks and consistency with other champions. 
 		// Leonas passive is applied "manualy" from each individual move where appropriate.
 		// Ideally whenever a "OnSpellCast" action is made it is used here instead of being applied per ability.
 		//------------------------------------------------------------------------------------------------------------
@@ -2277,6 +2320,11 @@
 
 
 	//Start of file leona_zenith_blade.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Leona Zenith Blade - Branch of Pudge Hook from D2SpellLibrary
+	// Author: Zarthbenn
+	// Date: 06/2015
+	//-------------------------------------------------------------------------------------------------------------
 	"leona_zenith_blade"
 	{
 		// General
@@ -3196,6 +3244,1509 @@
 		"IsHidden"				"0"
 	}
 	//End of file obelisk_over_kill.txt
+
+
+	//Start of file sona_aria_of_perseverance.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Sona Aria of Perseverance
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"sona_aria_of_perseverance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sona_aria_of_perseverance"
+		"MaxLevel"						"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
+			"particle" 			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"720"
+		"AbilityCastPoint"				"0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"  
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 85 90 95 100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"720"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"255"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal"					"30 50 70 90 110" //-- +20% Ability Power
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal_max"				"45 75 105 135 165" //-- +30% Ability Power
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bubble_amount"			"35 55 75 95 115"   //-- (+ 20% AP) (+ 10 / 20 / 40)
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Necrolyte.DeathPulse"
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+	            {
+	                "Center" "CASTER"
+	                "Radius" "%area_of_effect"
+	                "Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY" 
+	                "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+	                "MaxTargets"		"1"
+	                "Random"		"1"
+	            }
+	
+	            "Action"
+	            {
+	            	"TrackingProjectile"
+					{
+					    "Target"           "TARGET"
+					    "EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
+					    "Dodgeable"        "0"
+					    "ProvidesVision"   "0"
+					    //"VisionRadius"     "300"
+					    "MoveSpeed"        "%projectile_speed"
+					    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
+					}
+	            }
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_sona_perseverance_aura"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_sona/sona_power_chord.lua"
+				"Function"			"PowerChord"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"RunScript"
+			{
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				}
+				"ScriptFile"	"heroes/hero_sona/sona_aria_of_perseverance.lua"
+				"Function"		"SonaHeal"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sona_power_chord"
+			{
+				"TextureName"		"sona_power_chord"
+				"IsPassive"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"modifier_sona_perseverance_aura"
+			{
+				"IsBuff"			"1"
+				"Duration"			"3"
+	
+				"Aura"        "aura_perseverance_effect"
+	    		"Aura_Radius" "%aura_radius"
+	    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	
+	    		"OnCreated"
+	    		{
+	    			"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"CASTER"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%aura_radius 1 1"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+	    		}
+	        	
+			}
+			"aura_perseverance_effect"
+			{
+				"OnCreated"
+				{
+					"ApplyModifier"
+			        {
+			        	"Target"			"TARGET"
+			        	"ModifierName"		"modifier_perseverance_bubble"
+			    	}
+				}       
+			}
+			"modifier_sona_perseverance_power_chord"
+			{
+				"IsBuff"	"1"
+				
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_sona_perseverance_power_chord"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_sona_power_chord"
+					}
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_sona_perseverance_power_chord_effect"
+					}
+				}
+			}
+			"modifier_sona_perseverance_power_chord_effect"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"3"
+	
+				"Properties" 
+		        {
+		            "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "-20" //-- +2% per 100 Ability Power
+		        }
+			}
+			"modifier_perseverance_bubble"
+			{
+				"IsBuff"			"1"
+				"Duration"			"1.5"
+			
+				"ThinkInterval"		"0.03"
+	
+				"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"EffectAttachType"	"follow_origin"	
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_sona/sona_aria_of_perseverance.lua"
+						"Function"		"SonaHealBubble"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_sona/sona_aria_of_perseverance.lua"
+						"Function"		"SonaHealBubbleAbsorb"
+						"DamageTaken"	"%attack_damage"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_sona/sona_aria_of_perseverance.lua"
+						"Function"		"SonaHealBubbleHealth"
+					}
+				}
+				
+			}
+		}
+	}
+	//End of file sona_aria_of_perseverance.txt
+
+
+	//Start of file sona_crescendo.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Sona Crescendo
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"sona_crescendo"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"sona_crescendo"
+		"MaxLevel"						"3"
+	
+		"Precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+			"particle"			"particles/units/heroes/hero_queenofpain/queen_sonic_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		}	
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"730"
+		"AbilityCastPoint"				"0.2"
+		"AbilityDamage"					"150 250 350"   //-- +50% Ability Power
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"140 120 100"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+	
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"starting_aoe"		"125"     //-- There is no documentation on the wiki on how wide the Crescendo is
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"distance"			"730"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1600"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"150 250 350"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_QueenOfPain.SonicWave"
+				"Target"		"CASTER"
+			}
+	
+			"LinearProjectile"
+			{
+				"Target"      "POINT"
+			    "EffectName"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			    "MoveSpeed"   "%speed"
+			    "StartRadius"   "%starting_aoe"
+			    "StartPosition" "attach_origin"
+			    "FixedDistance" "%distance"
+			    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			    "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
+			    "ProvidesVision" "0"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"ApplyModifier"
+			{
+				"Target"		"TARGET"
+				"ModifierName"	"modifier_sona_crescendo_stun"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sona_crescendo_stun"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"1.5"
+	
+				"EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"States" 
+		        {
+		            "MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED" 
+		        }
+	
+			}
+		}
+	
+	}
+	//End of file sona_crescendo.txt
+
+
+	//Start of file sona_hymn_of_valor.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Sona Hymn of Valor
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"sona_hymn_of_valor"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sona_hymn_of_valor"
+		"MaxLevel"						"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
+			"particle" 			 "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"620"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.0"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 80 120 160 200"   //-- +50 Ability Power
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"45 50 55 60 65"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"620"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"255"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"20 30 40 50 60"   //-- (+ 20% AP) (+ 10 / 20 / 40)
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Necrolyte.DeathPulse"
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+	            {
+	                "Center" "CASTER"
+	                "Radius" "%area_of_effect"
+	                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+	                "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	                "MaxTargets"	"2"
+	                "Random"	"1"
+	            }
+	
+	            "Action"
+	            {
+	            	"TrackingProjectile"
+					{
+					    "Target"			"TARGET"
+					    "EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+					    "Dodgeable"        "0"
+					    "ProvidesVision"   "0"
+					    //"VisionRadius"     "300"
+					    "MoveSpeed"        "%projectile_speed"
+					    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
+					}
+	            }
+			}
+			"RemoveModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"		"modifier_sona_valor_aura"
+			}
+			"RemoveModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"		"modifier_sona_celerity_aura"
+			}
+			"RemoveModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"		"modifier_sona_perseverance_aura"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_sona_valor_aura"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_sona/sona_power_chord.lua"
+				"Function"			"PowerChord"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"Damage"
+			{
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				}
+				"Type"	"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%AbilityDamage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sona_power_chord"
+			{
+				"TextureName"		"sona_power_chord"
+				"IsPassive"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"modifier_sona_valor_aura"
+			{
+				"IsBuff"			"1"
+				"Duration"			"3"
+	
+				"Aura"        "aura_valor_effect"
+	    		"Aura_Radius" "%aura_radius"
+	    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	
+	    		"OnCreated"
+	    		{
+	    			"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"CASTER"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%aura_radius 1 1"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+	    		}
+			}
+			"aura_valor_effect"
+			{
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"%bonus_damage"
+		        }
+			}
+			"modifier_sona_valor_power_chord"
+			{
+				"IsBuff"	"1"
+				
+				"Properties" 
+		        {
+		            "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" 	"40"
+		        }
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_sona_valor_power_chord"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_sona_power_chord"
+					}
+				}
+			}
+		}
+	}
+	//End of file sona_hymn_of_valor.txt
+
+
+	//Start of file sona_power_chord.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Sona Power Chord
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"sona_power_chord"
+	{
+		//------------------------------------------------------------------------------------------------------------
+		// This is a dummy passive for looks and consistency with other champions. 
+		// Sonas passive is applied "manualy" from each individual ability where appropriate.
+		//------------------------------------------------------------------------------------------------------------
+		//
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityTextureName"			"sona_power_chord"
+		"MaxLevel"						"1"
+	
+		"AbilityCooldown"				"0"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityDamage"					"100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		
+	}
+	//End of file sona_power_chord.txt
+
+
+	//Start of file sona_song_of_celerity.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Sona Song of Celerity
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"sona_song_of_celerity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sona_song_of_celerity"
+		"MaxLevel"						"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
+			"particle"			"particles/units/heroes/hero_siren/naga_siren_song_aura.vpcf"
+			"particle" 			 "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"255"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"65"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"255"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"255"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_movespeed"		"13 14 15 16 17"   //-- + 7.5% per 100 AP + 2% x Crescendo.png Crescendos rank
+		}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Necrolyte.DeathPulse"
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+	            {
+	                "Center" "CASTER"
+	                "Radius" "%area_of_effect"
+	                "Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY" 
+	                "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	                "MaxTargets"	"2"
+	                "Random"	"1"
+	            }
+	
+	            "Action"
+	            {
+	            	"TrackingProjectile"
+					{
+					    "Target"			"TARGET"
+					    "EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+					    "Dodgeable"        "0"
+					    "ProvidesVision"   "0"
+					    //"VisionRadius"     "300"
+					    "MoveSpeed"        "%projectile_speed"
+					    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
+					}
+	            }
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_sona_celerity_aura"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_sona/sona_power_chord.lua"
+				"Function"			"PowerChord"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"TARGET"
+				"ModifierName"	"modifier_sona_celerity_effect"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sona_power_chord"
+			{
+				"TextureName"		"sona_power_chord"
+				"IsPassive"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"modifier_sona_celerity_aura"
+			{
+				"IsBuff"			"1"
+				"Duration"			"3"
+	
+				"Aura"        "aura_celerity_effect"
+	    		"Aura_Radius" "%aura_radius"
+	    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    		
+	
+	    		"OnCreated"
+	    		{
+	    			"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"CASTER"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%aura_radius 1 1"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+	    		}
+	        	
+			}
+			"aura_celerity_effect"
+			{
+		        
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%aura_movespeed"
+		        }
+			}
+			"modifier_sona_celerity_power_chord"
+			{
+				"IsBuff"	"1"
+				
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_sona_celerity_power_chord"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_sona_power_chord"
+					}
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_sona_celerity_power_chord_effect"
+					}
+				}
+			}
+			"modifier_sona_celerity_power_chord_effect"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"2"
+	
+				"Properties" 
+		        {
+		            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40" //-- + 4% per 100 AP
+		        }
+			}
+		}
+	}
+	//End of file sona_song_of_celerity.txt
+
+
+	//Start of file taric_dazzle.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Taric Dazzle
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"taric_dazzle"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"taric_dazzle"
+		"MaxLevel"						"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"456"
+		"AbilityCastPoint"				"0.1"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 17 16 15 14"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 70 100 130 160"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bolt_speed"			"1022"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"	"1.2 1.3 1.4 1.5 1.6"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+				"Function"			"Gemcraft"
+			}
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+			    "EffectName"       	"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			    "MoveSpeed"        	"%bolt_speed"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"ActOnTargets"
+			{
+				"Target"		"TARGET"
+				"Action"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%AbilityDamage"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_taric_dazzle_stun"
+						"Target"		"TARGET"
+					}
+	
+				}
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_taric_dazzle_stun"
+			{
+				"Duration"		"%stun_duration"
+				"IsDebuff"		"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+	
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_taric_gemcraft"
+			{
+				"IsBuff"	"1"
+				"TextureName"   "taric_gemcraft"
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+						"Function"			"GemcraftHit"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_taric_gemcraft"
+						"Target"			"CASTER"
+					}
+				}
+			}
+		}
+	}
+	//End of file taric_dazzle.txt
+
+
+	//Start of file taric_gemcraft.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Taric Gemcraft
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"taric_gemcraft"
+	{
+		//------------------------------------------------------------------------------------------------------------
+		// This is a dummy passive for looks and consistency with other champions. 
+		// Tarics passive is applied "manualy" from each individual ability where appropriate.
+		//------------------------------------------------------------------------------------------------------------
+		//
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityTextureName"			"taric_gemcraft"
+		"MaxLevel"						"1"
+	
+		"AbilityCooldown"				"0"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityDamage"					"100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"OnUpgrade"
+		{
+	
+		}
+		"Modifiers"
+		{
+	
+		}
+	}
+	//End of file taric_gemcraft.txt
+
+
+	//Start of file taric_imbue.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Taric Imbue
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"taric_imbue"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	
+		"AbilityTextureName"			"taric_imbue"
+		"MaxLevel"						"5"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"547.5"
+		"AbilityCastPoint"				"0.1"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 17 16 15 14"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60 70 80 90 100"
+		
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal"				"60 100 140 180 220" //--  (+ 30% AP) (+ 5% bonus health)
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal_self"			"84 140 196 252 308" //-- (+ 42% AP) (+ 7% bonus health)
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/generic_gameplay/generic_healed.vpcf"
+				"TargetPoint"       "TARGET"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_taric/taric_imbue.lua"
+				"Function"			"Imbue"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+				"Function"			"Gemcraft"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_taric_gemcraft"
+			{
+				"IsBuff"	"1"
+				"TextureName"   "taric_gemcraft"
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+						"Function"			"GemcraftHit"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_taric_gemcraft"
+						"Target"			"CASTER"
+					}
+				}
+				
+			}
+		}
+	}
+	//End of file taric_imbue.txt
+
+
+	//Start of file taric_radiance.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Taric Radiance
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"taric_radiance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"taric_radiance"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+	
+		"AbilityCooldown"				"75"
+		"AbilityManaCost"				"100"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"   				"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"273"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"150 250 350"	//-- +50% AP
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"self_adap"			"30 50 70"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_adap"			"15 25 35"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_radiance_aura"
+			}
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_radiance_selfbuff"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+				"Function"			"Gemcraft"
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Target"	"CASTER"
+	
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+				"EffectAttachType" "attach_origin"
+				"Target"	"CASTER" 
+			}
+			"FireSound"
+			{
+				"EffectName" "Hero_Slardar.Slithereen_Crush"
+				"Target"	"CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center" "CASTER"
+					"Radius" "273"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+				}
+				"Action"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%AbilityDamage"
+					}
+				}
+			}
+			
+		}
+		"Modifiers"
+		{
+			"modifier_taric_radiance_aura"
+			{
+				"IsBuff"			"1"
+				"Duration"			"10"
+	
+				"Aura"        "modifier_taric_radiance_aura_effect"
+	    		"Aura_Radius" "365"
+	    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	        	"Aura_ApplyToCaster"  "0"
+			}
+			"modifier_taric_radiance_aura_effect"
+			{
+		        "IsBuff"		"1"
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "aura_adap"
+		        }
+			}
+			"modifier_taric_gemcraft"
+			{
+				"IsBuff"	"1"
+				"TextureName"   "taric_gemcraft"
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+						"Function"			"GemcraftHit"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_taric_gemcraft"
+						"Target"			"CASTER"
+					}
+				}
+			}
+			"modifier_taric_radiance_selfbuff"
+			{
+		        "IsBuff"		"1"
+		        "Duration"		"10"
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%self_adap" 
+		        }
+			}
+		}
+	}
+	//End of file taric_radiance.txt
+
+
+	//Start of file taric_shatter.txt
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Taric Shatter
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"taric_shatter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"taric_shatter"
+		"MaxLevel"						"5"
+	
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"50"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"   				"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+		  	"particle" 					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"273"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 80 120 160 200"	//-- +20% Armor
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"bonus_armor"		"10 15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_reduction"	"-5 -10 -15 -20 -25"  //-- + 5% armor
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shatter_radius"			"273"
+			}
+		}
+		"OnUpgrade"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_shatter_passive"
+			}
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_shatter_bonus_armor"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_shatter_check"
+			}
+			"RemoveModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_shatter_passive"
+	
+			}
+			"RemoveModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_taric_shatter_bonus_armor"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+				"Function"			"Gemcraft"
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Target"	"CASTER"
+	
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+				"EffectAttachType" "attach_origin"
+				"Target"	"CASTER" 
+			}
+			"FireSound"
+			{
+				"EffectName" "Hero_Slardar.Slithereen_Crush"
+				"Target"	"CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center" "CASTER"
+					"Radius" "%shatter_radius"
+					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+				}
+				"Action"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
+						"Function"		"Shatter"
+					}
+				}
+			}
+			
+		}
+		"Modifiers"
+		{
+			"modifier_taric_shatter_bonus_armor"
+			{
+				"IsBuff"		"1"
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+		        }
+			}
+			"modifier_taric_shatter_passive"
+			{
+				"IsBuff"			"1"
+	
+				"Aura"        "modifier_taric_shatter_aura"
+	    		"Aura_Radius" "365"
+	    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	        	
+			}
+			"modifier_taric_shatter_aura"
+			{
+		        "IsBuff"		"1"
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20" //-- THIS IS A TEMPORARY VALUE. It is supposed to be whatever 12% of tarics armor is
+		        }
+			}
+			"modifier_taric_shatter_check"
+			{
+				"IsHidden"		"1"
+				
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_taric/taric_shatter.lua"
+						"Function"			"ShatterCheck"
+					}
+				}
+			}
+			"modifier_taric_gemcraft"
+			{
+				"IsBuff"	"1"
+				"TextureName"   "taric_gemcraft"
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+						"Function"			"GemcraftHit"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_taric_gemcraft"
+						"Target"			"CASTER"
+					}
+				}
+			}
+			"modifier_taric_shatter_debuff"
+			{
+		        "IsDebuff"		"1"
+		        "Duration"		"4"
+		        "Properties" 
+		        {
+		            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction" //-- Change to what ability special is +5% of tarics armor
+		        }
+			}
+		}
+	}
+	//End of file taric_shatter.txt
 
 
 	//Start of file tower_a_wizard_did_it.txt

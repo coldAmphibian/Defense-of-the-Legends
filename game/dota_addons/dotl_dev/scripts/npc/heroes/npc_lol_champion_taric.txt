@@ -1,26 +1,26 @@
 //-------------------------------------------------------------------------------------------------------------
-// Name: Hero Blitzcrank
+// Name: Hero Taric
 // Author: Zarthbenn
 // Date: 07/2015
 //-------------------------------------------------------------------------------------------------------------
-"npc_lol_champion_blitzcrank"
+"npc_lol_champion_taric"
 {
-	"override_hero"				"npc_dota_hero_pudge"					// Hero to override
+	"override_hero"				"npc_dota_hero_omniknight"				// Hero to override
 	"MovementTurnRate"			"10"									// Turning rate.
-	
-	// Abilities
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityLayout"				"5"
-	"Ability1"					"blitzcrank_rocket_grab"						// Ability 1
-	"Ability2"					"blitzcrank_overdrive"							// Ability 2
-	"Ability3"					"blitzcrank_power_fist"							// Ability 3
-	"Ability4"					"blitzcrank_mana_barrier"						// Ability 4
-	"Ability5"					"blitzcrank_static_field_passive"				// Ability 5
-	"Ability6"					"blitzcrank_static_field"						// Ability 6
 
+	// Abilities
+	//-------------------------------------------------------------------------------------------------------------					
+											
+	"Ability1"					"taric_imbue"							// Ability 1
+	"Ability2"					"taric_shatter"							// Ability 2
+	"Ability3"					"taric_dazzle"							// Ability 3
+	"Ability4"					"taric_gemcraft"						// Ability 4
+	"Ability5"					"taric_radiance"						// Ability 5
+	"AbilityLayout"				"5"
+	
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------
-	"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+	"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 	"AttributeBaseStrength"		"0"										// Base strength
 	"AttributeStrengthGain"		"0"										// Strength bonus per level.
 	"AttributeBaseIntelligence"	"0"										// Base intelligence
@@ -30,22 +30,23 @@
 
 	// Base Stats
 	//-------------------------------------------------------------------------------------------------------------
-	"StatusHealth"				"583"									// Base health.
-	"HealthGain"				"95"
-	"StatusHealthRegen"			"8.5"									// Health regeneration rate.
-	"HealthRegenGain"			"0.75"
+	"StatusHealth"				"619"									// Base health.
+	"HealthGain"				"90"
+	"StatusHealthRegen"			"7.9"									// Health regeneration rate.
+	"HealthRegenGain"			"0.5"
 	
-	"StatusMana"				"267"									// Base mana.
-	"ManaGain"					"40"
+	"StatusMana"				"349"									// Base mana.
+	"ManaGain"					"56"
 	"StatusManaRegen"			"6"										// Mana regeneration rate.
 	"ManaRegenGain"				"0.8"
 
-	"MovementSpeed"				"237"									// Speed.
+	"MovementSpeed"				"248"									// Speed.
 
 	"AttackRate"				"1.6"									// Speed of attack.
 
 	// Armor
 	//-------------------------------------------------------------------------------------------------------------
-	"ArmorPhysical"				"4"									// Physical protection.
-	"MagicalResistance"			"32.1"								// Magical protection (percentage).
+	"ArmorPhysical"				"4.3"									// Physical protection.
+	"MagicalResistance"			"32.1"									// Magical protection (percentage).
+	
 }

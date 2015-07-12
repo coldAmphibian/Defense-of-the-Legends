@@ -1,3 +1,8 @@
+--[[
+Name: Leona Sunlight Lua
+Author: Zarthbenn
+Date: 07/2015
+--]]
 function LeonaSunlight( keys )
 	local caster = keys.caster
 	local target = keys.target

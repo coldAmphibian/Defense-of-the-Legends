@@ -1,22 +1,21 @@
 //-------------------------------------------------------------------------------------------------------------
-// Name: Leona Sunlight
+// Name: Taric Gemcraft
 // Author: Zarthbenn
-// Date: 06/2015
+// Date: 07/2015
 //-------------------------------------------------------------------------------------------------------------
-"leona_sunlight"
+"taric_gemcraft"
 {
 	//------------------------------------------------------------------------------------------------------------
 	// This is a dummy passive for looks and consistency with other champions. 
-	// Leonas passive is applied "manualy" from each individual move where appropriate.
-	// Ideally whenever a "OnSpellCast" action is made it is used here instead of being applied per ability.
+	// Tarics passive is applied "manualy" from each individual ability where appropriate.
 	//------------------------------------------------------------------------------------------------------------
 	//
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	"AbilityTextureName"			"leona_sunlight"
+	"AbilityTextureName"			"taric_gemcraft"
 	"MaxLevel"						"1"
 
 	"AbilityCooldown"				"0"
@@ -25,7 +24,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+		
 	}
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
@@ -37,38 +36,10 @@
 	
 	"OnUpgrade"
 	{
-		"ApplyModifier"
-		{
-			"Target"		"CASTER"
-			"ModifierName" 	"modifier_leona_sunlight_passive"
-		}
-	}
-    
-    "Modifiers"
-    {
-        "modifier_leona_sunlight"
-        {
-            "TextureName"	"leona_sunlight"
-            "IsDebuff"		"1"
-            "Duration"		"3.5"
-             
-            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-			"EffectAttachType"	"follow_origin"	
 
-            "OnAttacked"
-            {
-            	"RunScript"
-				{
-					"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
-					"Function"			"LeonaSunlight"
-				}
-            				
-            }
-        }
-        "modifier_leona_sunlight_passive"
-        {
-            "IsPassive"		"1"
-             
-	    }
+	}
+	"Modifiers"
+	{
+
 	}
 }

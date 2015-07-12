@@ -1,11 +1,9 @@
+--[[
+Name: Blitzcrank Rocket Grab Lua - Branch of Pudge Hook from D2SpellLibrary
+Author: Zarthbenn
+Date: 06/2015
+--]]
 hookTable = hookTable or {}
---[[Author: Pizzalol
-	Date: 02.01.2015.
-	Changed: 10.01.2015.
-	Upon hitting a unit it gives vision and checks if its a friendly unit or an enemy one and then pulls it back]]
-	--[[Changelog
-		10.01.2015.
-		Fixed ability damage type to not be static]]
 function RetractMeatHook( keys )
 	-- Spell
 	local caster = keys.caster

@@ -6,7 +6,11 @@
 "npc_lol_champion_leona"
 {
 	"override_hero"				"npc_dota_hero_dragon_knight"					// Hero to override
+	"Model"						"models/champions/leona/leona.vmdl"
+	"ModelScale"				"1.15"
 	"MovementTurnRate"			"10"											// Turning rate.
+	"HeroID"					"115"
+	"Enabled"					"1"
 
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------										
@@ -47,5 +51,29 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ArmorPhysical"				"4.5"									// Physical protection.
 	"MagicalResistance"			"32.1"									// Magical protection (percentage).
-	
+
+	"AttachWearables"
+	{
+		"Wearable1"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable2"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable3"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable4"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable5"
+		{
+			"ItemDef" "0"
+		}
+	}
+	"ItemSlots" {}
 }

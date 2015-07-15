@@ -8,7 +8,7 @@
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"AbilityTextureName"			"taric_shatter"
@@ -29,7 +29,7 @@
 	
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastPoint"				"0.0"
+	"AbilityCastPoint"				"0.1"
 	"AbilityCastRange"				"273"
 
 	// Damage.
@@ -42,18 +42,18 @@
 	{
 		"01"
 		{	
-			"var_type"			"FIELD_FLOAT"
-			"bonus_armor"		"10 15 20 25 30"
+			"var_type"				"FIELD_FLOAT"
+			"bonus_armor"			"10 15 20 25 30"
 		}
 		"02"
 		{
-			"var_type"			"FIELD_INTEGER"
-			"armor_reduction"	"-5 -10 -15 -20 -25"  //-- + 5% armor
+			"var_type"				"FIELD_INTEGER"
+			"armor_reduction"		"-5 -10 -15 -20 -25"  //-- + 5% armor
 		}
 		"03"
 		{
-			"var_type"					"FIELD_INTEGER"
-			"shatter_radius"			"273"
+			"var_type"				"FIELD_INTEGER"
+			"shatter_radius"		"273"
 		}
 	}
 	"OnUpgrade"
@@ -91,6 +91,11 @@
 		{
 			"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
 			"Function"			"Gemcraft"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
+			"Function"		"ShatterApply"
 		}
 		"FireEffect"
 		{
@@ -132,6 +137,15 @@
 	}
 	"Modifiers"
 	{
+		"modifier_taric_shatter_armor_percentage"
+		{
+			"IsHidden"			"1"
+			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	 "1"
+			}
+		}
 		"modifier_taric_shatter_bonus_armor"
 		{
 			"IsBuff"		"1"
@@ -149,15 +163,27 @@
     		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
     		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-        	
 		}
 		"modifier_taric_shatter_aura"
 		{
 	        "IsBuff"		"1"
-	        "Properties" 
+	        "OnCreated"
 	        {
-	            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20" //-- THIS IS A TEMPORARY VALUE. It is supposed to be whatever 12% of tarics armor is
+	        	"RunScript"
+	        	{
+	        		"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
+	        		"Function"		"ShatterApply"
+	        	}
 	        }
+	        "OnDestroy"
+	        {
+	        	"RemoveModifier"
+	        	{
+	        		"ModifierName"	"modifier_taric_shatter_armor_percentage"
+	        		"Target" 		"TARGET"
+	        	}
+	        }
+	       	
 		}
 		"modifier_taric_shatter_check"
 		{

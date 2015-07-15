@@ -7,6 +7,10 @@
 {
 	"override_hero"				"npc_dota_hero_pudge"					// Hero to override
 	"MovementTurnRate"			"10"									// Turning rate.
+	"Model"						"models/champions/blitzcrank/blitzcrank.vmdl"
+	"ModelScale"				"1.15"	
+	"HeroID"					"116"
+	"Enabled"					"1"
 	
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------
@@ -47,5 +51,32 @@
 	// Armor
 	//-------------------------------------------------------------------------------------------------------------
 	"ArmorPhysical"				"4"									// Physical protection.
-	"MagicalResistance"			"32.1"								// Magical protection (percentage).
+	"MagicalResistance"			"32.1"									// Magical protection (percentage).
+
+
+	"AttachWearables"
+	{
+		"Wearable1"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable2"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable3"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable4"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable5"
+		{
+			"ItemDef" "0"
+		}
+	}
+	"ItemSlots" {}
+
 }

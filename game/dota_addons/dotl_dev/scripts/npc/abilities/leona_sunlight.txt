@@ -1,7 +1,12 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Leona Sunlight
+// Author: Zarthbenn
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
 "leona_sunlight"
 {
 	//------------------------------------------------------------------------------------------------------------
-	// This is pretty much a dummy passive for looks and consistency with other champions. 
+	// This is a dummy passive for looks and consistency with other champions. 
 	// Leonas passive is applied "manualy" from each individual move where appropriate.
 	// Ideally whenever a "OnSpellCast" action is made it is used here instead of being applied per ability.
 	//------------------------------------------------------------------------------------------------------------

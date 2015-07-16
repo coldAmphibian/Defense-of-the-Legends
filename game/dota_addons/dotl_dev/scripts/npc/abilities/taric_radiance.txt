@@ -1,0 +1,161 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Taric Radiance
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"taric_radiance"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AbilityTextureName"			"taric_radiance"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"MaxLevel"						"3"
+
+	"AbilityCooldown"				"75"
+	"AbilityManaCost"				"100"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"   				"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+	  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+	  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityCastRange"				"273"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"150 250 350"	//-- +50% AP
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"			"FIELD_INTEGER"
+			"self_adap"			"30 50 70"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"aura_adap"			"15 25 35"
+		}
+	}
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_radiance_aura"
+		}
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_taric_radiance_selfbuff"
+		}
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+			"Function"			"Gemcraft"
+		}
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"EffectAttachType"	"attach_origin"
+			"Target"	"CASTER"
+
+		}
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+			"EffectAttachType" "attach_origin"
+			"Target"	"CASTER" 
+		}
+		"FireSound"
+		{
+			"EffectName" "Hero_Slardar.Slithereen_Crush"
+			"Target"	"CASTER"
+		}
+		"ActOnTargets"
+		{
+			"Target"
+			{
+				"Center" "CASTER"
+				"Radius" "273"
+				"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			}
+			"Action"
+			{
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Damage"	"%AbilityDamage"
+				}
+			}
+		}
+		
+	}
+	"Modifiers"
+	{
+		"modifier_taric_radiance_aura"
+		{
+			"IsBuff"			"1"
+			"Duration"			"10"
+
+			"Aura"        "modifier_taric_radiance_aura_effect"
+    		"Aura_Radius" "365"
+    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        	"Aura_ApplyToCaster"  "0"
+		}
+		"modifier_taric_radiance_aura_effect"
+		{
+	        "IsBuff"		"1"
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "aura_adap"
+	        }
+		}
+		"modifier_taric_gemcraft"
+		{
+			"IsBuff"	"1"
+			"TextureName"   "taric_gemcraft"
+
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+					"Function"			"GemcraftHit"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName"		"modifier_taric_gemcraft"
+					"Target"			"CASTER"
+				}
+			}
+		}
+		"modifier_taric_radiance_selfbuff"
+		{
+	        "IsBuff"		"1"
+	        "Duration"		"10"
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%self_adap" 
+	        }
+		}
+	}
+}

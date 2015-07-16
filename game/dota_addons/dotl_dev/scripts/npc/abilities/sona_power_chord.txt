@@ -1,0 +1,37 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Sona Power Chord
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"sona_power_chord"
+{
+	//------------------------------------------------------------------------------------------------------------
+	// This is a dummy passive for looks and consistency with other champions. 
+	// Sonas passive is applied "manualy" from each individual ability where appropriate.
+	//------------------------------------------------------------------------------------------------------------
+	//
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityTextureName"			"sona_power_chord"
+	"MaxLevel"						"1"
+
+	"AbilityCooldown"				"0"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+	}
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityDamage"					"100"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	
+}

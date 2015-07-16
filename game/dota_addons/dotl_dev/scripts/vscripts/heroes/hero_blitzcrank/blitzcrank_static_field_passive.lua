@@ -1,3 +1,9 @@
+--[[
+Name: Blitzcrank Static Field Passive
+Author: Zarthbenn
+Date: 07/2015
+--]]
+
 --function for picking a random value from a table (not sure if there is a better way to do this)
 function table.randFrom( t )
     local choice = "none"

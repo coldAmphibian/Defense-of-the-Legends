@@ -1,0 +1,1326 @@
+<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
+CVModel CVModel_0
+{
+	CVmeshList m_meshList = CVmeshList
+	{
+		CVmesh[] m_meshList = 
+		[
+			CVmesh
+			{
+				string m_meshName = "blitzcrank"
+				string m_meshFile = "models/champions/blitzcrank/blitzcrank.fbx"
+				string m_materialSearchPath = ""
+				bool m_bSkinParentedObjects = true
+				bool m_bLegacySkinParentedTransforms = false
+				bool m_bExpensiveTangents = false
+				bool m_bExpensiveVertices = false
+				bool m_bIgnoreCloth = false
+				bool m_bGetSkinningFromLod0 = false
+				CVmorphInfo* m_pMorphInfo = NULL
+			}
+		]
+	}
+	CVClothProxyMeshList m_clothProxyMeshList = CVClothProxyMeshList
+	{
+		CVClothProxyMesh[] m_clothProxyMeshList = 
+		[
+			
+		]
+		float m_flClothEnableThreshold = 0.050000
+		bool m_bCreateStaticBone = false
+		int m_nMaxBonesPerVertex = 4
+		bool m_bRemoveUnusedBonesEnabled = false
+		bool m_bDriveMeshesWithBacksolvedJointsOnly = true
+		float m_flMatchProxiesToMeshes = 1.000000
+		float m_flReservedFloat = 0.000000
+		int m_nReservedInt = 0
+		bool m_bReservedBool1 = false
+		bool m_bReservedBool2 = false
+		bool m_bReservedBool3 = false
+		bool m_bReservedBool4 = false
+	}
+	CVphysicsMeshList m_physicsMeshList = CVphysicsMeshList
+	{
+		CVphysicsMesh[] m_meshList = 
+		[
+			
+		]
+	}
+	CVmodelInfo* m_pModelInfo = NULL
+	CVBoneFlagListReference m_pBoneFlagList = CVBoneFlagListReference
+	{
+		CVBoneFlagList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVhitBoxSetListReference[] m_pHitBoxSetLists = 
+	[
+		CVhitBoxSetListReference
+		{
+			CVhitBoxSetList* m_pObject = &CVhitBoxSetList_0
+			string m_sFileName = ""
+		}
+	]
+	CVattachmentListReference[] m_pAttachmentLists = 
+	[
+		CVattachmentListReference
+		{
+			CVattachmentList* m_pObject = &CVattachmentList_0
+			string m_sFileName = ""
+		}
+	]
+	CVanimGroupReference[] m_pAnimGroups = 
+	[
+		CVanimGroupReference
+		{
+			CVanimGroup* m_pObject = &CVanimGroup_0
+			string m_sFileName = ""
+		}
+	]
+	CVNodeMaterialGroupListReference m_pMaterialGroupList = CVNodeMaterialGroupListReference
+	{
+		NodeMaterialGroupList_t* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVMeshGroupListReference m_pMeshGroupList = CVMeshGroupListReference
+	{
+		MeshGroupList_t* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVLODGroupListReference m_pLodGroupList = CVLODGroupListReference
+	{
+		LODGroupList_t* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVpropBreakableListReference m_pPropBreakableList = CVpropBreakableListReference
+	{
+		CVpropBreakableList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVpropDataListReference m_pPropDataList = CVpropDataListReference
+	{
+		CVpropDataList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVConstraintListReference[] m_pConstraintLists = 
+	[
+		
+	]
+	string m_collision = ""
+	string m_softbody = ""
+	string m_sMDLFilename = ""
+	string[] m_sOffsetHitboxSets = 
+	[
+		
+	]
+	float(3) m_vHitboxSetOffset = ( 0.000000, 0.000000, 0.000000 )
+	string[] m_scriptFiles = 
+	[
+		
+	]
+	CVMaterialRemapList* m_pMaterialRemapList = &CVMaterialRemapList_0
+	float m_flFbxScale = 1.000000
+	float m_flQCScale = 1.000000
+	float(3) m_vOrigin = ( 0.000000, 0.000000, 0.000000 )
+	CVPsf* m_pvPsf = NULL
+	string m_keyValueText = ""
+	bool m_bStaticProp = false
+	bool m_bEnableClothProcessing = true
+	float m_flClothEnableThreshold = 0.050000
+	int m_nMaxClothVertsPerMesh = 2048
+	bool m_bBuildClothBoneHierarchy = false
+	symbol m_nNavType = AUTH_NAV_MESH
+	bool m_bMakeUniqueVMeshes = false
+	bool m_bMakeImplicitBindPoseSequence = false
+	bool m_bAdjustSkeletonFromBoneFlags = false
+}
+
+CVhitBoxSetList CVhitBoxSetList_0
+{
+	CVhitBoxSet[] m_HitBoxSets = 
+	[
+		CVhitBoxSet
+		{
+			string m_name = "default"
+			CVhitBox[] m_HitBoxes = 
+			[
+				CVhitBox
+				{
+					string m_name = "root"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "root"
+					float(3) m_vMinBounds = ( -19.281376, -8.893987, -8.166415 )
+					float(3) m_vMaxBounds = ( 9.189575, 8.893992, 11.234691 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "spine"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "spine"
+					float(3) m_vMinBounds = ( -66.057587, -40.229004, -51.828896 )
+					float(3) m_vMaxBounds = ( 14.507225, 40.974899, 36.135735 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_shoulder"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_shoulder"
+					float(3) m_vMinBounds = ( -4.546532, -5.010363, -7.510265 )
+					float(3) m_vMaxBounds = ( 4.551964, 12.018852, 5.489240 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_uparm1"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_uparm1"
+					float(3) m_vMinBounds = ( -23.602661, -11.952663, -33.419693 )
+					float(3) m_vMaxBounds = ( 17.276600, 48.823318, 4.345947 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_forearm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_forearm"
+					float(3) m_vMinBounds = ( -17.535480, -3.387993, -18.240791 )
+					float(3) m_vMaxBounds = ( 21.821655, 64.223816, 22.433029 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_hand"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_hand"
+					float(3) m_vMinBounds = ( -4.170330, -24.841946, -12.215275 )
+					float(3) m_vMaxBounds = ( 32.919048, 22.873535, 19.760315 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "pelvis"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "pelvis"
+					float(3) m_vMinBounds = ( -7.567760, -18.642698, -17.661987 )
+					float(3) m_vMaxBounds = ( 14.179401, 18.642702, 21.228939 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_hand_grab"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_hand_grab"
+					float(3) m_vMinBounds = ( -34.605423, -23.906555, -19.759613 )
+					float(3) m_vMaxBounds = ( 4.237953, 23.963734, 12.216087 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_shoulder"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_shoulder"
+					float(3) m_vMinBounds = ( -4.654106, -5.010273, -5.314638 )
+					float(3) m_vMaxBounds = ( 4.815742, 12.018826, 7.368628 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_finger"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_finger"
+					float(3) m_vMinBounds = ( -22.153488, 10.767288, -0.992035 )
+					float(3) m_vMaxBounds = ( 25.365139, 15.827354, 5.249847 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_thigh"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_thigh"
+					float(3) m_vMinBounds = ( -7.451823, -4.903553, -3.822599 )
+					float(3) m_vMaxBounds = ( 2.784939, -1.144047, 2.657515 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_thigh"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_thigh"
+					float(3) m_vMinBounds = ( -1.503469, -3.733597, -3.131213 )
+					float(3) m_vMaxBounds = ( 4.001101, -0.600163, 1.602950 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_finger"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_finger"
+					float(3) m_vMinBounds = ( -14.791473, -23.062836, -4.949898 )
+					float(3) m_vMaxBounds = ( -9.991272, 24.503357, 0.169716 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "neck"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "neck"
+					float(3) m_vMinBounds = ( -4.269652, -2.619659, -4.711550 )
+					float(3) m_vMaxBounds = ( 4.717739, 7.911842, 4.358713 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_uparm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_uparm"
+					float(3) m_vMinBounds = ( -11.527306, -11.952660, -10.939571 )
+					float(3) m_vMaxBounds = ( 30.649132, 48.789776, 31.356869 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_finger_b"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_finger_b"
+					float(3) m_vMinBounds = ( -23.728523, -4.581856, -5.486595 )
+					float(3) m_vMaxBounds = ( 27.166515, 22.807007, 6.537926 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_calf"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_calf"
+					float(3) m_vMinBounds = ( -23.846363, -6.765815, -5.455065 )
+					float(3) m_vMaxBounds = ( 3.817020, 9.637849, 6.964100 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_calf"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_calf"
+					float(3) m_vMinBounds = ( -24.108223, -9.637845, -5.563154 )
+					float(3) m_vMaxBounds = ( 3.817057, 6.765851, 6.964033 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_finger_b"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_finger_b"
+					float(3) m_vMinBounds = ( -22.807930, -24.591736, -4.120064 )
+					float(3) m_vMaxBounds = ( 4.580788, 26.078323, 2.889229 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "head"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "head"
+					float(3) m_vMinBounds = ( -11.458400, -1.638939, -11.546528 )
+					float(3) m_vMaxBounds = ( 11.458394, 18.853516, 17.165817 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_forearm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_forearm"
+					float(3) m_vMinBounds = ( -21.814861, -3.312935, -18.178242 )
+					float(3) m_vMaxBounds = ( 17.910027, 64.086395, 21.004662 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_finger_c"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_finger_c"
+					float(3) m_vMinBounds = ( -4.579277, -24.734386, -16.627388 )
+					float(3) m_vMaxBounds = ( 7.796040, 23.681023, 1.892578 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_thumb"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_thumb"
+					float(3) m_vMinBounds = ( 4.006546, -13.939182, -9.848820 )
+					float(3) m_vMaxBounds = ( 28.600983, 8.993023, 9.564739 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_chest"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_chest"
+					float(3) m_vMinBounds = ( -7.864311, -22.267075, 15.849216 )
+					float(3) m_vMaxBounds = ( 6.618288, 16.363121, 27.774342 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_chest"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_chest"
+					float(3) m_vMinBounds = ( 19.591415, -5.639064, -20.923805 )
+					float(3) m_vMaxBounds = ( 26.758514, 9.292805, 18.867348 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "L_foot"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "L_foot"
+					float(3) m_vMinBounds = ( -15.594312, -9.408828, -14.703097 )
+					float(3) m_vMaxBounds = ( 25.126301, 38.164246, 23.041721 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_foot"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_foot"
+					float(3) m_vMinBounds = ( -13.810853, -9.409031, -15.064110 )
+					float(3) m_vMaxBounds = ( 24.208824, 38.737255, 23.531700 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_finger_c"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_finger_c"
+					float(3) m_vMinBounds = ( -7.825478, -24.559570, -1.837898 )
+					float(3) m_vMaxBounds = ( 4.548691, 23.855766, 16.681995 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "R_thumb"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "R_thumb"
+					float(3) m_vMinBounds = ( -25.246277, -9.571144, -9.564159 )
+					float(3) m_vMaxBounds = ( -4.670898, 11.422070, 9.850231 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				}
+			]
+		}
+	]
+}
+
+CVattachmentList CVattachmentList_0
+{
+	string m_name = ""
+	CVattachment[] m_attachments = 
+	[
+		CVattachment
+		{
+			string m_name = "attachment_root"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "root"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		},
+		CVattachment
+		{
+			string m_name = "attachment_attack1"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "L_hand"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		},
+		CVattachment
+		{
+			string m_name = "attachment_attack2"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "R_hand"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		},
+		CVattachment
+		{
+			string m_name = "attachment_hitloc"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "root"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		}
+	]
+}
+
+CVanimGroup CVanimGroup_0
+{
+	string m_Name = ""
+	CVReferenceSkeletonReference m_pReferenceSkeleton = CVReferenceSkeletonReference
+	{
+		CVReferenceSkeleton* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVBoneFlagListReference m_pBoneFlagList = CVBoneFlagListReference
+	{
+		CVBoneFlagList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVseqGroupReference m_pSeqGroup = CVseqGroupReference
+	{
+		CVseqGroup* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVanimGroupReference[] m_pAnimGroups = 
+	[
+		
+	]
+	CVanim[] m_Vanim = 
+	[
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_attack1"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_attack1.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 20
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_ATTACK"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_attack2"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_attack2.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 20
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_ATTACK2"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_run"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_run.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 23
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_RUN"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = false
+					bool m_bExtractTY = false
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_idle1"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_idle1.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 23
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_IDLE"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_idle1_loadout"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_idle1.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 23
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_LOADOUT"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_idle2"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_idle2.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 23
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_IDLE_IMPATIENT"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_idle3"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_idle3.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 47
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_IDLE_RARE"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_spell1"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_spell1.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 20
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_CAST_ABILITY_1"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_spell4"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_spell4.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 23
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_CAST_ABILITY_5"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_death"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_death.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 39
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_DIE"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_dance"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_dance.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 89
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_laugh"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_laugh.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 59
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "blitzcrank_taunt"
+			string m_Filepath = "models/champions/blitzcrank/blitzcrank_taunt.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 54
+			float m_flFps = 24.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		}
+	]
+	string[] m_sScripts = 
+	[
+		
+	]
+}
+
+CVMaterialRemapList CVMaterialRemapList_0
+{
+	CVMaterialRemap[] m_vMaterialRemapList = 
+	[
+		CVMaterialRemap
+		{
+			string m_sSearchMaterial = "defaultmaterial.vmat"
+			string m_sReplaceMaterial = "materials/champions/blitzcrank.vmat"
+		}
+	]
+}

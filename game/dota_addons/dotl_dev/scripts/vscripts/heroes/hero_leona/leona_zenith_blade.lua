@@ -1,4 +1,10 @@
---Taken directly from lolpizza's code in Dota 2 Spelllibrary
+--[[
+Name: Leona Zenith Blade Lua
+Author: Zarthbenn
+Date: 07/2015
+--]]
+
+--Branch of lolpizza's code in Dota 2 Spelllibrary
 --Only slight alterations to disable hook retract animation.
 
 hookTable = hookTable or {}

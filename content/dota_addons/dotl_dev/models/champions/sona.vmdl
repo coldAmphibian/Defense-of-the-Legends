@@ -7,8 +7,13 @@ CVModel CVModel_0
 		[
 			CVmesh
 			{
+<<<<<<< HEAD
 				string m_meshName = "sona_attack1"
 				string m_meshFile = "models/champions/fbx/sona/sona_attack1.fbx"
+=======
+				string m_meshName = "sona_idle1"
+				string m_meshFile = "models/champions/fbx/sona/sona_idle1.fbx"
+>>>>>>> master
 				string m_materialSearchPath = ""
 				bool m_bSkinParentedObjects = true
 				bool m_bLegacySkinParentedTransforms = false
@@ -971,8 +976,13 @@ CVanimGroup CVanimGroup_0
 				CMotionFrame
 				{
 					int m_nFrame = 0
+<<<<<<< HEAD
 					bool m_bExtractTX = true
 					bool m_bExtractTY = true
+=======
+					bool m_bExtractTX = false
+					bool m_bExtractTY = false
+>>>>>>> master
 					bool m_bExtractTZ = false
 					bool m_bExtractRX = false
 					bool m_bExtractRY = false
@@ -989,7 +999,11 @@ CVanimGroup CVanimGroup_0
 			[
 				
 			]
+<<<<<<< HEAD
 			CAlignAnimation* m_pAlignAnimation = &CAlignAnimation_0
+=======
+			CAlignAnimation* m_pAlignAnimation = NULL
+>>>>>>> master
 			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
 			{
 				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
@@ -1272,6 +1286,7 @@ CVanimGroup CVanimGroup_0
 	]
 }
 
+<<<<<<< HEAD
 CAlignAnimation CAlignAnimation_0
 {
 	string m_sFilePath = ""
@@ -1286,6 +1301,8 @@ CAlignAnimation CAlignAnimation_0
 	bool m_bAlignRZ = false
 }
 
+=======
+>>>>>>> master
 CVMaterialRemapList CVMaterialRemapList_0
 {
 	CVMaterialRemap[] m_vMaterialRemapList = 

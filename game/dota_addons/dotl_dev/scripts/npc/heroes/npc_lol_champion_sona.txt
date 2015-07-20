@@ -7,6 +7,11 @@
 {
 	"override_hero"				"npc_dota_hero_wisp"					// Hero to override
 	"MovementTurnRate"			"10"									// Turning rate.
+	"Model"						"models/champions/sona/sona.vmdl"
+	"ModelScale"				"1"
+	"MovementTurnRate"			"10"											// Turning rate.
+	"HeroID"					"120"
+	"Enabled"					"1"
 
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------							
@@ -48,5 +53,32 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ArmorPhysical"				"3.41"									// Physical protection.
 	"MagicalResistance"			"30"									// Magical protection (percentage).
+
+	"AttachWearables"
+	{
+		"Wearable1"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable2"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable3"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable4"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable5"
+		{
+			"ItemDef" "0"
+		}
+	}
+	"ItemSlots" {}
+
+
 	
 }

@@ -123,9 +123,9 @@
 		
 		"DOTA_Tooltip_ability_blitzcrank_overdrive"										"Overdrive"
 		"DOTA_Tooltip_ability_blitzcrank_overdrive_Description"							"Blitzcrank supercharges himself, gaining increased movement and attack speed for 5 seconds. The movement speed bonus decays to a minimum of 10% over the duration. When Overdrive ends, Blitzcrank is slowed by 30% for 1.5 seconds."
-		"DOTA_Tooltip_ability_blitzcrank_overdrive_bonus_attackspeed"					"Bonus Attackspeed: "
-		"DOTA_Tooltip_ability_blitzcrank_overdrive_bonus_speed"							"Bonus Speed:"
-		"DOTA_Tooltip_ability_blitzcrank_overdrive_duration"							"Duration:"
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_bonus_attackspeed"					"BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_bonus_speed"							"BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_duration"							"DURATION:"
 		"DOTA_Tooltip_modifier_overdrive"												"Supercharged"
 		"DOTA_Tooltip_modifier_overdrive_Description"									"This unit is in overdrive!"
 		
@@ -163,14 +163,14 @@
 		"DOTA_Tooltip_ability_ezreal_essence_flux"										"Essence Flux"
 		"DOTA_Tooltip_ability_ezreal_essence_flux_Description"							"Ezreal fires a wave of energy in a line, dealing magic damage to all enemy champions it passes through and increasing the attack speed of all allied champions it hits for 5 seconds."
 		"DOTA_Tooltip_ability_ezreal_essence_flux_Note0"								"If the circumstances permit, Ezreal can increase his own attack speed with Essence Flux."
-		"DOTA_Tooltip_ability_ezreal_essence_flux_bonus_attack_speed"					"ATTACK SPEED: "
+		"DOTA_Tooltip_ability_ezreal_essence_flux_bonus_attack_speed"					"ATTACK SPEED:"
 		"DOTA_Tooltip_modifier_essence_flux"												"Essence Flux"
 		"DOTA_Tooltip_modifier_essence_flux_Description"									"This unit have increased attack speed."
 		
 		"DOTA_Tooltip_ability_ezreal_arcane_shift"									"Arcane Shift"
 		"DOTA_Tooltip_ability_ezreal_arcane_shift_Description"						"Ezreal blinks to the target location and fires a homing bolt that deals magic damage to the nearest enemy."
-		"DOTA_Tooltip_ability_ezreal_arcane_shift_blink_range"						"BLINK RANGE: "
-		"DOTA_Tooltip_ability_ezreal_arcane_shift_searh_range"						"SEARCH RANGE: "
+		"DOTA_Tooltip_ability_ezreal_arcane_shift_blink_range"						"BLINK RANGE:"
+		"DOTA_Tooltip_ability_ezreal_arcane_shift_searh_range"						"SEARCH RANGE:"
 		
 		"DOTA_Tooltip_ability_ezreal_trueshot_barrage"									"Trueshot Barrage"
 		"DOTA_Tooltip_ability_ezreal_trueshot_barrage_Description"						"After gathering energy for 1 second, Ezreal fires a powerful, broad energy missile that travels in a line across the whole map, dealing magic damage to all enemies it passes through. Each enemy hit reduces the missile's damage by 10%, down to a minimum of 30% damage dealt."

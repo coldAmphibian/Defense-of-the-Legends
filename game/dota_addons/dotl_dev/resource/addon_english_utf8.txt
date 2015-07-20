@@ -1,0 +1,341 @@
+"lang"
+{
+	"Language"		"English"
+	"Tokens"
+	{		
+		"addon_game_name"			"Defence of the Legends"
+
+		//=================================================================================
+		// Brush Strings
+		//=================================================================================
+
+		"DOTA_Tooltip_modifier_lol_in_brush"									"Brushy Brushy"
+		"DOTA_Tooltip_modifier_lol_in_brush_Description"						"You are in a brush, people outside can't see you"
+
+		"DOTA_Tooltip_modifier_lol_building_invuln"								"Invulnerable"
+		"DOTA_Tooltip_modifier_lol_building_invuln_Description"					"This building is currently invulnerable"
+
+		//=================================================================================
+		// Structure Strings
+		//=================================================================================
+
+		"npc_lol_blue_turret_t1"													"Tier 1 Turret"
+		"npc_lol_blue_turret_t2"													"Tier 2 Turret"
+		"npc_lol_blue_turret_t3"													"Tier 3 Turret"
+		"npc_lol_blue_turret_t4"													"Tier 4 Turret"
+		"npc_lol_blue_inhibitor"													"Inhibitor"
+		"npc_lol_blue_nexus"														"Nexus"
+		"npc_lol_blue_obelisk"														"Nexus Obelisk"
+
+		"npc_lol_red_turret_t1"														"Tier 1 Turret"
+		"npc_lol_red_turret_t2"														"Tier 2 Turret"
+		"npc_lol_red_turret_t3"														"Tier 3 Turret"
+		"npc_lol_red_turret_t4"														"Tier 4 Turret"
+		"npc_lol_red_inhibitor"														"Inhibitor"
+		"npc_lol_red_nexus"															"Nexus"
+		"npc_lol_red_obelisk"														"Nexus Obelisk"
+
+		"DOTA_Tooltip_ability_lol_tower_lightning_rod"							"Lighting Rod"
+		"DOTA_Tooltip_ability_lol_tower_lightning_rod_Description"				"<font color=\"#8ae48a\">Ignores 82.5%% target armor</font>\n<font color=\"#f19102\">UNIQUE Passive - Lightning Rod:</font>\nDeals damage in a continuous beam."
+		"DOTA_Tooltip_ability_lol_tower_lightning_rod_Lore"						"His name is Udyr, he farms under turrets. -trick2g"
+
+		"DOTA_Tooltip_ability_lol_tower_penetrating_bullets"					"Penetrating Bullets"
+		"DOTA_Tooltip_ability_lol_tower_penetrating_bullets_Description"		"<font color=\"#8ae48a\">+30%% Armor Penetration</font>\n<font color=\"#f19102\">UNIQUE Passive - Dodge Piercing:</font>\n Turret attacks cannot be dodged.</font>\n<font color=\"#f19102\">UNIQUE Passive - Warming Up:</font>\n Turrets gain 37.5%% damage each time they strike a champion or hero. (Max 75%% bonus damage)</font>\n<font color=\"#f19102\">UNIQUE Passive - Heated Up:</font>\n After the turret is fully heated, consecutive attacks against the same champion deal 25%% additional damage. (Max 50%% bonus damage)</font>\n"
+		"DOTA_Tooltip_ability_lol_tower_penetrating_bullets_Note0"				"tl;dr - Does more damage the more you get hit."
+
+		"DOTA_Tooltip_ability_lol_tower_reinforced_armor"						"Reinforced Armor"
+		"DOTA_Tooltip_ability_lol_tower_reinforced_armor_Description"			"<font color=\"#f19102\">UNIQUE Passive - Reinforced Armor:</font>\n Takes 75%% less physical and magical damage when no enemy creeps/minions are nearby."
+
+		"DOTA_Tooltip_ability_lol_tower_wardens_eye"							"Warden's Eye"
+		"DOTA_Tooltip_ability_lol_tower_wardens_eye_Description"				"<font color=\"#f19102\">UNIQUE Passive - True Sight:</font>\n Can see invisible units within 734 units"
+		"DOTA_Tooltip_ability_lol_tower_wardens_eye_Note0"						"I'm bad at programming at the detection range is the same as the tower's vision range "
+
+		"DOTA_Tooltip_ability_lol_tower_vanguard"								"Vanguard"
+		"DOTA_Tooltip_ability_lol_tower_vanguard_Description"					"<font color=\"#f19102\">UNIQUE Passive - Tower Vanguard:</font>\nHas a 200 Health champion/hero damage shield. This shield regenerates to full if it is not attacked for 30 seconds.\n<font color=\"#f19102\">UNIQUE Passive - Champion Vanguard:</font>\nWhile this tower has the tower vanguard shield, grants nearby champions and heroes a shield at the rate of 30 health per second (Max 300 health). This shield decays while away from a shielded tower. The shield does not regenerate on champions actively taking damage."
+
+		"DOTA_Tooltip_ability_lol_tower_a_wizard_did_it"						"A Wizard Did It!"
+		"DOTA_Tooltip_ability_lol_tower_a_wizard_did_it_Description"			"<font color=\"#f19102\">UNIQUE Passive - Shitty Wizard:</font>\nBuildings take 40%% of your ability power as additional damage when auto attacked."
+		"DOTA_Tooltip_ability_lol_tower_a_wizard_did_it_Note0"					"This does not affect heroes"
+		"DOTA_Tooltip_ability_lol_tower_a_wizard_did_it_Lore"					"Shitty Wizard"
+
+		"DOTA_Tooltip_ability_lol_tower_fortification"							"Fortification"
+		"DOTA_Tooltip_ability_lol_tower_fortification_Description"				"<font color=\"#f19102\">UNIQUE Passive - Fortification:</font>\nBlocks 30 damage from champion basic attacks, this effect expires on the 7 minute mark."
+		"DOTA_Tooltip_ability_lol_tower_fortification_Note0"					"Not glyph you idiot!"
+		
+		"DOTA_Tooltip_ability_lol_inhibitor_armor"								"Inhibitor Armor"
+		"DOTA_Tooltip_ability_lol_inhibitor_armor_Description"					"<font color=\"#f19102\">UNIQUE Passive - Special Armor:</font>\nThis building takes 85%% of all damage dealt to it"
+		"DOTA_Tooltip_ability_lol_inhibitor_armor_Lore"							"They can't have my Brand! I've got special armor"
+		
+		"DOTA_Tooltip_ability_lol_nexus_end"									"The Win Condition"
+		"DOTA_Tooltip_ability_lol_nexus_end_Description"						"<font color=\"#f19102\">UNIQUE Passive - Kill Da Fort:</font>\nDestroying this building ends the game"
+		"DOTA_Tooltip_ability_lol_nexus_end_Lore"								"Kill the nexus for more gold, I win 100% of the games where I last hit the nexus"
+
+		
+		"DOTA_Tooltip_ability_lol_obelisk_laser"								"Big Ass Laser"
+		"DOTA_Tooltip_ability_lol_obelisk_laser_Description"					"<font color=\"#f19102\">UNIQUE Passive - Obliderate:</font>\nThe Obelisk's attacks hit for true damage and cannot be dodged."
+		"DOTA_Tooltip_ability_lol_obelisk_laser_Lore"							"Many have debated building the Obelisk on the Nexus, we told them to git gud"
+
+		
+		"DOTA_Tooltip_ability_lol_obelisk_Overkill"								"Overkill"
+		"DOTA_Tooltip_ability_lol_obelisk_Overkill_Description"					"<font color=\"#f19102\">UNIQUE Passive - Overkill:</font>\nThe Obelisk ignores certain items and abilities"
+		"DOTA_Tooltip_ability_lol_obelisk_Overkill_Note0"						"Aatrox: Blood Well\nAnivia: Rebirth\nKayle: Intervention\nPoppy: Diplomatic Immunity\nTryndamere: Undying Rage\nZilean: Chrono Shift\nZac: Cell Division\n\nGuardian Angel\nOhmwrecker\nShields"
+
+		
+
+		//=================================================================================
+		// Ashe Ability Strings
+		//=================================================================================
+
+		"DOTA_Tooltip_ability_ashe_frost_shot"									"Frost Shot"
+		"DOTA_Tooltip_ability_ashe_frost_shot_Description"						"Ashe enchants her basic attacks with ice, slowing her targets for 2 seconds."
+		"DOTA_Tooltip_ability_ashe_frost_shot_frost_arrows_movement_speed"  	"%SLOW:"
+		
+		"DOTA_Tooltip_ability_ashe_volly"										"Volley"
+		"DOTA_Tooltip_ability_ashe_volly_Description"							"Ashe fires 7 arrows in a 57.5º cone, dealing your attack damage plus additional bonus damage to each target hit. Volley also applies the current rank of Frost Shot's slow."
+		"DOTA_Tooltip_ability_ashe_volly_bonus_damage"							"BONUS DAMAGE:"
+		
+		"DOTA_Tooltip_ability_ashe_hawkshot"									"Hawkshot"
+		"DOTA_Tooltip_ability_ashe_hawkshot_Description"						"Ashe fires a projectile to scout for her, granting sight as it flies towards a target location. Hawkshot grants a 1000-radius area of sight for 5 seconds when it reaches its destination.\n\nPassively you will gain 3 extra gold per last hit."
+		"DOTA_Tooltip_ability_ashe_hawkshot_range"								"CAST RANGE:"
+		
+		"DOTA_Tooltip_ability_ashe_crystal_arrow"								"Enchanted Crystal Arrow"
+		"DOTA_Tooltip_ability_ashe_crystal_arrow_Description"					"Ashe fires a giant arrow in a straight line. If it hits an enemy champion, it will deal magic damage and stun that champion for 1-3.5 seconds, based on the distance the arrow travelled. Additionally, enemies within a 250-radius of the impact take half the damage and are slowed by 50%% for 3 seconds."
+		"DOTA_Tooltip_ability_ashe_crystal_arrow_min_stun"						"MINIMUM STUN:"
+		"DOTA_Tooltip_ability_ashe_crystal_arrow_max_stun"						"MAXIMUM STUN:"
+		"DOTA_Tooltip_ability_ashe_crystal_arrow_aoe_radius"					"SPLASH DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_ashe_crystal_arrow_slow"							"%SLOW:"
+		"DOTA_Tooltip_ability_ashe_crystal_arrow_Note0"							"Will Reach Max Stun Time after travailing 2800 distance."
+		
+		
+		"DOTA_Tooltip_ability_ashe_focus_crit"									"Focus"
+		"DOTA_Tooltip_ability_ashe_focus_crit_Description"						"Ashe will gain several 'Focus' stacks every second after not attacking for 3 seconds. Upon obtaining 100 stacks, her next basic attack will be a critical hit."
+		"DOTA_Tooltip_ability_ashe_focus_crit_Note0"							"You will get 4 stacks at level 1 though 4, 5 from 5 though 8, 6 from 9 though 12, 7 from 13 though 16, and 8 from level 17 up."
+		"DOTA_Tooltip_ability_ashe_focus_crit_Note1"							"Skill will light up when critical hit is ready" 
+
+		//=================================================================================
+		// Blitzcrank Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_pudge"															"Blitzcrank"
+
+		"DOTA_Tooltip_ability_blitzcrank_rocket_grab"									"Rocket Grab"
+		"DOTA_Tooltip_ability_blitzcrank_rocket_grab_Description"						"Blitzcrank extends his right hand in a line. The first enemy hit is Airborne icon pulled to his location, takes magic damage and is Stun icon stunned for 0.5 seconds."
+		
+		"DOTA_Tooltip_ability_blitzcrank_overdrive"										"Overdrive"
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_Description"							"Blitzcrank supercharges himself, gaining increased movement and attack speed for 5 seconds. The movement speed bonus decays to a minimum of 10% over the duration. When Overdrive ends, Blitzcrank is slowed by 30% for 1.5 seconds."
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_bonus_attackspeed"					"Bonus Attackspeed: "
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_bonus_speed"							"Bonus Speed:"
+		"DOTA_Tooltip_ability_blitzcrank_overdrive_duration"							"Duration:"
+		"DOTA_Tooltip_modifier_overdrive"												"Supercharged"
+		"DOTA_Tooltip_modifier_overdrive_Description"									"This unit is in overdrive!"
+		
+		"DOTA_Tooltip_ability_blitzcrank_power_fist"									"Power Fist"
+		"DOTA_Tooltip_ability_blitzcrank_power_fist_Description"						"Blitzcrank supercharges his next basic attack, causing it to deal an additional 100% of his attack damage and Airborne icon knocking his target into the air for 1 second (but only silencing them for 0.5 seconds)."
+		"DOTA_Tooltip_modifier_blitzcrank_power_fist"									"Power Fist Activated"
+		"DOTA_Tooltip_modifier_blitzcrank_power_fist_Description"						"This unit's next attack will knockup."		
+		
+		"DOTA_Tooltip_ability_blitzcrank_static_field"									"Static Field"
+		"DOTA_Tooltip_ability_blitzcrank_static_field_Description"						"Blitzcrank detonates his static field, dealing magic damage to nearby enemies within 600-range and Silence icon silencing them for 0.5 seconds. Static Field's passive damage is disabled while its active is on cooldown."
+		"DOTA_Tooltip_ability_blitzcrank_static_field_passive_damage"					"Passive Damage:"
+		"DOTA_Tooltip_modifier_blitzcrank_static_field_passive"							"Static Field Activated"
+		"DOTA_Tooltip_modifier_blitzcrank_static_field_passive_Description"				"Blitzcrank's static field hurts enemy units around him."
+		
+		"DOTA_Tooltip_ability_blitzcrank_mana_barrier"									"Mana Barrier"
+		"DOTA_Tooltip_ability_blitzcrank_mana_barrier_Description"						"When Blitzcrank drops below 20 percent of his maximum health he gains a shield equal to 50 percent of his current mana that lasts 10 seconds."
+		"DOTA_Tooltip_modifier_mana_barrier"											"Mana Barrier"
+		"DOTA_Tooltip_modifier_mana_barrier_Description"								"This unit is sheilded for 50 percent of its current mana."
+
+		//=================================================================================
+		// Ezreal Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_zuus"															"Ezreal"
+
+		"DOTA_Tooltip_ability_ezreal_rising_spell_force"									"Rising Spell Force"
+		"DOTA_Tooltip_ability_ezreal_rising_spell_force_Description"						"Ezreal gains 10% bonus attack speed for 6 seconds every time he hits a target with his abilities, stacking up to 5 times."
+
+		"DOTA_Tooltip_modifier_rising_spell_force"											"Rising Spell Force"
+		"DOTA_Tooltip_modifier_rising_spell_force_Description"								"This unit have increased attack speed."
+
+		"DOTA_Tooltip_ability_ezreal_mystic_shot"									"Mystic Shot"
+		"DOTA_Tooltip_ability_ezreal_mystic_shot_Description"						"Ezreal fires a bolt of energy in a line that, upon impact with an enemy, deals physical damage, applies on-hit effects and reduces all of his cooldowns by 1 second."
+		
+		"DOTA_Tooltip_ability_ezreal_essence_flux"										"Essence Flux"
+		"DOTA_Tooltip_ability_ezreal_essence_flux_Description"							"Ezreal fires a wave of energy in a line, dealing magic damage to all enemy champions it passes through and increasing the attack speed of all allied champions it hits for 5 seconds."
+		"DOTA_Tooltip_ability_ezreal_essence_flux_Note0"								"If the circumstances permit, Ezreal can increase his own attack speed with Essence Flux."
+		"DOTA_Tooltip_ability_ezreal_essence_flux_bonus_attack_speed"					"ATTACK SPEED: "
+		"DOTA_Tooltip_modifier_essence_flux"												"Essence Flux"
+		"DOTA_Tooltip_modifier_essence_flux_Description"									"This unit have increased attack speed."
+		
+		"DOTA_Tooltip_ability_ezreal_arcane_shift"									"Arcane Shift"
+		"DOTA_Tooltip_ability_ezreal_arcane_shift_Description"						"Ezreal blinks to the target location and fires a homing bolt that deals magic damage to the nearest enemy."
+		"DOTA_Tooltip_ability_ezreal_arcane_shift_blink_range"						"BLINK RANGE: "
+		"DOTA_Tooltip_ability_ezreal_arcane_shift_searh_range"						"SEARCH RANGE: "
+		
+		"DOTA_Tooltip_ability_ezreal_trueshot_barrage"									"Trueshot Barrage"
+		"DOTA_Tooltip_ability_ezreal_trueshot_barrage_Description"						"After gathering energy for 1 second, Ezreal fires a powerful, broad energy missile that travels in a line across the whole map, dealing magic damage to all enemies it passes through. Each enemy hit reduces the missile's damage by 10%, down to a minimum of 30% damage dealt."
+		
+		//=================================================================================
+		// Garen Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_bloodseeker"															"Garen"
+
+		"DOTA_Tooltip_ability_garen_perseverance"									"Perseverance"
+		"DOTA_Tooltip_ability_garen_perseverance_Description"						"Garen will regenerate his maximum health every second if he has not been hit with an enemy ability or taken damage from any source (excluding minions)"
+		"DOTA_Tooltip_ability_garen_perseverance_hpregen"			"HP Regen %:"
+		
+		"DOTA_Tooltip_ability_garen_silence"									"Decisive Strike"
+		"DOTA_Tooltip_ability_garen_silence_Description"						"Garen breaks free from all slows affecting him and gains 35% movement speed for a few seconds. Additionally, his next basic attack within 4.5 seconds will deal additional physical damage and will silence his target."
+		"DOTA_Tooltip_ability_garen_silence_garen_speed_silenceduration"			"Silence Duration:"
+		"DOTA_Tooltip_ability_garen_silence_garen_speed_bonusdamage"			"Base Bonus Damage:"
+		"DOTA_Tooltip_ability_garen_silence_adratio"			"AD Bonus Damage %:"
+		
+		"DOTA_Tooltip_ability_garen_courage"									"Courage"
+		"DOTA_Tooltip_ability_garen_courage_Description"						"Passive: Garen's bonus armor and magic resistance are increased by 20%.\nActive: Garen gains a defensive shield for a few seconds, reducing incoming damage by 30% and granting 30% crowd control reduction for the duration."
+		"DOTA_Tooltip_ability_garen_courage_duration"			"Duration:"
+		
+		"DOTA_Tooltip_ability_garen_spin"									"Judgment"
+		"DOTA_Tooltip_ability_garen_spin_Description"						"Garen rapidly spins his sword around his body for 3 seconds, dealing physical damage each second to enemies within range. Minions take 75% damage from Judgment. Garen ignores unit collision while spinning, but moves 20% slower when traveling through minions."
+		"DOTA_Tooltip_ability_garen_spin_duration"			"Duration:"
+		"DOTA_Tooltip_ability_garen_spin_spin_damage"			"Base Damage:"
+		"DOTA_Tooltip_ability_garen_spin_adratio"			"AD Bonus Damage %:"
+		
+		"DOTA_Tooltip_ability_garen_ult"									"Demacian Justice"
+		"DOTA_Tooltip_ability_garen_ult_Description"						"Garen calls upon the might of Demacia to attempt to execute an enemy champion, dealing magic damage plus additional damage based on his target's missing health."
+		"DOTA_Tooltip_ability_garen_ult_damage"			"Base Damage:"
+		"DOTA_Tooltip_ability_garen_ult_dmgpct"			"Missing HP% Bonus Damage:"
+
+		//=================================================================================
+		// Leona Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_dragon_knight"													"Leona"
+
+		"DOTA_Tooltip_ability_leona_shield_of_daybreak"									"Shield of Daybreak"
+		"DOTA_Tooltip_ability_leona_shield_of_daybreak_Description"						"Leona's next basic attack will be a shield slam, dealing additional magic damage and stun the target for 1.25 seconds."
+		"DOTA_Tooltip_modifier_leona_shield_of_daybreak"								"Shield of Daybreak"
+		"DOTA_Tooltip_modifier_leona_shield_of_daybreak_Description"					"Leona's next attack will stun."
+
+		"DOTA_Tooltip_ability_leona_eclipse"											"Eclipse"
+		"DOTA_Tooltip_ability_leona_eclipse_Description"								"Leona surrounds herself with a shield of sunlight, gaining bonus armor and magic resistance for 3 seconds. When the effect ends the shield bursts, dealing magic damage to enemies within 200 range of her. If Eclipse damages any enemies, the bonuses remain for an additional 3 seconds."
+		"DOTA_Tooltip_ability_leona_eclipse_bonus_armor"								"Bonus Armor:"
+		"DOTA_Tooltip_ability_leona_eclipse_bonus_mr"									"Bonus Magic Resistance:"
+		"DOTA_Tooltip_modifier_eclipse"													"Eclipse"
+		"DOTA_Tooltip_modifier_eclipse_Description"										"Put your shades on!"
+
+		"DOTA_Tooltip_ability_leona_zenith_blade"										"Zenith Blade"
+		"DOTA_Tooltip_ability_leona_zenith_blade_Description"							"Leona projects a solar image of her sword, dealing magic damage to all enemies in a line. Leona will dash to the last enemy champion struck, briefly rooting them in place as she travels."
+		"DOTA_Tooltip_modifier_meat_hook_target_datadriven"								"Rooted"
+
+		"DOTA_Tooltip_ability_leona_solar_flare"										"Solar Flare"
+		"DOTA_Tooltip_ability_leona_solar_flare_Description"							"Leona calls down a beam of solar energy to a target location. After a 0.625 delay, it deals magic damage to all enemies within 182-range and slows them by 80% for 1.5 seconds. Enemies within 73-range are Stun icon stunned for 1.5 seconds instead of being slowed."
+
+		"DOTA_Tooltip_ability_leona_sunlight"											"Sunlight"
+		"DOTA_Tooltip_ability_leona_sunlight_Description"								"Leona's spells charge any enemy unit damaged with Sunlight for 3.5 seconds. When allied champions deal any damage to those targets they consume the Sunlight debuff to deal additional magic damage."
+		"DOTA_Tooltip_ability_leona_sunlight_Note0"										"Leona is unable to activate the additional damage herself."
+		"DOTA_Tooltip_modifier_leona_sunlight"											"It burns!"
+		"DOTA_Tooltip_modifier_leona_sunlight_Description"								"This unit is afflicted by sunlight."
+		"DOTA_Tooltip_modifier_leona_sunlight_passive"									"Sunlight"
+		"DOTA_Tooltip_modifier_leona_sunlight_passive_Description"						"Leona's spells inflict sunlight."
+
+		//=================================================================================
+		// Sona Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_wisp"															"Sona"
+
+		"DOTA_Tooltip_modifier_sona_power_chord"										"Power Chord"
+		"DOTA_Tooltip_modifier_sona_power_chord_Description"							""
+
+
+		"DOTA_Tooltip_ability_sona_hymn_of_valor"										"Hymn of Valor"
+		"DOTA_Tooltip_ability_sona_hymn_of_valor_Description"							"Sona sends out bolts of sound that deal magic damage to the two nearest enemies within 850-range, prioritizing champions."
+		"DOTA_Tooltip_ability_sona_hymn_of_valor_Note0"									"Sona and allied champions tagged with Hymn of Valor's aura deal bonus magic damage on their next basic attack within 3 seconds."
+		"DOTA_Tooltip_ability_sona_hymn_of_valor_Note1"									"If this spell was last cast when Power Chord is ready, Power Chord deals 40% bonus damage."
+		"DOTA_Tooltip_ability_sona_hymn_of_valor_bonus_damage"							"BONUS DAMAGE"
+		"DOTA_Tooltip_modifier_sona_valor_aura"											"Valor Aura"
+		"DOTA_Tooltip_modifier_sona_valor_aura_Description"								"Nearby units deal bonus damage."
+		"DOTA_Tooltip_aura_valor_effect"												"Valor Aura"
+		"DOTA_Tooltip_aura_valor_effect_Description"									"Sona's motiviating hymn causes you to deal bonus damage."
+		"DOTA_Tooltip_modifier_sona_valor_power_chord"									"Staccato"
+		"DOTA_Tooltip_modifier_sona_valor_power_chord_Description"						"Sona's next attack will cause 40 percent bonus damage."
+
+		"DOTA_Tooltip_ability_sona_aria_of_perseverance"								"Aria of Perseverance"
+		"DOTA_Tooltip_ability_sona_aria_of_perseverance_Description"					"Sona heals herself and a nearby allied champion with the lowest health percentage. The healing is increased by 0.5% for every 1% of the target's missing health."
+		"DOTA_Tooltip_ability_sona_aria_of_perseverance_Note0"							"Sona and allied champions tagged with Aria of Perseverance's aura are shielded for up to 1.5 seconds."
+		"DOTA_Tooltip_ability_sona_aria_of_perseverance_Note1"							"If this spell was last cast when Power Chord is ready, Power Chord will also reduce the target's damage output by 20% for 3 seconds."
+		"DOTA_Tooltip_ability_sona_aria_of_perseverance_heal"							"HEAL:"
+		"DOTA_Tooltip_ability_sona_aria_of_perseverance_bubble_amount"					"SHIELD STRENGTH:"
+		"DOTA_Tooltip_modifier_sona_perseverance_aura"									"Perseverance Aura"
+		"DOTA_Tooltip_modifier_sona_perseverance_aura_Description"						"Nearby units are shielded."
+		"DOTA_Tooltip_aura_perseverance_effect"											"Perseverance Aura"
+		"DOTA_Tooltip_aura_perseverance_effect_Description"								"Sona's invigorating aria protects you."
+		"DOTA_Tooltip_modifier_sona_perseverance_power_chord"							"Diminuendo"
+		"DOTA_Tooltip_modifier_sona_perseverance_power_chord_Description"				"Sona's next attack will cause the target to deal 20 percent less damage for 3 seconds."
+		"DOTA_Tooltip_modifier_perseverance_bubble"										"Bubbled"
+		"DOTA_Tooltip_modifier_perseverance_bubble_Description"							"This unit is shielded."
+
+		"DOTA_Tooltip_ability_sona_song_of_celerity"									"Song of Celerity"
+		"DOTA_Tooltip_ability_sona_song_of_celerity_Description"						"Sona gains a burst of bonus movement speed that decays down to the aura bonus over 3 seconds. The duration is increased by 0.5 seconds for each ally she tags with the aura."
+		"DOTA_Tooltip_ability_sona_song_of_celerity_Note0"								"Allied champions tagged with Song of Celerity's aura gain movement speed for 1.5 seconds."
+		"DOTA_Tooltip_ability_sona_song_of_celerity_Note1"								"If this spell was last cast when Power Chord is ready, Power Chord will also Slow icon slow the target by 40 percent for 2 seconds."
+		"DOTA_Tooltip_ability_sona_song_of_celerity_aura_movespeed"						"BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_modifier_sona_celerity_aura"										"Celerity Aura"
+		"DOTA_Tooltip_modifier_sona_celerity_aura_Description"							"Nearby units movement speed is increased."
+		"DOTA_Tooltip_aura_celerity_effect"												"Celerity Aura"
+		"DOTA_Tooltip_aura_celerity_effect_Description"									"Sona's fast song causes you to move faster."
+		"DOTA_Tooltip_modifier_sona_celerity_power_chord"								"Tempo"
+		"DOTA_Tooltip_modifier_sona_celerity_power_chord_Description"					"Sona's next attack will slow by 40 percent for 2 seconds."
+
+		"DOTA_Tooltip_ability_sona_crescendo"											"Crescendo"
+		"DOTA_Tooltip_ability_sona_crescendo_Description"								"Sona plays an irresistible chord in a line, dealing magic damage to enemy champions and Stun icon stunning them for 1.5 seconds, forcing them to dance."
+
+		"DOTA_Tooltip_ability_sona_power_chord"											"Power Chord"
+		"DOTA_Tooltip_ability_sona_power_chord_Description"								"After casting 3 basic abilities, Sona's next basic attack will deal bonus magic damage, with an additional effect depending on the last basic ability cast."
+
+		//=================================================================================
+		// Taric Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_omniknight"														"Taric"
+
+		"DOTA_Tooltip_ability_taric_imbue"												"Imbue"
+		"DOTA_Tooltip_ability_taric_imbue_Description"									"Taric channels earthen energy to heal a target allied unit. As the magic flows through them he is healed for the same amount."
+		"DOTA_Tooltip_ability_taric_imbue_Note0"										"If Taric heals only himself, the heal will be 40 percent more effective."
+		"DOTA_Tooltip_ability_taric_imbue_heal"											"HEAL:"
+		"DOTA_Tooltip_ability_taric_imbue_heal_self"									"SELF HEAL:"	
+
+		"DOTA_Tooltip_ability_taric_shatter"											"Shatter"
+		"DOTA_Tooltip_ability_taric_shatter_Description"								"Taric reinforces his armor with gemstones, increasing his armor while Shatter is off cooldown. He also gains a aura, increasing his armor and allied champions' armor by 12% of his total armor. When shatter is used Taric shatters his gemstones, dealing magic damage to nearby enemies within range and reducing their armor for 4 seconds."
+		"DOTA_Tooltip_ability_taric_shatter_bonus_armor"								"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_taric_shatter_armor_reduction"							"ARMOR REDUCTION:"
+		"DOTA_Tooltip_modifier_taric_shatter_bonus_armor"								"Gemstones Active"
+		"DOTA_Tooltip_modifier_taric_shatter_bonus_armor_Description"					"Taric's gemstones reinforce his armor."
+		"DOTA_Tooltip_modifier_taric_shatter_passive"									"Gemstone Aura"
+		"DOTA_Tooltip_modifier_taric_shatter_passive_Description"						"Taric's gemstones reinforce nearby armor."
+		"DOTA_Tooltip_modifier_taric_shatter_aura"										"Gemstone Aura"
+		"DOTA_Tooltip_modifier_taric_shatter_aura_Description"							"Taric's gemstone arua reinforces your armor."
+
+		"DOTA_Tooltip_ability_taric_dazzle"												"Dazzle"
+		"DOTA_Tooltip_ability_taric_dazzle_Description"									"Taric fires a prismatic sphere at a target enemy. On impact the target is Stun icon stunned and takes magic damage that increases the closer the target is to Taric (up to 200%)."
+		"DOTA_Tooltip_ability_taric_dazzle_stun_duration"								"STUN DURATION:"
+		"DOTA_Tooltip_ability_taric_dazzle_stun"										"Dazzled"
+		"DOTA_Tooltip_ability_taric_dazzle_stun_Description"							"You are stunned!"
+
+		"DOTA_Tooltip_ability_taric_radiance"											"Radiance"
+		"DOTA_Tooltip_ability_taric_radiance_Description"								"Taric slams the ground with his hammer, dealing magic damage to enemies within range. For the next 10 seconds, Taric emits an aura of light that increases his attack damage and ability power, while allies within range gain half of those bonuses."
+		"DOTA_Tooltip_ability_taric_radiance_self_adap"									"SELF AD/AP BONUS:"
+		"DOTA_Tooltip_ability_taric_radiance_aura_adap"									"AURA AD/AP BONUS:"
+		"DOTA_Tooltip_modifier_taric_radiance_arua"										"Radiance Aura"
+		"DOTA_Tooltip_modifier_taric_radiance_arua_Description"							"Taric shines brightly and empowers nearby allies."
+		"DOTA_Tooltip_modifier_taric_radiance_arua_effect"								"Radiance Aura"
+		"DOTA_Tooltip_modifier_taric_radiance_arua_effect_Description"					"Taric's shine empowers you and his nearby allies."
+
+		"DOTA_Tooltip_ability_taric_gemcraft"											"Gemcraft"
+		"DOTA_Tooltip_ability_taric_gemcraft_Description"								"After using an ability, Taric's next basic attack deals bonus magic damage equal to 20 percent of Taric's armor and reduces his abilities' cooldown by 2 seconds."
+		"DOTA_Tooltip_modifier_taric_gemcraft"											"Gemcraft"
+		"DOTA_Tooltip_modifier_taric_gemcraft_Description"								"Taric's next attack deals bonus damage equal to 20 percent of his armor."
+	
+	}
+}

@@ -1,3 +1,8 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Ezreal's Mystic Shot
+// Author: wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
 "ezreal_mystic_shot"
 {
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

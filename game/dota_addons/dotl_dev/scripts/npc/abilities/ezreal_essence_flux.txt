@@ -1,3 +1,8 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Ezreal's Essence Flux
+// Author: wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
 "ezreal_essence_flux"
 {
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

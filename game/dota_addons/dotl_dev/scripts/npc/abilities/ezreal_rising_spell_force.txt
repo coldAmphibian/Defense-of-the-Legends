@@ -1,3 +1,8 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Ezreal's Rising Spell Force
+// Author: wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
 "ezreal_rising_spell_force"
 {
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"

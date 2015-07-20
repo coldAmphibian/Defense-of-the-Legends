@@ -1,3 +1,8 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Ezreal's Trueshot Barrage
+// Author: wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
 "ezreal_trueshot_barrage"
 {
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -5,7 +10,7 @@
 	"BaseClass"						"ability_datadriven"
 	"AbilityTextureName"			"ezreal_trueshot_barrage"
 	"MaxLevel"						"3"
-
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 	"AbilityCastPoint"				"1"
 	"AbilityCooldown"				"80"
 	"AbilityManaCost"				"100"

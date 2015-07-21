@@ -7,8 +7,8 @@ CVModel CVModel_0
 		[
 			CVmesh
 			{
-				string m_meshName = "ezreal"
-				string m_meshFile = "models/champions/ezreal/ezreal.fbx"
+				string m_meshName = "minion_meele_red"
+				string m_meshFile = "models/units/minion_melee/minion_meele_red.fbx"
 				string m_materialSearchPath = ""
 				bool m_bSkinParentedObjects = true
 				bool m_bLegacySkinParentedTransforms = false
@@ -64,8 +64,8 @@ CVModel CVModel_0
 	[
 		CVattachmentListReference
 		{
-			CVattachmentList* m_pObject = &CVattachmentList_0
-			string m_sFileName = ""
+			CVattachmentList* m_pObject = NULL
+			string m_sFileName = "models\\units\\minion_melee\\minion_meele.attach"
 		}
 	]
 	CVanimGroupReference[] m_pAnimGroups = 
@@ -145,471 +145,283 @@ CVhitBoxSetList CVhitBoxSetList_0
 			[
 				CVhitBox
 				{
-					string m_name = "root"
+					string m_name = "Root"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "root"
-					float(3) m_vMinBounds = ( -26.154503, -10.172989, -19.861500 )
-					float(3) m_vMaxBounds = ( 24.937393, 19.438581, 20.782600 )
+					string m_sBoneName = "Root"
+					float(3) m_vMinBounds = ( -25.729500, -10.291199, -18.355801 )
+					float(3) m_vMaxBounds = ( 22.896500, 18.391800, 32.752098 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "waist"
+					string m_name = "Spine1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "waist"
-					float(3) m_vMinBounds = ( -28.885017, -14.605553, -16.693195 )
-					float(3) m_vMaxBounds = ( 15.141121, 14.421474, 16.866894 )
+					string m_sBoneName = "Spine1"
+					float(3) m_vMinBounds = ( -29.253597, -5.378403, -23.599480 )
+					float(3) m_vMaxBounds = ( 26.044399, 54.718300, 27.157021 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "chest"
+					string m_name = "L_Clavicle"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "chest"
-					float(3) m_vMinBounds = ( -35.916527, -30.184967, -26.310995 )
-					float(3) m_vMaxBounds = ( 16.261261, 14.859085, 29.931593 )
+					string m_sBoneName = "L_Clavicle"
+					float(3) m_vMinBounds = ( 5.321930, -11.980202, -17.965691 )
+					float(3) m_vMaxBounds = ( 23.340935, 10.252296, 24.252598 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_shoulder"
+					string m_name = "R_Clavicle"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_shoulder"
-					float(3) m_vMinBounds = ( -4.398636, -19.115463, -17.761753 )
-					float(3) m_vMaxBounds = ( 21.570345, 8.594872, 23.234722 )
+					string m_sBoneName = "R_Clavicle"
+					float(3) m_vMinBounds = ( -30.215326, -10.252296, -24.252579 )
+					float(3) m_vMaxBounds = ( -5.007029, 11.980202, 17.965714 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_shoulder"
+					string m_name = "L_Shoulder"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_shoulder"
-					float(3) m_vMinBounds = ( -21.621876, -8.537323, -23.206181 )
-					float(3) m_vMaxBounds = ( 4.237278, 19.173004, 16.880657 )
+					string m_sBoneName = "L_Shoulder"
+					float(3) m_vMinBounds = ( -25.669231, -12.178829, -15.690670 )
+					float(3) m_vMaxBounds = ( -6.162380, 12.438942, 16.970016 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_uparm"
+					string m_name = "R_Shoulder"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_uparm"
-					float(3) m_vMinBounds = ( -5.279800, -9.512978, -12.240620 )
-					float(3) m_vMaxBounds = ( 26.070107, 9.799614, 16.156511 )
+					string m_sBoneName = "R_Shoulder"
+					float(3) m_vMinBounds = ( 5.915462, -12.249916, -17.317549 )
+					float(3) m_vMaxBounds = ( 29.297756, 12.367882, 15.742292 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_uparm"
+					string m_name = "Bottom"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_uparm"
-					float(3) m_vMinBounds = ( -27.644287, -6.870697, -16.108007 )
-					float(3) m_vMaxBounds = ( 5.177307, 9.648773, 9.636251 )
+					string m_sBoneName = "Bottom"
+					float(3) m_vMinBounds = ( -26.494699, -17.213306, -21.768482 )
+					float(3) m_vMaxBounds = ( 28.242201, 13.471991, 40.312420 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_forearm"
+					string m_name = "L_Elbow"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_forearm"
-					float(3) m_vMinBounds = ( -3.417007, -8.511475, -7.547711 )
-					float(3) m_vMaxBounds = ( 17.078758, 4.573151, 5.633986 )
+					string m_sBoneName = "L_Elbow"
+					float(3) m_vMinBounds = ( -23.114342, -12.167320, -14.111431 )
+					float(3) m_vMaxBounds = ( 1.468977, 15.041191, 19.059261 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_forearm"
+					string m_name = "R_Elbow"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_forearm"
-					float(3) m_vMinBounds = ( -26.079586, -9.014931, -10.143694 )
-					float(3) m_vMaxBounds = ( 1.082336, 11.503304, 10.859686 )
+					string m_sBoneName = "R_Elbow"
+					float(3) m_vMinBounds = ( -1.720839, -14.852974, -19.078781 )
+					float(3) m_vMaxBounds = ( 23.482626, 12.355385, 14.091926 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_hand"
+					string m_name = "L_Waist1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_hand"
-					float(3) m_vMinBounds = ( -1.748165, -4.144417, -11.842770 )
-					float(3) m_vMaxBounds = ( 14.602276, 8.184837, 7.959579 )
+					string m_sBoneName = "L_Waist1"
+					float(3) m_vMinBounds = ( -31.586071, -9.811380, -29.255875 )
+					float(3) m_vMaxBounds = ( -8.872635, 6.397732, 9.443466 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_hand"
+					string m_name = "L_Waist2"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_hand"
-					float(3) m_vMinBounds = ( -14.694931, -9.180641, -10.477133 )
-					float(3) m_vMaxBounds = ( 10.951401, 10.547028, 11.880507 )
+					string m_sBoneName = "L_Waist2"
+					float(3) m_vMinBounds = ( -23.806046, -5.147038, -13.618553 )
+					float(3) m_vMaxBounds = ( -7.209469, 8.010098, 16.894753 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_thigh"
+					string m_name = "B_Skirt1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_thigh"
-					float(3) m_vMinBounds = ( -0.488914, -8.907646, -12.380365 )
-					float(3) m_vMaxBounds = ( 49.488663, 15.587769, 23.790144 )
+					string m_sBoneName = "B_Skirt1"
+					float(3) m_vMinBounds = ( -47.921375, -5.745508, -23.904999 )
+					float(3) m_vMaxBounds = ( 9.421432, 8.129358, 24.922600 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_thigh"
+					string m_name = "F_Skirt1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_thigh"
-					float(3) m_vMinBounds = ( -49.518566, -15.451654, -23.802950 )
-					float(3) m_vMaxBounds = ( 7.817276, 9.076525, 12.361223 )
+					string m_sBoneName = "F_Skirt1"
+					float(3) m_vMinBounds = ( -15.456680, -11.926907, -17.700897 )
+					float(3) m_vMaxBounds = ( 4.835270, 0.003551, 24.505997 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "neck"
+					string m_name = "R_Waist1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "neck"
-					float(3) m_vMinBounds = ( -13.783920, -4.744959, -5.700315 )
-					float(3) m_vMaxBounds = ( -1.686844, 14.630575, 11.918493 )
+					string m_sBoneName = "R_Waist1"
+					float(3) m_vMinBounds = ( 0.860490, -10.478695, -9.631750 )
+					float(3) m_vMaxBounds = ( 31.972145, 9.797033, 26.879480 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_finger_d"
+					string m_name = "R_Waist2"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_finger_d"
-					float(3) m_vMinBounds = ( -3.432404, -4.179344, -5.274309 )
-					float(3) m_vMaxBounds = ( 9.859314, 6.572021, 6.930113 )
+					string m_sBoneName = "R_Waist2"
+					float(3) m_vMinBounds = ( 7.306467, -7.394199, -16.906799 )
+					float(3) m_vMaxBounds = ( 24.762533, 5.201830, 9.296007 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_finger"
+					string m_name = "Head"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_finger"
-					float(3) m_vMinBounds = ( -1.912560, -2.577286, -2.508237 )
-					float(3) m_vMaxBounds = ( 8.214542, 4.083206, 2.852371 )
+					string m_sBoneName = "Head"
+					float(3) m_vMinBounds = ( -15.013300, -16.103302, -11.313980 )
+					float(3) m_vMaxBounds = ( 15.328100, 15.538002, 2.258320 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_thumb"
+					string m_name = "L_Hand"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_thumb"
-					float(3) m_vMinBounds = ( -4.973228, -4.107685, -4.557724 )
-					float(3) m_vMaxBounds = ( 10.636703, 4.762089, 4.046906 )
+					string m_sBoneName = "L_Hand"
+					float(3) m_vMinBounds = ( -17.630228, -11.820168, -8.546495 )
+					float(3) m_vMaxBounds = ( 0.603888, 8.327972, 13.351973 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_finger_d"
+					string m_name = "L_ShoulderPad"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_finger_d"
-					float(3) m_vMinBounds = ( -10.129211, -6.288063, -5.919676 )
-					float(3) m_vMaxBounds = ( 4.831833, 5.851341, 6.284747 )
+					string m_sBoneName = "L_ShoulderPad"
+					float(3) m_vMinBounds = ( -14.889174, -28.239319, -25.745266 )
+					float(3) m_vMaxBounds = ( 18.987427, 16.682083, 26.254932 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_finger"
+					string m_name = "Scroll"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_finger"
-					float(3) m_vMinBounds = ( -8.333420, -3.803070, -5.180013 )
-					float(3) m_vMaxBounds = ( 2.345310, 3.455109, 3.234750 )
+					string m_sBoneName = "Scroll"
+					float(3) m_vMinBounds = ( -29.238800, -36.093605, -5.081514 )
+					float(3) m_vMaxBounds = ( 25.915001, 42.866005, 19.326857 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_thumb"
+					string m_name = "R_Hand"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_thumb"
-					float(3) m_vMinBounds = ( -8.659019, -4.779125, -4.773766 )
-					float(3) m_vMaxBounds = ( 2.376617, 4.145893, 3.609673 )
+					string m_sBoneName = "R_Hand"
+					float(3) m_vMinBounds = ( -0.855625, -8.139748, -13.371613 )
+					float(3) m_vMaxBounds = ( 17.378386, 12.008369, 8.526794 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_calf"
+					string m_name = "R_ShoulderPad"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_calf"
-					float(3) m_vMinBounds = ( -5.943718, -24.476292, -8.727173 )
-					float(3) m_vMaxBounds = ( 54.789299, 11.774463, 15.349691 )
+					string m_sBoneName = "R_ShoulderPad"
+					float(3) m_vMinBounds = ( -18.987534, -16.682098, -26.254887 )
+					float(3) m_vMaxBounds = ( 14.889068, 28.239296, 25.745312 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_calf"
+					string m_name = "Staff"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_calf"
-					float(3) m_vMinBounds = ( -54.801300, -11.723503, -15.219894 )
-					float(3) m_vMaxBounds = ( 5.930962, 24.526737, 8.857151 )
+					string m_sBoneName = "Staff"
+					float(3) m_vMinBounds = ( -14.984688, -28.064142, -68.048111 )
+					float(3) m_vMaxBounds = ( 14.708511, 29.241697, 23.421150 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "head"
+					string m_name = "L_Skirt1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "head"
-					float(3) m_vMinBounds = ( -27.172394, -11.585114, -18.046288 )
-					float(3) m_vMaxBounds = ( 2.291214, 29.946918, 17.280991 )
+					string m_sBoneName = "L_Skirt1"
+					float(3) m_vMinBounds = ( -14.498052, -8.439156, -29.255882 )
+					float(3) m_vMaxBounds = ( -1.688752, 10.716637, 9.443460 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_finger_e"
+					string m_name = "L_Skirt2"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_finger_e"
-					float(3) m_vMinBounds = ( -1.689522, -2.091965, -7.868534 )
-					float(3) m_vMaxBounds = ( 5.515045, 2.203793, 4.437001 )
+					string m_sBoneName = "L_Skirt2"
+					float(3) m_vMinBounds = ( -27.127525, -15.495728, -28.991508 )
+					float(3) m_vMaxBounds = ( 13.761322, 24.817059, 32.041027 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_finger_b"
+					string m_name = "B_Skirt2"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_finger_b"
-					float(3) m_vMinBounds = ( -1.231186, -2.243183, -2.495631 )
-					float(3) m_vMaxBounds = ( 7.831406, 2.332062, 1.576401 )
+					string m_sBoneName = "B_Skirt2"
+					float(3) m_vMinBounds = ( -29.221775, -1.811039, -23.904997 )
+					float(3) m_vMaxBounds = ( 0.164368, 8.129360, 24.922598 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "R_thumb_b"
+					string m_name = "F_Skirt2"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "R_thumb_b"
-					float(3) m_vMinBounds = ( -0.145226, -2.326269, -3.611576 )
-					float(3) m_vMaxBounds = ( 8.021851, 3.002268, 4.534595 )
+					string m_sBoneName = "F_Skirt2"
+					float(3) m_vMinBounds = ( -17.513874, -11.702251, -24.219898 )
+					float(3) m_vMaxBounds = ( 5.871727, 5.080833, 32.641796 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_finger_e"
+					string m_name = "R_Skirt1"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_finger_e"
-					float(3) m_vMinBounds = ( -8.621124, -2.022427, -5.478901 )
-					float(3) m_vMaxBounds = ( 1.566261, 2.273314, 6.826592 )
+					string m_sBoneName = "R_Skirt1"
+					float(3) m_vMinBounds = ( 0.324954, -10.478683, -9.631732 )
+					float(3) m_vMaxBounds = ( 14.414036, 8.786591, 26.879498 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
 				},
 				CVhitBox
 				{
-					string m_name = "L_finger_b"
+					string m_name = "R_Skirt2"
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
-					string m_sBoneName = "L_finger_b"
-					float(3) m_vMinBounds = ( -4.301552, -2.222900, -2.421093 )
-					float(3) m_vMaxBounds = ( 1.286255, 2.352486, 2.378236 )
+					string m_sBoneName = "R_Skirt2"
+					float(3) m_vMinBounds = ( -13.825027, -21.875088, -30.195183 )
+					float(3) m_vMaxBounds = ( 23.772823, 17.339977, 29.273766 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "L_thumb_b"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "L_thumb_b"
-					float(3) m_vMinBounds = ( -8.056427, -4.104103, -3.998417 )
-					float(3) m_vMaxBounds = ( 0.097610, 1.691481, 4.147751 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "R_foot"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "R_foot"
-					float(3) m_vMinBounds = ( -11.593257, -13.214626, -13.686523 )
-					float(3) m_vMaxBounds = ( 22.706661, 22.895027, 10.981106 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "L_foot"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "L_foot"
-					float(3) m_vMinBounds = ( -22.727673, -22.864391, -11.115808 )
-					float(3) m_vMaxBounds = ( 11.747379, 9.447403, 13.551794 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "classes"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "classes"
-					float(3) m_vMinBounds = ( -9.812679, 2.714127, -18.433144 )
-					float(3) m_vMaxBounds = ( 10.007788, 18.925140, -6.308172 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "R_finger_f"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "R_finger_f"
-					float(3) m_vMinBounds = ( -2.633701, -3.793633, -4.009952 )
-					float(3) m_vMaxBounds = ( 3.058411, 2.526649, 7.387088 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "R_finger_c"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "R_finger_c"
-					float(3) m_vMinBounds = ( -1.282486, -3.815598, -1.315752 )
-					float(3) m_vMaxBounds = ( 2.000221, 0.788910, 2.102116 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "R_thumb_c"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "R_thumb_c"
-					float(3) m_vMinBounds = ( -2.384258, -3.497688, -1.269325 )
-					float(3) m_vMaxBounds = ( 1.451950, 0.724396, 1.884602 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "L_finger_f"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "L_finger_f"
-					float(3) m_vMinBounds = ( -3.688446, -2.073593, -5.982939 )
-					float(3) m_vMaxBounds = ( 2.579109, 2.260048, 5.500047 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "L_finger_c"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "L_finger_c"
-					float(3) m_vMinBounds = ( -3.581383, -1.826893, -1.174418 )
-					float(3) m_vMaxBounds = ( 1.023026, 1.456013, 2.243459 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "L_thumb_c"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "L_thumb_c"
-					float(3) m_vMinBounds = ( -3.531998, -0.659141, -2.814564 )
-					float(3) m_vMaxBounds = ( 0.698662, 2.840531, 2.287518 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "R_toe"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "R_toe"
-					float(3) m_vMinBounds = ( -8.133806, -11.206942, -14.540560 )
-					float(3) m_vMaxBounds = ( 7.145187, 0.453521, 4.978182 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
-				{
-					string m_name = "L_toe"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "L_toe"
-					float(3) m_vMinBounds = ( -7.180988, -0.343005, -3.473640 )
-					float(3) m_vMaxBounds = ( 7.808839, 13.606793, 14.405481 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				}
-			]
-		}
-	]
-}
-
-CVattachmentList CVattachmentList_0
-{
-	string m_name = ""
-	CVattachment[] m_attachments = 
-	[
-		CVattachment
-		{
-			string m_name = "attach_root"
-			CVattachmentInfluence[] m_influences = 
-			[
-				CVattachmentInfluence
-				{
-					string m_influenceName = "root"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float m_flWeight = 1.000000
-					bool m_bRoot = false
-				}
-			]
-		},
-		CVattachment
-		{
-			string m_name = "attach_hitloc"
-			CVattachmentInfluence[] m_influences = 
-			[
-				CVattachmentInfluence
-				{
-					string m_influenceName = "root"
-					float(3) m_vTranslationOffset = ( -30.907631, -0.000002, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, -0.000000, 0.000002 )
-					float m_flWeight = 1.000000
-					bool m_bRoot = false
-				}
-			]
-		},
-		CVattachment
-		{
-			string m_name = "attach_attack1"
-			CVattachmentInfluence[] m_influences = 
-			[
-				CVattachmentInfluence
-				{
-					string m_influenceName = "L_finger_f_end"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float m_flWeight = 1.000000
-					bool m_bRoot = false
-				}
-			]
-		},
-		CVattachment
-		{
-			string m_name = "attach_attack2"
-			CVattachmentInfluence[] m_influences = 
-			[
-				CVattachmentInfluence
-				{
-					string m_influenceName = "L_finger_f_end"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float m_flWeight = 1.000000
-					bool m_bRoot = false
 				}
 			]
 		}
@@ -642,11 +454,11 @@ CVanimGroup CVanimGroup_0
 	[
 		CVanim
 		{
-			string m_Animationname = "ezreal_attack1"
-			string m_Filepath = "models/champions/ezreal/ezreal_attack1.fbx"
+			string m_Animationname = "minion_meele_attack1"
+			string m_Filepath = "models/units/minion_melee/minion_meele_attack1.fbx"
 			int m_nStartframe = 0
-			int m_nEndframe = 23
-			float m_flFps = 25.000000
+			int m_nEndframe = 26
+			float m_flFps = 30.000000
 			CAnimationLoop m_Loop = CAnimationLoop
 			{
 				bool m_bLoop = false
@@ -713,11 +525,11 @@ CVanimGroup CVanimGroup_0
 		},
 		CVanim
 		{
-			string m_Animationname = "ezreal_attack2"
-			string m_Filepath = "models/champions/ezreal/ezreal_attack2.fbx"
+			string m_Animationname = "minion_meele_attack2"
+			string m_Filepath = "models/units/minion_melee/minion_meele_attack2.fbx"
 			int m_nStartframe = 0
-			int m_nEndframe = 23
-			float m_flFps = 25.000000
+			int m_nEndframe = 26
+			float m_flFps = 30.000000
 			CAnimationLoop m_Loop = CAnimationLoop
 			{
 				bool m_bLoop = false
@@ -784,14 +596,14 @@ CVanimGroup CVanimGroup_0
 		},
 		CVanim
 		{
-			string m_Animationname = "ezreal_run"
-			string m_Filepath = "models/champions/ezreal/ezreal_run.fbx"
+			string m_Animationname = "minion_meele_attack3"
+			string m_Filepath = "models/units/minion_melee/minion_meele_attack3.fbx"
 			int m_nStartframe = 0
-			int m_nEndframe = 20
-			float m_flFps = 25.000000
+			int m_nEndframe = 26
+			float m_flFps = 30.000000
 			CAnimationLoop m_Loop = CAnimationLoop
 			{
-				bool m_bLoop = true
+				bool m_bLoop = false
 				bool m_bSmoothLoop = false
 				int m_nSmoothLoopStart = 0
 				int m_nSmoothLoopEnd = 0
@@ -804,11 +616,7 @@ CVanimGroup CVanimGroup_0
 			bool m_bHidden = false
 			CActivity[] m_Activities = 
 			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_RUN"
-					int m_nWeight = 1
-				}
+				
 			]
 			CAnimationEvent[] m_AnimationEvents = 
 			[
@@ -819,8 +627,8 @@ CVanimGroup CVanimGroup_0
 				CMotionFrame
 				{
 					int m_nFrame = 0
-					bool m_bExtractTX = false
-					bool m_bExtractTY = false
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
 					bool m_bExtractTZ = false
 					bool m_bExtractRX = false
 					bool m_bExtractRY = false
@@ -855,405 +663,13 @@ CVanimGroup CVanimGroup_0
 		},
 		CVanim
 		{
-			string m_Animationname = "ezreal_idle1"
-			string m_Filepath = "models/champions/ezreal/ezreal_idle1.fbx"
+			string m_Animationname = "minion_meele_attack3b"
+			string m_Filepath = "models/units/minion_melee/minion_meele_attack3b.fbx"
 			int m_nStartframe = 0
-			int m_nEndframe = 32
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = true
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_IDLE"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_idle2"
-			string m_Filepath = "models/champions/ezreal/ezreal_idle2.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 59
+			int m_nEndframe = 27
 			float m_flFps = 30.000000
 			CAnimationLoop m_Loop = CAnimationLoop
 			{
-				bool m_bLoop = true
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_IDLE_RARE"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_idle3"
-			string m_Filepath = "models/champions/ezreal/ezreal_idle3.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 107
-			float m_flFps = 30.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = true
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_IDLE_IMPATIENT"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_spell1"
-			string m_Filepath = "models/champions/ezreal/ezreal_spell1.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 23
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = false
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_CAST_ABILITY_1"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_spell2"
-			string m_Filepath = "models/champions/ezreal/ezreal_spell2.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 25
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = false
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_CAST_ABILITY_2"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_spell3"
-			string m_Filepath = "models/champions/ezreal/ezreal_spell3.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 29
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = false
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_CAST_ABILITY_3"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_spell4"
-			string m_Filepath = "models/champions/ezreal/ezreal_spell4.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 75
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = false
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_CAST_ABILITY_4"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_laugh"
-			string m_Filepath = "models/champions/ezreal/ezreal_laugh.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 103
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
 				bool m_bLoop = false
 				bool m_bSmoothLoop = false
 				int m_nSmoothLoopStart = 0
@@ -1275,7 +691,22 @@ CVanimGroup CVanimGroup_0
 			]
 			CMotionFrame[] m_MotionFrames = 
 			[
-				
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
 			]
 			CIKrule*[] m_pIkRules = 
 			[
@@ -1299,118 +730,10 @@ CVanimGroup CVanimGroup_0
 		},
 		CVanim
 		{
-			string m_Animationname = "ezreal_taunt"
-			string m_Filepath = "models/champions/ezreal/ezreal_taunt.fbx"
+			string m_Animationname = "minion_meele_death"
+			string m_Filepath = "models/units/minion_melee/minion_meele_death.fbx"
 			int m_nStartframe = 0
-			int m_nEndframe = 57
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = false
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				CActivity
-				{
-					string m_Name = "ACT_DOTA_TAUNT"
-					int m_nWeight = 1
-				}
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_dance"
-			string m_Filepath = "models/champions/ezreal/ezreal_dance.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 282
-			float m_flFps = 25.000000
-			CAnimationLoop m_Loop = CAnimationLoop
-			{
-				bool m_bLoop = false
-				bool m_bSmoothLoop = false
-				int m_nSmoothLoopStart = 0
-				int m_nSmoothLoopEnd = 0
-				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
-				{
-					bool m_bEnabled = false
-					int m_nLoopRestart = 0
-				}
-			}
-			bool m_bHidden = false
-			CActivity[] m_Activities = 
-			[
-				
-			]
-			CAnimationEvent[] m_AnimationEvents = 
-			[
-				
-			]
-			CMotionFrame[] m_MotionFrames = 
-			[
-				
-			]
-			CIKrule*[] m_pIkRules = 
-			[
-				
-			]
-			CAlignAnimation* m_pAlignAnimation = NULL
-			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
-			{
-				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
-				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
-			}
-			string[] m_Keywords = 
-			[
-				
-			]
-			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
-			{
-				float m_flFadeInTime = 0.200000
-				float m_flFadeOutTime = 0.200000
-			}
-		},
-		CVanim
-		{
-			string m_Animationname = "ezreal_death"
-			string m_Filepath = "models/champions/ezreal/ezreal_death.fbx"
-			int m_nStartframe = 0
-			int m_nEndframe = 41
+			int m_nEndframe = 89
 			float m_flFps = 30.000000
 			CAnimationLoop m_Loop = CAnimationLoop
 			{
@@ -1475,6 +798,338 @@ CVanimGroup CVanimGroup_0
 				float m_flFadeInTime = 0.200000
 				float m_flFadeOutTime = 0.200000
 			}
+		},
+		CVanim
+		{
+			string m_Animationname = "minion_meele_death2"
+			string m_Filepath = "models/units/minion_melee/minion_meele_death2.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 83
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_DIE_SPECIAL"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "minion_meele_death3"
+			string m_Filepath = "models/units/minion_melee/minion_meele_death3.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 86
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "minion_meele_death4"
+			string m_Filepath = "models/units/minion_melee/minion_meele_death4.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 86
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "minion_meele_idle"
+			string m_Filepath = "models/units/minion_melee/minion_meele_idle.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 29
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_IDLE"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "minion_meele_run"
+			string m_Filepath = "models/units/minion_melee/minion_meele_run.fbx"
+			int m_nStartframe = 0
+			int m_nEndframe = 23
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_RUN"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = false
+					bool m_bExtractTY = false
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAlignAnimation* m_pAlignAnimation = NULL
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
 		}
 	]
 	string[] m_sScripts = 
@@ -1490,7 +1145,7 @@ CVMaterialRemapList CVMaterialRemapList_0
 		CVMaterialRemap
 		{
 			string m_sSearchMaterial = "defaultmaterial.vmat"
-			string m_sReplaceMaterial = "materials/ezreal.vmat"
+			string m_sReplaceMaterial = "materials/units/melee_minion_red.vmat"
 		}
 	]
 }

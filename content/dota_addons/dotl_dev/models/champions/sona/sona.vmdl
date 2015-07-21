@@ -765,7 +765,7 @@ CVattachmentList CVattachmentList_0
 	[
 		CVattachment
 		{
-			string m_name = "attachment_root"
+			string m_name = "attach_root"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
@@ -780,14 +780,14 @@ CVattachmentList CVattachmentList_0
 		},
 		CVattachment
 		{
-			string m_name = "attachment_hitloc"
+			string m_name = "attach_hitloc"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
 				{
-					string m_influenceName = "C_Root"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					string m_influenceName = "root"
+					float(3) m_vTranslationOffset = ( 0.000000, 8.392799, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, -0.000000, 0.000000 )
 					float m_flWeight = 1.000000
 					bool m_bRoot = false
 				}
@@ -795,7 +795,7 @@ CVattachmentList CVattachmentList_0
 		},
 		CVattachment
 		{
-			string m_name = "attachment_attack1"
+			string m_name = "attach_attack1"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
@@ -810,7 +810,7 @@ CVattachmentList CVattachmentList_0
 		},
 		CVattachment
 		{
-			string m_name = "attachment_attack2"
+			string m_name = "attach_attack2"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence

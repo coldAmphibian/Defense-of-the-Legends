@@ -17,14 +17,14 @@
   height: 100%;
 }
 
-.Fade
+/*.Fade
 {
   background-color: #000000;
   z-index: 3;
   min-width: 100%;
   min-height: 100%;
   opacity: 0;
-}
+}*/
  /* animation-name: anim-fade;
   animation-duration: TotalLength;
   animation-timing-function: TimingFunc;
@@ -107,6 +107,11 @@
     opacity: 1;
   }
 }*/
+
+#Preload
+{
+  opacity: 0;
+}
 
 #PortraitLeft
 {

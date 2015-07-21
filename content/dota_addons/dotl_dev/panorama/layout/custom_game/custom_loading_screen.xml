@@ -13,9 +13,18 @@
       <Image id="PortraitRight" src="file://{images}/custom_game/loading_screen/Diana2.png" />
     </Panel>
 
-    <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>
+    <Panel class="Preload">
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Anivia.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Bard.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Enigma.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Phoenix.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Rubick.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Techies.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Teemo.png" />
+      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Viktor.png" />
+    </Panel>
 
-    <Panel class="Fade" />
+    <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>
 
     <Panel class="Title">
       <Label id="Defenseofthe" text="Defense of the Legends" />

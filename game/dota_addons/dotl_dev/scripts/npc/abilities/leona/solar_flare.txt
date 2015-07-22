@@ -163,23 +163,5 @@
 		        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction_percentage" 
 		    }
 		}
-		"modifier_leona_sunlight"
-        {
-            "TextureName"	"leona_sunlight"
-            "IsDebuff"		"1"
-            "Duration"		"3.5"
-             
-            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-			"EffectAttachType"	"follow_origin"	
-
-            "OnAttacked"
-            {
-    			"RunScript"
-				{
-					"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
-					"Function"			"LeonaSunlight"
-				}	
-            }
-        }
 	}
 }

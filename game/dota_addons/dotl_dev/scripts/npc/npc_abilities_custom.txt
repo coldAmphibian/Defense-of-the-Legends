@@ -1774,24 +1774,6 @@
 		    		"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_mr"
 		    	}
 			}
-			"modifier_leona_sunlight"
-	        {
-	            "TextureName"	"leona_sunlight"
-	            "IsDebuff"		"1"
-	            "Duration"		"3.5"
-	             
-	            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-				"EffectAttachType"	"follow_origin"	
-	
-	            "OnAttacked"
-	            {
-	    			"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
-						"Function"			"LeonaSunlight"
-					}
-	            }
-	        }
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -1916,7 +1898,7 @@
 	            {
 	    			"RunScript"
 					{
-						"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
+						"ScriptFile"		"heroes/leona/sunlight.lua"
 						"Function"			"LeonaSunlight"
 					}
 	            }
@@ -2088,24 +2070,6 @@
 			        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction_percentage" 
 			    }
 			}
-			"modifier_leona_sunlight"
-	        {
-	            "TextureName"	"leona_sunlight"
-	            "IsDebuff"		"1"
-	            "Duration"		"3.5"
-	             
-	            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-				"EffectAttachType"	"follow_origin"	
-	
-	            "OnAttacked"
-	            {
-	    			"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
-						"Function"			"LeonaSunlight"
-					}	
-	            }
-	        }
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -2169,7 +2133,7 @@
 	            {
 	            	"RunScript"
 					{
-						"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
+						"ScriptFile"		"heroes/leona/sunlight.lua"
 						"Function"			"LeonaSunlight"
 					}
 	            				
@@ -2298,7 +2262,7 @@
 	
 			"RunScript"
 			{
-				"ScriptFile"			"scripts/vscripts/heroes/hero_leona/leona_zenith_blade.lua"
+				"ScriptFile"			"heroes/leona/zenith_blade.lua"
 				"Function"				"LaunchMeatHook"
 				"Target"				"POINT"
 				"sound_extend"			"Hero_Pudge.AttackHookExtend"
@@ -2403,24 +2367,6 @@
 					"MODIFIER_STATE_UNSELECTABLE" 	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_leona_sunlight"
-	        {
-	            "TextureName"	"leona_sunlight"
-	            "IsDebuff"		"1"
-	            "Duration"		"3.5"
-	             
-	            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-				"EffectAttachType"	"follow_origin"	
-	
-	            "OnAttacked"
-	            {
-	    			"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
-						"Function"			"LeonaSunlight"
-					}	
-	            }
-	        }
 		}
 	}
 	// Lux' Illumination (Passive)

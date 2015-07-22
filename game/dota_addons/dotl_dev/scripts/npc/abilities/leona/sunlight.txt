@@ -59,7 +59,7 @@
             {
             	"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_leona/leona_sunlight.lua"
+					"ScriptFile"		"heroes/leona/sunlight.lua"
 					"Function"			"LeonaSunlight"
 				}
             				

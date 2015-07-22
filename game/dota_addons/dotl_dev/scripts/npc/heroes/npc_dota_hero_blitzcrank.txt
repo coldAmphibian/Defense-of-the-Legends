@@ -19,8 +19,8 @@
 	"Ability2"					"blitzcrank_overdrive"							// Ability 2
 	"Ability3"					"blitzcrank_power_fist"							// Ability 3
 	"Ability4"					"blitzcrank_mana_barrier"						// Ability 4
-	"Ability5"					"blitzcrank_static_field_passive"				// Ability 5
-	"Ability6"					"blitzcrank_static_field"						// Ability 6
+	"Ability5"					"blitzcrank_static_field"						// Ability 5
+	"Ability6"					"blitzcrank_static_field_passive"				// Ability 6
 
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------

@@ -5,9 +5,9 @@
 		"Ability1"					"garen_silence"
 		"Ability2"					"garen_courage"
 		"Ability3"					"garen_spin"
-		"Ability6"					"garen_ult"
 		"Ability4"					"garen_perseverance"
-		"AbilityLayout"				"6"
+		"Ability5"					"garen_ult"
+		"AbilityLayout"				"5"
 		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
 		"HeroID"					"113"
 		"Enabled"					"1"

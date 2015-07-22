@@ -1580,7 +1580,7 @@ CVMaterialRemapList CVMaterialRemapList_0
 		CVMaterialRemap
 		{
 			string m_sSearchMaterial = "defaultmaterial.vmat"
-			string m_sReplaceMaterial = "materials/lux.vmat"
+			string m_sReplaceMaterial = "materials/champions/lux.vmat"
 		}
 	]
 }

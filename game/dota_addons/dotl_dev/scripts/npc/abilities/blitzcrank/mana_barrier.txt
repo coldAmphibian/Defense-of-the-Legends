@@ -48,7 +48,7 @@
             {
                 "RunScript"
                 {
-                    "ScriptFile"        "heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+                    "ScriptFile"        "heroes/blitzcrank/mana_barrier.lua"
                     "Function"          "ManaBarrierCheck"
                     "Target"            "CASTER"
                 }   
@@ -68,7 +68,7 @@
             {
                 "RunScript"
                 {
-                    "ScriptFile"    "heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+                    "ScriptFile"    "heroes/blitzcrank/mana_barrier.lua"
                     "Function"      "ManaShieldHealth"
                 }
             }
@@ -77,7 +77,7 @@
             {
                 "RunScript"
                 {
-                    "ScriptFile"    "heroes/hero_blitzcrank/blitzcrank_mana_barrier.lua"
+                    "ScriptFile"    "heroes/blitzcrank/mana_barrier.lua"
                     "Function"      "ManaShieldAbsorb"
                     "DamageTaken"   "%attack_damage"
                 }

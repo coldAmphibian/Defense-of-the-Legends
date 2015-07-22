@@ -106,7 +106,7 @@
 
 		"RunScript"
 		{
-			"ScriptFile"			"scripts/vscripts/heroes/hero_blitzcrank/blitzcrank_rocket_grab.lua"
+			"ScriptFile"			"scripts/vscripts/heroes/blitzcrank/rocket_grab.lua"
 			"Function"				"LaunchMeatHook"
 			"Target"				"POINT"
 			"sound_extend"			"Hero_Pudge.AttackHookExtend"
@@ -141,7 +141,7 @@
 		
 		"RunScript"
 		{
-			"ScriptFile"			"scripts/vscripts/heroes/hero_blitzcrank/blitzcrank_rocket_grab.lua"
+			"ScriptFile"			"scripts/vscripts/heroes/blitzcrank/rocket_grab.lua"
 			"Function"				"RetractMeatHook"
 			"meat_hook_modifier"	"modifier_meat_hook_target_datadriven"
 			"sound_extend"			"Hero_Pudge.AttackHookExtend"

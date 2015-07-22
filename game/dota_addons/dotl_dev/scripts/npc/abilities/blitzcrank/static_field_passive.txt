@@ -53,7 +53,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_static_field_passive.lua"
+					"ScriptFile"		"heroes/blitzcrank/static_field_passive.lua"
 					"Function"			"BlitzcrankStaticFieldPassive"
 				}
 			}
@@ -67,7 +67,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_blitzcrank/blitzcrank_static_field_passive.lua"
+					"ScriptFile"		"heroes/blitzcrank/static_field_passive.lua"
 					"Function"			"BlitzcrankStaticFieldPassiveApply"
 				}
 			}

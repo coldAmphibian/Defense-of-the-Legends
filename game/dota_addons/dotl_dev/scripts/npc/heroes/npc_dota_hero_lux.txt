@@ -1,4 +1,4 @@
-"npc_lol_champion_lux"
+"npc_dota_hero_lux"
 {
 	"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
 	"MovementTurnRate"			"10"										// Turning rate.

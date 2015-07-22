@@ -3,7 +3,7 @@
 	Author: wFX
 	Date: 03/2015
 ==========================]]
-function ezreal_rising_spell_force_on_spell_hit(event)
+function OnProjectileHitUnit(event)
 	local caster = event.caster
 	local innate = caster:FindAbilityByName("ezreal_rising_spell_force")
 	if innate ~= nil then

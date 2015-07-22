@@ -1,28 +1,27 @@
 //-------------------------------------------------------------------------------------------------------------
-// Name: Hero Sona
+// Name: Hero Blitzcrank
 // Author: Zarthbenn
 // Date: 07/2015
 //-------------------------------------------------------------------------------------------------------------
-"npc_lol_champion_sona"
+"npc_dota_hero_blitzcrank"
 {
-	"override_hero"				"npc_dota_hero_wisp"					// Hero to override
+	"override_hero"				"npc_dota_hero_pudge"					// Hero to override
 	"MovementTurnRate"			"10"									// Turning rate.
-	"Model"						"models/champions/sona/sona.vmdl"
-	"ModelScale"				"1"
-	"MovementTurnRate"			"10"											// Turning rate.
-	"HeroID"					"120"
+	"Model"						"models/champions/blitzcrank/blitzcrank.vmdl"
+	"ModelScale"				"1.15"	
+	"HeroID"					"116"
 	"Enabled"					"1"
-
-	// Abilities
-	//-------------------------------------------------------------------------------------------------------------							
-											
-	"Ability1"					"sona_hymn_of_valor"					// Ability 1
-	"Ability2"					"sona_aria_of_perseverance"				// Ability 2
-	"Ability3"					"sona_song_of_celerity"					// Ability 3
-	"Ability4"					"sona_power_chord"						// Ability 4
-	"Ability5"					"sona_crescendo"						// Ability 5
-	"AbilityLayout"				"5"
 	
+	// Abilities
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityLayout"				"5"
+	"Ability1"					"blitzcrank_rocket_grab"						// Ability 1
+	"Ability2"					"blitzcrank_overdrive"							// Ability 2
+	"Ability3"					"blitzcrank_power_fist"							// Ability 3
+	"Ability4"					"blitzcrank_mana_barrier"						// Ability 4
+	"Ability5"					"blitzcrank_static_field_passive"				// Ability 5
+	"Ability6"					"blitzcrank_static_field"						// Ability 6
+
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------
 	"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
@@ -35,24 +34,25 @@
 
 	// Base Stats
 	//-------------------------------------------------------------------------------------------------------------
-	"StatusHealth"				"482"									// Base health.
-	"HealthGain"				"77"
-	"StatusHealthRegen"			"5.4"									// Health regeneration rate.
-	"HealthRegenGain"			"0.6"
+	"StatusHealth"				"583"									// Base health.
+	"HealthGain"				"95"
+	"StatusHealthRegen"			"8.5"									// Health regeneration rate.
+	"HealthRegenGain"			"0.75"
 	
-	"StatusMana"				"341"									// Base mana.
-	"ManaGain"					"45"
-	"StatusManaRegen"			"9"										// Mana regeneration rate.
-	"ManaRegenGain"				"0.4"
+	"StatusMana"				"267"									// Base mana.
+	"ManaGain"					"40"
+	"StatusManaRegen"			"6"										// Mana regeneration rate.
+	"ManaRegenGain"				"0.8"
 
 	"MovementSpeed"				"237"									// Speed.
 
-	"AttackRate"				"1.552"									// Speed of attack.
+	"AttackRate"				"1.6"									// Speed of attack.
 
 	// Armor
 	//-------------------------------------------------------------------------------------------------------------
-	"ArmorPhysical"				"3.41"									// Physical protection.
-	"MagicalResistance"			"30"									// Magical protection (percentage).
+	"ArmorPhysical"				"4"									// Physical protection.
+	"MagicalResistance"			"32.1"									// Magical protection (percentage).
+
 
 	"AttachWearables"
 	{
@@ -79,6 +79,4 @@
 	}
 	"ItemSlots" {}
 
-
-	
 }

@@ -5,7 +5,7 @@
 	// Author: Zarthbenn
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_blitzcrank"
+	"npc_dota_hero_blitzcrank"
 	{
 		"override_hero"				"npc_dota_hero_pudge"					// Hero to override
 		"MovementTurnRate"			"10"									// Turning rate.
@@ -87,7 +87,7 @@
 	// Author: wFX
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_ezreal"
+	"npc_dota_hero_ezreal"
 	{
 		"override_hero"				"npc_dota_hero_zuus"					// Hero to override
 		"MovementTurnRate"			"10"									// Turning rate.
@@ -168,7 +168,7 @@
 		}
 		"ItemSlots" {}
 	}
-	"npc_league_hero_garen"
+	"npc_dota_hero_garen"
 	{
 			"override_hero"				"npc_dota_hero_bloodseeker"			// Hero to override
 			"Model"						"models/champions/garen/garen.vmdl"
@@ -212,7 +212,7 @@
 	// Author: Zarthbenn
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_leona"
+	"npc_dota_hero_leona"
 	{
 		"override_hero"				"npc_dota_hero_dragon_knight"					// Hero to override
 		"Model"						"models/champions/leona/leona.vmdl"
@@ -286,7 +286,7 @@
 		}
 		"ItemSlots" {}
 	}
-	"npc_lol_champion_lux"
+	"npc_dota_hero_lux"
 	{
 		"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
 		"MovementTurnRate"			"10"										// Turning rate.
@@ -334,7 +334,7 @@
 			}
 		"ItemSlots" {}
 	}
-	"npc_lol_champion_mundo"
+	"npc_dota_hero_mundo"
 	{
 	    "override_hero"         "npc_dota_hero_alchemist"
 	    "SoundSet"              "0"
@@ -389,7 +389,7 @@
 	// Author: Zarthbenn
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_sona"
+	"npc_dota_hero_sona"
 	{
 		"override_hero"				"npc_dota_hero_wisp"					// Hero to override
 		"MovementTurnRate"			"10"									// Turning rate.
@@ -473,7 +473,7 @@
 	// Author: Zarthbenn
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_taric"
+	"npc_dota_hero_taric"
 	{
 		"override_hero"				"npc_dota_hero_omniknight"				// Hero to override
 		"MovementTurnRate"			"10"									// Turning rate.

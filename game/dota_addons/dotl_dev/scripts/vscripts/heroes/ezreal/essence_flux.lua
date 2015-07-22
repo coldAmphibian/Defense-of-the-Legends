@@ -1,4 +1,9 @@
-function ezreal_essence_flux_on_spell_start(event)
+--[[========================
+	LoL's Ezreal Dota port
+	Author: wFX
+	Date: 03/2015
+==========================]]
+function OnSpellStart(event)
 	local caster = event.caster
 	local info = 
 	{
@@ -22,7 +27,7 @@ function ezreal_essence_flux_on_spell_start(event)
 	event.caster.currentProjectileFireTime = GameRules:GetGameTime()
 end
 
-function ezreal_essence_flux_on_hit_unit(event)
+function OnProjectileHitUnit(event)
 	
 	local ability = event.ability
 	local caster = event.caster

@@ -64,8 +64,8 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_ezreal/ezreal_essence_flux.lua"
-			"Function"			"ezreal_essence_flux_on_spell_start"
+			"ScriptFile"		"heroes/ezreal/essence_flux.lua"
+			"Function"			"OnSpellStart"
 			"projectile_speed"	"%projectile_speed"
 			"radius"			"%radius"
 			"range"				"%range"
@@ -80,13 +80,13 @@
 		"DeleteOnHit"	"0"
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_ezreal/ezreal_essence_flux.lua"
-			"Function"			"ezreal_essence_flux_on_hit_unit"
+			"ScriptFile"		"heroes/ezreal/essence_flux.lua"
+			"Function"			"OnProjectileHitUnit"
 		}
 		"RunScript"
 		{
-			"ScriptFile"	"heroes/hero_ezreal/ezreal_rising_spell_force.lua"
-			"Function"		"ezreal_rising_spell_force_on_spell_hit"
+			"ScriptFile"	"heroes/ezreal/rising_spell_force.lua"
+			"Function"		"OnProjectileHitUnit"
 		}
 	}
 

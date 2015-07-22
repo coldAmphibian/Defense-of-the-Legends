@@ -1,27 +1,26 @@
 //-------------------------------------------------------------------------------------------------------------
-// Name: Hero Taric
+// Name: Hero Leona
 // Author: Zarthbenn
 // Date: 07/2015
 //-------------------------------------------------------------------------------------------------------------
-"npc_lol_champion_taric"
+"npc_dota_hero_leona"
 {
-	"override_hero"				"npc_dota_hero_omniknight"				// Hero to override
-	"MovementTurnRate"			"10"									// Turning rate.
-	"Model"						"models/champions/taric/taric.vmdl"
-	"ModelScale"				"0.9"	
-	"HeroID"					"117"
+	"override_hero"				"npc_dota_hero_dragon_knight"					// Hero to override
+	"Model"						"models/champions/leona/leona.vmdl"
+	"ModelScale"				"1.15"
+	"MovementTurnRate"			"10"											// Turning rate.
+	"HeroID"					"115"
 	"Enabled"					"1"
 
 	// Abilities
-	//-------------------------------------------------------------------------------------------------------------					
-											
-	"Ability1"					"taric_imbue"							// Ability 1
-	"Ability2"					"taric_shatter"							// Ability 2
-	"Ability3"					"taric_dazzle"							// Ability 3
-	"Ability4"					"taric_gemcraft"						// Ability 4
-	"Ability5"					"taric_radiance"						// Ability 5
+	//-------------------------------------------------------------------------------------------------------------										
+	"Ability1"					"leona_shield_of_daybreak"				// Ability 1
+	"Ability2"					"leona_eclipse"							// Ability 2
+	"Ability3"					"leona_zenith_blade"					// Ability 3
+	"Ability4"					"leona_sunlight"						// Ability 4
+	"Ability5"					"leona_solar_flare"						// Ability 5
 	"AbilityLayout"				"5"
-	
+
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------
 	"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
@@ -34,23 +33,23 @@
 
 	// Base Stats
 	//-------------------------------------------------------------------------------------------------------------
-	"StatusHealth"				"619"									// Base health.
-	"HealthGain"				"90"
-	"StatusHealthRegen"			"7.9"									// Health regeneration rate.
-	"HealthRegenGain"			"0.5"
+	"StatusHealth"				"576"									// Base health.
+	"HealthGain"				"87"
+	"StatusHealthRegen"			"8.4"									// Health regeneration rate.
+	"HealthRegenGain"			"0.85"
 	
-	"StatusMana"				"349"									// Base mana.
-	"ManaGain"					"56"
+	"StatusMana"				"302"									// Base mana.
+	"ManaGain"					"40"
 	"StatusManaRegen"			"6"										// Mana regeneration rate.
 	"ManaRegenGain"				"0.8"
 
-	"MovementSpeed"				"248"									// Speed.
+	"MovementSpeed"				"244"									// Speed.
 
 	"AttackRate"				"1.6"									// Speed of attack.
 
 	// Armor
 	//-------------------------------------------------------------------------------------------------------------
-	"ArmorPhysical"				"4.3"									// Physical protection.
+	"ArmorPhysical"				"4.5"									// Physical protection.
 	"MagicalResistance"			"32.1"									// Magical protection (percentage).
 
 	"AttachWearables"
@@ -77,5 +76,4 @@
 		}
 	}
 	"ItemSlots" {}
-	
 }

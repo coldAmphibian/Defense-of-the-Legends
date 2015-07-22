@@ -3,7 +3,7 @@
 	Author: wFX
 	Date: 03/2015
 ==========================]]
-function ezreal_trueshot_barrage_on_spell_start(event)
+function OnSpellStart(event)
 	local caster = event.caster
 	local origin = Vector(GetWorldMinX(), GetWorldMinY())
 	local far = Vector(GetWorldMaxX(), GetWorldMaxY())
@@ -30,12 +30,7 @@ function ezreal_trueshot_barrage_on_spell_start(event)
 	event.caster.currentProjectileUnits = 0	
 end
 
---[[========================
-	LoL's Ezreal Dota port
-	Author: wFX
-	Date: 03/2015
-==========================]]
-function ezreal_trueshot_barrage_on_hit_unit(event)
+function OnProjectileHitUnit(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target

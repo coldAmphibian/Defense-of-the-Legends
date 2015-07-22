@@ -44,8 +44,8 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_ezreal/ezreal_trueshot_barrage.lua"
-			"Function"			"ezreal_trueshot_barrage_on_spell_start"
+			"ScriptFile"		"heroes/ezreal/trueshot_barrage.lua"
+			"Function"			"OnSpellStart"
 			"projectile_speed"	"%projectile_speed"
 			"radius"			"%radius"
 			"vision_radius"		"%vision_radius"
@@ -59,13 +59,13 @@
 		"DeleteOnHit"	"0"
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_ezreal/ezreal_trueshot_barrage.lua"
-			"Function"			"ezreal_trueshot_barrage_on_hit_unit"
+			"ScriptFile"		"heroes/ezreal/trueshot_barrage.lua"
+			"Function"			"OnProjectileHitUnit"
 		}
 		"RunScript"
 		{
-			"ScriptFile"	"heroes/hero_ezreal/ezreal_rising_spell_force.lua"
-			"Function"		"ezreal_rising_spell_force_on_spell_hit"
+			"ScriptFile"	"heroes/ezreal/rising_spell_force.lua"
+			"Function"		"OnProjectileHitUnit"
 		}
 	}
 }

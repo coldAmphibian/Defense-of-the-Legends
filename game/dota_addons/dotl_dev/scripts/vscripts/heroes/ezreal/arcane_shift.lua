@@ -1,4 +1,9 @@
-function ezreal_arcane_shift_on_spell_start(event)
+--[[========================
+	LoL's Ezreal Dota port
+	Author: wFX
+	Date: 03/2015
+==========================]]
+function OnSpellStart(event)
 	local caster = event.caster
 	local ability = event.ability
 

@@ -1,4 +1,9 @@
-function ezreal_mystic_shot_on_spell_start(event)
+--[[========================
+	LoL's Ezreal Dota port
+	Author: wFX
+	Date: 03/2015
+==========================]]
+function OnSpellStart(event)
 	local caster = event.caster
 	local info = 
 	{
@@ -20,7 +25,7 @@ function ezreal_mystic_shot_on_spell_start(event)
 	local projectile = ProjectileManager:CreateLinearProjectile(info)
 end
 
-function ezreal_mystic_shot_on_hit_unit(event)
+function OnProjectileHitUnit(event)
 	local ability = event.ability
 	if ability ~= nil then
 		local caster = event.caster

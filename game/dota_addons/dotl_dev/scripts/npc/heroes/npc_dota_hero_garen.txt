@@ -1,4 +1,4 @@
-"npc_league_hero_garen"
+"npc_dota_hero_garen"
 {
 		"override_hero"				"npc_dota_hero_bloodseeker"			// Hero to override
 		"Model"						"models/champions/garen/garen.vmdl"

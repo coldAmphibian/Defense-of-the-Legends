@@ -1,0 +1,72 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Viktor Chaos Storm Move
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"viktor_chaos_storm_move"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET| DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName"			"viktor_chaos_storm"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"MaxLevel"						"3"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"999999"
+	"AbilityCastPoint"				"0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"0.5"
+	"AbilityDamage"					"70 115 160 205 250" //-- (+ 70% AP)
+
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"0"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+		"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+		"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
+		"particle"			"particles/items3_fx/lotus_orb_shield.vpcf"
+		"particle"          "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"laser_radius"	"100"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"DelayedAction"
+		{
+			"Delay"     "0.0"
+			"Action"    
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+					"Function"		"LaserMove"
+					"Target"		"POINT"
+				}
+			}
+		}
+	}
+	"Modifiers"
+	{
+		
+	}
+}

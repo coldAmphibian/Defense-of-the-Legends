@@ -1,0 +1,190 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Viktor Chaos Storm
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"viktor_chaos_storm"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"MaxLevel"						"3"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityTextureName"			"viktor_chaos_storm"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"511"
+	"AbilityCastPoint"				"0.1"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"120 110 100"
+	
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"150 250 350" //-- (+ 55% AP)
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"100"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+		"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+		"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
+		"particle"			"particles/items3_fx/lotus_orb_shield.vpcf"
+		"particle"          "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+		"particle"			"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"laser_radius"			"237"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"periodic_damage"		"15 30 45"
+		}
+	}
+	"OnUpgrade"
+	{
+		"LevelUpAbility"
+		{
+			"Target" 		"CASTER"
+			"AbilityName"	"viktor_chaos_storm_move"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/viktor/chaos_storm.lua"
+			"Function"			"SwapAbilities"
+			"current_ability"	"viktor_chaos_storm"
+			"new_ability"		"viktor_chaos_storm_move"
+		}	
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/viktor/chaos_storm.lua"
+			"Function"			"PointOne"
+			"Target"			"POINT"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+			"Function"		"MakeLaser"
+		}
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"EffectAttachType"	"attach_origin"
+			"Target"	"POINT"
+		}
+		"Damage"
+		{
+			"Target"
+			{
+				"Center"  	"POINT"
+				"Radius" 	"%laser_radius"
+				"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+			"Type"			"DAMAGE_TYPE_MAGICAL"
+			"Damage"		"%AbilityDamage"
+		}
+
+		"DelayedAction"
+		{
+			"Delay"     "7"
+			"Action"    
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/viktor/chaos_storm.lua"
+					"Function"			"SwapAbilities"
+					"current_ability"	"viktor_chaos_storm_move"
+					"new_ability"		"viktor_chaos_storm"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+					"Function"		"RemoveLaser"
+				}
+			}
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_lucent_singularity_unit"
+		{
+			"Aura"					"modifier_lucent_singularity"
+			"Aura_Radius"			"%laser_radius"
+			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"        "particles/items3_fx/lotus_orb_shield.vpcf"
+					"EffectAttachType"  "follow_overhead"
+					"Target"            "TARGET"
+
+					"ControlPoints"
+					{
+						"01"	"%laser_radius 0 0"
+						"05"	"%laser_radius 0 0"
+					}
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"%vision_radius"
+			    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%vision_radius" 
+			}
+		}
+		"modifier_lucent_singularity"
+		{
+			"IsDebuff" 			"1"
+			"ThinkInterval" 	 "0.5"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+					"Function"		"Damage"
+				}
+			}
+		}
+		"modifier_viktor_death_ray_remove"
+		{
+			"IsHidden"			"1"
+	
+			"Duration"			"1"
+	
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+					"Function"		"RemoveLaser"
+				}
+			}
+		}	
+	}
+}

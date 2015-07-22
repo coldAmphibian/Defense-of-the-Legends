@@ -1,0 +1,83 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Hero Viktor
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"npc_lol_champion_viktor"
+{
+	"override_hero"				"npc_dota_hero_rubick"					// Hero to override
+	"MovementTurnRate"			"10"									// Turning rate.
+	"Model"						"models/champions/viktor/viktor.vmdl"
+	"ModelScale"				"1"	
+	"HeroID"					"121"
+	"Enabled"					"1"
+	
+	// Abilities
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityLayout"				"5"
+	"Ability1"					"viktor_siphon_power"							// Ability 1
+	"Ability2"					"viktor_gravity_field"							// Ability 2
+	"Ability3"					"viktor_death_ray"								// Ability 3
+	"Ability4"					"viktor_death_ray_detonate"						// Ability 4
+	"Ability5"					"viktor_glorious_evolution"						// Ability 5
+	"Ability6"					"viktor_chaos_storm"							// Ability 6
+	"Ability7"					"viktor_chaos_storm_move"						// Ability 6
+
+	// Attributes
+	//-------------------------------------------------------------------------------------------------------------
+	"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+	"AttributeBaseStrength"		"0"										// Base strength
+	"AttributeStrengthGain"		"0"										// Strength bonus per level.
+	"AttributeBaseIntelligence"	"0"										// Base intelligence
+	"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
+	"AttributeBaseAgility"		"0"										// Base agility
+	"AttributeAgilityGain"		"0"										// Agility bonus per level.
+
+	// Base Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"StatusHealth"				"583"									// Base health.
+	"HealthGain"				"95"
+	"StatusHealthRegen"			"8.5"									// Health regeneration rate.
+	"HealthRegenGain"			"0.75"
+	
+	"StatusMana"				"267"									// Base mana.
+	"ManaGain"					"40"
+	"StatusManaRegen"			"6"										// Mana regeneration rate.
+	"ManaRegenGain"				"0.8"
+
+	"MovementSpeed"				"237"									// Speed.
+
+	"AttackRate"				"1.6"									// Speed of attack.
+
+	// Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"ArmorPhysical"				"4"									// Physical protection.
+	"MagicalResistance"			"32.1"									// Magical protection (percentage).
+
+
+	"AttachWearables"
+	{
+		"Wearable1"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable2"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable3"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable4"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable5"
+		{
+			"ItemDef" "0"
+		}
+	}
+	"ItemSlots" {}
+
+}

@@ -47,7 +47,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"hook_speed"		"1460.0"
+			"hook_speed"		"1168.0"
 		}
 		"02"
 		{
@@ -149,7 +149,7 @@
 		
 		"RunScript"
 		{
-			"ScriptFile"			"scripts/vscripts/heroes/hero_leona/leona_zenith_blade.lua"
+			"ScriptFile"			"heroes/leona/zenith_blade.lua"
 			"Function"				"RetractMeatHook"
 			
 			"meat_hook_modifier"	"modifier_meat_hook_target_datadriven"

@@ -1,7 +1,7 @@
 <root>
-  <styles>
-    <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
-  </styles>
+   <styles>
+     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+   </styles>
 
   <scripts>
     <include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
@@ -9,26 +9,20 @@
 
   <Panel class="AddonLoadingRoot">
     <Panel class="ScrollingBg">
-      <Image id="PortraitLeft" src="file://{images}/custom_game/loading_screen/Leona2.png" />
-      <Image id="PortraitRight" src="file://{images}/custom_game/loading_screen/Diana2.png" />
+      <Image id="PortraitLeft" src="file://{images}/custom_game/loading_screen/Anivia.png" />
+      <Image id="PortraitRight" src="file://{images}/custom_game/loading_screen/Phoenix.png" />
     </Panel>
 
-    <Panel class="Preload">
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Anivia.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Bard.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Enigma.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Phoenix.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Rubick.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Techies.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Teemo.png" />
-      <Image id="Preload" src="file://{images}/custom_game/loading_screen/Viktor.png" />
-    </Panel>
+    <Panel id="TitlePanel">
+      <Label id="AddonTitle" text="#addon_game_name" style="" />
 
-    <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>
+      <Image class="Overlay" src="file://{images}/custom_game/loading_screen/ShadowOverlay.png"/>
 
-    <Panel class="Title">
-      <Label id="Defenseofthe" text="Defense of the Legends" />
-      <!-- <Label id="Legends" text="Legends" /> -->
+      <Panel class="Fade" />
+
+      <Panel class="Title">
+        <Label id="DefenseoftheLegends" text="Defense of the Legends" />
+      </Panel>
     </Panel>
   </Panel>
 </root>

@@ -1,0 +1,12 @@
+"addon"
+{
+	"Unassigned"      								"Unassigned Team"
+	"Spectator"       								"Spectator Team"
+	"Neutrals"        								"Neutral Team"
+	"NoTeam"          								"No Team"
+
+	"DOTA_GoodGuys"   								"Red Team"
+	"DOTA_BadGuys"    								"Blue Team"
+	
+	"addonname"										"Barebones"
+}

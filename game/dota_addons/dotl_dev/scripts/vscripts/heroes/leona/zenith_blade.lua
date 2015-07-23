@@ -48,6 +48,8 @@ function RetractMeatHook( keys )
 	end
 
 	if target:IsHero() then
+		
+		hookTable[caster].bHitUnit = true
 		-- Make the target face the caster
 		target:SetForwardVector(direction)
 		
@@ -68,7 +70,7 @@ function RetractMeatHook( keys )
 				EmitSoundOn(sound_retract_stop, caster)
 
 				-- This is to fix a visual bug when the target is very close to the caster
-				Timers:CreateTimer(0.03, function() hookTable[caster].bHitUnit = false end)
+				-- Timers:CreateTimer(0.03, function() hookTable[caster].bHitUnit = false end)
 			end
 
 			end)

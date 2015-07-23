@@ -74,19 +74,38 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
+  debug = false
 
-  -- This line for example will set the starting gold of every hero to 500 unreliable gold
-  hero:SetGold(99999, false)
-  for i=2,7 do
-    hero:HeroLevelUp(false)
+  if debug then
+    hero:SetGold(99999, false)
+    for i=2,7 do
+      hero:HeroLevelUp(false)
+    end
   end
-  -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-
+  -- This looks for innate abilities and autolearn then
   for i=0,15 do
     local ability = hero:GetAbilityByIndex(i)
     if ability ~= nil then
       if ability:GetLevelSpecialValueFor("champion_passive", 0) == 1 then
           ability:SetLevel(1)
+      end
+    else
+      break
+    end
+  end
+end
+
+
+function GameMode:OnPlayerLevelUp(keys)
+  local player = EntIndexToHScript(keys.player)
+  local level = keys.level
+  local hero  = player:GetAssignedHero()
+  for i=0,15 do
+    local ability = hero:GetAbilityByIndex(i)
+    if ability ~= nil then
+      exists = ability:GetLevelSpecialValueFor("level_scale", level-1)
+      if exists then
+          ability:SetLevel(exists)
       end
     else
       break

@@ -1,19 +1,22 @@
 --[[
 Name: Leona Sunlight Lua
-Author: Zarthbenn
+Author: Zarthbenn with modifications by wFX
 Date: 07/2015
 --]]
-function LeonaSunlight( keys )
+function OnAttacked( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	local casterLevel = caster:GetLevel()
 	local attacker = keys.attacker
 
-	--This funciton is executed whenever a unit with the sunlight debuff is attacked. If the attacker is not the caster (leona) then damage is applied (based on what level caster is) and debuff is removed.
-	
-	--As far as I could find there is no documentaion on what the damage amount per level is on leonas passive. All I could find was the damage values.
-	--Here I assume it starts at 20 and goes up every 2 levels finishing at 17
+	-- This funciton is executed whenever a unit with the sunlight debuff is attacked.
+	-- If the attacker is not the caster (leona) then damage is applied (based on what level caster is)
+	-- and debuff is removed.
+
+	-- As far as I could find there is no documentaion on what the damage amount per level is on leonas
+	-- passive. All I could find was the damage values.
+	-- Here I assume it starts at 20 and goes up every 2 levels finishing at 17
 
 	if attacker ~= caster then
 		if casterLevel == 1 or casterLevel == 2 then
@@ -108,6 +111,13 @@ function LeonaSunlight( keys )
 			ApplyDamage(damageTable)
 		end
 	end
+end
+
+function ApplyModifier(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = caster:GetAbilityByIndex(3)
+	ability:ApplyDataDrivenModifier(caster, target ,'modifier_leona_sunlight', nil)
 end
 
 

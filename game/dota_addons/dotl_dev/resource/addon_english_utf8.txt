@@ -217,6 +217,14 @@
 
 		"npc_dota_hero_dragon_knight"													"Leona"
 
+		"DOTA_Tooltip_ability_leona_sunlight"											"Sunlight"
+		"DOTA_Tooltip_ability_leona_sunlight_Description"								"Leona's spells charge any enemy unit damaged with Sunlight for 3.5 seconds. When allied champions deal any damage to those targets they consume the Sunlight debuff to deal additional magic damage."
+		"DOTA_Tooltip_ability_leona_sunlight_Note0"										"Leona is unable to activate the additional damage herself."
+		"DOTA_Tooltip_modifier_leona_sunlight"											"It burns!"
+		"DOTA_Tooltip_modifier_leona_sunlight_Description"								"This unit is afflicted by sunlight."
+		"DOTA_Tooltip_modifier_leona_sunlight_passive"									"Sunlight"
+		"DOTA_Tooltip_modifier_leona_sunlight_passive_Description"						"Leona's spells inflict sunlight."
+
 		"DOTA_Tooltip_ability_leona_shield_of_daybreak"									"Shield of Daybreak"
 		"DOTA_Tooltip_ability_leona_shield_of_daybreak_Description"						"Leona's next basic attack will be a shield slam, dealing additional magic damage and stun the target for 1.25 seconds."
 		"DOTA_Tooltip_modifier_leona_shield_of_daybreak"								"Shield of Daybreak"
@@ -224,8 +232,8 @@
 
 		"DOTA_Tooltip_ability_leona_eclipse"											"Eclipse"
 		"DOTA_Tooltip_ability_leona_eclipse_Description"								"Leona surrounds herself with a shield of sunlight, gaining bonus armor and magic resistance for 3 seconds. When the effect ends the shield bursts, dealing magic damage to enemies within 200 range of her. If Eclipse damages any enemies, the bonuses remain for an additional 3 seconds."
-		"DOTA_Tooltip_ability_leona_eclipse_bonus_armor"								"Bonus Armor:"
-		"DOTA_Tooltip_ability_leona_eclipse_bonus_mr"									"Bonus Magic Resistance:"
+		"DOTA_Tooltip_ability_leona_eclipse_bonus_armor"								"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_leona_eclipse_bonus_mr"									"BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_modifier_eclipse"													"Eclipse"
 		"DOTA_Tooltip_modifier_eclipse_Description"										"Put your shades on!"
 
@@ -235,14 +243,6 @@
 
 		"DOTA_Tooltip_ability_leona_solar_flare"										"Solar Flare"
 		"DOTA_Tooltip_ability_leona_solar_flare_Description"							"Leona calls down a beam of solar energy to a target location. After a 0.625 delay, it deals magic damage to all enemies within 182-range and slows them by 80% for 1.5 seconds. Enemies within 73-range are stunned for 1.5 seconds instead of being slowed."
-
-		"DOTA_Tooltip_ability_leona_sunlight"											"Sunlight"
-		"DOTA_Tooltip_ability_leona_sunlight_Description"								"Leona's spells charge any enemy unit damaged with Sunlight for 3.5 seconds. When allied champions deal any damage to those targets they consume the Sunlight debuff to deal additional magic damage."
-		"DOTA_Tooltip_ability_leona_sunlight_Note0"										"Leona is unable to activate the additional damage herself."
-		"DOTA_Tooltip_modifier_leona_sunlight"											"It burns!"
-		"DOTA_Tooltip_modifier_leona_sunlight_Description"								"This unit is afflicted by sunlight."
-		"DOTA_Tooltip_modifier_leona_sunlight_passive"									"Sunlight"
-		"DOTA_Tooltip_modifier_leona_sunlight_passive_Description"						"Leona's spells inflict sunlight."
 
 		//=================================================================================
 		// Sona Ability Strings

@@ -1,25 +1,27 @@
 //-------------------------------------------------------------------------------------------------------------
 // Name: Leona Sunlight
-// Author: Zarthbenn
+// Author: Zarthbenn with modifications by wFX
 // Date: 06/2015
 //-------------------------------------------------------------------------------------------------------------
 "leona_sunlight"
 {
-	//------------------------------------------------------------------------------------------------------------
-	// This is a dummy passive for looks and consistency with other champions. 
-	// Leonas passive is applied "manualy" from each individual move where appropriate.
-	// Ideally whenever a "OnSpellCast" action is made it is used here instead of being applied per ability.
-	//------------------------------------------------------------------------------------------------------------
-	//
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"AbilityTextureName"			"leona_sunlight"
-	"MaxLevel"						"1"
-
+	"MaxLevel"						"9"
 	"AbilityCooldown"				"0"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"champion_passive"			"1"
+		}
+	}
 
 	// Precache
 	//-------------------------------------------------------------------------------------------------------------
@@ -30,20 +32,11 @@
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastPoint"				"0.0"
-	"AbilityDamage"					"100"
+	"AbilityDamage"					"20 35 50 65 80 95 110 125 140"
 
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
 	
-	"OnUpgrade"
-	{
-		"ApplyModifier"
-		{
-			"Target"		"CASTER"
-			"ModifierName" 	"modifier_leona_sunlight_passive"
-		}
-	}
-    
     "Modifiers"
     {
         "modifier_leona_sunlight"
@@ -57,18 +50,12 @@
 
             "OnAttacked"
             {
-            	"RunScript"
+    			"RunScript"
 				{
 					"ScriptFile"		"heroes/leona/sunlight.lua"
-					"Function"			"LeonaSunlight"
+					"Function"			"OnAttacked"
 				}
-            				
             }
         }
-        "modifier_leona_sunlight_passive"
-        {
-            "IsPassive"		"1"
-             
-	    }
 	}
 }

@@ -47,30 +47,32 @@ function RetractMeatHook( keys )
 		ApplyDamage(damageTable)
 	end
 
-	-- Make the target face the caster
-	target:SetForwardVector(direction)
-	
-	-- Moving the target
-	Timers:CreateTimer(0, function()
-		casterLocation = targetLocation + (casterLocation - targetLocation):Normalized() * (distance - hookSpeed)
-		caster:SetAbsOrigin(casterLocation)
+	if target:IsHero() then
+		-- Make the target face the caster
+		target:SetForwardVector(direction)
+		
+		-- Moving the target
+		Timers:CreateTimer(0, function()
+			casterLocation = targetLocation + (casterLocation - targetLocation):Normalized() * (distance - hookSpeed)
+			caster:SetAbsOrigin(casterLocation)
 
-		distance = (casterLocation - targetLocation):Length2D()
+			distance = (casterLocation - targetLocation):Length2D()
 
-		if distance > 100 then
-			return 0.03
-		else
-			-- Finished dragging the target
-			FindClearSpaceForUnit(target, targetLocation, false)
-			target:RemoveModifierByName(meat_hook_modifier)
-			StopSoundEvent(sound_retract, caster)
-			EmitSoundOn(sound_retract_stop, caster)
+			if distance > 100 then
+				return 0.03
+			else
+				-- Finished dragging the target
+				FindClearSpaceForUnit(target, targetLocation, false)
+				target:RemoveModifierByName(meat_hook_modifier)
+				StopSoundEvent(sound_retract, caster)
+				EmitSoundOn(sound_retract_stop, caster)
 
-			-- This is to fix a visual bug when the target is very close to the caster
-			Timers:CreateTimer(0.03, function() hookTable[caster].bHitUnit = false end)
-		end
+				-- This is to fix a visual bug when the target is very close to the caster
+				Timers:CreateTimer(0.03, function() hookTable[caster].bHitUnit = false end)
+			end
 
-		end)
+			end)
+	end
 end
 
 --[[Author: Pizzalol

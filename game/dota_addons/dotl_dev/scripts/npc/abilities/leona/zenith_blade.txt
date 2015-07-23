@@ -94,7 +94,7 @@
 		    "EndRadius"     "%hook_width"
 		    "FixedDistance" "%hook_distance"
 		    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		    "TargetTypes"   "DOTA_UNIT_TARGET_HERO"
+		    "TargetTypes"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
 		    "HasFrontalCone" "0"
 		    "ProvidesVision" "0"
@@ -130,9 +130,9 @@
 
 		"FireEffect"
 		{
-			"EffectName"	"particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf"
+			"EffectName"		"particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf"
 			"EffectAttachType"	"follow_origin"
-			"Target"		"TARGET"
+			"Target"			"TARGET"
 		}
 
 		"FireSound"
@@ -163,10 +163,10 @@
 			"ModifierName"	"modifier_meat_hook_target_datadriven"
 			"Target"		"TARGET"
 		}
-		"ApplyModifier"
+		"RunScript"
 		{
-			"ModifierName"	"modifier_leona_sunlight"
-			"Target"		"TARGET"
+			"ScriptFile"		"heroes/leona/sunlight.lua"
+			"Function"			"ApplyModifier"
 		}
 	}
 

@@ -1695,7 +1695,6 @@
 			}
 		}
 		
-		
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -1704,6 +1703,7 @@
 				"ModifierName"			"modifier_eclipse"
 			}
 		}
+	
 		"Modifiers"
 		{
 			"modifier_eclipse"
@@ -1750,6 +1750,7 @@
 							"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 							"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
+						
 						"Action"
 						{
 							"ApplyModifier"
@@ -1757,16 +1758,16 @@
 								"Target"		"CASTER"
 								"ModifierName"	"modifier_eclipse_sustained"
 							}
-							"ApplyModifier"
-							{
-								"Target"		"TARGET"
-								"ModifierName"	"modifier_leona_sunlight"
-							}
 							"Damage"
 							{
 								"Target"	"TARGET"
 								"Type"		"DAMAGE_TYPE_PHYSICAL"
 								"Damage"	"%AbilityDamage"
+							}
+							"RunScript"
+							{
+								"ScriptFile"		"heroes/leona/sunlight.lua"
+								"Function"			"ApplyModifier"
 							}
 						}
 					}
@@ -1787,7 +1788,7 @@
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Leona Shield of Daybreak
-	// Author: Zarthbenn
+	// Author: Zarthbenn with modifications by wFX
 	// Date: 06/2015
 	//-------------------------------------------------------------------------------------------------------------
 	"leona_shield_of_daybreak"
@@ -1828,8 +1829,8 @@
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"modifier_duation"  "10"
+				"var_type"				"FIELD_INTEGER"
+				"modifier_duration"  	"10"
 			}
 		}
 		
@@ -1848,70 +1849,45 @@
 				"Target"				"CASTER"
 				"ModifierName"			"modifier_leona_shield_of_daybreak"
 			}
-	
 		}
+	
 		"Modifiers"
 		{
 			"modifier_leona_shield_of_daybreak"
 			{
 				"IsBuff"	"1"
-				"duration"	"%modifier_duation"
+				"Duration"	"%modifier_duration"
 				
 				"OnAttackLanded"
 				{
+	
 					"Stun"
 					{
-						"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-						"Target"			"TARGET"
+						"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types" 			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 						"Duration"			"%stun_duration"
+						"Target"			"TARGET"
 					}
+	
 					"Damage"
 					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_PHYSICAL"
-						"Damage"	"%AbilityDamage"
+						"Type"				"DAMAGE_TYPE_PHYSICAL"
+						"Damage"			"%AbilityDamage"
 					}
+	
 					"RemoveModifier"
 					{
 						"ModifierName"		"modifier_leona_shield_of_daybreak"
 						"Target"			"CASTER"
 					}
 	
-					//-- The delay is so the debuff does not get consumed automatically
-					
-					"DelayedAction"
+					"RunScript"
 					{
-						"Delay"				"%0.5"
-						"Action"
-						{
-							"ApplyModifier"
-							{
-								"Target"				"TARGET"
-								"ModifierName"			"modifier_leona_sunlight"
-							}
-						}
+						"ScriptFile"		"heroes/leona/sunlight.lua"
+						"Function"			"ApplyModifier"
 					}
 				}
 			}
-			"modifier_leona_sunlight"
-	        {
-	            "TextureName"	"leona_sunlight"
-	            "IsDebuff"		"1"
-	            "Duration"		"3.5"
-	             
-	            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-				"EffectAttachType"	"follow_origin"	
-	
-	            "OnAttacked"
-	            {
-	    			"RunScript"
-					{
-						"ScriptFile"		"heroes/leona/sunlight.lua"
-						"Function"			"LeonaSunlight"
-					}
-	            }
-	        }
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -1923,7 +1899,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -2057,10 +2033,10 @@
 								"Target"		"TARGET"
 								"ModifierName"	"modifier_leona_solar_flare"
 							}
-							"ApplyModifier"
+							"RunScript"
 							{
-								"Target"		"TARGET"
-								"ModifierName"	"modifier_leona_sunlight"
+								"ScriptFile"		"heroes/leona/sunlight.lua"
+								"Function"			"ApplyModifier"
 							}
 						}
 					}
@@ -2083,26 +2059,28 @@
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Leona Sunlight
-	// Author: Zarthbenn
+	// Author: Zarthbenn with modifications by wFX
 	// Date: 06/2015
 	//-------------------------------------------------------------------------------------------------------------
 	"leona_sunlight"
 	{
-		//------------------------------------------------------------------------------------------------------------
-		// This is a dummy passive for looks and consistency with other champions. 
-		// Leonas passive is applied "manualy" from each individual move where appropriate.
-		// Ideally whenever a "OnSpellCast" action is made it is used here instead of being applied per ability.
-		//------------------------------------------------------------------------------------------------------------
-		//
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"			"leona_sunlight"
-		"MaxLevel"						"1"
-	
+		"MaxLevel"						"9"
 		"AbilityCooldown"				"0"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"champion_passive"			"1"
+			}
+		}
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -2113,20 +2091,11 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
-		"AbilityDamage"					"100"
+		"AbilityDamage"					"20 35 50 65 80 95 110 125 140"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		
-		"OnUpgrade"
-		{
-			"ApplyModifier"
-			{
-				"Target"		"CASTER"
-				"ModifierName" 	"modifier_leona_sunlight_passive"
-			}
-		}
-	    
 	    "Modifiers"
 	    {
 	        "modifier_leona_sunlight"
@@ -2140,19 +2109,13 @@
 	
 	            "OnAttacked"
 	            {
-	            	"RunScript"
+	    			"RunScript"
 					{
 						"ScriptFile"		"heroes/leona/sunlight.lua"
-						"Function"			"LeonaSunlight"
+						"Function"			"OnAttacked"
 					}
-	            				
 	            }
 	        }
-	        "modifier_leona_sunlight_passive"
-	        {
-	            "IsPassive"		"1"
-	             
-		    }
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -2204,7 +2167,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hook_speed"		"1460.0"
+				"hook_speed"		"1168.0"
 			}
 			"02"
 			{
@@ -2251,7 +2214,7 @@
 			    "EndRadius"     "%hook_width"
 			    "FixedDistance" "%hook_distance"
 			    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			    "TargetTypes"   "DOTA_UNIT_TARGET_HERO"
+			    "TargetTypes"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 			    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
 			    "HasFrontalCone" "0"
 			    "ProvidesVision" "0"
@@ -2287,9 +2250,9 @@
 	
 			"FireEffect"
 			{
-				"EffectName"	"particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf"
+				"EffectName"		"particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Target"		"TARGET"
+				"Target"			"TARGET"
 			}
 	
 			"FireSound"
@@ -2306,7 +2269,7 @@
 			
 			"RunScript"
 			{
-				"ScriptFile"			"scripts/vscripts/heroes/hero_leona/leona_zenith_blade.lua"
+				"ScriptFile"			"heroes/leona/zenith_blade.lua"
 				"Function"				"RetractMeatHook"
 				
 				"meat_hook_modifier"	"modifier_meat_hook_target_datadriven"
@@ -2320,10 +2283,10 @@
 				"ModifierName"	"modifier_meat_hook_target_datadriven"
 				"Target"		"TARGET"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_leona_sunlight"
-				"Target"		"TARGET"
+				"ScriptFile"		"heroes/leona/sunlight.lua"
+				"Function"			"ApplyModifier"
 			}
 		}
 	
@@ -5179,6 +5142,853 @@
 		        {
 		            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction" //-- Change to what ability special is +5% of tarics armor
 		        }
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Chaos Storm
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_chaos_storm"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"MaxLevel"						"3"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"viktor_chaos_storm"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"511"
+		"AbilityCastPoint"				"0.1"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120 110 100"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"150 250 350" //-- (+ 55% AP)
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+			"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
+			"particle"			"particles/items3_fx/lotus_orb_shield.vpcf"
+			"particle"          "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+			"particle"			"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"laser_radius"			"237"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"periodic_damage"		"15 30 45"
+			}
+		}
+		"OnUpgrade"
+		{
+			"LevelUpAbility"
+			{
+				"Target" 		"CASTER"
+				"AbilityName"	"viktor_chaos_storm_move"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/viktor/chaos_storm.lua"
+				"Function"			"SwapAbilities"
+				"current_ability"	"viktor_chaos_storm"
+				"new_ability"		"viktor_chaos_storm_move"
+			}	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/viktor/chaos_storm.lua"
+				"Function"			"PointOne"
+				"Target"			"POINT"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+				"Function"		"MakeLaser"
+			}
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Target"	"POINT"
+			}
+			"Damage"
+			{
+				"Target"
+				{
+					"Center"  	"POINT"
+					"Radius" 	"%laser_radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%AbilityDamage"
+			}
+	
+			"DelayedAction"
+			{
+				"Delay"     "7"
+				"Action"    
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/viktor/chaos_storm.lua"
+						"Function"			"SwapAbilities"
+						"current_ability"	"viktor_chaos_storm_move"
+						"new_ability"		"viktor_chaos_storm"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+						"Function"		"RemoveLaser"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_lucent_singularity_unit"
+			{
+				"Aura"					"modifier_lucent_singularity"
+				"Aura_Radius"			"%laser_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/items3_fx/lotus_orb_shield.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+	
+						"ControlPoints"
+						{
+							"01"	"%laser_radius 0 0"
+							"05"	"%laser_radius 0 0"
+						}
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"%vision_radius"
+				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%vision_radius" 
+				}
+			}
+			"modifier_lucent_singularity"
+			{
+				"IsDebuff" 			"1"
+				"ThinkInterval" 	 "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+						"Function"		"Damage"
+					}
+				}
+			}
+			"modifier_viktor_death_ray_remove"
+			{
+				"IsHidden"			"1"
+		
+				"Duration"			"1"
+		
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+						"Function"		"RemoveLaser"
+					}
+				}
+			}	
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Chaos Storm Move
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_chaos_storm_move"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET| DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"viktor_chaos_storm"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"999999"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.5"
+		"AbilityDamage"					"70 115 160 205 250" //-- (+ 70% AP)
+	
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+			"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
+			"particle"			"particles/items3_fx/lotus_orb_shield.vpcf"
+			"particle"          "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"laser_radius"	"100"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"DelayedAction"
+			{
+				"Delay"     "0.0"
+				"Action"    
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/chaos_storm.lua"
+						"Function"		"LaserMove"
+						"Target"		"POINT"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Death Ray 
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_death_ray"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"MaxLevel"						"5"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"viktor_death_ray"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"383"
+		"AbilityCastPoint"				"0.0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13 12 11 10 9"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"70 115 160 205 250" //-- (+ 70% AP)
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 80 90 100 110"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	
+		"OnUpgrade"
+		{
+			"LevelUpAbility"
+			{
+				"Target" 		"CASTER"
+				"AbilityName"	"viktor_death_ray_detonate"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_viktor/viktor_death_ray.lua"
+				"Function"			"SwapAbilities"
+				"current_ability"	"viktor_death_ray"
+				"new_ability"		"viktor_death_ray_detonate"
+			}	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_viktor/viktor_death_ray.lua"
+				"Function"			"PointOne"
+				"Target"			"POINT"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Death Ray Detonate
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_death_ray_detonate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"viktor_death_ray"
+		"MaxLevel"						"5"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"999999"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.0"
+		"AbilityDamage"					"70 115 160 205 250" //-- (+ 70% AP)
+	
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+			"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"laser_radius"	"100"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/viktor/death_ray.lua"
+				"Function"		"MakeLaser"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/viktor/death_ray.lua"
+				"Function"			"SwapAbilities"
+				"current_ability"	"viktor_death_ray_detonate"
+				"new_ability"		"viktor_death_ray"
+			}
+			"DelayedAction"
+			{
+				"Delay"     "0.1"
+				"Action"    
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/death_ray.lua"
+						"Function"		"LaserMove"
+						"Target"		"POINT"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_viktor_death_ray_remove"
+			{
+				"IsHidden"			"1"
+		
+				"Duration"			"0.2"
+		
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/death_ray.lua"
+						"Function"		"RemoveLaser"
+					}
+				}
+			}
+			"modifier_lucent_singularity_unit"
+			{
+				"Aura"					"modifier_lucent_singularity"
+				"Aura_Radius"			"%laser_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+	
+						"ControlPoints"
+						{
+							"01"	"%laser_radius 0 0"
+							"05"	"%laser_radius 0 0"
+						}
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"%vision_radius"
+				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%vision_radius" 
+				}
+			}
+			"modifier_lucent_singularity"
+			{
+				"IsDebuff" 			"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/death_ray.lua"
+						"Function"		"Damage"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Glorious Evolution
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_glorious_evolution"
+	{
+		//------------------------------------------------------------------------------------------------------------
+		// This is a dummy passive for looks and consistency with other champions. 
+		// 
+		//------------------------------------------------------------------------------------------------------------
+		//
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityTextureName"			"viktor_glorious_evolution"
+		"MaxLevel"						"1"
+	
+		"AbilityCooldown"				"0"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			
+		}
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityDamage"					"100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"OnUpgrade"
+		{
+	
+		}
+		"Modifiers"
+		{
+	
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Gravity Field
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_gravity_field"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+	
+		"AbilityTextureName"			"viktor_gravity_field"
+		"MaxLevel"						"5"
+	
+		"precache"
+		{
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"511"
+		"AbilityCastPoint"				"0.1"
+		"AOERadius"						"%radius"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"17 16 15 14 13"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"65"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_percentage"	"-28 -32 -36 -40 -44"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"				"0.5"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+		 	"CreateThinker"
+		 	{
+		 		"ModifierName"	"modifier_viktor_gravity_field_thinker"
+		 		"Target" 		"POINT"
+		 	}
+		} 
+		"Modifiers"
+		{
+			"modifier_viktor_gravity_field_thinker"
+			{
+				"Aura"					"modifier_viktor_gravity_field_thinker_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "25 150 25"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+	
+			"modifier_viktor_gravity_field_thinker_aura"
+			{
+				"IsDebuff"		"1"
+				"ThinkInterval"	"%tick_rate"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_percentage" 
+				}
+		
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/gravity_field.lua"
+						"Function"		"GravityFieldThink"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_viktor_gravity_field_stack"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_viktor_gravity_field_stack"
+			{
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"modifier_viktor_gravity_field_stun"
+			{
+				"IsDebuff"			"1"
+				"Duration"			"1.5"
+				
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_viktor_gravity_field_stunned"
+			{
+				"IsHidden"			"4"
+				"Duration"			"4"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Viktor Siphon Power
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"viktor_siphon_power"
+	{
+			// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"viktor_siphon_power"
+		"MaxLevel"						"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			"particle"			"particles/units/heroes/hero_tinker/tinker_laser.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"438"
+		"AbilityCastPoint"				"0.1"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 8.5 7 5.5 4"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 60 80 100 120"  //-- (+ 20% AP)
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"45 50 55 60 65"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bolt_speed"			"1500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shield_size"			"30 50 70 90 110" //--  (+ 20% AP)
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_viktor_discharge"
+				"Target" 		"CASTER"
+			}
+			"ApplyModifier"
+	        {
+	        	"Target"			"CASTER"
+	        	"ModifierName"		"modifier_viktor_bubble"
+	    	}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/viktor/siphon_power.lua"
+				"Function"		"SiphonPower"
+			}
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+			    "EffectName"       	"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			    "MoveSpeed"        	"%bolt_speed"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"ActOnTargets"
+			{
+				"Target"		"TARGET"
+				"Action"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%AbilityDamage"
+					}
+				}
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_viktor_discharge"
+			{
+				"Duration"		"3.5"
+				"IsBuff"		"1"
+	
+				"OnAttackStart"
+				{
+					"TrackingProjectile"
+					{
+						"Target"           	"TARGET"
+					    "EffectName"       	"particles/units/heroes/hero_tinker/tinker_laser.vpcf"
+					    "MoveSpeed"        	"%bolt_speed"
+					}
+					"OnProjectileHitUnit"
+					{
+						"ActOnTargets"
+						{
+							"Target"		"TARGET"
+							"Action"
+							{
+								
+							}
+						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/siphon_power.lua"
+						"Function"		"Discharge"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_viktor_discharge"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+			"modifier_viktor_turbocharge"
+			{
+				"Duration"		"2.5"
+				"IsBuff"		"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "30" 
+				}
+			}
+			"modifier_viktor_bubble"
+			{
+				"IsBuff"			"1"
+				"Duration"			"2.5"
+			
+				"ThinkInterval"		"0.03"
+	
+				"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"EffectAttachType"	"follow_origin"	
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/siphon_power.lua"
+						"Function"		"ViktorBubble"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/siphon_power.lua"
+						"Function"		"ViktorBubbleAbsorb"
+						"DamageTaken"	"%attack_damage"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/viktor/siphon_power.lua"
+						"Function"		"ViktorBubbleHealth"
+					}
+				}
+				
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 //-------------------------------------------------------------------------------------------------------------
 // Name: Leona Shield of Daybreak
-// Author: Zarthbenn
+// Author: Zarthbenn with modifications by wFX
 // Date: 06/2015
 //-------------------------------------------------------------------------------------------------------------
 "leona_shield_of_daybreak"
@@ -41,8 +41,8 @@
 		}
 		"02"
 		{
-			"var_type"			"FIELD_INTEGER"
-			"modifier_duation"  "10"
+			"var_type"				"FIELD_INTEGER"
+			"modifier_duration"  	"10"
 		}
 	}
 	
@@ -61,69 +61,44 @@
 			"Target"				"CASTER"
 			"ModifierName"			"modifier_leona_shield_of_daybreak"
 		}
-
 	}
+
 	"Modifiers"
 	{
 		"modifier_leona_shield_of_daybreak"
 		{
 			"IsBuff"	"1"
-			"duration"	"%modifier_duation"
+			"Duration"	"%modifier_duration"
 			
 			"OnAttackLanded"
 			{
+
 				"Stun"
 				{
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-					"Target"			"TARGET"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 					"Duration"			"%stun_duration"
+					"Target"			"TARGET"
 				}
+
 				"Damage"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_PHYSICAL"
-					"Damage"	"%AbilityDamage"
+					"Type"				"DAMAGE_TYPE_PHYSICAL"
+					"Damage"			"%AbilityDamage"
 				}
+
 				"RemoveModifier"
 				{
 					"ModifierName"		"modifier_leona_shield_of_daybreak"
 					"Target"			"CASTER"
 				}
 
-				//-- The delay is so the debuff does not get consumed automatically
-				
-				"DelayedAction"
+				"RunScript"
 				{
-					"Delay"				"%0.5"
-					"Action"
-					{
-						"ApplyModifier"
-						{
-							"Target"				"TARGET"
-							"ModifierName"			"modifier_leona_sunlight"
-						}
-					}
+					"ScriptFile"		"heroes/leona/sunlight.lua"
+					"Function"			"ApplyModifier"
 				}
 			}
 		}
-		"modifier_leona_sunlight"
-        {
-            "TextureName"	"leona_sunlight"
-            "IsDebuff"		"1"
-            "Duration"		"3.5"
-             
-            "EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
-			"EffectAttachType"	"follow_origin"	
-
-            "OnAttacked"
-            {
-    			"RunScript"
-				{
-					"ScriptFile"		"heroes/leona/sunlight.lua"
-					"Function"			"LeonaSunlight"
-				}
-            }
-        }
 	}
 }

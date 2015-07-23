@@ -8,11 +8,20 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"            "blitzcrank_mana_barrier"
     "MaxLevel"                      "1"
 
     "AbilityCooldown"               "90"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                      "FIELD_INTEGER"
+            "champion_passive"              "1"
+        }
+    }
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------

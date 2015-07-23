@@ -10,11 +10,20 @@
 	    // General
 	    //-------------------------------------------------------------------------------------------------------------
 	    "BaseClass"                     "ability_datadriven"
-	    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	    "AbilityTextureName"            "blitzcrank_mana_barrier"
 	    "MaxLevel"                      "1"
 	
 	    "AbilityCooldown"               "90"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"                      "FIELD_INTEGER"
+	            "champion_passive"              "1"
+	        }
+	    }
 	
 	    // Precache
 	    //-------------------------------------------------------------------------------------------------------------
@@ -112,11 +121,11 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0"
+		"AbilityCastPoint"				"0.0"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75 75"
+		"AbilityManaCost"				"75"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -221,8 +230,8 @@
 			}
 			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"modifier_duation"  "5"
+				"var_type"				"FIELD_INTEGER"
+				"modifier_duration"  	"5"
 			}
 		}
 		
@@ -247,7 +256,7 @@
 			"modifier_blitzcrank_power_fist"
 			{
 				"IsBuff"	"1"
-				"duration"	"%modifier_duation"
+				"duration"	"%modifier_duration"
 				
 				"OnAttackLanded"
 				{
@@ -323,7 +332,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
@@ -333,8 +342,8 @@
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"675.25 675.25 675.25 675.25 675.25"
-		"AbilityCastPoint"				"0.25 0.25 0.25 0.25 0.25"
+		"AbilityCastRange"				"675.25"
+		"AbilityCastPoint"				"0.25"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -346,7 +355,7 @@
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 100 100 100 100"
+		"AbilityManaCost"				"100"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -365,22 +374,22 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"hook_distance"		"675.25 675.25 675.25 675.25 675.25"
+				"hook_distance"		"675.25"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"vision_radius"		"500 500 500 500 500"
+				"vision_radius"		"500"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"vision_duration"	"4.0 4.0 4.0 4.0 4.0"
+				"vision_duration"	"4.0"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"caster_duration"	"0.25 0.25 0.25 0.25 0.25"
+				"caster_duration"	"0.25"
 			}
 		}
 	

@@ -49,8 +49,8 @@
 		}
 		"03"
 		{
-			"var_type"			"FIELD_INTEGER"
-			"modifier_duation"  "5"
+			"var_type"				"FIELD_INTEGER"
+			"modifier_duration"  	"5"
 		}
 	}
 	
@@ -75,7 +75,7 @@
 		"modifier_blitzcrank_power_fist"
 		{
 			"IsBuff"	"1"
-			"duration"	"%modifier_duation"
+			"duration"	"%modifier_duration"
 			
 			"OnAttackLanded"
 			{

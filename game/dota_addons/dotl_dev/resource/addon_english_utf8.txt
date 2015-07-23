@@ -118,8 +118,16 @@
 
 		"npc_dota_hero_pudge"															"Blitzcrank"
 
+		"DOTA_Tooltip_ability_blitzcrank_mana_barrier"									"Mana Barrier"
+		"DOTA_Tooltip_ability_blitzcrank_mana_barrier_Description"						"When Blitzcrank drops below 20% of his maximum health he gains a shield equal to 50% of his current mana that lasts 10 seconds."
+
+		"DOTA_Tooltip_modifier_mana_barrier"											"Mana Barrier"
+		"DOTA_Tooltip_modifier_mana_barrier_Description"								"This unit is sheilded for 50 percent of its current mana."
+
 		"DOTA_Tooltip_ability_blitzcrank_rocket_grab"									"Rocket Grab"
-		"DOTA_Tooltip_ability_blitzcrank_rocket_grab_Description"						"Blitzcrank extends his right hand in a line. The first enemy hit is Airborne icon pulled to his location, takes magic damage and is Stun icon stunned for 0.5 seconds."
+		"DOTA_Tooltip_ability_blitzcrank_rocket_grab_Description"						"Blitzcrank extends his right hand in a line. The first enemy hit is pulled to his location, takes magic damage and is stunned for 0.5 seconds."
+		"DOTA_Tooltip_ability_blitzcrank_rocket_grab_hook_speed"						"GRAB SPEED:"
+		"DOTA_Tooltip_ability_blitzcrank_rocket_grab_hook_distance"						"MAX RANGE:"
 		
 		"DOTA_Tooltip_ability_blitzcrank_overdrive"										"Overdrive"
 		"DOTA_Tooltip_ability_blitzcrank_overdrive_Description"							"Blitzcrank supercharges himself, gaining increased movement and attack speed for 5 seconds. The movement speed bonus decays to a minimum of 10% over the duration. When Overdrive ends, Blitzcrank is slowed by 30% for 1.5 seconds."
@@ -130,21 +138,18 @@
 		"DOTA_Tooltip_modifier_overdrive_Description"									"This unit is in overdrive!"
 		
 		"DOTA_Tooltip_ability_blitzcrank_power_fist"									"Power Fist"
-		"DOTA_Tooltip_ability_blitzcrank_power_fist_Description"						"Blitzcrank supercharges his next basic attack, causing it to deal an additional 100% of his attack damage and Airborne icon knocking his target into the air for 1 second (but only silencing them for 0.5 seconds)."
+		"DOTA_Tooltip_ability_blitzcrank_power_fist_Description"						"Blitzcrank supercharges his next basic attack, causing it to deal an additional 100% of his attack damage and knocking his target into the air for 1 second (but only silencing them for 0.5 seconds)."
+		"DOTA_Tooltip_ability_blitzcrank_power_fist_modifier_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_blitzcrank_power_fist_duration"							"AIR TIME:"
 		"DOTA_Tooltip_modifier_blitzcrank_power_fist"									"Power Fist Activated"
 		"DOTA_Tooltip_modifier_blitzcrank_power_fist_Description"						"This unit's next attack will knockup."		
 		
 		"DOTA_Tooltip_ability_blitzcrank_static_field"									"Static Field"
-		"DOTA_Tooltip_ability_blitzcrank_static_field_Description"						"Blitzcrank detonates his static field, dealing magic damage to nearby enemies within 600-range and Silence icon silencing them for 0.5 seconds. Static Field's passive damage is disabled while its active is on cooldown."
-		"DOTA_Tooltip_ability_blitzcrank_static_field_passive_damage"					"Passive Damage:"
+		"DOTA_Tooltip_ability_blitzcrank_static_field_Description"						"Every 2.5 seconds, Blitzcrank passively fires a lightning bolt at a random non-stealthed enemy within 450-range, dealing magic damage. This passive is unavailable while Static Field is on cooldown. Can be cast to detonate his static field, dealing magic damage to nearby enemies within 600-range and silencing them for 0.5 seconds."
+		"DOTA_Tooltip_ability_blitzcrank_static_field_passive_damage"					"PASSIVE DAMAGE:"
 		"DOTA_Tooltip_modifier_blitzcrank_static_field_passive"							"Static Field Activated"
 		"DOTA_Tooltip_modifier_blitzcrank_static_field_passive_Description"				"Blitzcrank's static field hurts enemy units around him."
 		
-		"DOTA_Tooltip_ability_blitzcrank_mana_barrier"									"Mana Barrier"
-		"DOTA_Tooltip_ability_blitzcrank_mana_barrier_Description"						"When Blitzcrank drops below 20 percent of his maximum health he gains a shield equal to 50 percent of his current mana that lasts 10 seconds."
-		"DOTA_Tooltip_modifier_mana_barrier"											"Mana Barrier"
-		"DOTA_Tooltip_modifier_mana_barrier_Description"								"This unit is sheilded for 50 percent of its current mana."
-
 		//=================================================================================
 		// Ezreal Ability Strings
 		//=================================================================================
@@ -229,7 +234,7 @@
 		"DOTA_Tooltip_modifier_meat_hook_target_datadriven"								"Rooted"
 
 		"DOTA_Tooltip_ability_leona_solar_flare"										"Solar Flare"
-		"DOTA_Tooltip_ability_leona_solar_flare_Description"							"Leona calls down a beam of solar energy to a target location. After a 0.625 delay, it deals magic damage to all enemies within 182-range and slows them by 80% for 1.5 seconds. Enemies within 73-range are Stun icon stunned for 1.5 seconds instead of being slowed."
+		"DOTA_Tooltip_ability_leona_solar_flare_Description"							"Leona calls down a beam of solar energy to a target location. After a 0.625 delay, it deals magic damage to all enemies within 182-range and slows them by 80% for 1.5 seconds. Enemies within 73-range are stunned for 1.5 seconds instead of being slowed."
 
 		"DOTA_Tooltip_ability_leona_sunlight"											"Sunlight"
 		"DOTA_Tooltip_ability_leona_sunlight_Description"								"Leona's spells charge any enemy unit damaged with Sunlight for 3.5 seconds. When allied champions deal any damage to those targets they consume the Sunlight debuff to deal additional magic damage."
@@ -279,7 +284,7 @@
 		"DOTA_Tooltip_ability_sona_song_of_celerity"									"Song of Celerity"
 		"DOTA_Tooltip_ability_sona_song_of_celerity_Description"						"Sona gains a burst of bonus movement speed that decays down to the aura bonus over 3 seconds. The duration is increased by 0.5 seconds for each ally she tags with the aura."
 		"DOTA_Tooltip_ability_sona_song_of_celerity_Note0"								"Allied champions tagged with Song of Celerity's aura gain movement speed for 1.5 seconds."
-		"DOTA_Tooltip_ability_sona_song_of_celerity_Note1"								"If this spell was last cast when Power Chord is ready, Power Chord will also Slow icon slow the target by 40 percent for 2 seconds."
+		"DOTA_Tooltip_ability_sona_song_of_celerity_Note1"								"If this spell was last cast when Power Chord is ready, Power Chord will also slow the target by 40 percent for 2 seconds."
 		"DOTA_Tooltip_ability_sona_song_of_celerity_aura_movespeed"						"BONUS MOVEMENT SPEED:"
 		"DOTA_Tooltip_modifier_sona_celerity_aura"										"Celerity Aura"
 		"DOTA_Tooltip_modifier_sona_celerity_aura_Description"							"Nearby units movement speed is increased."
@@ -289,7 +294,7 @@
 		"DOTA_Tooltip_modifier_sona_celerity_power_chord_Description"					"Sona's next attack will slow by 40 percent for 2 seconds."
 
 		"DOTA_Tooltip_ability_sona_crescendo"											"Crescendo"
-		"DOTA_Tooltip_ability_sona_crescendo_Description"								"Sona plays an irresistible chord in a line, dealing magic damage to enemy champions and Stun icon stunning them for 1.5 seconds, forcing them to dance."
+		"DOTA_Tooltip_ability_sona_crescendo_Description"								"Sona plays an irresistible chord in a line, dealing magic damage to enemy champions and stunning them for 1.5 seconds, forcing them to dance."
 
 		"DOTA_Tooltip_ability_sona_power_chord"											"Power Chord"
 		"DOTA_Tooltip_ability_sona_power_chord_Description"								"After casting 3 basic abilities, Sona's next basic attack will deal bonus magic damage, with an additional effect depending on the last basic ability cast."
@@ -318,7 +323,7 @@
 		"DOTA_Tooltip_modifier_taric_shatter_aura_Description"							"Taric's gemstone arua reinforces your armor."
 
 		"DOTA_Tooltip_ability_taric_dazzle"												"Dazzle"
-		"DOTA_Tooltip_ability_taric_dazzle_Description"									"Taric fires a prismatic sphere at a target enemy. On impact the target is Stun icon stunned and takes magic damage that increases the closer the target is to Taric (up to 200%)."
+		"DOTA_Tooltip_ability_taric_dazzle_Description"									"Taric fires a prismatic sphere at a target enemy. On impact the target is stunned and takes magic damage that increases the closer the target is to Taric (up to 200%)."
 		"DOTA_Tooltip_ability_taric_dazzle_stun_duration"								"STUN DURATION:"
 		"DOTA_Tooltip_ability_taric_dazzle_stun"										"Dazzled"
 		"DOTA_Tooltip_ability_taric_dazzle_stun_Description"							"You are stunned!"

@@ -24,7 +24,6 @@
 		"soundfile"   				"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
 	  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 	  	"particle"					"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
-	  	"particle" 					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
 	}
 	
 	// Casting
@@ -89,46 +88,46 @@
 		}
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+			"ScriptFile"		"heroes/taric/gemcraft.lua"
 			"Function"			"Gemcraft"
 		}
 		"RunScript"
 		{
-			"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
-			"Function"		"ShatterApply"
+			"ScriptFile"		"heroes/taric/shatter.lua"
+			"Function"			"ShatterApply"
 		}
 		"FireEffect"
 		{
-			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"EffectName"		"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 			"EffectAttachType"	"attach_origin"
-			"Target"	"CASTER"
+			"Target"			"CASTER"
 
 		}
 		"FireEffect"
 		{
-			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
-			"EffectAttachType" "attach_origin"
-			"Target"	"CASTER" 
+			"EffectName"		"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+			"EffectAttachType"  "attach_origin"
+			"Target"			"CASTER" 
 		}
 		"FireSound"
 		{
-			"EffectName" "Hero_Slardar.Slithereen_Crush"
-			"Target"	"CASTER"
+			"EffectName"		"Hero_Slardar.Slithereen_Crush"
+			"Target"			"CASTER"
 		}
 		"ActOnTargets"
 		{
 			"Target"
 			{
-				"Center" "CASTER"
-				"Radius" "%shatter_radius"
-				"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+				"Center"		"CASTER"
+				"Radius"		"%shatter_radius"
+				"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" 		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 			}
 			"Action"
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
+					"ScriptFile"	"heroes/taric/shatter.lua"
 					"Function"		"Shatter"
 				}
 			}
@@ -171,7 +170,7 @@
 	        {
 	        	"RunScript"
 	        	{
-	        		"ScriptFile"	"heroes/hero_taric/taric_shatter.lua"
+	        		"ScriptFile"	"heroes/taric/shatter.lua"
 	        		"Function"		"ShatterApply"
 	        	}
 	        }
@@ -194,7 +193,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_taric/taric_shatter.lua"
+					"ScriptFile"		"heroes/taric/shatter.lua"
 					"Function"			"ShatterCheck"
 				}
 			}
@@ -208,7 +207,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+					"ScriptFile"		"heroes/taric/gemcraft.lua"
 					"Function"			"GemcraftHit"
 				}
 				"RemoveModifier"

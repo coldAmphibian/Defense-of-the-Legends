@@ -4,7 +4,6 @@ Author: Zarthbenn
 Date: 07/2015
 --]]
 
-
 function Shatter( event )
 	target = event.target
 	caster = event.caster

@@ -56,12 +56,12 @@
 
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_taric/taric_imbue.lua"
+			"ScriptFile"		"heroes/taric/imbue.lua"
 			"Function"			"Imbue"
 		}
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+			"ScriptFile"		"heroes/taric/gemcraft.lua"
 			"Function"			"Gemcraft"
 		}
 	}
@@ -76,7 +76,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+					"ScriptFile"		"heroes/taric/gemcraft.lua"
 					"Function"			"GemcraftHit"
 				}
 				"RemoveModifier"

@@ -70,16 +70,16 @@
 		}
 		"FireEffect"
 		{
-			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"EffectName"		"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 			"EffectAttachType"	"attach_origin"
-			"Target"	"CASTER"
+			"Target"			"CASTER"
 
 		}
 		"FireEffect"
 		{
-			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
-			"EffectAttachType" "attach_origin"
-			"Target"	"CASTER" 
+			"EffectName"		"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+			"EffectAttachType" 	"attach_origin"
+			"Target"			"CASTER" 
 		}
 		"FireSound"
 		{
@@ -138,7 +138,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+					"ScriptFile"		"heroes/taric/gemcraft.lua"
 					"Function"			"GemcraftHit"
 				}
 				"RemoveModifier"

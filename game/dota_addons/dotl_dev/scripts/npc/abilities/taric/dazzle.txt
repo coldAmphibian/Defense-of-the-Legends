@@ -7,7 +7,7 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -53,14 +53,14 @@
 		"02"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"stun_duration"	"1.2 1.3 1.4 1.5 1.6"
+			"stun_duration"			"1.2 1.3 1.4 1.5 1.6"
 		}
 	}
 	"OnSpellStart"
 	{
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+			"ScriptFile"		"heroes/taric/gemcraft.lua"
 			"Function"			"Gemcraft"
 		}
 		"TrackingProjectile"
@@ -118,7 +118,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"heroes/hero_taric/taric_gemcraft.lua"
+					"ScriptFile"		"heroes/taric/gemcraft.lua"
 					"Function"			"GemcraftHit"
 				}
 				"RemoveModifier"

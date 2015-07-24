@@ -5,8 +5,8 @@
 	"Neutrals"        								"Neutral Team"
 	"NoTeam"          								"No Team"
 
-	"DOTA_GoodGuys"   								"Red Team"
-	"DOTA_BadGuys"    								"Blue Team"
+	"DOTA_GoodGuys"   								"Blue Team"
+	"DOTA_BadGuys"    								"Red Team"
 	
 	"addonname"										"Barebones"
 }

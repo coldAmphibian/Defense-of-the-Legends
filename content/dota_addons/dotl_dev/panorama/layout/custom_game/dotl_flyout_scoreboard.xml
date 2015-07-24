@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/shared_scoreboard_styles.css" />
+		<include src="file://{resources}/styles/custom_game/dotl_flyout_scoreboard.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/dotl_scoreboard_updater.js" />
+		<include src="file://{resources}/scripts/custom_game/dotl_flyout_scoreboard.js" />
+	</scripts>
+
+	<Panel hittest="false" class="FlyoutScoreboardRoot">
+		<Image class="separator" src="file://{images}/custom_game/flyout_scoreboard/clarity_flyout_scoreboard_separator.png"/>
+		<Panel class="TeamScorePanel" id="TeamScorePanel">
+			<Image id="TowerB" src="file://{images}/custom_game/flyout_scoreboard/clarity_tower_icon.png" />
+			<Label id="TowerScoreB" text="$" />
+			<Label id="TeamScoreB" text="$" />
+
+			<Image id="Sword" src="file://{images}/custom_game/flyout_scoreboard/clarity_sword_icon.png" />
+
+			<Label id="TeamScoreR" text="$" />
+			<Image id="TowerR" src="file://{images}/custom_game/flyout_scoreboard/clarity_tower_icon.png" />
+			<Label id="TowerScoreR" text="$" />
+		</Panel>
+		<Panel id="TeamsContainer" />
+	</Panel>
+</root>
+
+

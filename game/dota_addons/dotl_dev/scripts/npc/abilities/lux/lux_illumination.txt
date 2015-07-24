@@ -7,7 +7,7 @@
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"MaxLevel"						"1"
 	"FightRecapLevel"				"1"
@@ -65,7 +65,7 @@
 		"modifier_lux_illumination_caster"
 		{
 			"Passive"			"1"
-			"IsHidden"			"0"
+			"IsHidden"			"1"
 			"IsPurgable"		"0"
 
 			"OnAttackLanded"

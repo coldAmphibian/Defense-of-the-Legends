@@ -77,7 +77,7 @@ function Champion:Create( unit )
 	unit:AddNewModifier(unit, nil, "modifier_champion", {})
 
 	--Passive is ability 1 (0-based) and so level it at the start of the game
-	unit:GetAbilityByIndex(0):SetLevel(1)
+	unit:GetAbilityByIndex(3):SetLevel(1)
 
 	print(unit:GetName() .. " has become " .. tostring(unit.name))
 end

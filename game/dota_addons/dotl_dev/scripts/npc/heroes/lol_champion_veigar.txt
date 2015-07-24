@@ -1,24 +1,22 @@
-"lol_champion_lux"
+//-------------------------------------------------------------------------------------------------------------
+// Name: Veigar
+// Author: Capruce
+//-------------------------------------------------------------------------------------------------------------
+"lol_champion_veigar"
 {
-	"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
+	"override_hero"				"npc_dota_hero_lion"						// Hero to override
 	"MovementTurnRate"			"10"										// Turning rate.
 	"VisionDaytimeRange"		"1800"										// Range of vision at day time
 	"VisionNighttimeRange"		"800"										// Range of vision at night time.
-
-	"Model"						"models/champions/lux/lux.vmdl"
-	"ModelScale"				"1.1"	
-	"HeroID"					"119"
-	"Enabled"					"1"
 	
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityLayout"			"4"
-	"Ability1"				"lux_illumination"						// Passive
-	"Ability2"				"lux_light_binding"						// Ability 1
-	"Ability3"				"lux_prismatic_barrier"					// Ability 2
-	"Ability4"				"lux_lucent_singularity"				// Ability 3a
-	"Ability5"				"lux_lucent_singularity_detonate"		// Ability 3b
-	"Ability6"				"lux_final_spark"						// Ultimate
+	"AbilityLayout"			"5"
+	"Ability1"				"veigar_baleful_strike"			// Ability 1
+	"Ability2"				"veigar_dark_matter"			// Ability 2
+	"Ability3"				"veigar_event_horizon"			// Ability 3
+	"Ability4"				"veigar_equilibrium"			// Passive
+	"Ability5"				"veigar_primordial_burst"		// Ultimate
 
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------
@@ -32,38 +30,13 @@
 
 	// Base Stats
 	//-------------------------------------------------------------------------------------------------------------
-	"StatusHealth"				"477.72"								// Base health.
-	"HealthGain"				"79"
+	"StatusHealth"				"492.76"								// Base health.
+	"HealthGain"				"82"
 	"StatusHealthRegen"			"5.42"									// Health regeneration rate.
 	"HealthRegenGain"			"0.55"
 	
-	"StatusMana"				"334"									// Base mana.
-	"ManaGain"					"50"
+	"StatusMana"				"342.4"									// Base mana.
+	"ManaGain"					"55"
 	"StatusManaRegen"			"6"										// Mana regeneration rate.
 	"ManaRegenGain"				"0.8"
-
-	"AttachWearables"
-		{
-			"Wearable1"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable2"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable3"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable4"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable5"
-			{
-				"ItemDef" "0"
-			}
-		}
-	"ItemSlots" {}
 }

@@ -2457,7 +2457,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"						"1"
 		"FightRecapLevel"				"1"
@@ -2515,7 +2515,7 @@
 			"modifier_lux_illumination_caster"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsPurgable"		"0"
 	
 				"OnAttackLanded"
@@ -3428,7 +3428,7 @@
 	            "Properties"
 	            {
 	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
-	            }"
+	            }
 	        }
 	    }
 	}
@@ -3999,7 +3999,6 @@
 						"Function"		"SonaHealBubbleHealth"
 					}
 				}
-				
 			}
 		}
 	}
@@ -4012,7 +4011,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
@@ -4117,10 +4116,8 @@
 		        {
 		            "MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED" 
 		        }
-	
 			}
 		}
-	
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Sona Hymn of Valor
@@ -5229,6 +5226,568 @@
 		        {
 		            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction" //-- Change to what ability special is +5% of tarics armor
 		        }
+			}
+		}
+	}
+	//=========================================================
+	// Veigar's First Ability: Baleful Strike
+	// Author: Capruce
+	//=========================================================
+	"veigar_baleful_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_baleful_strike"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/champions/veigar/veigar_baleful_strike.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"697" //950 (LoL Units)
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7 6.5 6 5.5 5"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60 65 70 75 80"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 125 170 215 260"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"ap_scaling"						"0.60"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"projectile_radius"					"75"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"projectile_distance"				"697" //950 (LoL Units)
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"projectile_speed"					"1450"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"max_targets"						"2"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ap_per_champion_kill"				"1 2 3 4 5"
+			}
+			"07"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ap_per_unit_kill"					"1"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/veigar/veigar_baleful_strike.lua"
+				"Function"			"OnSpellStart"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/veigar/veigar_baleful_strike.lua"
+				"Function"			"OnProjectileHit"
+			}
+		}
+	
+		"Modifiers"
+	    {
+	        "modifier_ap_gain"
+	        {
+	            "IsBuff" "1"
+	            "IsHidden" "1"
+	            "Passive" "1"
+	
+	            "OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/veigar/veigar_baleful_strike.lua"
+						"Function"			"OnHeroKilled"
+					}
+				}
+			}
+		}  
+	}
+	//=========================================================
+	// Veigar's Second Ability: Dark Matter
+	// Author: Capruce
+	//=========================================================
+	"veigar_dark_matter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_dark_matter"
+		"AOERadius"						"%explosion_radius"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"660" //900 (LoL Units)
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 9.5 9 8.5 8"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 75 80 85 90"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"120 170 220 270 320"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"ap_scaling"						"1.00"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"explosion_radius"					"82.5" //112.5 (LoL Units)
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"explosion_delay"					"1.25"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/veigar/veigar_dark_matter.lua"
+				"Function"		"OnSpellStart"
+				"Target"		"POINT"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Ability.PreLightStrikeArray"
+				"Target"		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+				"EffectAttachType"	"start_at_customorigin"
+				"TargetPoint"		"POINT"
+	
+				"ControlPoints"
+	            {
+	            	"01"	"%explosion_radius 0 0"
+	            	"03"	"0 0 0"
+	            }
+			}
+	
+			"DelayedAction"
+			{
+				"Delay"		"%explosion_delay"
+	
+				"Action"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Ability.LightStrikeArray"
+						"Target"		"CASTER"
+					}
+	
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"TargetPoint"		"POINT"
+	
+						"ControlPoints"
+			            {
+			            	"00"	"POINT"
+			            	"01"	"%explosion_radius 0 0"
+			            	"03"	"0 0 0"
+			            }
+					}
+	
+					"ActOnTargets"
+					{
+						"Target"
+			            {
+			                "Center" "POINT"
+			                "Radius" "%explosion_radius"
+			                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+			                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			            }
+	
+			            "Action"
+			            {
+			            	"RunScript"
+			            	{
+			            		"ScriptFile"	"heroes/veigar/veigar_dark_matter.lua"
+								"Function"		"OnHit"
+			            	}            	
+			            }
+					}				
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Veigar's Passive: Equilibrium
+	// Author: Capruce
+	//=========================================================
+	"veigar_equilibrium"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_equilibrium"
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"missing_mana_pct"					"1"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"mana_regen_pct"					"1.5"
+			}
+		}
+	
+		//Probably going to change the way his passive is applied :/
+	
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/veigar/veigar_equilibrium.lua"
+				"Function"		"OnUpgrade"
+			}
+		}
+	}
+	"veigar_event_horizon"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"veigar_event_horizon"
+		"AOERadius"						"%ring_radius"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 17 16 15 14"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 85 90 95 100"
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"513" //700 (LoL Units)
+	
+		//Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"formation_time"			"0.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"ring_duration"				"3"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"ring_radius"				"275" //325 (LoL Units)
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"edge_thickness"			"50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.5 1.75 2.0 2.25 2.5"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"DelayedAction"
+			{
+				"Delay"		"%formation_time"
+	
+				"Action"
+				{
+					"CreateThinker"
+			        {
+			            "ModifierName" 	"modifier_veigar_event_horizon_thinker"
+			            "Target" 		"POINT"
+			        }			
+				}
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_veigar_event_horizon_thinker"
+			{
+				"Duration"			"%ring_duration"
+				"ThinkInterval"		"0.03"
+				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/veigar/veigar_event_horizon.lua"
+						"Function"		"OnCreated"
+					}
+				}
+	
+	
+				"OnIntervalThink"
+				{
+					"RunScript"
+	            	{
+	            		"ScriptFile"	"heroes/veigar/veigar_event_horizon.lua"
+						"Function"		"OnIntervalThink"
+	            	}  
+				}
+			}
+	
+			"modifier_veigar_event_horizon"
+			{
+				"Duration"				"%stun_duration"
+				"IsDebuff"				"1"
+				"OverrideAnimation"		"ACT_DOTA_DISABLED"
+	
+				"EffectName"			"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"		"follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}	
+	"veigar_primordial_burst"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"veigar_primordial_burst"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"477" //650 (LoL Units)
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120 100 80"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"250 375 500"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"1.00"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"target_ap_scaling"		"0.80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"120 170 220 270 320"
+			}
+			"04"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"2000"
+			}
+			"05"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"300"
+			}
+		}
+	
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			"particle"	"particles/units/heroes/hero_lich/lich_slowed_cold.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/veigar/veigar_primordial_burst.lua"
+				"Function"		"OnSpellStart"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Lich.ChainFrost"
+				"Target" 		"TARGET"
+			}
+	
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+				"EffectName"		"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"1"
+				"VisionRadius"		"%vision_radius"
+				"MoveSpeed"        	"%projectile_speed"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/veigar/veigar_primordial_burst.lua"
+				"Function"		"OnProjectileHit"
 			}
 		}
 	}

@@ -1,14 +1,14 @@
-//=========================================================
-// Lux' Third Ability: Lucent Singularity. Sub Ability: Detonate
+// Lux' Lucent Singularity (Sub Ability) (E)
 // Author: Capruce
-//=========================================================
+// Date: 
+// Notes: 
+// Requires "lux_lucent_singularity" to work correctly
 "lux_lucent_singularity_detonate"
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"MaxLevel"						"1"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"lux_lucent_singularity"
@@ -36,7 +36,7 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"	"heroes/champion_lux/modifier_lux_lucent_singularity_thinker.lua"
+			"ScriptFile"	"heroes/champion_lux/lucent_singularity.lua"
 			"Function"		"DetonateSingularity"
 		}
 	}

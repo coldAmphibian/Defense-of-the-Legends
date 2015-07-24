@@ -1,0 +1,39 @@
+//LoL Mundo Dota Port
+//Author: TheAlpacalypse
+//Date 06/2015
+"mundo_adrenaline_rush"
+{
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "mundo_adrenaline_rush"
+    "MaxLevel"                      "1"
+
+    //Stats
+    //-------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "health_regen"               "0.3"
+        }
+    }
+
+    //Special
+    //-------------------------------------------------------------------------------
+    "Modifiers"
+    {
+        "modifier_adrenaline_rush"
+        {
+            "Passive"           "0"
+            "IsHidden"          "0"
+            "IsBuff"            "1"
+
+            "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen"
+            }
+        }
+    }
+}

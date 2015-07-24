@@ -1,0 +1,62 @@
+//LoL Mundo Dota Port
+//Author: TheAlpacalypse
+//Date 06/2015
+"mundo_masochism"
+{
+    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"                       "ability_datadriven"
+    "AbilityTextureName"              "mundo_masochism"
+    "MaxLevel"                        "5"
+
+    //Stats
+    //-------------------------------------------------------------------------------
+    "AbilityCooldown"                 "7.0"
+    "AbilityManaCost"                 "10 15 20 25 30"
+    "AbilityDamage"                   "35 50 65 80 95"
+
+    //Special
+    //-------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "duration"               "5"
+        }
+        "02"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "strength_bonus"         "1 2 3 4 5"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName"          "masochism_buff"
+            "Target"                "CASTER"
+            "Duration"              "%duration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "masochism_buff"
+        {
+            "Passive"             "0"
+            "IsHidden"            "0"
+            "IsDebuff"            "0"
+            "IsBuff"              "1"
+
+            "EffectName"          "particle_name"
+            "EffectAttachType"    "follow_origin"
+
+            "Attributes"          "MODIFIER_ATTRIBUTE_MULTIPLE"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_bonus"
+            }
+        }
+    }
+}

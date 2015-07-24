@@ -1,17 +1,17 @@
-//=========================================================
-// Lux' Third Ability: Lucent Singularity
+// Lux' Illumination (Passive)
 // Author: Capruce
-//=========================================================
+// Date: 
+// Notes: 
 "lux_illumination"
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-	"MaxLevel"						"1"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"lux_illumination"
+	"ChampionPassive"				"1"
 
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
@@ -36,20 +36,25 @@
 			"var_type"					"FIELD_FLOAT"
 			"ap_scaling"				"0.20"
 		}
-		"02"
+		"05"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"champion_passive"			"1"
+		}
+		"03"
 		{
 			"var_type"					"FIELD_FLOAT"
 			"debuff_duration"			"6"
 		}
-		"03"
+		"04"
 		{
 			"var_type"					"FIELD_INTEGER"
 			"base_damage"				"10"
 		}
-		"04"
+		"05"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"level_multiplier"	"8"
+			"level_damage_multiplier"	"8"
 		}
 	}
 
@@ -62,8 +67,9 @@
 	"Modifiers"
 	{
 
-		"modifier_lux_illumination_caster"
+		"modifier_illumination_caster"
 		{
+			"IsBuff"			"1"
 			"Passive"			"1"
 			"IsHidden"			"0"
 			"IsPurgable"		"0"
@@ -72,18 +78,25 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"			"heroes/champion_lux/modifier_lux_illumination.lua"
-					"Function"				"OnAttackLanded"
+					"ScriptFile"			"heroes/hero_ursa/fury_swipes.lua"
+					"Function"				"fury_swipes_attack"
 				}
 			}
+
+			//Visual Buff to show that they user has the passive
+		"modifier_illumination_passive"
+		{
+			"Passive"		"1"
+			"IsHidden"		"0"
+			"IsBuff"		"1"
+		}
 		}
 
-		"modifier_lux_illumination"
+		"modifier_illumination_target"
 		{
 			"IsDebuff"			"1"
 			"IsHidden"			"0"
-			"IsPurgable"		"1"
-			"Duration"			"%debuff_duration"
+			"IsPurgable"		"0"
 
 			"EffectName"				"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
 			"EffectAttachType"			"follow_overhead"

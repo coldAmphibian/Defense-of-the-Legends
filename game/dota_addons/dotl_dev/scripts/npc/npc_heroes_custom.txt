@@ -1,158 +1,143 @@
+//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAHeroes"
 {
-	"lol_champion_karthus"
+	//This is a comment
+	"npc_dota_hero_base"
 	{
-		"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
-		"MovementTurnRate"			"10"									// Turning rate.
-		"VisionDaytimeRange"		"1800"									// Range of vision at day time
-		"VisionNighttimeRange"		"800"									// Range of vision at night time.
-		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"npc_dota_hero"							// Class of entity of link to.
+		"Model"						"models/error.mdl"						// Model.
+		"SoundSet"					"0"										// Name of sound set.
+		"Enabled"					"1"
+		"Level"						"1"
+		"BotImplemented"			"0"
+		"NewHero"					"0"
+		"HeroPool1"					"0"
+		"HeroUnlockOrder"			"1"										// The higher the number the later these heros will unlock for new players.
+		"CMEnabled"					"0"
+		"CMTournamentIgnore"		"0"
+		"new_player_enable"			"0"
+
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityLayout"				"4"
-		"Ability1"					"karthus_death_defied"					// Passive
-		"Ability2"					"karthus_lay_waste"						// Ability 1
-		"Ability3"					"karthus_wall_of_pain"					// Ability 2
-		"Ability4"					"karthus_defile"						// Ability 3
-		"Ability5"					"karthus_requiem"						// Ultimate
-	
+		"Ability1"					""										// Ability 1.
+		"Ability2"					""										// Ability 2.
+		"Ability3"					""										// Ability 3.
+		"Ability4"					""										// Ability 4.
+		"Ability5"					"attribute_bonus"						// Ability 5 - Bonuses.
+		"Ability6"					""										// Ability 6 - Extra.
+		"Ability7"					""										// Ability 7 - Extra.
+		"Ability8"					""										// Ability 8 - Extra.
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"-1"									// Physical protection.
+		"MagicalResistance"				"25"									// Magical protection (percentage).
+
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"1"										// Damage range min.
+		"AttackDamageMax"			"1"										// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"				// Type of damage dealt. 
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAnimationPoint"		"0.75"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"									// Range within a target can be acquired.
+		"AttackRange"				"600"									// Range within a target can be attacked.
+		"ProjectileModel"			"ranged_hero"							// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+
 		// Attributes
 		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"		"0"										// Base strength
 		"AttributeStrengthGain"		"0"										// Strength bonus per level.
 		"AttributeBaseIntelligence"	"0"										// Base intelligence
 		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
 		"AttributeBaseAgility"		"0"										// Base agility
 		"AttributeAgilityGain"		"0"										// Agility bonus per level.
-	
-		// Base Stats
+
+		// Bounty
 		//-------------------------------------------------------------------------------------------------------------
-		"StatusHealth"				"516"									// Base health.
-		"HealthGain"				"75"
-		"StatusHealthRegen"			"6.42"									// Health regeneration rate.
-		"HealthRegenGain"			"0.55"
+		"BountyXP"					"62"									// Experience earn.
+		"BountyGoldMin"				"0"										// Gold earned min.
+		"BountyGoldMax"				"0"										// Gold earned max.
+
+		// Bounds
+		//-------------------------------------------------------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"RingRadius"				"70"
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"									// Speed.
+		"MovementTurnRate"			"0.5"									// Turning rate.
+		"HasAggressiveStance"		"0"										// Plays alternate idle/run animation when near enemies
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"				"150"									// Base health.
+		"StatusHealthRegen"			"0.25"									// Health regeneration rate.
+		"StatusMana"				"0"										// Base mana.
+		"StatusManaRegen"			"0.01"									// Mana regeneration rate.
+
+		// Team
+		//-------------------------------------------------------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		
-		"StatusMana"				"372.48"								// Base mana.
-		"ManaGain"					"61"
-		"StatusManaRegen"			"6"										// Mana regeneration rate.
-		"ManaRegenGain"				"0.8"
-	}
-	"lol_champion_kassadin"
-	{
-		"override_hero"				"npc_dota_hero_antimage"					// Hero to override
-		"MovementTurnRate"			"10"										// Turning rate.
-		"VisionDaytimeRange"		"1800"										// Range of vision at day time
-		"VisionNighttimeRange"		"800"										// Range of vision at night time.
+		// Vision
+		//-------------------------------------------------------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"									// Range of vision during day light.
+		"VisionNighttimeRange"		"800"									// Range of vision at night time.
 		
-		// Abilities
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityLayout"			"4"
-		"Ability1"				"kassadin_void_stone"					// Passive
-		"Ability2"				"kassadin_null_sphere"					// Ability 1
-		"Ability3"				"kassadin_nether_blade"					// Ability 2
-		"Ability4"				"kassadin_force_pulse"					// Ability 3
-		"Ability5"				"kassadin_riftwalk"						// Ultimate
-	
-		// Attributes
-		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-		"AttributeBaseStrength"		"0"										// Base strength
-		"AttributeStrengthGain"		"0"										// Strength bonus per level.
-		"AttributeBaseIntelligence"	"0"										// Base intelligence
-		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
-		"AttributeBaseAgility"		"0"										// Base agility
-		"AttributeAgilityGain"		"0"										// Agility bonus per level.
-	
-		// Base Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"StatusHealth"				"564.04"								// Base health.
-		"HealthGain"				"78"
-		"StatusHealthRegen"			"7.79"									// Health regeneration rate.
-		"HealthRegenGain"			"0.5"
+		//Inventory
+		"HasInventory"				"1"
 		
-		"StatusMana"				"347.6"									// Base mana.
-		"ManaGain"					"70"
-		"StatusManaRegen"			"6"										// Mana regeneration rate.
-		"ManaRegenGain"				"0.8"
-	}
-	"lol_champion_lux"
-	{
-		"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
-		"MovementTurnRate"			"10"										// Turning rate.
-		"VisionDaytimeRange"		"1800"										// Range of vision at day time
-		"VisionNighttimeRange"		"800"										// Range of vision at night time.
+		//Voice
+		"VoiceBackgroundSound"		""
+				
+		"HealthBarOffset"			"-1"
 		
-		// Abilities
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityLayout"			"4"
-		"Ability1"				"lux_illumination"						// Passive
-		"Ability2"				"lux_light_binding"						// Ability 1
-		"Ability3"				"lux_prismatic_barrier"					// Ability 2
-		"Ability4"				"lux_lucent_singularity"				// Ability 3a
-		"Ability5"				"lux_lucent_singularity_detonate"		// Ability 3b
-		"Ability6"				"lux_final_spark"						// Ultimate
-	
-		// Attributes
-		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-		"AttributeBaseStrength"		"0"										// Base strength
-		"AttributeStrengthGain"		"0"										// Strength bonus per level.
-		"AttributeBaseIntelligence"	"0"										// Base intelligence
-		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
-		"AttributeBaseAgility"		"0"										// Base agility
-		"AttributeAgilityGain"		"0"										// Agility bonus per level.
-	
-		// Base Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"StatusHealth"				"477.72"								// Base health.
-		"HealthGain"				"79"
-		"StatusHealthRegen"			"5.42"									// Health regeneration rate.
-		"HealthRegenGain"			"0.55"
-		
-		"StatusMana"				"334"									// Base mana.
-		"ManaGain"					"50"
-		"StatusManaRegen"			"6"										// Mana regeneration rate.
-		"ManaRegenGain"				"0.8"
-	}
-	"lol_champion_veigar"
-	{
-		"override_hero"				"npc_dota_hero_lion"					// Hero to override
-		"MovementTurnRate"			"10"										// Turning rate.
-		"VisionDaytimeRange"		"1200"										// Range of vision at day time
-		"VisionNighttimeRange"		"800"										// Range of vision at night time.
-		
-		// Abilities
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityLayout"			"4"
-		"Ability1"				"veigar_equilibrium"			// Passive
-		"Ability2"				"veigar_baleful_strike"			// Ability 1
-		"Ability3"				"veigar_dark_matter"			// Ability 2
-		"Ability4"				"veigar_event_horizon"			// Ability 3
-		"Ability5"				"veigar_primordial_burst"		// Ultimate
-	
-		// Attributes
-		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-		"AttributeBaseStrength"		"0"										// Base strength
-		"AttributeStrengthGain"		"0"										// Strength bonus per level.
-		"AttributeBaseIntelligence"	"0"										// Base intelligence
-		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
-		"AttributeBaseAgility"		"0"										// Base agility
-		"AttributeAgilityGain"		"0"										// Agility bonus per level.
-	
-		// Base Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"StatusHealth"				"492.76"								// Base health.
-		"HealthGain"				"82"
-		"StatusHealthRegen"			"5.42"									// Health regeneration rate.
-		"HealthRegenGain"			"0.55"
-		
-		"StatusMana"				"342.4"									// Base mana.
-		"ManaGain"					"55"
-		"StatusManaRegen"			"6"										// Mana regeneration rate.
-		"ManaRegenGain"				"0.8"
-	}
+		"IdleExpression"			"scenes\default_idle.vcd"
+		"IdleSoundLoop"				""
+		"AbilityDraftDisabled"		"0"
+		"ARDMDisabled"				"0"
+
+		"HUD"
+		{
+			"StatusHUD"
+			{
+				"StatusStrength"
+				{
+					"LocalizeToken"		"#DOTA_StrengthStatus"
+					"Parameters"		"Traits:Strength"
+					"HUDName"			"unitstrength"
+				}
+			
+				"StatusAgility"
+				{		
+					"LocalizeToken"		"#DOTA_AgilityStatus"
+					"Parameters"		"Traits:Agility"
+					"HUDName"			"unitagility"
+				}
+			
+				"StatusIntellect"	
+				{
+					"LocalizeToken"		"#DOTA_IntellectStatus"
+					"Parameters"		"Traits:Intellect"
+					"HUDName"			"unitintellect"
+				}
+			}	
+		}
+	}	
+
+	//Start of file npc_lol_champion_blitzcrank.txt
 	"npc_lol_champion_blitzcrank"
 	{
 		// General
@@ -162,7 +147,7 @@
 		"AttackRange"				"60"									// Range within a target can be attacked.
 		"MovementTurnRate"			"10"									// Turning rate.
 		"HeroID"					"121"
-												
+		"Enabled"					"1"		
 		"Ability1"					"blitzcrank_rocket_grab"						// Ability 1
 		"Ability2"					"blitzcrank_overdrive"							// Ability 2
 		"Ability3"					"blitzcrank_power_fist"							// Ability 3
@@ -182,30 +167,33 @@
 		"StatusManaRegen"			"6.0"									// Mana regeneration rate.
 		
 	}
-	"npc_lol_champion_ezreal"
+	//End of file npc_lol_champion_blitzcrank.txt
+
+
+	//Start of file npc_lol_champion_ezreal.txt
+	"npc_dota_hero_ezreal"
 	{
-		"override_hero"			"npc_dota_hero_zuus"
+
+		//"BaseClass"            "npc_dota_hero_base"
+		"HeroID"				"114"
+		"override_hero"		    "npc_dota_hero_zuus"
 		"SoundSet"				"0"	
 		"Model"					"models/champions/ezreal.vmdl"
-	
-		"AbilityLayout" 		"6"
 		"Ability1"				"ezreal_mystic_shot" 
 		"Ability2"				"ezreal_essence_flux" 
 		"Ability3"				"ezreal_arcane_shift"
-		"Ability4"				"dotl_dummy_unit"
-		"Ability5"				"dotl_dummy_unit"
+		"Ability4"				"ezreal_rising_spell_force" 
 		"Ability6"				"ezreal_trueshot_barrage"
-		"Ability7"				"ezreal_rising_spell_force" 
+		"AbilityLayout" 		"6"
+		"Enabled"				"1"
 		
-		
-	
 		"ArmorPhysical"				"2.67"									    // Physical protection.
 		"MagicalResistance"			"25"									// Magical protection (percentage).
-	
+
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"55"										// Damage range min.
 		"AttackDamageMax"			"45"										// Damage range max.
-	
+
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"		"18"										// Base strength
 		"AttributeStrengthGain"		"2"										// Strength bonus per level.
@@ -213,34 +201,63 @@
 		"AttributeIntelligenceGain"	"2"										// Intelligence bonus per level.
 		"AttributeBaseAgility"		"18"										// Base agility
 		"AttributeAgilityGain"		"2"										// Agility bonus per level.
-	
+
 		"BountyXP"					"0"									    // Experience earn.
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
-	
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
-	
+
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"238"									// Speed.
 		"MovementTurnRate"			"1.0"									// Turning rate.
-	
+
 		"StatusHealth"				"484.4"									// Base health.
 		"StatusHealthRegen"			"1.0"									// Health regeneration rate.
 		"StatusMana"				"310.6"									// Base mana.
 		"StatusManaRegen"			"1.0"									// Mana regeneration rate.
-	
+
 		"VisionNighttimeRange"		"800"									// Range of vision at night time.
+
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable2"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable3"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable4"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable5"
+			{
+				"ItemDef" "0"
+			}
+		}
+		"ItemSlots" {}
 	}
-	"npc_league_hero_garen"
+	//End of file npc_lol_champion_ezreal.txt
+
+
+	//Start of file npc_lol_champion_garen.txt
+	"npc_dota_hero_garen"
 	{
 			"override_hero"				"npc_dota_hero_bloodseeker"			// Hero to override
 			"Model"						"models/champions/garen/garen.vmdl"
 			"Ability1"					"garen_silence"
 			"Ability2"					"garen_courage"
 			"Ability3"					"garen_spin"
-			"Ability6"					"garen_ult"
 			"Ability4"					"garen_perseverance"
+			"Ability6"					"garen_ult"
 			"AbilityLayout"				"6"
 			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
 			"HeroID"					"113"
@@ -271,4 +288,26 @@
 			
 			"ItemSlots" {}
 	}
+	//End of file npc_lol_champion_garen.txt
+
+
+	//Start of file npc_lol_champion_lux.txt
+	"npc_dota_hero_lux"
+	{
+		"override_hero"				"npc_dota_hero_windrunner"					// Hero to override
+		"MovementTurnRate"			"10"										// Turning rate.
+		"VisionDaytimeRange"		"800"										// Range of vision at day time
+		"VisionNighttimeRange"		"800"										// Range of vision at night time.
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"			"4"
+		"Ability1"				"lux_light_binding"						// Ability 1
+		"Ability2"				"lux_prismatic_barrier"					// Ability 2
+		"Ability3"				"lux_lucent_singularity"				// Ability 3a
+		//"Ability4"				"lux_final_spark"						// Ultimate
+		"Ability5"				"lux_illumination"						// Passive
+		"Ability6"				"lux_lucent_singularity_detonate"		// Ability 3b
+	}
+	//End of file npc_lol_champion_lux.txt
 }

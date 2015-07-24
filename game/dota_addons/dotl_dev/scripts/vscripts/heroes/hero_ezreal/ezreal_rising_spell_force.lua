@@ -10,13 +10,12 @@ function ezreal_rising_spell_force_on_spell_hit(event)
 		local current_stack = caster:GetModifierStackCount("modifier_rising_spell_force", nil)	
 		caster:RemoveModifierByName("modifier_rising_spell_force")
 		innate:ApplyDataDrivenModifier(caster, caster, "modifier_rising_spell_force", {duration = 6})
-		local max_stack = innate:GetSpecialValueFor("max_stacks")
+		local max_stack = innate:GetLevelSpecialValueFor("max_stacks", 0)
 		if current_stack >= max_stack then
 			caster:SetModifierStackCount("modifier_rising_spell_force", innate, max_stack)
 		else
 			current_stack = current_stack + 1
 			caster:SetModifierStackCount("modifier_rising_spell_force", innate, current_stack)
 		end
-
 	end
 end

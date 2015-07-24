@@ -1,5 +1,9 @@
+//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAAbilities"
 {
+
+
+	//Start of file item_example_item.txt
 	//Shield
 	"item_example_item"
 	{
@@ -131,6 +135,10 @@
 			}
 		}
 	  }
+	//End of file item_example_item.txt
+
+
+	//Start of file item_multiteam_action.txt
 	//
 	  // MultiTeam Action Item
 	  //
@@ -260,6 +268,10 @@
 			}
 		}
 	}
+	//End of file item_multiteam_action.txt
+
+
+	//Start of file item_multiteam_action2.txt
 	"item_multiteam_action2"
 	{
 		// General
@@ -353,6 +365,10 @@
 	      }
 	  }
 	}
+	//End of file item_multiteam_action2.txt
+
+
+	//Start of file lol_modifiers.txt
 	"lol_modifiers"
 	{
 		"ID"								"1124"  // unique ID number for this item.  Do not change this once 
@@ -382,4 +398,5 @@
 			}
 		}
 	}
+	//End of file lol_modifiers.txt
 }

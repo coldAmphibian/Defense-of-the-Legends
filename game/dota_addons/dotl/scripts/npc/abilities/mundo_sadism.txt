@@ -1,0 +1,91 @@
+//LoL Mundo Dota Port
+//Author: TheAlpacalypse
+//Date 06/2015
+"mundo_infected_cleaver"
+{
+    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityType"                     "DOTA_ABILITY_TYPE_ULTIMATE"
+    "BaseClass"                       "ability_datadriven"
+    "AbilityTextureName"              "mundo_sadism"
+    "MaxLevel"                        "3"
+
+    //Stats
+    //-------------------------------------------------------------------------------
+    "AbilityCooldown"                 "75"
+    "AbilityManaCost"                 "20"
+
+    //Special
+    //-------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "radius"                 "120"
+        }
+        "02"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "duration"               "12"
+        }
+        "03"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "health_regen"           "40 50 60"
+        }
+        "04"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "bonus_movement_speed"   "15 25 35"
+        }
+
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"            "heroes/hero_mundo/mundo_sadism.lua"
+            "Function"              "mundo_sadism_health_cost"
+        }
+
+        "ApplyModifier"
+        {
+            "ModifierName"          "ult_regen"
+            "Target"                "TARGET"
+            "Duration"              "%duration"
+        }
+
+        "ApplyModifier"
+        {
+            "ModifierName"          "ult_movespeed"
+            "Target"                "TARGET"
+            "Duration"              "%duration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "ult_regen"
+        {
+            "Passive"               "1"
+            "IsHidden"              "0"
+            "IsBuff"                "1"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen"
+            }
+        }
+
+        "ult_movespeed"
+        {
+            "Passive"               "1"
+            "IsHidden"              "0"
+            "IsBuff"                "1"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
+            }"
+        }
+    }
+}

@@ -1,0 +1,109 @@
+//LoL Mundo Dota Port
+//Author: TheAlpacalypse
+//Date 06/2015
+
+//TODO: Add CC reduction if possible
+"mundo_burning_agony"
+{
+    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_AURA"
+    "BaseClass"                       "ability_datadriven"
+    "AbilityTextureName"              "mundo_burning_agony"
+    "MaxLevel"                        "5"
+
+    //Stats
+    //-------------------------------------------------------------------------------
+    "AbilityCastRange"                "120"
+    "AbilityCastPoint"                "0.0"
+    "AbilityCooldown"                 "4.0"
+    "AbilityManaCost"                 "10 15 20 25 30"
+    "AbilityDamage"                   "35 50 65 80 95"
+    "AbilityUnitDamageType"           "DAMAGE_TYPE_MAGICAL"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+        "particle"          "particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_buff.vpcf"
+        "particle"          "particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf"
+        "particle"          "particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_debuff.vpcf"
+    }
+
+    //Special
+    //-------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"               "FIELD_INTEGER"
+            "radius"                 "120"
+        }
+    }
+
+    "OnToggleOn"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName"          "burn_aura"
+            "Target"                "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+        "burn_aura"
+        {
+            "Passive"               "0"
+            "IsHidden"              "0"
+            "IsDebuff"              "1"
+            "IsPurgable"            "0"
+
+            "OnCreated"
+            {
+                "AttachEffect"
+                {
+                    "EffectName"        "particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "Target"            "TARGET"
+
+                    "ControlPoints"
+                    {
+                        "01"    "%radius 0 0"
+                    }
+                }
+            }
+
+            "Aura"                  "burn_aura_effect"
+            "Aura_Radius"           "%radius"
+            "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_NONE"
+            "Aura_ApplyToCaster"    "0"
+
+            "ThinkInterval"  "1.0"
+            "OnIntervalThink"
+            {
+                "ActOnTargets"
+                {
+                    "Target"
+                    {
+                        "Center"      "CASTER"
+                        "Radius"      "%radius"
+                        "Teams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                        "Types"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    }
+
+                    "Action"
+                    {
+                        "Damage"
+                        {
+                            "Target"  "TARGET"
+                            "Type"    "DAMAGE_TYPE_MAGICAL"
+                            "Damage"  "%AbilityDamage"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

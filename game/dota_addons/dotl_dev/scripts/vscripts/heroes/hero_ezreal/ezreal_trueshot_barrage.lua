@@ -5,12 +5,15 @@
 ==========================]]
 function ezreal_trueshot_barrage_on_spell_start(event)
 	local caster = event.caster
+	local origin = Vector(GetWorldMinX(), GetWorldMinY())
+	local far = Vector(GetWorldMaxX(), GetWorldMaxY())
+	local distance = math.sqrt(math.pow((far[1] - origin[1]),2) + math.pow((far[2] - origin[2]),2))
 	local info = 
 	{
 		Ability = event.ability,
     	EffectName = event.effect_name,
     	vSpawnOrigin = caster:GetAbsOrigin(),
-    	fDistance = event.range,
+    	fDistance = distance,
     	fStartRadius = event.radius,
     	fEndRadius = event.radius,
     	Source = caster,

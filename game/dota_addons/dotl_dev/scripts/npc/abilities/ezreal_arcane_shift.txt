@@ -18,7 +18,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		"particle"  "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
 		"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
 	}
 

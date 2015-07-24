@@ -2,12 +2,13 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"blitzcrank_static_field"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 	"MaxLevel"						"3"
 
 	// Precache

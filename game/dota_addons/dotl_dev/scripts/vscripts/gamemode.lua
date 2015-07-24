@@ -28,6 +28,9 @@ require('settings')
 -- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core barebones files.
 require('events')
 
+-- this allows you to wrap a hero as a champion with specific functions
+require('champions')
+
 
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
@@ -82,17 +85,8 @@ function GameMode:OnHeroInGame(hero)
       hero:HeroLevelUp(false)
     end
   end
-  -- This looks for innate abilities and autolearn then
-  for i=0,15 do
-    local ability = hero:GetAbilityByIndex(i)
-    if ability ~= nil then
-      if ability:GetLevelSpecialValueFor("champion_passive", 0) == 1 then
-          ability:SetLevel(1)
-      end
-    else
-      break
-    end
-  end
+  
+  Champion:Create(hero)
 end
 
 
@@ -100,17 +94,18 @@ function GameMode:OnPlayerLevelUp(keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
   local hero  = player:GetAssignedHero()
-  for i=0,15 do
-    local ability = hero:GetAbilityByIndex(i)
-    if ability ~= nil then
-      exists = ability:GetLevelSpecialValueFor("level_scale", level-1)
-      if exists then
-          ability:SetLevel(exists)
-      end
-    else
-      break
-    end
-  end
+  -- This has been really annoying for testing O.o ? why is it needed?
+  -- for i=0,15 do
+  --   local ability = hero:GetAbilityByIndex(i)
+  --   if ability ~= nil then
+  --     exists = ability:GetLevelSpecialValueFor("level_scale", level-1)
+  --     if exists then
+  --         ability:SetLevel(exists)
+  --     end
+  --   else
+  --     break
+  --   end
+  -- end
 end
 
 --[[

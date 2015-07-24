@@ -1,8 +1,7 @@
-// Lux' Lucent Singularity (E)
+//=========================================================
+// Lux' Third Ability: Lucent Singularity
 // Author: Capruce
-// Date: 
-// Notes: 
-// Requires "lux_lucent_singularity_detonate" to work correctly
+//=========================================================
 "lux_lucent_singularity"
 {
 	// General
@@ -17,7 +16,7 @@
 
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastRange"				"800"
+	"AbilityCastRange"				"807" //1100 (LoL Units)
 	"AbilityCastPoint"				"0.0"
 	
 	// Time		
@@ -45,27 +44,42 @@
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"projectile_speed"		"1025"
+			"projectile_distance"	"807" //1100 (LoL Units)
 		}
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"singularity_radius"	"275"
+			"projectile_speed"		"1025" //A guess??
 		}
 		"04"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"vision_radius"			"300"
+			"singularity_radius"	"257" //350 (LoL Units)
 		}
 		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"movement_speed_pct"	"-20 -24 -28 -32 -36"
+			"vision_radius"			"300" //A guess
 		}
 		"06"
 		{
+			"var_type"				"FIELD_INTEGER"
+			"movement_speed_pct"	"-20 -24 -28 -32 -36"
+		}
+		"07"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"singularity_damage"	"60 105 150 195 240"
+		}
+		"08"
+		{
 			"var_type"				"FIELD_FLOAT"
 			"singularity_duration"	"5.0"
+		}
+		"09"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"think_interval"		"0.03"
 		}
 	}
 
@@ -81,10 +95,7 @@
 		"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
 
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-		"particle"  		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
-
-		"particle"			"particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf"
-	}
+		"particle"  		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"	}
 
 	"OnUpgrade"
 	{
@@ -99,32 +110,9 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/champion_lux/lucent_singularity.lua"
-			"Function"			"SwapAbilities"
-			"current_ability"	"lux_lucent_singularity"
-			"new_ability"		"lux_lucent_singularity_detonate"
-		}
-
-		"LinearProjectile"
-		{
-			"Target"      	"POINT"
-		    "EffectName"  	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-		    "MoveSpeed"   	"%projectile_speed"
-		    "StartRadius"   "0"
-		    "StartPosition" "attach_origin"
-		    "EndRadius"     "0"
-		    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		    "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
-		    "HasFrontalCone"    "0"
-		    "ProvidesVision"	"1"
-		    "VisionRadius"	"%vision_aoe"
-		}
-
-		"FireSound"
-		{
-			"EffectName"			"Hero_Mirana.ArrowCast"
-			"Target"				"CASTER"
+			"ScriptFile"		"heroes/lux/lux_lucent_singularity.lua"
+			"Function"			"OnSpellStart"
+			"Target"			"POINT"
 		}
 	}
 
@@ -137,38 +125,38 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/champion_lux/lucent_singularity.lua"
-			"Function"			"CreateSingularity"
-			"Target"			"POINT"
-			"modifier"			"modifier_lucent_singularity_unit"
-			"current_ability"	"lux_lucent_singularity_detonate"
-			"new_ability"		"lux_lucent_singularity"
-		}
-
-		"FireSound"
-		{
-			"EffectName"	"Hero_Ancient_Apparition.IceVortexCast"
-			"Target" 		"CASTER"
+			"ScriptFile"		"heroes/lux/lux_lucent_singularity.lua"
+			"Function"			"OnProjectileHit"
 		}
 	}
 
 	"Modifiers"
 	{
-		"modifier_lucent_singularity_unit"
+		"modifier_lux_lucent_singularity_thinker"
 		{
-			"Aura"					"modifier_lucent_singularity"
+			"Aura"					"modifier_lux_lucent_singularity"
 			"Aura_Radius"			"%singularity_radius"
 			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 			"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+
+			"ThinkInterval" 		"%think_interval"
+		    "OnIntervalThink"
+		    {
+		        "RunScript"
+		        {
+		            "ScriptFile" 	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
+		            "Function"   	"OnIntervalThink"
+		        }
+		    }
 
 			"OnCreated"
 			{
-				"FireSound"
-				{
-					"EffectName"	"Hero_Ancient_Apparition.IceVortex"
-					"Target" 		"TARGET"
-				}
+ 				"RunScript"
+		        {
+		            "ScriptFile" 	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
+		            "Function"   	"OnCreated"
+		        }
 
 				"AttachEffect"
 				{
@@ -185,13 +173,20 @@
 
 				"ApplyModifier"
 				{
-				   	"Target" 		"CASTER"
-					"ModifierName"	"modifier_lucent_singularity_detonate_timer"
+					"Target" 			"CASTER"
+					"ModifierName"		"modifier_lux_lucent_singularity_detonate_timer"
 				}
 			}
 
 			"OnDestroy"
 			{
+
+				"RunScript"
+				{
+					"ScriptFile" 	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
+		            "Function"   	"OnDestroy"
+				}
+
 				"AttachEffect"
 				{
 				 	"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
@@ -213,34 +208,25 @@
 				"RemoveModifier"
 				{
 					"Target" 			"CASTER"
-					"ModifierName"		"modifier_lucent_singularity_detonate_timer"
+					"ModifierName"		"modifier_lux_lucent_singularity_detonate_timer"
 				}
-			}
-
-			"States"
-			{
-				//"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
-				//"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-				//"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				//"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
 			}
 
 			"Properties"
 			{
-				"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"%vision_radius"
-			    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%vision_radius" 
+				"MODIFIER_PROPERTY_FIXED_DAY_VISION"	"%vision_radius"
+				"MODIFIER_PROPERTY_FIXED_NIGHT_VISION"	"%vision_radius"
+				"MODIFIER_PROPERTY_FORCE_DRAW_MINIMAP"	"1"
 			}
 		}
 
-		"modifier_lucent_singularity_detonate_timer"
+		"modifier_lux_lucent_singularity_detonate_timer"
 		{
 			"IsBuff"			"1"
 			"Duration"			"%singularity_duration"
 		}
 
-		"modifier_lucent_singularity"
+		"modifier_lux_lucent_singularity"
 		{
 			"IsDebuff"		"1"
 	

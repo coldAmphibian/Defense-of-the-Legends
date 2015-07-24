@@ -37,19 +37,18 @@ function RetractMeatHook( keys )
 
 	-- Damage
 	if target:GetTeam() ~= caster:GetTeam() then
-		local damageTable = {}
-		damageTable.attacker = caster
-		damageTable.victim = target
-		damageTable.damage_type = ability:GetAbilityDamageType()
-		damageTable.ability = ability
-		damageTable.damage = damage
-
+		local damageTable = {
+			attacker = caster,
+			victim = target,
+			damage_type = ability:GetAbilityDamageType(),
+			ability = ability,
+			damage = damage
+		}
 		ApplyDamage(damageTable)
 	end
 
 	if target:IsHero() then
 		
-		hookTable[caster].bHitUnit = true
 		-- Make the target face the caster
 		target:SetForwardVector(direction)
 		

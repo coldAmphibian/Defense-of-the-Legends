@@ -39,10 +39,10 @@ function BlitzcrankStaticFieldPassive(event)
 	    EmitSoundOn("Hero_Leshrac.Lightning_Storm", randUnit)
 
 		local damageTable = {
-		victim = randUnit,
-		attacker = caster,
-		damage = damage,
-		damage_type = DAMAGE_TYPE_MAGICAL,
+			victim = randUnit,
+			attacker = caster,
+			damage = damage,
+			damage_type = ability:GetAbilityDamageType(),
 		}
 
 		ApplyDamage(damageTable)

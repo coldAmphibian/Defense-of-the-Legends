@@ -34,6 +34,7 @@
 	// Damage.
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityDamage"					"60 110 160 210 260"	//-- +40% Ability Power
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
@@ -121,9 +122,9 @@
 						}
 						"Damage"
 						{
-							"Target"	"TARGET"
-							"Type"		"DAMAGE_TYPE_PHYSICAL"
-							"Damage"	"%AbilityDamage"
+							"Target"		"TARGET"
+							"Type"			"DAMAGE_TYPE_MAGICAL"
+							"Damage"		"%AbilityDamage"
 						}
 						"RunScript"
 						{

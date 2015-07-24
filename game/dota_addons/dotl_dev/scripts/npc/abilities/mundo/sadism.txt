@@ -85,7 +85,7 @@
             "Properties"
             {
                 "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
-            }"
+            }
         }
     }
 }

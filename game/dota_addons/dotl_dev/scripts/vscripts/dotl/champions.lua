@@ -17,6 +17,14 @@ function IsChampion( unit )
 	return unit.ap ~= nil
 end
 
+function IsChampionInnate( ability )
+	return ability:GetLevelSpecialValueFor('champion_passive', 0) == 1
+end
+
+function IsScaledByLevel( ability )
+	return ability:GetLevelSpecialValueFor('level_scale', 0) ~= 0
+end
+
 function Champion:Create( unit )
 	if not unit:IsHero() or IsChampion( unit ) then
 		return
@@ -74,10 +82,39 @@ function Champion:Create( unit )
 		unit.ap = unit.ap + ap
 	end
 
+	function unit:UpgradeSpellsByLevel(level)
+		for i=0,15 do
+		    local ability = unit:GetAbilityByIndex(i)
+		    if ability ~= nil then
+		    	if IsScaledByLevel(ability) then
+		      		local nLevel = ability:GetLevelSpecialValueFor("level_scale", level-1)
+					ability:SetLevel(nLevel)
+		      	end
+		    else
+		      break
+		    end
+		end
+	end
+
+	function unit:LearnInnateSpells()
+		print('Learning Innates')
+		for i=0,15 do
+			local ability = unit:GetAbilityByIndex(i)
+			if ability ~= nil then
+				if IsChampionInnate(ability) then
+					print('got a innate')
+					ability:SetLevel(1)
+		        end
+		    else
+		    	break
+		    end
+		end
+	end
+
 	unit:AddNewModifier(unit, nil, "modifier_champion", {})
 
-	--Passive is ability 1 (0-based) and so level it at the start of the game
-	unit:GetAbilityByIndex(3):SetLevel(1)
+	unit:LearnInnateSpells()
+	unit:UpgradeSpellsByLevel(1)
 
 	print(unit:GetName() .. " has become " .. tostring(unit.name))
 end

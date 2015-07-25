@@ -77,15 +77,12 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
-  debug = true
-
-  if debug then
-    hero:SetGold(99999, false)
-    for i=2,7 do
-      hero:HeroLevelUp(false)
-    end
-  end
-  
+  -- if Convars:GetBool("developer") then
+  --   hero:SetGold(99999, false)
+  --   for i=2,7 do
+  --     hero:HeroLevelUp(false)
+  --   end
+  -- end
   Champion:Create(hero)
 end
 
@@ -93,21 +90,8 @@ end
 function GameMode:OnPlayerLevelUp(keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
-  local hero  = player:GetAssignedHero()
-  for i=0,15 do
-    local ability = hero:GetAbilityByIndex(i)
-    if ability ~= nil then
-      exists = ability:GetLevelSpecialValueFor("level_scale", level-1)
-      if exists then
-          ability:SetLevel(exists)
-      end
-    else
-      break
-    end
-  end
+  player:GetAssignedHero():UpgradeSpellsByLevel(level)
 end
-
-function GameMode:OnPlayerLevelUp(keys)
 
 --[[
   This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,

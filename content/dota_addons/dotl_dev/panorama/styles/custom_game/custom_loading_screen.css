@@ -17,6 +17,12 @@
   height: 100%;
 }
 
+.Preload
+{
+  visibility: hidden;
+  opacity: 0;
+}
+
 .Fade
 {
   background-color: #000000;

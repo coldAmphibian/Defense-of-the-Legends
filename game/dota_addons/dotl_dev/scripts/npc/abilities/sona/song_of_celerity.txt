@@ -123,12 +123,6 @@
 	}
 	"Modifiers"
 	{
-		"modifier_sona_power_chord"
-		{
-			"TextureName"		"sona_power_chord"
-			"IsPassive"			"1"
-			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
-		}
 		"modifier_sona_celerity_aura"
 		{
 			"IsBuff"			"1"
@@ -161,43 +155,9 @@
 		}
 		"aura_celerity_effect"
 		{
-	        
 	        "Properties" 
 	        {
 	            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%aura_movespeed"
-	        }
-		}
-		"modifier_sona_celerity_power_chord"
-		{
-			"IsBuff"	"1"
-			
-			"OnAttackLanded"
-			{
-				"RemoveModifier"
-				{
-					"Target"	"CASTER"
-					"ModifierName"	"modifier_sona_celerity_power_chord"
-				}
-				"RemoveModifier"
-				{
-					"Target"	"CASTER"
-					"ModifierName"	"modifier_sona_power_chord"
-				}
-				"ApplyModifier"
-				{
-					"Target"	"TARGET"
-					"ModifierName"	"modifier_sona_celerity_power_chord_effect"
-				}
-			}
-		}
-		"modifier_sona_celerity_power_chord_effect"
-		{
-			"IsDebuff"		"1"
-			"Duration"		"2"
-
-			"Properties" 
-	        {
-	            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40" //-- + 4% per 100 AP
 	        }
 		}
 	}

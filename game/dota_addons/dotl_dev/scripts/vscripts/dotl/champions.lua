@@ -97,12 +97,10 @@ function Champion:Create( unit )
 	end
 
 	function unit:LearnInnateSpells()
-		print('Learning Innates')
 		for i=0,15 do
 			local ability = unit:GetAbilityByIndex(i)
 			if ability ~= nil then
 				if IsChampionInnate(ability) then
-					print('got a innate')
 					ability:SetLevel(1)
 		        end
 		    else

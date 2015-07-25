@@ -5,20 +5,76 @@
 //-------------------------------------------------------------------------------------------------------------
 "sona_power_chord"
 {
-	//------------------------------------------------------------------------------------------------------------
-	// This is a dummy passive for looks and consistency with other champions. 
-	// Sonas passive is applied "manualy" from each individual ability where appropriate.
-	//------------------------------------------------------------------------------------------------------------
-	//
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"AbilityTextureName"			"sona_power_chord"
-	"MaxLevel"						"1"
-
+	"MaxLevel"						"18"
+	"AbilityDamage"					"13 20 27 35 43 52 62 72 82 92 102 112 122 132 147 162 177 192"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"AbilityCooldown"				"0"
+	"AbilityCastPoint"				"0.0"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"champion_passive"		"1"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"level_scale"		"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_ratio"				"0.2"	
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"max_stacks"				"3"	
+		}
+		"05"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"staccato_ratio"			"1.4"	
+		}
+		"06"
+		{
+			"var_type"						"FIELD_FLOAT"
+			"diminuendo_base_ratio"			"0.2"	
+		}
+		"07"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"diminuendo_ap_ratio_divisor"		"100"	
+		}
+		"08"
+		{
+			"var_type"								"FIELD_FLOAT"
+			"diminuendo_ap_ratio_per_quotient"		"0.02"	
+		}
+		"09"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"tempo_base_slow"		"40"		
+		}
+		"10"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"tempo_ap_ratio_divisor"	"100"		
+		}
+		"11"
+		{
+			"var_type"							"FIELD_INTEGER"
+			"tempo_ap_ratio_per_quotient"		"4"	
+		}
+	}
 
 	// Precache
 	//-------------------------------------------------------------------------------------------------------------
@@ -26,12 +82,64 @@
 	{
 		"particle"					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
 	}
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastPoint"				"0.0"
-	"AbilityDamage"					"100"
 
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	
+	"Modifiers"
+	{	
+		"modifier_power_chord"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsBuff"			"1"
+
+			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/sona/power_chord.lua"
+					"Function"		"OnAttackLanded"
+				}
+			}
+		}
+		
+		"modifier_power_chord_diminuendo"
+		{
+			"IsPurgable"		"1"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+			"Duration"			"3"
+			
+			"Properties" 
+	        {
+	            "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" 	"%debuff_value"
+	        }
+			"OnAttackLanded"
+			{
+				"RemoveModifier"
+				{
+					"Target"		"CASTER"
+					"ModifierName"	"modifier_power_chord_aria"
+				}
+				"RemoveModifier"
+				{
+					"Target"		"CASTER"
+					"ModifierName"	"modifier_power_chord"
+				}
+			}
+		}
+
+		"modifier_power_chord_tempo"
+		{
+			"Duration"			"2"
+			"IsPurgable"		"1"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+			"IsStunDebuff"		"0"
+
+			"Properties" 
+	        {
+	            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%debuff_value" //-- + 4% per 100 AP
+	        }
+		}
+	}
 }

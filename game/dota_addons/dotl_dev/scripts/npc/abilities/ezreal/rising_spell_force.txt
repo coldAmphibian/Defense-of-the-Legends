@@ -32,7 +32,6 @@
 
 	"Modifiers"
 	{
-
 		"modifier_rising_spell_force"
 		{
 			"Passive"			"0"

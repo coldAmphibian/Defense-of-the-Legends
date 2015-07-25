@@ -8,7 +8,7 @@
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"FightRecapLevel"				"1"
@@ -22,7 +22,7 @@
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
 		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
-		"particle" 			 "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		"particle" 			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
 	}
 	
 	// Casting
@@ -36,7 +36,7 @@
 
 	// Damage.
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityDamage"					"40 80 120 160 200"   //-- +50 Ability Power
+	"AbilityDamage"					"40 80 120 160 200"
 
 	// Cost
 	//-------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,22 @@
 		"04"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"bonus_damage"			"20 30 40 50 60"   //-- (+ 20% AP) (+ 10 / 20 / 40)
+			"buff_base_damage"		"20 30 40 50 60"   
+		}
+		"05"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"buff_ap_ratio"			"0.2"
+		}
+		"06"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crescendo_bonus_damage"	"0 10 20 40"
+		}
+		"07"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"base_ap_ratio"				"0.5"
 		}
 	}
 
@@ -123,8 +138,9 @@
 		}
 		"RunScript"
 		{
-			"ScriptFile"		"heroes/hero_sona/sona_power_chord.lua"
+			"ScriptFile"		"heroes/sona/power_chord.lua"
 			"Function"			"PowerChord"
+			"trigger"			"hymn"
 		}
 	}
 
@@ -143,12 +159,6 @@
 	}
 	"Modifiers"
 	{
-		"modifier_sona_power_chord"
-		{
-			"TextureName"		"sona_power_chord"
-			"IsPassive"			"1"
-			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
-		}
 		"modifier_sona_valor_aura"
 		{
 			"IsBuff"			"1"
@@ -183,28 +193,6 @@
 	        {
 	            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"%bonus_damage"
 	        }
-		}
-		"modifier_sona_valor_power_chord"
-		{
-			"IsBuff"	"1"
-			
-			"Properties" 
-	        {
-	            "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" 	"40"
-	        }
-			"OnAttackLanded"
-			{
-				"RemoveModifier"
-				{
-					"Target"	"CASTER"
-					"ModifierName"	"modifier_sona_valor_power_chord"
-				}
-				"RemoveModifier"
-				{
-					"Target"	"CASTER"
-					"ModifierName"	"modifier_sona_power_chord"
-				}
-			}
 		}
 	}
 }

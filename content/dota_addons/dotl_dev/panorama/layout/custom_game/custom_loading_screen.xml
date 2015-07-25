@@ -12,6 +12,15 @@
       <Image id="PortraitLeft" src="file://{images}/custom_game/loading_screen/Anivia.png" />
       <Image id="PortraitRight" src="file://{images}/custom_game/loading_screen/Phoenix.png" />
     </Panel>
+    
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Anivia.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Bard.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Enigma.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Phoenix.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Rubick.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Techies.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Teemo.png" />
+   <Image class="Preload" src="file://{images}/custom_game/loading_screen/Viktor.png" />
 
     <Panel id="TitlePanel">
       <Label id="AddonTitle" text="#addon_game_name" style="" />

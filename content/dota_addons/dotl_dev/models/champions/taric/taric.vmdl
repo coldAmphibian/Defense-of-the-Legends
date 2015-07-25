@@ -595,7 +595,7 @@ CVattachmentList CVattachmentList_0
 	[
 		CVattachment
 		{
-			string m_name = "attachment_root"
+			string m_name = "attach_root"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
@@ -610,14 +610,14 @@ CVattachmentList CVattachmentList_0
 		},
 		CVattachment
 		{
-			string m_name = "attachment_hitloc"
+			string m_name = "attach_hitloc"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
 				{
 					string m_influenceName = "root"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vTranslationOffset = ( -27.184570, 0.000003, 0.000002 )
+					float(3) m_vRotationOffset = ( -0.000003, 0.000003, -0.000006 )
 					float m_flWeight = 1.000000
 					bool m_bRoot = false
 				}
@@ -625,14 +625,14 @@ CVattachmentList CVattachmentList_0
 		},
 		CVattachment
 		{
-			string m_name = "attachment_attack1"
+			string m_name = "attach_attack1"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
 				{
 					string m_influenceName = "weapon"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vTranslationOffset = ( 57.869270, 31.713554, 0.000000 )
+					float(3) m_vRotationOffset = ( -0.000017, -0.000025, 0.000031 )
 					float m_flWeight = 1.000000
 					bool m_bRoot = false
 				}
@@ -640,14 +640,14 @@ CVattachmentList CVattachmentList_0
 		},
 		CVattachment
 		{
-			string m_name = "attachment_attack2"
+			string m_name = "attach_attack2"
 			CVattachmentInfluence[] m_influences = 
 			[
 				CVattachmentInfluence
 				{
 					string m_influenceName = "shield"
-					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
-					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vTranslationOffset = ( 0.000000, -0.000004, 13.281429 )
+					float(3) m_vRotationOffset = ( -0.000017, 0.000003, 0.000014 )
 					float m_flWeight = 1.000000
 					bool m_bRoot = false
 				}

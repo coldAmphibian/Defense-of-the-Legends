@@ -5,7 +5,6 @@
 //=============================================================================
 function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
 {
-	$.Msg(panel, " ", childName, " ", textValue);
 	if ( panel === null ){
 		return;
 	}
@@ -190,8 +189,9 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 	_ScoreboardUpdater_SetTextSafe( playerPanel, "PlayerUltimateCooldown", ultStateOrTime );
 }
 //=============================================================================
+// Sets the team's logo using the panel and team id
 //=============================================================================
-function _Set_TeamLogo(teamPanel)
+function _Set_TeamLogo(teamPanel, teamId)
 {
 	var logo_xml = GameUI.CustomUIConfig().team_logo_xml;
 	if ( logo_xml )
@@ -203,7 +203,6 @@ function _Set_TeamLogo(teamPanel)
 			teamLogoPanel.BLoadLayout( logo_xml, false, false );
 		}
 	}
-	$.Msg("Success");
 }
 
 //=============================================================================
@@ -224,7 +223,7 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 		return;
 
 	var teamId = teamDetails.team_id;
-	$.Msg( "_ScoreboardUpdater_UpdateTeamPanel: ", teamId );
+//	$.Msg( "_ScoreboardUpdater_UpdateTeamPanel: ", teamId );
 
 	var teamPanelName = "_dynamic_team_" + teamId;
 	var teamPanel = containerPanel.FindChild( teamPanelName );
@@ -235,7 +234,7 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 		teamPanel.SetAttributeInt( "team_id", teamId );
 		teamPanel.BLoadLayout( scoreboardConfig.teamXmlName, false, false );
 
-		_Set_TeamLogo(teamPanel);
+		_Set_TeamLogo(teamPanel, teamId);
 	}
 	
 	var localPlayerTeamId = -1;
@@ -391,6 +390,7 @@ function _ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, teamsCon
 		teamsList.push( Game.GetTeamDetails( teamId ) );
 	}
 
+	//Updates Team Scores
 	_Update_Clarity_Team_Score(teamsList[0]["team_score"], teamsList[1]["team_score"]);	
 
 	//$.Msg("tListsss: ", teamsList[0]);
@@ -402,7 +402,7 @@ function _ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, teamsCon
 	for ( var teamId of Game.GetAllTeamIDs() )
 	{
 		teamsList.push( Game.GetTeamDetails( teamId ) );
-	}
+	}*/
 
 	// update/create team panels
 	var teamsInfo = { max_team_players: 0 };
@@ -438,7 +438,7 @@ function _ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, teamsCon
 			prevPanel = teamPanel;
 		}
 //		$.Msg( GameUI.CustomUIConfig().teamsPrevPlace );
-	}*/
+	}
 
 //	$.Msg( "END _ScoreboardUpdater_UpdateAllTeamsAndPlayers: ", scoreboardConfig );
 }

@@ -16,7 +16,7 @@ function OnSpellStart( keys )
 	vDirection = vDirection:Normalized()
 
 	local info = {
-		EffectName = "particles/champions/veigar/veigar_baleful_strike.vpcf",
+		EffectName = "particles/heroes/veigar/baleful_strike.vpcf",
 		Ability = keys.ability,
 		vSpawnOrigin = keys.caster:GetAbsOrigin(), 
 		fStartRadius = self.projectile_radius,

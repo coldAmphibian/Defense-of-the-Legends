@@ -19,7 +19,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"precache"
 	{
-		"particle"					"particles/champions/veigar/veigar_baleful_strike.vpcf"
+		"particle"					"particles/heroes/veigar/baleful_strike.vpcf"
 	}
 
 	// Casting

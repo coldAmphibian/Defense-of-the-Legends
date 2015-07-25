@@ -37,10 +37,15 @@
 	{
 		"01"
 		{
+			"var_type"							"FIELD_INTEGER"
+			"champion_passive"					"1"
+		}
+		"02"
+		{
 			"var_type"							"FIELD_FLOAT"
 			"missing_mana_pct"					"1"
 		}
-		"02"
+		"03"
 		{
 			"var_type"							"FIELD_FLOAT"
 			"mana_regen_pct"					"1.5"

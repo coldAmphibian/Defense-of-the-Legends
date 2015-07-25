@@ -1,22 +1,18 @@
-self = {}
-
-function OnSpellStart( keys )
-	self.ap_scaling = keys.ability:GetSpecialValueFor( "ap_scaling" )
-	self.target_ap_scaling = keys.ability:GetSpecialValueFor( "target_ap_scaling" )
-	self.base_damage = keys.ability:GetAbilityDamage()
-	self.damage_type = keys.ability:GetAbilityDamageType()
+function OnProjectileHit( keys )
+	local ap_scaling = keys.ability:GetSpecialValueFor( "ap_scaling" )
+	local target_ap_scaling = keys.ability:GetSpecialValueFor( "target_ap_scaling" )
+	local base_damage = keys.ability:GetAbilityDamage()
+	local damage_type = keys.ability:GetAbilityDamageType()
 
 	local caster_ap = keys.caster:GetAbilityPower()
 	local target_ap = keys.target:GetAbilityPower()
-	self.final_damage = self.base_damage + (caster_ap * self.ap_scaling) + (target_ap * self.target_ap_scaling)
-end
+	local final_damage = base_damage + (caster_ap * ap_scaling) + (target_ap * target_ap_scaling)
 
-function OnProjectileHit( keys )
 	local damage = {
 		victim = keys.target,
 		attacker = keys.caster,
-		damage = self.final_damage,
-		damage_type = self.damage_type,
+		damage = final_damage,
+		damage_type = damage_type,
 		ability = keys.ability,
 	}
 

@@ -2351,7 +2351,7 @@
 		}
 	}
 	//=========================================================
-	// Lux' Third Ability: Lucent Singularity
+	// Lux' Ultimate: Final Spark
 	// Author: Capruce
 	//=========================================================
 	"lux_final_spark"
@@ -2359,17 +2359,19 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"lux_final_spark"
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2449" //3340 (LoL Units)
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"1"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -2400,7 +2402,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"beam_width"			"75"
+				"beam_width"			"150"
 			}
 			"04"
 			{
@@ -2426,29 +2428,6 @@
 			{
 				"ScriptFile"	"heroes/lux/lux_final_spark.lua"
 				"Function"		"OnSpellStart"
-			}
-	
-			"ActOnTargets"
-			{
-				"Target"
-			 	{
-				 	"Center"  		"POINT"
-				 	"Line"
-			 		{
-			 			"Length" 			"2450"
-			 			"Thickness" 		"75"
-			 		}
-			 		"Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"  
-			 		"Types" 		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-			 	}
-			 	"Action"
-			 	{
-			 		"RunScript"
-					{
-						"ScriptFile"	"heroes/lux/lux_final_spark.lua"
-						"Function"		"OnBeamHit"
-					}
-			 	}
 			}
 		}
 	}
@@ -2487,23 +2466,28 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"ap_scaling"				"0.20"
+				"var_type"					"FIELD_INTEGER"
+				"champion_passive"			"1"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"debuff_duration"			"6"
+				"ap_scaling"				"0.20"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"base_damage"				"10"
+				"var_type"					"FIELD_FLOAT"
+				"debuff_duration"			"6"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"level_multiplier"	"8"
+				"base_damage"				"10"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"level_multiplier"			"8"
 			}
 		}
 	
@@ -2603,43 +2587,38 @@
 		{
 			"01"
 			{
-				"var_type"							"FIELD_FLOAT"
-				"light_binding_ap_scaling"			"0.70"
+				"var_type"					"FIELD_FLOAT"
+				"ap_scaling"				"0.70"
 			}
 			"02"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"light_binding_width"				"125"
+				"var_type"					"FIELD_INTEGER"
+				"projectile_width"			"125"
 			}
 			"03"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"light_binding_distance"			"862"
+				"var_type"					"FIELD_INTEGER"
+				"projectile_distance"		"862"
 			}
 			"04"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"light_binding_speed"				"880" //1200
+				"var_type"					"FIELD_INTEGER"
+				"projectile_speed"			"880" //1200
 			}
 			"05"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"light_binding_damage"				"60 110 160 210 260"
+				"var_type"					"FIELD_FLOAT"
+				"base_root_duration"		"2.0"
 			}
 			"06"
 			{
-				"var_type"							"FIELD_FLOAT"
-				"light_binding_root_duration"		"2.0"
+				"var_type"					"FIELD_INTEGER"
+				"max_targets"				"2"
 			}
 			"07"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"light_binding_max_targets"			"2"
-			}
-			"08"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"light_binding_decrease_factor"		"2"
+				"var_type"					"FIELD_FLOAT"
+				"decrease_factor"			"2"
 			}
 		}
 	
@@ -2719,48 +2698,43 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"ap_scaling"			"0.60"
+				"var_type"					"FIELD_FLOAT"
+				"ap_scaling"				"0.60"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_distance"	"807" //1100 (LoL Units)
+				"var_type"					"FIELD_INTEGER"
+				"projectile_distance"		"807" //1100 (LoL Units)
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"1025" //A guess??
+				"var_type"					"FIELD_INTEGER"
+				"projectile_speed"			"1025" //A guess
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"singularity_radius"	"257" //350 (LoL Units)
+				"var_type"					"FIELD_INTEGER"
+				"singularity_radius"		"257" //350 (LoL Units)
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"300" //A guess
+				"var_type"					"FIELD_INTEGER"
+				"singularity_vision_radius"	"300" //A guess
 			}
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_pct"	"-20 -24 -28 -32 -36"
+				"var_type"					"FIELD_FLOAT"
+				"singularity_max_duration"	"5.0"
 			}
 			"07"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"singularity_damage"	"60 105 150 195 240"
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed_pct"		"-20 -24 -28 -32 -36"
 			}
 			"08"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"singularity_duration"	"5.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"think_interval"		"0.03"
+				"var_type"					"FIELD_FLOAT"
+				"think_interval"			"0.03"
 			}
 		}
 	
@@ -2826,8 +2800,8 @@
 			    {
 			        "RunScript"
 			        {
-			            "ScriptFile" 	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
-			            "Function"   	"OnIntervalThink"
+			            "ScriptFile" 	"heroes/lux/lux_lucent_singularity.lua"
+			            "Function"   	"Thinker_OnIntervalThink"
 			        }
 			    }
 	
@@ -2835,8 +2809,8 @@
 				{
 	 				"RunScript"
 			        {
-			            "ScriptFile" 	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
-			            "Function"   	"OnCreated"
+			            "ScriptFile" 	"heroes/lux/lux_lucent_singularity.lua"
+			            "Function"   	"Thinker_OnCreated"
 			        }
 	
 					"AttachEffect"
@@ -2864,8 +2838,8 @@
 	
 					"RunScript"
 					{
-						"ScriptFile" 	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
-			            "Function"   	"OnDestroy"
+						"ScriptFile" 	"heroes/lux/lux_lucent_singularity.lua"
+			            "Function"   	"Thinker_OnDestroy"
 					}
 	
 					"AttachEffect"
@@ -2897,7 +2871,7 @@
 				{
 					"MODIFIER_PROPERTY_FIXED_DAY_VISION"	"%vision_radius"
 					"MODIFIER_PROPERTY_FIXED_NIGHT_VISION"	"%vision_radius"
-					"MODIFIER_PROPERTY_FORCE_DRAW_MINIMAP"	"1"
+					//"MODIFIER_PROPERTY_FORCE_DRAW_MINIMAP"	"1"
 				}
 			}
 	
@@ -2959,8 +2933,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
-				"Function"		"DetonateSingularity"
+				"ScriptFile"	"heroes/lux/lux_lucent_singularity.lua"
+				"Function"		"Thinker_Detonate"
 			}
 		}
 	}
@@ -5591,10 +5565,15 @@
 		{
 			"01"
 			{
+				"var_type"							"FIELD_INTEGER"
+				"champion_passive"					"1"
+			}
+			"02"
+			{
 				"var_type"							"FIELD_FLOAT"
 				"missing_mana_pct"					"1"
 			}
-			"02"
+			"03"
 			{
 				"var_type"							"FIELD_FLOAT"
 				"mana_regen_pct"					"1.5"

@@ -17,7 +17,7 @@ require('libraries/timers')
 -- -- This library can be used for advanced 3D projectile systems.
 -- require('libraries/projectiles')
 -- This library can be used for sending panorama notifications to the UIs of players/teams/everyone
--- require('libraries/notifications')
+require('libraries/notifications')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -29,7 +29,7 @@ require('settings')
 require('events')
 
 -- this allows you to wrap a hero as a champion with specific functions
-require('champions')
+require('dotl/champions')
 
 
 --[[
@@ -77,7 +77,7 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
-  debug = false
+  debug = true
 
   if debug then
     hero:SetGold(99999, false)
@@ -94,19 +94,20 @@ function GameMode:OnPlayerLevelUp(keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
   local hero  = player:GetAssignedHero()
-  -- This has been really annoying for testing O.o ? why is it needed?
-  -- for i=0,15 do
-  --   local ability = hero:GetAbilityByIndex(i)
-  --   if ability ~= nil then
-  --     exists = ability:GetLevelSpecialValueFor("level_scale", level-1)
-  --     if exists then
-  --         ability:SetLevel(exists)
-  --     end
-  --   else
-  --     break
-  --   end
-  -- end
+  for i=0,15 do
+    local ability = hero:GetAbilityByIndex(i)
+    if ability ~= nil then
+      exists = ability:GetLevelSpecialValueFor("level_scale", level-1)
+      if exists then
+          ability:SetLevel(exists)
+      end
+    else
+      break
+    end
+  end
 end
+
+function GameMode:OnPlayerLevelUp(keys)
 
 --[[
   This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,

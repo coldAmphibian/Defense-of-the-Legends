@@ -5349,11 +5349,6 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"taric_gemcraft"
 	{
-		//------------------------------------------------------------------------------------------------------------
-		// This is a dummy passive for looks and consistency with other champions. 
-		// Tarics passive is applied "manualy" from each individual ability where appropriate.
-		//------------------------------------------------------------------------------------------------------------
-		//
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
@@ -5378,6 +5373,14 @@
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"champion_passive"			"1"
+			}
+		}
 		"OnUpgrade"
 		{
 	
@@ -5514,7 +5517,7 @@
 	
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"150 250 350"	//-- +50% AP
+		"AbilityDamage"					"150 250 350"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5529,6 +5532,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"aura_adap"			"15 25 35"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ap_scale"			"0.5"
 			}
 		}
 		"OnSpellStart"
@@ -5577,11 +5585,10 @@
 				}
 				"Action"
 				{
-					"Damage"
+					"RunScript"
 					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%AbilityDamage"
+						"ScriptFile"		"heroes/taric/imbue.lua"
+						"Function"			"RadianceDamage"
 					}
 				}
 			}
@@ -5890,7 +5897,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"					"particles/champions/veigar/veigar_baleful_strike.vpcf"
+			"particle"					"particles/heroes/veigar/baleful_strike.vpcf"
 		}
 	
 		// Casting

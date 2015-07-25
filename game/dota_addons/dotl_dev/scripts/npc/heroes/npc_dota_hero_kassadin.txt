@@ -1,10 +1,6 @@
-//-------------------------------------------------------------------------------------------------------------
-// Name: Veigar
-// Author: Capruce
-//-------------------------------------------------------------------------------------------------------------
-"lol_champion_veigar"
+"npc_dota_hero_kassadin"
 {
-	"override_hero"				"npc_dota_hero_lion"						// Hero to override
+	"override_hero"				"npc_dota_hero_antimage"					// Hero to override
 	"MovementTurnRate"			"10"										// Turning rate.
 	"VisionDaytimeRange"		"1800"										// Range of vision at day time
 	"VisionNighttimeRange"		"800"										// Range of vision at night time.
@@ -12,11 +8,11 @@
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityLayout"			"5"
-	"Ability1"				"veigar_baleful_strike"			// Ability 1
-	"Ability2"				"veigar_dark_matter"			// Ability 2
-	"Ability3"				"veigar_event_horizon"			// Ability 3
-	"Ability4"				"veigar_equilibrium"			// Passive
-	"Ability5"				"veigar_primordial_burst"		// Ultimate
+	"Ability1"				"kassadin_null_sphere"					// Ability 1
+	"Ability2"				"kassadin_nether_blade"					// Ability 2
+	"Ability3"				"kassadin_force_pulse"					// Ability 3
+	"Ability4"				"kassadin_void_stone"					// Passive
+	"Ability5"				"kassadin_riftwalk"						// Ultimate
 
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------
@@ -30,13 +26,13 @@
 
 	// Base Stats
 	//-------------------------------------------------------------------------------------------------------------
-	"StatusHealth"				"492.76"								// Base health.
-	"HealthGain"				"82"
-	"StatusHealthRegen"			"5.42"									// Health regeneration rate.
-	"HealthRegenGain"			"0.55"
+	"StatusHealth"				"564.04"								// Base health.
+	"HealthGain"				"78"
+	"StatusHealthRegen"			"7.79"									// Health regeneration rate.
+	"HealthRegenGain"			"0.5"
 	
-	"StatusMana"				"342.4"									// Base mana.
-	"ManaGain"					"55"
+	"StatusMana"				"347.6"									// Base mana.
+	"ManaGain"					"70"
 	"StatusManaRegen"			"6"										// Mana regeneration rate.
 	"ManaRegenGain"				"0.8"
 }

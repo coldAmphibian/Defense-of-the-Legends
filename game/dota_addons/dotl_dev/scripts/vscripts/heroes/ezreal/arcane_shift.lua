@@ -8,7 +8,7 @@ function OnSpellStart(event)
 	local ability = event.ability
 
  	ProjectileManager:ProjectileDodge(caster)
-	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, caster)
+	--ParticleManager:CreateParticle("particles/heroes/ezrael/blink_start.vpcf", PATTACH_ABSORIGIN, caster)
 	caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
 
 	local origin_point = caster:GetAbsOrigin()
@@ -22,7 +22,9 @@ function OnSpellStart(event)
 	caster:SetAbsOrigin(target_point)
 	FindClearSpaceForUnit(caster, target_point, false)
 
- 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, caster)
+ 	local pBlink = ParticleManager:CreateParticle("particles/heroes/ezreal/arcane_shift.vpcf", PATTACH_ABSORIGIN, caster)
+ 	ParticleManager:SetParticleControl(pBlink, 1, target_point)
+ 	--ParticleManager:SetParticleControl(pBlink, 0, caster:GetAbsOrigin())
 
 	local nearby_enemy_units =
 		FindUnitsInRadius(
@@ -54,6 +56,5 @@ function OnSpellStart(event)
 			bReplaceExisting = false
 		}
 		projectile = ProjectileManager:CreateTrackingProjectile(info)
-	end
-	
+	end	
 end

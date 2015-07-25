@@ -15,10 +15,11 @@
 	"AbilityCooldown"				"80"
 	"AbilityManaCost"				"100"
 	"AbilityDamage"					"350 500 650"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		"particle"  "particles/heroes/ezreal/trueshot_barrage.vpcf"
 	}
 
 	"AbilitySpecial"
@@ -49,7 +50,7 @@
 			"projectile_speed"	"%projectile_speed"
 			"radius"			"%radius"
 			"vision_radius"		"%vision_radius"
-			"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"effect_name"		"particles/heroes/ezreal/trueshot_barrage.vpcf"
 			"Target"			"POINT"
 		}
 	}

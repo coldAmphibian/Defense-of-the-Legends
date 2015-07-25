@@ -5,9 +5,8 @@ Date: 07/2015
 --]]
 function PowerChord( event )
 	local caster = event.caster
-	local ability = event.ability
 	local trigger = event.trigger
-	local innate = caster:FindAbilityByName("modifier_power_chord")
+	local innate = caster:FindAbilityByName("sona_power_chord")
 	if innate ~= nil then
 		local current_stack = caster:GetModifierStackCount("modifier_power_chord", nil)	
 		caster:RemoveModifierByName("modifier_power_chord")
@@ -27,6 +26,12 @@ function OnAttackLanded(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local current_stack = caster:GetModifierStackCount("modifier_power_chord", nil)
+	local innate = caster:FindAbilityByName("sona_power_chord")
+	local max_stack = innate:GetLevelSpecialValueFor("max_stacks", 0)
+	if current_stack < max_stack then
+		return
+	end
 	local effect = caster.effect
 	local damage = ability:GetAbilityDamage()
 	if IsChampion(caster) then

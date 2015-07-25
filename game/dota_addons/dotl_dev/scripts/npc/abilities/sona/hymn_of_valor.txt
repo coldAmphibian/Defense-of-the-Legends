@@ -153,10 +153,11 @@
 				"Center"	"TARGET"
 				"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 			}
-			"Type"	"DAMAGE_TYPE_MAGICAL"
+			"Type"		"DAMAGE_TYPE_MAGICAL"
 			"Damage"	"%AbilityDamage"
 		}
 	}
+
 	"Modifiers"
 	{
 		"modifier_sona_valor_aura"

@@ -18,14 +18,13 @@
 	"AbilityManaCost"				"28 31 34 37 40"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"AbilityDamage"					"35 55 75 95 115"
-	
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 	// Stats
 	//-------------------------------------------------------------------------------------------------------------
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-		"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+		"particle"  "particles/heroes/ezreal/mystic_shot.vpcf"
 	}
 
 	// Special	
@@ -64,7 +63,7 @@
 			"radius"			"%radius"
 			"range"				"%range"
 			"vision_radius"		"%vision_radius"
-			"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"effect_name"		"particles/heroes/ezreal/mystic_shot.vpcf"
 			"Target"			"POINT"
 		}
 	}

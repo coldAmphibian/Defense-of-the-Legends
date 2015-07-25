@@ -36,8 +36,8 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"	"heroes/lux/modifier_lux_lucent_singularity_thinker.lua"
-			"Function"		"DetonateSingularity"
+			"ScriptFile"	"heroes/lux/lux_lucent_singularity.lua"
+			"Function"		"Thinker_Detonate"
 		}
 	}
 }

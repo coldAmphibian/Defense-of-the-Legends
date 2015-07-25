@@ -1,18 +1,7 @@
-lux_light_binding = class({})
-
-local self = {}
-
---------------------------------------------------------------------------------
-
 function OnSpellStart( keys )
-	self.light_binding_ap_scaling = keys.ability:GetSpecialValueFor( "light_binding_ap_scaling" )
-	self.light_binding_width = keys.ability:GetSpecialValueFor( "light_binding_width" )
-	self.light_binding_distance = keys.ability:GetSpecialValueFor( "light_binding_distance" )
-	self.light_binding_speed = keys.ability:GetSpecialValueFor( "light_binding_speed" )
-	self.light_binding_damage = keys.ability:GetSpecialValueFor( "light_binding_damage" )
-	self.light_binding_root_duration = keys.ability:GetSpecialValueFor( "light_binding_root_duration" )
-	self.light_binding_decrease_factor = keys.ability:GetSpecialValueFor( "light_binding_decrease_factor" )
-	self.light_binding_max_targets = keys.ability:GetSpecialValueFor( "light_binding_max_targets" )
+	local projectile_width = keys.ability:GetSpecialValueFor( "projectile_width" )
+	local projectile_distance = keys.ability:GetSpecialValueFor( "projectile_distance" )
+	local projectile_speed = keys.ability:GetSpecialValueFor( "projectile_speed" )
 
 	-- --I want to make this unique, so that more than one projectile can be out on the field at the same time
 	local vDirection = keys.ability:GetCursorPosition() - keys.caster:GetOrigin()
@@ -22,30 +11,33 @@ function OnSpellStart( keys )
 		EffectName = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf",
 		Ability = keys.ability,
 		vSpawnOrigin = keys.caster:GetOrigin(), 
-		fStartRadius = self.light_binding_width,
-		fEndRadius = self.light_binding_width,
-		vVelocity = vDirection * self.light_binding_speed,
-		fDistance = self.light_binding_distance,
+		fStartRadius = projectile_width,
+		fEndRadius = projectile_width,
+		vVelocity = vDirection * projectile_speed,
+		fDistance = projectile_distance,
 		Source = keys.caster,
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 	}
 
-	self.targetsHit = 0
-	self.nProjID = ProjectileManager:CreateLinearProjectile( info )
+	keys.caster.light_binding_targets_hit = 0
+	keys.caster.light_binding_projectile = ProjectileManager:CreateLinearProjectile( info )
 end
 
 --------------------------------------------------------------------------------
 
 function OnProjectileHit( keys )
-	--Incase the hero casting doesn't have ap defined for it
+	local ap_scaling = keys.ability:GetSpecialValueFor( "ap_scaling" )
+	local base_damage = keys.ability:GetAbilityDamage()
+
+	local base_root_duration = keys.ability:GetSpecialValueFor( "base_root_duration" )
+	local decrease_factor = keys.ability:GetSpecialValueFor( "decrease_factor" )
+	local max_targets = keys.ability:GetSpecialValueFor( "max_targets" )
+
 	local caster_ap = keys.caster:GetAbilityPower()
-
-	local factor = math.pow(self.light_binding_decrease_factor, self.targetsHit)
-
-	local final_damage = (caster_ap * self.light_binding_ap_scaling) + (self.light_binding_damage / factor)
-
-	local final_duration = self.light_binding_root_duration / factor
+	local factor = math.pow(decrease_factor, keys.caster.light_binding_targets_hit)
+	local final_damage =  (base_damage / factor) + (caster_ap * ap_scaling)
+	local final_duration = base_root_duration / factor
 
 	local damage = {
 		victim = keys.target,
@@ -57,11 +49,15 @@ function OnProjectileHit( keys )
 
 	ApplyDamage( damage )
 	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_lux_light_binding", { duration = final_duration })
-	keys.caster:FindAbilityByName( "lux_illumination" ):ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_lux_illumination", {})
 
-	self.targetsHit = self.targetsHit + 1
+	local illumination_ability = keys.caster:FindAbilityByName( "lux_illumination" )
+	if illumination_ability ~= nil then
+		illumination_ability:ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_lux_illumination", {})
+	end
 
-	if self.targetsHit == self.light_binding_max_targets then
-		ProjectileManager:DestroyLinearProjectile(self.nProjID)
+	keys.caster.light_binding_targets_hit = keys.caster.light_binding_targets_hit + 1
+
+	if keys.caster.light_binding_targets_hit == max_targets then
+		ProjectileManager:DestroyLinearProjectile(keys.caster.light_binding_projectile)
 	end
 end

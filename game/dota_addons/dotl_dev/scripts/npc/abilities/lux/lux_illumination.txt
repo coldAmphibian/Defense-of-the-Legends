@@ -33,23 +33,28 @@
 	{
 		"01"
 		{
-			"var_type"					"FIELD_FLOAT"
-			"ap_scaling"				"0.20"
+			"var_type"					"FIELD_INTEGER"
+			"champion_passive"			"1"
 		}
 		"02"
 		{
 			"var_type"					"FIELD_FLOAT"
-			"debuff_duration"			"6"
+			"ap_scaling"				"0.20"
 		}
 		"03"
 		{
-			"var_type"					"FIELD_INTEGER"
-			"base_damage"				"10"
+			"var_type"					"FIELD_FLOAT"
+			"debuff_duration"			"6"
 		}
 		"04"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"level_multiplier"	"8"
+			"base_damage"				"10"
+		}
+		"05"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"level_multiplier"			"8"
 		}
 	}
 

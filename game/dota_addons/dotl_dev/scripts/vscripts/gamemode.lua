@@ -163,7 +163,7 @@ function SelectTowerLogic()
   if file == nil then
     print("no tower logic loaded")
   else
-    require(file)
+    require("dotl/" .. file)
   end
 end
 

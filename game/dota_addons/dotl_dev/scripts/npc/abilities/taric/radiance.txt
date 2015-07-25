@@ -34,7 +34,7 @@
 
 	// Damage.
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityDamage"					"150 250 350"	//-- +50% AP
+	"AbilityDamage"					"150 250 350"
 	
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
@@ -49,6 +49,11 @@
 		{
 			"var_type"			"FIELD_INTEGER"
 			"aura_adap"			"15 25 35"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"ap_scale"			"0.5"
 		}
 	}
 	"OnSpellStart"
@@ -97,11 +102,10 @@
 			}
 			"Action"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL"
-					"Damage"	"%AbilityDamage"
+					"ScriptFile"		"heroes/taric/imbue.lua"
+					"Function"			"RadianceDamage"
 				}
 			}
 		}

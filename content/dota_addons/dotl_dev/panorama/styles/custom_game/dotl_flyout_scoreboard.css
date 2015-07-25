@@ -10,7 +10,7 @@
 
 	width: 985px;
 	height: 408px ;
-    transform: translatey( 1000px );
+    /*transform: translatey( 1000px );*/
     transition-property: transform;
     transition-duration: 0s;
 }
@@ -97,22 +97,25 @@
 }
 
 /*==============================Team Scores===================================*/
+/*==============================Player Stats==================================*/
 
 #TeamsContainer
 {
 	vertical-align: top;
-	horizontal-align: left;
-	position: 0px 0px 0px;
+	horizontal-align: center;
+
+	margin-top: 68px;
+	margin-left: 13px;
+	margin-right: 13px;
+	margin-bottom: 13px;
     flow-children: right;
     horizontal-align: center;
     vertical-align: top;
     width: 100%;
     height:100%;
-    background-color: #FF00FF;
-    opacity: 0;
+    /*background-color: #FF00FF;*/
+    opacity: 0.5;
 }
-
-
 
 .FlyoutTeam
 {
@@ -151,7 +154,7 @@
     width:472px;
     height:400px ;
     background-color: #00FF00;
-    opacity:0;
+    opacity:1;
 }
 
 .FlyoutPlayer

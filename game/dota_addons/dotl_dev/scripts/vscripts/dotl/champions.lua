@@ -83,7 +83,7 @@ function Champion:Create( unit )
 	end
 
 	function unit:UpgradeSpellsByLevel(level)
-		for i=0,15 do
+		for i=0,unit:GetAbilityCount() - 1 do
 		    local ability = unit:GetAbilityByIndex(i)
 		    if ability ~= nil then
 		    	if IsScaledByLevel(ability) then
@@ -97,7 +97,7 @@ function Champion:Create( unit )
 	end
 
 	function unit:LearnInnateSpells()
-		for i=0,15 do
+		for i=0,unit:GetAbilityCount() - 1 do
 			local ability = unit:GetAbilityByIndex(i)
 			if ability ~= nil then
 				if IsChampionInnate(ability) then

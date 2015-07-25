@@ -1,8 +1,8 @@
 //=========================================================
-// Veigar's Passive: Equilibrium
+// Kassadin's Passive: Void Stone
 // Author: Capruce
 //=========================================================
-"veigar_equilibrium"
+"kassadin_void_stone"
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"MaxLevel"						"1"
 	"FightRecapLevel"				"1"
-	"AbilityTextureName"			"veigar_equilibrium"
+	"AbilityTextureName"			"kassadin_void_stone"
 
 	//Precache
 	//-------------------------------------------------------------------------------------------------------------
@@ -43,23 +43,26 @@
 		"02"
 		{
 			"var_type"							"FIELD_FLOAT"
-			"missing_mana_pct"					"1"
-		}
-		"03"
-		{
-			"var_type"							"FIELD_FLOAT"
-			"mana_regen_pct"					"1.5"
+			"magic_damage_reduction_pct"		"15"
 		}
 	}
 
-	//Probably going to change the way his passive is applied :/
-
-	"OnUpgrade"
+	"Modifiers"
 	{
-		"RunScript"
+		"modifier_kassadin_void_stone"
 		{
-			"ScriptFile"	"heroes/veigar/veigar_equilibrium.lua"
-			"Function"		"OnUpgrade"
+			"IsBuff"	"1"
+			"Passive"	"1"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_damage_reduction_pct"
+			}
+
+			"States"
+			{
+				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+			}
 		}
 	}
 }

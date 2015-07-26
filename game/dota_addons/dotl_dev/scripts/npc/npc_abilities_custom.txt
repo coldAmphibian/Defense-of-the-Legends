@@ -2083,6 +2083,25 @@
 				"Function"		"OnProjectileHit"
 			}
 		}
+	
+		"Modifiers"
+		{
+			"modifier_kassadin_null_sphere_shield"
+			{
+				"IsBuff"	"1"
+				"Duration"	"%shield_duration"
+	
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/kassadin/kassadin_null_sphere.lua"
+						"Function"		"OnTakeDamage"
+						"DamageTaken"	"%attack_damage"
+					}
+				}
+			}
+		}
 	}
 	//=========================================================
 	// Kassadin's Ultimate: Riftwalk
@@ -2230,6 +2249,7 @@
 			{
 				"IsBuff"	"1"
 				"Passive"	"1"
+				"IsHidden"	"1"
 	
 				"Properties"
 				{

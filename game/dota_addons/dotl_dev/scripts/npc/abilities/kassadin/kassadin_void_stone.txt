@@ -53,6 +53,7 @@
 		{
 			"IsBuff"	"1"
 			"Passive"	"1"
+			"IsHidden"	"1"
 
 			"Properties"
 			{

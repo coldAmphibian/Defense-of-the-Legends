@@ -1,0 +1,90 @@
+//=========================================================
+// Karthus' Ultimate: Requiem
+// Author: Capruce
+//=========================================================
+"karthus_requiem"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"2"
+	"AbilityTextureName"			"karthus_requiem"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0"
+	"AbilityChannelTime"			"3.0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"200 180 160"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"150 175 200"
+
+	/ Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"250 400 550"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"ap_scaling"		"0.6"
+		}
+	}
+
+	"precache"
+	{
+		
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
+			"Function"		"OnSpellStart"
+		}
+	}
+
+	"OnChannelFinish"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
+			"Function"		"OnChannelFinish"
+		}
+	}
+
+	"OnChannelSucceeded"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
+			"Function"		"OnChannelSucceeded"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_karthus_requiem"
+		{
+			"IsDebuff"		"1"
+		}
+	}
+}

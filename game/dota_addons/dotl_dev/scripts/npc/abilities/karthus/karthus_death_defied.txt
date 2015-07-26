@@ -1,0 +1,116 @@
+//=========================================================
+// Karthus' Passive: Death Defied
+// Author: Capruce
+//=========================================================
+"karthus_death_defied"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"MaxLevel"						"1"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"karthus_death_defied"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"champion_passive"		"1"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ghost_duration"		"7.0"
+		}
+	}
+
+	"precache"
+	{
+		"particle"			"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
+		"particle"			"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+	}
+
+	"OnOwnerSpawned"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+			"Function"		"OnOwnerSpawned"
+		}
+	}
+
+	"OnOwnerDied"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+			"Function"		"OnOwnerDied"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_karthus_death_defied"
+		{
+			"IsBuff"		"1"
+			"Passive"		"1"
+			"IsHidden"		"1"
+
+			"OnTakeDamage"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+					"Function"		"OnTakeDamage"	
+				}
+			}
+		}
+		
+		"modifier_karthus_death_defied_ghost_form"
+		{
+			"IsBuff"		"1"
+			"Duration"		"%ghost_duration"
+			"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+
+			"StatusEffectName" 			"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+			"StatusEffectPriority" 		"15"
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+					"Function"		"OnCreated"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+					"Function"		"OnDestroy"
+				}
+			}
+
+			"OnAbilityExecuted"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+					"Function"		"OnAbilityExecuted"
+				}
+			}
+
+			"States"
+			{
+				"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

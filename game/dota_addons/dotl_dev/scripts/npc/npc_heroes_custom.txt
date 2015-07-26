@@ -205,12 +205,56 @@
 			
 			"ItemSlots" {}
 	}
+	"lol_champion_karthus"
+	{
+		"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
+		"VisionDaytimeRange"		"1800"									// Range of vision at day time
+		"VisionNighttimeRange"		"800"									// Range of vision at night time.
+		"MovementSpeed"				"245"									// Speed.
+		"MovementTurnRate"			"10"									// Turning rate.
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"				"5"
+		"Ability1"					"karthus_lay_waste"						// Ability 1
+		"Ability2"					"karthus_wall_of_pain"					// Ability 2
+		"Ability3"					"karthus_defile"						// Ability 3
+		"Ability4"					"karthus_death_defied"					// Passive
+		"Ability5"					"karthus_requiem"						// Ultimate
+	
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"0"										// Base strength
+		"AttributeStrengthGain"		"0"										// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"										// Base intelligence
+		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"										// Base agility
+		"AttributeAgilityGain"		"0"										// Agility bonus per level.
+	
+		// Base Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"				"516"									// Base health.
+		"HealthGain"				"75"
+		"StatusHealthRegen"			"6.42"									// Health regeneration rate.
+		"HealthRegenGain"			"0.55"
+		
+		"StatusMana"				"372.48"								// Base mana.
+		"ManaGain"					"61"
+		"StatusManaRegen"			"6"										// Mana regeneration rate.
+		"ManaRegenGain"				"0.8"
+	}
 	"npc_dota_hero_kassadin"
 	{
 		"override_hero"				"npc_dota_hero_antimage"					// Hero to override
 		"MovementTurnRate"			"10"										// Turning rate.
 		"VisionDaytimeRange"		"1800"										// Range of vision at day time
 		"VisionNighttimeRange"		"800"										// Range of vision at night time.
+	
+		"Model"						"models/champions/kassadin/kassadin.vmdl"
+		"HeroID"					"123"
+		"ModelScale"				"0.8"
+		"Enabled"					"1"
 		
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
@@ -242,6 +286,31 @@
 		"ManaGain"					"70"
 		"StatusManaRegen"			"6"										// Mana regeneration rate.
 		"ManaRegenGain"				"0.8"
+	
+		"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef" "0"
+				}
+				"Wearable2"
+				{
+					"ItemDef" "0"
+				}
+				"Wearable3"
+				{
+					"ItemDef" "0"
+				}
+				"Wearable4"
+				{
+					"ItemDef" "0"
+				}
+				"Wearable5"
+				{
+					"ItemDef" "0"
+				}
+			}
+		"ItemSlots" {}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Hero Leona
@@ -583,6 +652,87 @@
 		// Armor
 		//-------------------------------------------------------------------------------------------------------------
 		"ArmorPhysical"				"4.3"									// Physical protection.
+		"MagicalResistance"			"32.1"									// Magical protection (percentage).
+	
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable2"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable3"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable4"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable5"
+			{
+				"ItemDef" "0"
+			}
+		}
+		"ItemSlots" {}
+		
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Hero Udyr
+	// Author: Zarthbenn
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"npc_lol_champion_udyr"
+	{
+		"override_hero"				"npc_dota_hero_lycan"				// Hero to override
+		"MovementTurnRate"			"10"									// Turning rate.
+		"Model"						"models/champions/udyr/udyr.vmdl"
+		"ModelScale"				"1"	
+		"HeroID"					"122"
+		"Enabled"					"1"
+	
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------					
+												
+		"Ability1"					"udyr_tiger_stance"							// Ability 1
+		"Ability2"					"udyr_turtle_stance"						// Ability 2
+		"Ability3"					"udyr_bear_stance"							// Ability 3
+		"Ability4"					"udyr_monkeys_agility"						// Ability 4
+		"Ability5"					"udyr_pheonix_stance"						// Ability 5
+		"AbilityLayout"				"5"
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"										// Base strength
+		"AttributeStrengthGain"		"0"										// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"										// Base intelligence
+		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"										// Base agility
+		"AttributeAgilityGain"		"0"										// Agility bonus per level.
+	
+		// Base Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"				"593"									// Base health.
+		"HealthGain"				"93.5"
+		"StatusHealthRegen"			"8.7"									// Health regeneration rate.
+		"HealthRegenGain"			"0.7"
+		
+		"StatusMana"				"270"									// Base mana.
+		"ManaGain"					"28.3"
+		"StatusManaRegen"			"7.5"										// Mana regeneration rate.
+		"ManaRegenGain"				"0.4"
+	
+		"MovementSpeed"				"345"									// Speed.
+	
+		"AttackRate"				"1.5"									// Speed of attack.
+	
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"4.25"									// Physical protection.
 		"MagicalResistance"			"32.1"									// Magical protection (percentage).
 	
 		"AttachWearables"

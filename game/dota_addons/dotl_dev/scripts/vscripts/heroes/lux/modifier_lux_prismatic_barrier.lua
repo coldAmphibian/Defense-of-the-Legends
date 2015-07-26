@@ -4,45 +4,12 @@ modifier_lux_prismatic_barrier = class({})
 
 function modifier_lux_prismatic_barrier:OnCreated( keys )
 	self.shield_strength = keys.shield_strength
-	self.damage_taken = 0
-
-	if IsServer() then
-		--The current way is a horrible mess and waiting on valve to add proper way to do this
-		-- checkFunction = function(selfV, keys)
-		-- 					local victim = EntIndexToHScript(keys.entindex_victim_const)
-		-- 					if victim == self:GetParent() then
-		-- 						local total = self.damage_taken + keys.damage
-
-		-- 						if total >= self.shield_strength then
-		-- 							keys.damage = total - self.shield_strength
-		-- 							self:Destroy()
-		-- 							return true
-		-- 						else
-		-- 							self.damage_taken = self.damage_taken + keys.damage
-		-- 							return false
-		-- 						end
-		-- 					end
-
-		-- 					return true
-		-- 		 		end
-
-		-- GameRules:GetGameModeEntity():SetDamageFilter(checkFunction, {})
-	end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_lux_prismatic_barrier:OnRefresh( keys )
 	self.shield_strength = keys.shield_strength
-	self.damage_taken = 0
-end
-
---------------------------------------------------------------------------------
-
-function modifier_lux_prismatic_barrier:OnDestroy()
-	if IsServer() then
-		--GameRules:GetGameModeEntity():ClearDamageFilter()
-	end
 end
 
 
@@ -55,20 +22,16 @@ end
 
 --To make it easier the shield currently works on damage AFTER reductions, will be changed in future
 function modifier_lux_prismatic_barrier:OnTakeDamage( keys )
-	if IsServer() then
-		self.damage_taken = self.damage_taken + keys.damage
-		
-		if self.damage_taken > self.shield_strength then
-			amountToHeal = keys.damage - (self.damage_taken - self.shield_strength)
+	if IsServer() and keys.unit == self:GetParent() then
+		self.shield_strength = self.shield_strength - keys.damage
+		local amount_to_heal = keys.damage
 
-			self:GetParent():Heal(amountToHeal, nil)
-
+		if self.shield_strength <= 0 then
 			self:Destroy()
-		elseif self.damage_taken == self.shield_strength then
-			self:Destroy()
-		else
-			self:GetParent():Heal(keys.damage, nil)
+			amount_to_heal = amount_to_heal + self.shield_strength
 		end
+
+		self:GetParent():Heal(amount_to_heal, nil)
 	end
 end
 

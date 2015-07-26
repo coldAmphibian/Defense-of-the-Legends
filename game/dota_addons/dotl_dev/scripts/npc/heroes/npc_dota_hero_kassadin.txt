@@ -4,6 +4,11 @@
 	"MovementTurnRate"			"10"										// Turning rate.
 	"VisionDaytimeRange"		"1800"										// Range of vision at day time
 	"VisionNighttimeRange"		"800"										// Range of vision at night time.
+
+	"Model"						"models/champions/kassadin/kassadin.vmdl"
+	"HeroID"					"123"
+	"ModelScale"				"0.8"
+	"Enabled"					"1"
 	
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------
@@ -35,4 +40,29 @@
 	"ManaGain"					"70"
 	"StatusManaRegen"			"6"										// Mana regeneration rate.
 	"ManaRegenGain"				"0.8"
+
+	"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable2"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable3"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable4"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable5"
+			{
+				"ItemDef" "0"
+			}
+		}
+	"ItemSlots" {}
 }

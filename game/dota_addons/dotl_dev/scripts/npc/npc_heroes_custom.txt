@@ -205,7 +205,7 @@
 			
 			"ItemSlots" {}
 	}
-	"lol_champion_karthus"
+	"npc_dota_hero_karthus"
 	{
 		"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
 		"VisionDaytimeRange"		"1800"									// Range of vision at day time
@@ -685,7 +685,7 @@
 	// Author: Zarthbenn
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_udyr"
+	"npc_dota_hero_udyr"
 	{
 		"override_hero"				"npc_dota_hero_lycan"				// Hero to override
 		"MovementTurnRate"			"10"									// Turning rate.
@@ -808,7 +808,7 @@
 	// Author: Zarthbenn
 	// Date: 07/2015
 	//-------------------------------------------------------------------------------------------------------------
-	"npc_lol_champion_viktor"
+	"npc_dota_hero_viktor"
 	{
 		"override_hero"				"npc_dota_hero_rubick"					// Hero to override
 		"MovementTurnRate"			"10"									// Turning rate.

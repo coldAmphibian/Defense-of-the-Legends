@@ -1,4 +1,4 @@
-"lol_champion_karthus"
+"npc_dota_hero_karthus"
 {
 	"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
 	"VisionDaytimeRange"		"1800"									// Range of vision at day time

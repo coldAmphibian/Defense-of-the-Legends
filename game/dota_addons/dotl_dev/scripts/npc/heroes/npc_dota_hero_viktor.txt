@@ -3,7 +3,7 @@
 // Author: Zarthbenn
 // Date: 07/2015
 //-------------------------------------------------------------------------------------------------------------
-"npc_lol_champion_viktor"
+"npc_dota_hero_viktor"
 {
 	"override_hero"				"npc_dota_hero_rubick"					// Hero to override
 	"MovementTurnRate"			"10"									// Turning rate.

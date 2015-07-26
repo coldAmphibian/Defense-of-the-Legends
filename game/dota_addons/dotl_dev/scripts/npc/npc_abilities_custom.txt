@@ -21,7 +21,7 @@
 	        "01"
 	        {
 	            "var_type"                      "FIELD_INTEGER"
-	            "champion_passive"              "1"
+	            "auto_learn"              "1"
 	        }
 	    }
 	
@@ -817,6 +817,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"vision_radius"			"0"	
 			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_ratio" 				"0.75"	
+			}
 		}
 	
 		"OnSpellStart"
@@ -837,11 +842,10 @@
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
-			"Damage"
+			"RunScript"
 			{
-				"Target"		"TARGET"
-				"Type"			"DAMAGE_TYPE_MAGICAL"
-				"Damage"		"%AbilityDamage"
+				"ScriptFile"	"heroes/ezreal/arcane_shift.lua"
+				"Function"		"OnProjectileHitUnit"
 			}
 			"RunScript"
 			{
@@ -907,6 +911,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed" 	"20 25 30 35 40"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_ratio" 				"0.8"	
 			}
 	
 		}
@@ -975,7 +984,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"6 5.5 5 5.5 4"
 		"AbilityManaCost"				"28 31 34 37 40"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityDamage"					"35 55 75 95 115"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 	
@@ -1010,6 +1019,22 @@
 				"var_type"				"FIELD_INTEGER"
 				"vision_radius"			"50"	
 			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ad_ratio"				"1.1"		
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_ratio"				"0.4"		
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cd_change"				"1"		
+			}
+	
 		}
 	
 		"OnSpellStart"
@@ -1070,7 +1095,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"champion_passive"				"1"
+				"auto_learn"				"1"
 			}
 		}
 	
@@ -1130,6 +1155,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"vision_radius"			"350"	
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ad_ratio" 				"0.8"	
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_ratio" 				"0.8"	
 			}
 		}
 	
@@ -2780,7 +2815,7 @@
 			"01"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"champion_passive"					"1"
+				"auto_learn"					"1"
 			}
 			"02"
 			{
@@ -3255,7 +3290,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"champion_passive"			"1"
+				"auto_learn"			"1"
 			}
 			"02"
 			{
@@ -3639,7 +3674,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"champion_passive"			"1"
+				"auto_learn"			"1"
 			}
 			"02"
 			{
@@ -5361,32 +5396,6 @@
 				"EffectName"	"Hero_Necrolyte.DeathPulse"
 			}
 	
-			"ActOnTargets"
-			{
-				"Target"
-	            {
-	                "Center" "CASTER"
-	                "Radius" "%area_of_effect"
-	                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
-	                "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	                "MaxTargets"	"2"
-	                "Random"	"1"
-	            }
-	
-	            "Action"
-	            {
-	            	"TrackingProjectile"
-					{
-					    "Target"			"TARGET"
-					    "EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
-					    "Dodgeable"        "0"
-					    "ProvidesVision"   "0"
-					    //"VisionRadius"     "300"
-					    "MoveSpeed"        "%projectile_speed"
-					    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
-					}
-	            }
-			}
 			"RemoveModifier"
 			{
 				"Target"		"CASTER"
@@ -5492,7 +5501,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"champion_passive"		"1"
+				"auto_learn"		"1"
 			}
 			"02"
 			{
@@ -5945,7 +5954,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"champion_passive"			"1"
+				"auto_learn"			"1"
 			}
 		}
 		"OnUpgrade"
@@ -7446,7 +7455,7 @@
 			"01"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"champion_passive"					"1"
+				"auto_learn"					"1"
 			}
 			"02"
 			{

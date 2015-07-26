@@ -17,14 +17,14 @@
 	"AbilityManaCost"				"90"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"AbilityDamage"					"75 125 175 225 275"
-	
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 
 	// Stats
 	//-------------------------------------------------------------------------------------------------------------
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
-		"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+		"particle"  "particles/heroes/ezreal/arcane_shift.vpcf"
+		"particle"  "particles/heroes/ezreal/arcane_shift_projectile.vpcf"
 	}
 
 	// Special	
@@ -63,7 +63,7 @@
 			"search_range"		"%search_range"
 			"vision_radius"		"%vision_radius"
 			"blink_range"		"%blink_range"
-			"effect_name"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+			"effect_name"		"particles/heroes/ezreal/arcane_shift_projectile.vpcf"
 			"Target"			"POINT"
 		}
 	}

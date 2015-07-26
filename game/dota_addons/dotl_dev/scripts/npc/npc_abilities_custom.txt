@@ -783,14 +783,14 @@
 		"AbilityManaCost"				"90"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"					"75 125 175 225 275"
-		
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+			"particle"  "particles/heroes/ezreal/arcane_shift.vpcf"
+			"particle"  "particles/heroes/ezreal/arcane_shift_projectile.vpcf"
 		}
 	
 		// Special	
@@ -829,7 +829,7 @@
 				"search_range"		"%search_range"
 				"vision_radius"		"%vision_radius"
 				"blink_range"		"%blink_range"
-				"effect_name"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+				"effect_name"		"particles/heroes/ezreal/arcane_shift_projectile.vpcf"
 				"Target"			"POINT"
 			}
 		}
@@ -870,14 +870,13 @@
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"					"70 115 160 205 250"
-		
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+			"particle"  "particles/heroes/ezreal/essence_flux.vpcf"
 		}
 	
 		// Special	
@@ -922,7 +921,7 @@
 				"radius"			"%radius"
 				"range"				"%range"
 				"vision_radius"		"%vision_radius"
-				"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+				"effect_name"		"particles/heroes/ezreal/essence_flux.vpcf"
 				"Target"			"POINT"
 			}
 		}
@@ -978,14 +977,13 @@
 		"AbilityManaCost"				"28 31 34 37 40"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"					"35 55 75 95 115"
-		
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+			"particle"  "particles/heroes/ezreal/mystic_shot.vpcf"
 		}
 	
 		// Special	
@@ -1024,7 +1022,7 @@
 				"radius"			"%radius"
 				"range"				"%range"
 				"vision_radius"		"%vision_radius"
-				"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+				"effect_name"		"particles/heroes/ezreal/mystic_shot.vpcf"
 				"Target"			"POINT"
 			}
 		}
@@ -1109,10 +1107,11 @@
 		"AbilityCooldown"				"80"
 		"AbilityManaCost"				"100"
 		"AbilityDamage"					"350 500 650"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 	
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"particle"  "particles/heroes/ezreal/trueshot_barrage.vpcf"
 		}
 	
 		"AbilitySpecial"
@@ -1143,7 +1142,7 @@
 				"projectile_speed"	"%projectile_speed"
 				"radius"			"%radius"
 				"vision_radius"		"%vision_radius"
-				"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+				"effect_name"		"particles/heroes/ezreal/trueshot_barrage.vpcf"
 				"Target"			"POINT"
 			}
 		}
@@ -4878,10 +4877,11 @@
 					"Center"	"TARGET"
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				}
-				"Type"	"DAMAGE_TYPE_MAGICAL"
+				"Type"		"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"%AbilityDamage"
 			}
 		}
+	
 		"Modifiers"
 		{
 			"modifier_sona_valor_aura"
@@ -5369,11 +5369,6 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"taric_gemcraft"
 	{
-		//------------------------------------------------------------------------------------------------------------
-		// This is a dummy passive for looks and consistency with other champions. 
-		// Tarics passive is applied "manualy" from each individual ability where appropriate.
-		//------------------------------------------------------------------------------------------------------------
-		//
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
@@ -5398,6 +5393,14 @@
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"champion_passive"			"1"
+			}
+		}
 		"OnUpgrade"
 		{
 	
@@ -5534,7 +5537,7 @@
 	
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"150 250 350"	//-- +50% AP
+		"AbilityDamage"					"150 250 350"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5549,6 +5552,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"aura_adap"			"15 25 35"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ap_scale"			"0.5"
 			}
 		}
 		"OnSpellStart"
@@ -5597,11 +5605,10 @@
 				}
 				"Action"
 				{
-					"Damage"
+					"RunScript"
 					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%AbilityDamage"
+						"ScriptFile"		"heroes/taric/imbue.lua"
+						"Function"			"RadianceDamage"
 					}
 				}
 			}
@@ -5910,7 +5917,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"					"particles/champions/veigar/veigar_baleful_strike.vpcf"
+			"particle"					"particles/heroes/veigar/baleful_strike.vpcf"
 		}
 	
 		// Casting

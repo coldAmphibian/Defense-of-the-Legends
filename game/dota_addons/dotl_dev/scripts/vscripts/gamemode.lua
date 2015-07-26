@@ -153,11 +153,11 @@ end
 function SelectTowerLogic()
   MapName = GetMapName()
   if MapName == "brush_test" or MapName == "summoners_rift" then
-    file = "summoners_rift_tower_logic"
+    file = "dotl/summoners_rift_tower_logic"
   end
 
   if MapName == "howling_abyss" or MapName == "howling_abyss_45" then
-    file = "howling_abyss_tower_logic"
+    file = "dotl/howling_abyss_tower_logic"
   end
 
   if file == nil then

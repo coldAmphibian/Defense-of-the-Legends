@@ -58,3 +58,21 @@ function OnSpellStart(event)
 		projectile = ProjectileManager:CreateTrackingProjectile(info)
 	end	
 end
+
+function OnProjectileHitUnit(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local damage = ability:GetAbilityDamage()
+	if IsChampion(caster) then
+		damage = damage + (caster:GetAbilityPower() * ability:GetLevelSpecialValueFor('ap_ratio', 0))
+	end
+	local damageTable = {
+		victim = target,
+		attacker = caster,
+		damage = damage,
+		damage_type = ability:GetAbilityDamageType(),
+		ability = ability
+	}
+	ApplyDamage(damageTable)
+end

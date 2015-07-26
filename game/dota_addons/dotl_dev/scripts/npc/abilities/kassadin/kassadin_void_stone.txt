@@ -38,7 +38,7 @@
 		"01"
 		{
 			"var_type"							"FIELD_INTEGER"
-			"champion_passive"					"1"
+			"auto_learn"					"1"
 		}
 		"02"
 		{

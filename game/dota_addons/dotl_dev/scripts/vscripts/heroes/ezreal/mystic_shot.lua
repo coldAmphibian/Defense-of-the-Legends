@@ -30,25 +30,33 @@ function OnProjectileHitUnit(event)
 	if ability ~= nil then
 		local caster = event.caster
 		local target = event.target
+		local damage = ability:GetAbilityDamage()
+		if IsChampion(caster) then
+			damage = damage + (caster:GetAbilityPower() * ability:GetLevelSpecialValueFor('ap_ratio', 0)) + (caster:GetAttackDamage() * ability:GetLevelSpecialValueFor('ad_ratio', 0))
+		end
 		local damageTable = {
 			victim = target,
 			attacker = caster,
-			damage = ability:GetAbilityDamage(),
-			damage_type = ability:GetAbilityDamageType()
+			damage = damage,
+			damage_type = ability:GetAbilityDamageType(),
+			ability = ability
 		}
 		ApplyDamage(damageTable)
 
-		local aux
-		local newcd
-		for i=1,4 do
-			aux = caster:GetAbilityByIndex(i)
-			if aux ~= nil then
-				newcd = aux:GetCooldownTimeRemaining() - 1
-				if newcd > 0 then
-					aux:EndCooldown()
-					aux:StartCooldown(newcd)
-				end
-			end
+		for i=0,caster:GetAbilityCount() - 1 do
+		    local cAbility = caster:GetAbilityByIndex(i)
+		    if cAbility ~= nil then
+		    	if not IsSummonerSpell(cAbility) then
+		    		local cd = cAbility:GetCooldownTimeRemaining() - 1
+		    		if cd < 0 then
+		    			cd = 0
+		    		end
+		    		cAbility:EndCooldown()
+		    		cAbility:StartCooldown(cd)
+		      	end
+		    else
+		      break
+		    end
 		end
 	end
 end

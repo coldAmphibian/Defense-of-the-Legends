@@ -34,11 +34,16 @@ function OnProjectileHitUnit(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target
+	local damage = ability:GetAbilityDamage()
+	if IsChampion(caster) then
+		damage = damage + (caster:GetAbilityPower() * ability:GetLevelSpecialValueFor('ap_ratio', 0)) + (caster:GetAttackDamage() * ability:GetLevelSpecialValueFor('ad_ratio', 0))
+	end
 	local damageTable = {
 		victim = target,
 		attacker = caster,
-		damage = ability:GetAbilityDamage() * (1 - (caster.currentProjectileUnits * 0.10)),
-		damage_type = ability:GetAbilityDamageType()
+		damage = damage * (1 - (caster.currentProjectileUnits * 0.10)),
+		damage_type = ability:GetAbilityDamageType(),
+		ability = ability
 	}
 	ApplyDamage(damageTable)
 	if caster.currentProjectileUnits < 7 then 

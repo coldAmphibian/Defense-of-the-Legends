@@ -32,21 +32,22 @@ function OnProjectileHitUnit(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target
-	if caster ~= target then
-		if target:GetTeamNumber() == 2 then
+	if target:GetTeamNumber() == caster:GetTeamNumber() then
+		if (caster ~= target) or (GameRules:GetGameTime() > caster.currentProjectileFireTime + 0.05) then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_essence_flux", {duration = 5})
-		else
-			local damageTable = {
-				victim = target,
-				attacker = caster,
-				damage = ability:GetAbilityDamage(),
-				damage_type = ability:GetAbilityDamageType()
-			}
-			ApplyDamage(damageTable)
 		end
 	else
-		if GameRules:GetGameTime() > caster.currentProjectileFireTime + 0.05 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_essence_flux", {duration = 5})
-		end
+		local damage = ability:GetAbilityDamage()
+		if IsChampion(caster) then
+			damage = damage + (caster:GetAbilityPower() * ability:GetLevelSpecialValueFor('ap_ratio', 0))
+		end	
+		local damageTable = {
+			victim = target,
+			attacker = caster,
+			damage = damage,
+			damage_type = ability:GetAbilityDamageType(),
+			ability = ability
+		}
+		ApplyDamage(damageTable)
 	end
 end

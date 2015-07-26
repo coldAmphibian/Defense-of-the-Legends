@@ -56,6 +56,11 @@
 			"var_type"				"FIELD_INTEGER"
 			"bonus_attack_speed" 	"20 25 30 35 40"
 		}
+		"06"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_ratio" 				"0.8"	
+		}
 
 	}
 

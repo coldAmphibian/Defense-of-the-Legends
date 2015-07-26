@@ -90,32 +90,6 @@
 			"EffectName"	"Hero_Necrolyte.DeathPulse"
 		}
 
-		"ActOnTargets"
-		{
-			"Target"
-            {
-                "Center" "CASTER"
-                "Radius" "%area_of_effect"
-                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
-                "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                "MaxTargets"	"2"
-                "Random"	"1"
-            }
-
-            "Action"
-            {
-            	"TrackingProjectile"
-				{
-				    "Target"			"TARGET"
-				    "EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
-				    "Dodgeable"        "0"
-				    "ProvidesVision"   "0"
-				    //"VisionRadius"     "300"
-				    "MoveSpeed"        "%projectile_speed"
-				    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
-				}
-            }
-		}
 		"RemoveModifier"
 		{
 			"Target"		"CASTER"

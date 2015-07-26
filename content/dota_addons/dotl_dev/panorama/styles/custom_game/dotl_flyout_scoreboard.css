@@ -10,7 +10,7 @@
 
 	width: 985px;
 	height: 408px ;
-    /*transform: translatey( 1000px );*/
+    transform: translatey( 1000px );
     transition-property: transform;
     transition-duration: 0s;
 }

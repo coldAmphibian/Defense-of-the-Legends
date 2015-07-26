@@ -1,0 +1,81 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Hero Udyr
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"npc_lol_champion_udyr"
+{
+	"override_hero"				"npc_dota_hero_lycan"				// Hero to override
+	"MovementTurnRate"			"10"									// Turning rate.
+	"Model"						"models/champions/udyr/udyr.vmdl"
+	"ModelScale"				"1"	
+	"HeroID"					"122"
+	"Enabled"					"1"
+
+	// Abilities
+	//-------------------------------------------------------------------------------------------------------------					
+											
+	"Ability1"					"udyr_tiger_stance"							// Ability 1
+	"Ability2"					"udyr_turtle_stance"						// Ability 2
+	"Ability3"					"udyr_bear_stance"							// Ability 3
+	"Ability4"					"udyr_monkeys_agility"						// Ability 4
+	"Ability5"					"udyr_pheonix_stance"						// Ability 5
+	"AbilityLayout"				"5"
+	
+	// Attributes
+	//-------------------------------------------------------------------------------------------------------------
+	"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+	"AttributeBaseStrength"		"0"										// Base strength
+	"AttributeStrengthGain"		"0"										// Strength bonus per level.
+	"AttributeBaseIntelligence"	"0"										// Base intelligence
+	"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
+	"AttributeBaseAgility"		"0"										// Base agility
+	"AttributeAgilityGain"		"0"										// Agility bonus per level.
+
+	// Base Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"StatusHealth"				"593"									// Base health.
+	"HealthGain"				"93.5"
+	"StatusHealthRegen"			"8.7"									// Health regeneration rate.
+	"HealthRegenGain"			"0.7"
+	
+	"StatusMana"				"270"									// Base mana.
+	"ManaGain"					"28.3"
+	"StatusManaRegen"			"7.5"										// Mana regeneration rate.
+	"ManaRegenGain"				"0.4"
+
+	"MovementSpeed"				"345"									// Speed.
+
+	"AttackRate"				"1.5"									// Speed of attack.
+
+	// Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"ArmorPhysical"				"4.25"									// Physical protection.
+	"MagicalResistance"			"32.1"									// Magical protection (percentage).
+
+	"AttachWearables"
+	{
+		"Wearable1"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable2"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable3"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable4"
+		{
+			"ItemDef" "0"
+		}
+		"Wearable5"
+		{
+			"ItemDef" "0"
+		}
+	}
+	"ItemSlots" {}
+	
+}

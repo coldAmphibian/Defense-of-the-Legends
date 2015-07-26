@@ -53,7 +53,7 @@
         "npc_dota_hero_lion"			"1"
         "npc_dota_hero_lone_druid"		"0"
         "npc_dota_hero_luna"			"0"
-        "npc_dota_hero_lycan"			"0"
+        "npc_dota_hero_lycan"			"1"
         "npc_dota_hero_magnataur"		"0"
         "npc_dota_hero_medusa"			"0"
         "npc_dota_hero_meepo"			"0"

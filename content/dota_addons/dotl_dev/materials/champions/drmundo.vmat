@@ -21,7 +21,7 @@ Layer0
 
 	//---- Normal Map ----
 	g_flBumpStrength "1.000"
-	TextureNormal "materials/models/champion/garen/garen2013_normal.tga"
+	TextureNormal "materials/default/default_normal.tga"
 
 	//---- Translucent ----
 	g_flAlphaTestReference "0.500"

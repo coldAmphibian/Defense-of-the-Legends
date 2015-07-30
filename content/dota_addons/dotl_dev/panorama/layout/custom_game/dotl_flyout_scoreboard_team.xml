@@ -5,10 +5,7 @@
         <include src="file://{resources}/styles/custom_game/dotl_flyout_scoreboard.css" />
     </styles>
 	<Panel hittest="false" class="FlyoutTeam">
-		<Panel class="ScoreCol_TeamScore" id="TeamScorePanel">
-			<Label id="TeamScore" text="$" />
-			<Panel id="TeamLogo" />
-		</Panel>
+		<Panel class="ScoreCol_TeamScore" id="TeamScorePanel" />
 
 		<Panel class="FlyoutTeamData">
 			<Panel id="PlayersContainer" />

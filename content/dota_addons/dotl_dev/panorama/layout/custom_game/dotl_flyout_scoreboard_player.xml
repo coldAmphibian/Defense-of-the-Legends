@@ -24,18 +24,23 @@
 	</script>
 	<Panel class="PlayerRow">
 		<Panel id="PlayerRowContainer">
+
 			<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel">
 				<Image id="HeroIcon" heroimagestyle="landscape" scaling="stretch-to-fit-preserve-aspect" />
 			</Panel>
-			<Panel id="PlayerDetailsContainer" class="ScoreCol_PlayerDetails ScoreboardPanel">
+			<Image id="Ring" src="file://{images}/custom_game/flyout_scoreboard/clarity_player_ring_gold.png" />
+			<Label id="HeroLvl" text="1" />
+			<Label id="KDA" text="99/99/99" />
+			<Label id="TeammateGoldAmount" text="999" />
+
+			<!-- <Panel id="PlayerDetailsContainer" class="ScoreCol_PlayerDetails ScoreboardPanel">
 				<Panel id="PlayerAndHeroName">
-					<Label id="PlayerName" text="AAAAA" />
 					<Label id="HeroNameAndDescription" text="#custom_scoreboard_hero_name_and_desc" />
 				</Panel>
-				<Label id="TeammateGoldAmount" text="999" />
+				
 				<Button id="MuteButton" onactivate="ToggleMute();" />
-			</Panel>
-			<Panel id="TeamScoreSpace" class="ScoreCol_TeamScore" />
+			</Panel> -->
+			<!-- <Panel id="TeamScoreSpace" class="ScoreCol_TeamScore" />
 			<Panel id="KillsContainer" class="ScoreCol_Kills ScoreboardPanel">
 				<Label id="Kills" text="999" />
 			</Panel>
@@ -44,8 +49,10 @@
 			</Panel>
 			<Panel id="AssistsContainer" class="ScoreCol_Assists ScoreboardPanel">
 				<Label id="Assists" text="999" />
-			</Panel>
+			</Panel> -->
 		</Panel>
+
+		
 		<Panel id="UltimateIndicatorBG" class="UltimateIndicatorShared" />
 		<Panel id="UltimateIndicator" class="UltimateIndicatorShared" />
 	</Panel>

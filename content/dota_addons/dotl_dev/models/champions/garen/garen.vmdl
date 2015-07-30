@@ -74,7 +74,7 @@ CVModel CVModel_0
 	]
 	CVNodeMaterialGroupListReference m_pMaterialGroupList = CVNodeMaterialGroupListReference
 	{
-		NodeMaterialGroupList_t* m_pObject = &NodeMaterialGroupList_t_0
+		NodeMaterialGroupList_t* m_pObject = NULL
 		string m_sFileName = ""
 	}
 	CVMeshGroupListReference m_pMeshGroupList = CVMeshGroupListReference
@@ -113,7 +113,7 @@ CVModel CVModel_0
 	[
 		
 	]
-	CVMaterialRemapList* m_pMaterialRemapList = NULL
+	CVMaterialRemapList* m_pMaterialRemapList = &CVMaterialRemapList_0
 	float m_flFbxScale = 1.000000
 	float m_flQCScale = 1.000000
 	float(3) m_vOrigin = ( 0.000000, 0.000000, 0.000000 )
@@ -820,25 +820,14 @@ CVanimGroup CVanimGroup_0
 	]
 }
 
-NodeMaterialGroupList_t NodeMaterialGroupList_t_0
+CVMaterialRemapList CVMaterialRemapList_0
 {
-	NodeMaterialGroup_t[] m_materialGroups = 
+	CVMaterialRemap[] m_vMaterialRemapList = 
 	[
-		NodeMaterialGroup_t
+		CVMaterialRemap
 		{
-			string m_name = "default"
-			string[] m_materialList = 
-			[
-				
-			]
-		},
-		NodeMaterialGroup_t
-		{
-			string m_name = "materialGroup_1"
-			string[] m_materialList = 
-			[
-				"materials/models/champion/garen/garen_2013_cm.vmat"
-			]
+			string m_sSearchMaterial = "garen_2013_cm.vmat"
+			string m_sReplaceMaterial = "materials/champions/garen.vmat"
 		}
 	]
 }

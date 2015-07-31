@@ -341,6 +341,51 @@
 		"DOTA_Tooltip_ability_taric_gemcraft_Description"								"After using an ability, Taric's next basic attack deals bonus magic damage equal to 20 percent of Taric's armor and reduces his abilities' cooldown by 2 seconds."
 		"DOTA_Tooltip_modifier_taric_gemcraft"											"Gemcraft"
 		"DOTA_Tooltip_modifier_taric_gemcraft_Description"								"Taric's next attack deals bonus damage equal to 20 percent of his armor."
+
+		//=================================================================================
+		// Udyr Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_lycan"															"Udyr"
+
+		"DOTA_Tooltip_ability_udyr_tiger_stance"										"Tiger Stance"
+		"DOTA_Tooltip_ability_udyr_tiger_stance_Description"							"Upon activation Udyr gains attack speed for 5 seconds. Udyr will perform a Tiger Strike with his first basic attack after activation, dealing bonus physical damage over 2 seconds to the target."
+		"DOTA_Tooltip_ability_udyr_tiger_stance_Note0"									"As a persistent effect Udyr's basic attacks deal bonus physical damage equal to 15% of his attack damage."
+		"DOTA_Tooltip_ability_udyr_tiger_stance_bonus_attack_speed"						"BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_modifier_tiger_activate"											"Tiger Strike"
+		"DOTA_Tooltip_modifier_tiger_persist"											"Tiger Stance"
+
+		"DOTA_Tooltip_ability_udyr_turtle_stance"										"Turtle Stance"
+		"DOTA_Tooltip_ability_udyr_turtle_stance_Description"							"Upon activation Udyr gains a shield for up to 5 seconds."
+		"DOTA_Tooltip_ability_udyr_turtle_stance_Note0"									"As a persistent effect Udyr has lifestieal on his basic attacks."
+		"DOTA_Tooltip_ability_udyr_turtle_stance_shield_size"							"SHIELD SIZE:"
+		"DOTA_Tooltip_ability_udyr_turtle_stance_bonus_lifesteal"						"LIFESTEAL AMOUNT:"
+		"DOTA_Tooltip_modifier_turtle_activate"											"Turtle Shell"
+		"DOTA_Tooltip_modifier_turtle_persist"											"Turtle Stance"
+
+		"DOTA_Tooltip_ability_udyr_bear_stance"											"Bear Stance"
+		"DOTA_Tooltip_ability_udyr_bear_stance_Description"								"Upon activation for a short duration, Udyr gains increased movement speed, ignores unit collision, and performs a short dash towards enemy champions he stuns with his attacks."
+		"DOTA_Tooltip_ability_udyr_bear_stance_Note0"									"As a persistent effect Udyr's basic attacks stun the target for 1 second. This effect cannot occur on the same target more than once every few seconds."
+		"DOTA_Tooltip_ability_udyr_bear_stance_bonus_movement_speed"					"BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_udyr_bear_stance_bonus_movement_speed_duration"			"DURATION:"
+		"DOTA_Tooltip_modifier_bear_activate"											"Bear Rush"
+		"DOTA_Tooltip_modifier_bear_persist"											"Bear Stance"
+
+		"DOTA_Tooltip_ability_udyr_pheonix_stance"										"Pheonix Stance"
+		"DOTA_Tooltip_ability_udyr_pheonix_stance_Description"							"Upon activation Udyr unleashes pulsing waves of fire around himself for 5 seconds, dealing magic damage each second to enemies within 182 range."
+		"DOTA_Tooltip_ability_udyr_pheonix_stance_Note0"								"As a persistent effect on the first attack after activation and on every third subsequent attack, Udyr engulfs enemies in flames, dealing magic damage in a cone in front of him."
+		"DOTA_Tooltip_ability_udyr_pheonix_stance_damage_wave"							"DAMAGE PER WAVE:"
+		"DOTA_Tooltip_ability_udyr_pheonix_stance_on_hit_damage"						"PHEONIX HIT DAMAGE:"
+		"DOTA_Tooltip_modifier_pheonix_activate"										"Pheonix Waves"
+		"DOTA_Tooltip_modifier_pheonix_persist"											"Phoenix Stance"
+
+		"DOTA_Tooltip_ability_udyr_monkeys_agility"										"Monkey's Agility"
+		"DOTA_Tooltip_ability_udyr_monkeys_agility_Description"							"Each time Udyr switches stances, he gains 5 flat movement speed and 10% attack speed for 5 seconds. This effect can stack up to 3 times."
+		"DOTA_Tooltip_modifier_monkeys_agility"											"Monkey's Agility"
+		"DOTA_Tooltip_modifier_monkey_1"												"Monkey's Agility"
+		"DOTA_Tooltip_modifier_monkey_2"												"Monkey's Agility"
+		"DOTA_Tooltip_modifier_monkey_3"												"Monkey's Agility"
+
 	
 	}
 }

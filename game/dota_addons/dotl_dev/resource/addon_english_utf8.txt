@@ -386,6 +386,65 @@
 		"DOTA_Tooltip_modifier_monkey_2"												"Monkey's Agility"
 		"DOTA_Tooltip_modifier_monkey_3"												"Monkey's Agility"
 
+		//=================================================================================
+		// Lux Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_windrunner"														"Lux"
+
+		"DOTA_Tooltip_ability_lux_light_binding"										"Light Binding"
+		"DOTA_Tooltip_ability_lux_light_binding_Description"							"Lux releases a sphere of light in a line, dealing magic damage to the first enemy it hits and rooting them for 2 seconds. The light then continues to travel until it hits another enemy, applying half of its original effects."
+		"DOTA_Tooltip_modifier_lux_light_binding"										"Bound by Light"
+		"DOTA_Tooltip_modifier_lux_light_binding_Description"							"Rooted"
+
+		"DOTA_Tooltip_ability_lux_prismatic_barrier"									"Prismatic Barrier"	
+		"DOTA_Tooltip_ability_lux_prismatic_barrier_Description"						"Lux shields herself for up to 3 seconds and throws out her wand in a line, applying the same shield to allied champions in its path."
+		"DOTA_Tooltip_ability_lux_prismatic_barrier_base_shield_strength"				"SHIELD STRENGTH:"
+		"DOTA_Tooltip_modifier_lux_prismatic_barrier"									"Shielded"
+
+		"DOTA_Tooltip_ability_lux_lucent_singularity"									"Lucent Singularity"
+		"DOTA_Tooltip_ability_lux_lucent_singularity_Description"						"Lux sends an anomaly of twisted light to the target area, slowing nearby enemies and granting sight of the area around it for up to 5 seconds. At the end of the duration or if Lucent Singularity is activated again, the singularity detonates, dealing magic damage to all enemies in the area."	
+		"DOTA_Tooltip_ability_lux_lucent_singularity_movement_speed_pct"				"SLOW AMOUNT:"
+		"DOTA_Tooltip_modifier_lux_lucent_singularity"									"Slowed"
+		"DOTA_Tooltip_modifier_lux_lucent_singularity_Description"						"This unit is slowed."
+		"DOTA_Tooltip_modifier_lux_lucent_singularity_detonate_timer"					"Lucent Singularity"
+
+		"DOTA_Tooltip_ability_lux_lucent_singularity_detonate"							"Detonate"
+		"DOTA_Tooltip_ability_lux_lucent_singularity_detonate_Description"				"Activate to detonate Lucent Singularity"
+
+		"DOTA_Tooltip_ability_lux_final_spark"											"Final Spark"
+		"DOTA_Tooltip_ability_lux_final_spark_Description"								"After gathering energy for 0.5 seconds, Lux fires a giant laser in a line that deals magic damage to all enemies in its wake and briefly reveals them."
+
+		"DOTA_Tooltip_ability_lux_illumination"											"Illumination"
+		"DOTA_Tooltip_ability_lux_illumination_Description"								"Lux's offensive abilities mark all affected enemies with light energy for 6 seconds after damaging them. Her basic attacks or Final Spark consume the mark, dealing magic damage to her target."
+		"DOTA_Tooltip_modifier_lux_illumination"										"Illuminated"
+		"DOTA_Tooltip_modifier_lux_illumination_Description"							"This unit is illuminated!"
+
+		//=================================================================================
+		// Veigar Ability Strings
+		//=================================================================================
+
+		"npc_dota_hero_lion"															"Veigar"
+
+		"DOTA_Tooltip_ability_veigar_baleful_strike"									"Baleful Strike"
+		"DOTA_Tooltip_ability_veigar_baleful_strike_Description"						"Veigar unleashes dark energy in a line, dealing magic damage to up to two enemy units."
+		"DOTA_Tooltip_ability_veigar_baleful_strike_Note0"								"Passively Veigar permanently gains ability power every time he kills an enemy champion, as well as 1 AP whenever he kills an enemy with Baleful Strike, doubled against large enemies."
+		"DOTA_Tooltip_ability_veigar_baleful_strike_ap_per_champion_kill"				"AP PER CHAMPION KILL:"
+
+		"DOTA_Tooltip_ability_veigar_dark_matter"										"Dark Matter"
+		"DOTA_Tooltip_ability_veigar_dark_matter_Description"							"Veigar calls a mass of dark matter to fall from the sky to the target location, which lands after a 1.25 second delay, dealing magic damage to all enemies hit."
+
+		"DOTA_Tooltip_ability_veigar_event_horizon"										"Event Horizon"
+		"DOTA_Tooltip_ability_veigar_event_horizon_Description"							"Veigar forms a cage around the target area which materializes after 0.5 seconds and lasts for 3 seconds, knocking down and briefly stunning enemies who pass through its edges."
+		"DOTA_Tooltip_ability_veigar_event_horizon_stun_duration"						"STUN DURATION:"
+		"DOTA_Tooltip_modifier_veigar_event_horizon"									"Stunned"
+
+		"DOTA_Tooltip_ability_veigar_primordial_burst"									"Primoridal Burst"
+		"DOTA_Tooltip_ability_veigar_primordial_burst_Description"						"Veigar blasts the target enemy champion with primordial energy, dealing them magic damage."
+
+		"DOTA_Tooltip_ability_veigar_equilibrium"										"Eqilibrium"
+		"DOTA_Tooltip_ability_veigar_equilibrium_Description"							"Veigar's mana regeneration is increased by 1.5% for every 1% of his missing mana."
+
 	
 	}
 }

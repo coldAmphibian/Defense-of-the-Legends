@@ -12,10 +12,6 @@ end
 
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
--- -- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
--- require('libraries/physics')
--- -- This library can be used for advanced 3D projectile systems.
--- require('libraries/projectiles')
 -- This library can be used for sending panorama notifications to the UIs of players/teams/everyone
 require('libraries/notifications')
 
@@ -100,12 +96,7 @@ end
 ]]
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
-
-  Timers:CreateTimer(30, -- Start this timer 30 game-time seconds later
-    function()
-      DebugPrint("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
-      return 30.0 -- Rerun this timer every 30 game-time seconds 
-    end)
+  self:StartSpawners()
 end
 
 
@@ -126,12 +117,30 @@ function GameMode:InitGameMode()
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 
-  -- GameRules:GetGameModeEntity():SetThink("OnThink", self, "GlobalThink", 2)
+  GameRules:GetGameModeEntity():SetThink("OnUnitThink", self, "UnitThink", 1)
+  self.UnitThinkerList = {}
   -- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1134)
   -- GameRules:SetPreGameTime(0)
   -- GameRules:SetGoldPerTick(100000)
-  SelectTowerLogic()
+  self:SelectTowerLogic()
+  self:CreateInhibitors()
   print("GameMode Initialised")
+end
+
+function GameMode:OnUnitThink()
+  if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    local deadUnitCount = 0
+    for ind, unit in pairs(self.UnitThinkerList) do
+      if unit:IsNull() or not unit:IsAlive() then
+        table.remove(self.UnitThinkerList, ind - deadUnitCount)
+        deadUnitCount = deadUnitCount + 1
+      else
+        print('rofl')
+        unit:SetIdleAcquire(true)
+        unit:MoveToPosition(Vector(2800,2800))
+      end
+    end
+  end
 end
 
 -- This is an example console command
@@ -150,14 +159,14 @@ function GameMode:ExampleConsoleCommand()
 end
 
 --Selects tower logic to use
-function SelectTowerLogic()
+function GameMode:SelectTowerLogic()
   MapName = GetMapName()
   if MapName == "brush_test" or MapName == "summoners_rift" then
-    file = "dotl/summoners_rift_tower_logic"
+    file = "summoners_rift_tower_logic"
   end
 
   if MapName == "howling_abyss" or MapName == "howling_abyss_45" then
-    file = "dotl/howling_abyss_tower_logic"
+    file = "howling_abyss_tower_logic"
   end
 
   if file == nil then
@@ -165,6 +174,28 @@ function SelectTowerLogic()
   else
     require("dotl/" .. file)
   end
+end
+
+function GameMode:CreateInhibitors()
+  -- Howling Abyss Inhibitors Spawning
+  -- Blue Side
+  local bpos = Vector(-2325, -2225, 75)
+  local blue = CreateUnitByName("npc_lol_sr_inhibitor", bpos, true, nil, nil, DOTA_TEAM_GOODGUYS)  
+  Timers:CreateTimer(function() blue:SetAbsOrigin(bpos) end)
+
+  -- Red Side
+  local rpos = Vector(2410, 2345, 75)
+  local red = CreateUnitByName("npc_lol_sr_inhibitor", rpos, true, nil, nil, DOTA_TEAM_BADGUYS)  
+  Timers:CreateTimer(function() red:SetAbsOrigin(rpos) end)
+
+end
+
+function GameMode:StartSpawners()
+  Timers:CreateTimer(function()
+    spawnedUnit = CreateUnitByName("npc_dota_creep_goodguys_melee", Vector(-2800,-2800,75), true, nil, nil, DOTA_TEAM_GOODGUYS)
+    table.insert(self.UnitThinkerList, spawnedUnit)
+    return 10
+  end)
 end
 
 -- Evaluate the state of the game

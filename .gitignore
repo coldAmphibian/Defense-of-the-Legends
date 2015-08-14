@@ -1,3 +1,22 @@
+# Cache crap that Valve autogenerates
 *.bin
-*.*_c
+
+# Compiled formats
+*.vpcf_c
+*.vtex_c
+*.vsndevts_c
+*.vmat_c
+*.vjs_c
+*.vxml_c
+*.vcss_c
+
+# Map files
 *.vpk
+
+# Map overviews
+content/dota_addons/dotacraft/materials/overviews/*
+game/dota_addons/dotacraft/materials/overviews/*
+game/dota_addons/dotacraft/resource/overviews/*
+
+#Github dump
+*.stackdump

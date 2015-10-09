@@ -11,7 +11,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/blitzcrank/blitzcrank.vmdl"
 		"ModelScale"				"1.15"	
-		"HeroID"					"116"
+		////"HeroID"					"116"
 		"Enabled"					"1"
 		
 		// Abilities
@@ -93,7 +93,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/ezreal/ezreal.vmdl"
 		"ModelScale"				"0.9"	
-		"HeroID"					"114"
+		//"HeroID"					"114"
 		"Enabled"					"1"
 		
 		// Abilities
@@ -177,7 +177,7 @@
 			"Ability5"					"garen_ult"
 			"AbilityLayout"				"5"
 			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"HeroID"					"113"
+			//"HeroID"					"113"
 			"Enabled"					"1"
 			"AttachWearables"
 			{
@@ -252,7 +252,7 @@
 		"VisionNighttimeRange"		"800"										// Range of vision at night time.
 	
 		"Model"						"models/champions/kassadin/kassadin.vmdl"
-		"HeroID"					"123"
+		//"HeroID"					"123"
 		"ModelScale"				"0.8"
 		"Enabled"					"1"
 		
@@ -323,7 +323,7 @@
 		"Model"						"models/champions/leona/leona.vmdl"
 		"ModelScale"				"1.15"
 		"MovementTurnRate"			"10"											// Turning rate.
-		"HeroID"					"115"
+		//"HeroID"					"115"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -404,7 +404,7 @@
 	
 		"Model"						"models/champions/lux/lux.vmdl"
 		"ModelScale"				"1.1"	
-		"HeroID"					"119"
+		//"HeroID"					"119"
 		"Enabled"					"1"
 		
 		// Abilities
@@ -525,7 +525,7 @@
 		"Model"						"models/champions/sona/sona.vmdl"
 		"ModelScale"				"1"
 		"MovementTurnRate"			"10"											// Turning rate.
-		"HeroID"					"120"
+		//"HeroID"					"120"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -610,7 +610,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/taric/taric.vmdl"
 		"ModelScale"				"0.9"	
-		"HeroID"					"117"
+		//"HeroID"					"117"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -691,7 +691,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/udyr/udyr.vmdl"
 		"ModelScale"				"1"	
-		"HeroID"					"122"
+		//"HeroID"					"122"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -814,7 +814,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/viktor/viktor.vmdl"
 		"ModelScale"				"1"	
-		"HeroID"					"121"
+		//"HeroID"					"121"
 		"Enabled"					"1"
 		
 		// Abilities

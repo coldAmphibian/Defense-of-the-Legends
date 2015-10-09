@@ -1,0 +1,82 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Ezreal's Trueshot Barrage
+// Author: wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
+"ezreal_trueshot_barrage"
+{
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"ezreal_trueshot_barrage"
+	"MaxLevel"						"3"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityCastPoint"				"1"
+	"AbilityCooldown"				"80"
+	"AbilityManaCost"				"100"
+	"AbilityDamage"					"350 500 650"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+	"precache"
+	{
+		"particle"  "particles/heroes/ezreal/trueshot_barrage.vpcf"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"1466"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"radius"				"350"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"vision_radius"			"350"	
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ad_ratio" 				"0.8"	
+		}
+		"05"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_ratio" 				"0.8"	
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/ezreal/trueshot_barrage.lua"
+			"Function"			"OnSpellStart"
+			"projectile_speed"	"%projectile_speed"
+			"radius"			"%radius"
+			"vision_radius"		"%vision_radius"
+			"effect_name"		"particles/heroes/ezreal/trueshot_barrage.vpcf"
+			"Target"			"POINT"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"0"
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/ezreal/trueshot_barrage.lua"
+			"Function"			"OnProjectileHitUnit"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/ezreal/rising_spell_force.lua"
+			"Function"		"OnProjectileHitUnit"
+		}
+	}
+}

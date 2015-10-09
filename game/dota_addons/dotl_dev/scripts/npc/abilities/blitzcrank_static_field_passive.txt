@@ -1,0 +1,77 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Blitzcrank Static Field Passive
+// Author: Zarthbenn
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
+"blitzcrank_static_field_passive"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"AbilityTextureName"			"blitzcrank_static_field"
+	"MaxLevel"						"3"
+	"AbilityCooldown"				"0.0"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityDamage"					"100 200 300" //-- +20% AP
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	
+	"OnUpgrade"
+    {
+        "ApplyModifier"
+		{
+			"ModifierName"		"modifier_blitzcrank_static_field_passive_check"
+			"Target"			"CASTER"
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"		"modifier_blitzcrank_static_field_passive"
+			"Target"			"CASTER"
+		}
+    }
+    
+    "Modifiers"
+    {
+        "modifier_blitzcrank_static_field_passive"
+		{
+			"IsBuff"				"1"
+			"IsPassive"				"1"
+			"ThinkInterval" 		"2.5"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/blitzcrank/static_field_passive.lua"
+					"Function"			"BlitzcrankStaticFieldPassive"
+				}
+			}
+		}
+		"modifier_blitzcrank_static_field_passive_check"
+		{
+			"IsHidden"				"1"
+
+			"ThinkInterval"			"1"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/blitzcrank/static_field_passive.lua"
+					"Function"			"BlitzcrankStaticFieldPassiveApply"
+				}
+			}
+		}
+	}
+}

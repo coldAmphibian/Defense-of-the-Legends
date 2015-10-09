@@ -1,0 +1,136 @@
+"garen_spin"
+        {
+                // General
+                //-------------------------------------------------------------------------------------------------------------
+                "BaseClass"      "ability_datadriven"
+                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
+                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+			"AbilityTextureName"			"Garen_E1"
+ 
+                // Casting
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCastPoint"                              "0"
+ 
+                // Time        
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityCooldown"                               "10"
+ 
+                // Cost
+                //-------------------------------------------------------------------------------------------------------------
+                "AbilityManaCost"                               "0"
+               
+                // Special
+                //-------------------------------------------------------------------------------------------------------------               
+            "OnToggleOn"
+            {
+                "ApplyModifier"
+                {
+                        "Target"                "CASTER"
+                    "ModifierName"      "garen_damageaura"
+                }
+            }
+			"OnToggleOff"
+			{
+
+					"RemoveModifier"
+                        {
+                                "Target"                "CASTER"
+                                "ModifierName"  "garen_damageaura"
+                        }
+			}
+            "Modifiers"
+            {
+
+
+			"garen_damageaura"
+			{
+						"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
+						"OnCreated"
+						{
+							"RunScript"
+                                {
+                                                "Function"              "GarenSpinDamage"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+											"BaseDamage" "%spin_damage"
+											"ADRatio" "%adratio"
+											"Radius" "300"
+                                }
+							"FireSound"
+							{
+                                                "EffectName"            "Tower.Fire.Attack"
+                                                "Target"                        "CASTER"
+							}
+						  "ApplyModifier"
+						  {		
+                                "Target"                "CASTER"
+                                "ModifierName"  "garen_disarmself"
+						  }
+						}
+						"OnDestroy"
+						{
+		                  "RunScript"
+                                         {
+                                                "Function"              "GarenSpin"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+                                         }
+						  "RemoveModifier"
+						  {		
+                                "Target"                "CASTER"
+                                "ModifierName"  "garen_disarmself"
+						  }
+						}
+					"Duration" "%duration"
+                        "ThinkInterval" "0.75"
+                        "OnIntervalThink"
+                        {
+							"RunScript"
+                                {
+                                                "Function"              "GarenSpinDamage"
+                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+											"BaseDamage" "%spin_damage"
+											"ADRatio" "%adratio"
+											"Radius" "300"
+                                }
+						"FireSound"
+						{
+                                                "EffectName"            "Tower.Fire.Attack"
+                                                "Target"                        "CASTER"
+						}
+					}
+			}
+			"garen_disarmself"
+			{	
+			"Duration" "%duration"
+			"States"
+				{
+				"MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+            }
+		 // Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+		 "01"
+		 {
+		 "var_type"				"FIELD_FLOAT"
+		 "duration"				"3"
+		 }
+		 "02"
+		 {
+		 "var_type"				"FIELD_INTEGER"
+		 "spin_radius"				"300"
+		 }
+		 "03"
+		 {
+		 "var_type"				"FIELD_INTEGER"
+		 "spin_damage"				"20 45 70 95 120"
+		 }
+		 "04"
+		 {
+		 "var_type"				"FIELD_INTEGER"
+		 "adratio"				"70 80 90 100 110"
+		 }
+		}
+ 
+        }

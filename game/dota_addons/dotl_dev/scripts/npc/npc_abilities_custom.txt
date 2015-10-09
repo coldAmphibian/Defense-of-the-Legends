@@ -764,6 +764,31 @@
 			}
 		}
 	}
+	//-------------------
+	// Dummy stuff
+	//-------------------
+	"dotl_dummy_unit"
+	{
+	    "AbilityBehavior" 		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	    "BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	    "MaxLevel"                      "1"
+	
+	    "Modifiers"
+		{
+			"dummy_unit"
+	        {
+	            "Passive"                        "1"
+	            "IsHidden"                       "1"
+	            "States"
+	            {
+	                "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+	          }
+	        }
+		}
+	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Ezreal's Arcane Shift
 	// Author: wFX
@@ -1358,79 +1383,79 @@
 				}
 	 
 	}
-        "garen_silence"
-        {
-                // General
-                //-------------------------------------------------------------------------------------------------------------
-                "BaseClass"      "ability_datadriven"
-                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+	"garen_silence"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
 				"AbilityTextureName"			"Garen_Q"
-         "precache"
-        {
-                "particle_folder"                                               "particles/generic_gameplay"
-        }
-                // Casting
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityCastPoint"                              "0"
- 
-                // Time        
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityCooldown"                               "15"
- 
-                // Cost
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityManaCost"                               "0"
-               
-                // Special
-                //-------------------------------------------------------------------------------------------------------------
-                     
-            "OnSpellStart"
-            {
-                "ApplyModifier"
-                {
-                        "Target"                "CASTER"
-                    "ModifierName"      "garen_speedattack"
-                }
-                "RunScript"
-                {
-                        "Function"              "GarenQPurge"
-                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-                }
-            }
-            "Modifiers"
-            {
+	         "precache"
+	        {
+	                "particle_folder"                                               "particles/generic_gameplay"
+	        }
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCastPoint"                              "0"
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "15"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+	                     
+	            "OnSpellStart"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_speedattack"
+	                }
+	                "RunScript"
+	                {
+	                        "Function"              "GarenQPurge"
+	                        "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                }
+	            }
+	            "Modifiers"
+	            {
 				"garen_speedattack"
 				{
 					"OnCreated"
 					{
-                                 "FireSound"
-                                   {
-                                                "EffectName"            "Main.Song"
-                                                "Target"                        "CASTER"
-                                   }
+	                                 "FireSound"
+	                                   {
+	                                                "EffectName"            "Main.Song"
+	                                                "Target"                        "CASTER"
+	                                   }
 					}
 					"OnAttackLanded"
 					{
 						"RunScript"
-                         {
-                           "Function"              "GarenSilenceDamage"
-                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                         {
+	                           "Function"              "GarenSilenceDamage"
+	                           "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
 						   "BaseDamage" "%garen_speed_bonusdamage"
 						   "ADRatio" "%adratio"
 						   "TargetEnemy"                "TARGET"
-                         }
+	                         }
 						 
 			            "ApplyModifier" //silences enemy and removes the buff from garen
-                		{
-                       		 "Target"                "TARGET"
-                    		 "ModifierName"      "garen_silence_modifier"
-                		}
+	                		{
+	                       		 "Target"                "TARGET"
+	                    		 "ModifierName"      "garen_silence_modifier"
+	                		}
 						"RemoveModifier"
-                		{
-                       			 "Target"                "CASTER"
-                    			"ModifierName"      "garen_speedattack"
-                		}
+	                		{
+	                       			 "Target"                "CASTER"
+	                    			"ModifierName"      "garen_speedattack"
+	                		}
 					}
 				 "Duration" "4.5"
 				 "Properties"
@@ -1438,7 +1463,7 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%garen_speed_bonusspeedpercent"
 				 }
 				}
-
+	
 				"garen_silence_modifier"
 				{
 				 "Duration" "%garen_speed_silenceduration"
@@ -1450,7 +1475,7 @@
 				 "MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
 				 }
 				}
-            }
+	            }
 						 // Special	
 			//-------------------------------------------------------------------------------------------------------------
 			"AbilitySpecial"
@@ -1476,105 +1501,105 @@
 			 "adratio"				"40"
 			 }
 			}
- 
-        }
-        "garen_spin"
-        {
-                // General
-                //-------------------------------------------------------------------------------------------------------------
-                "BaseClass"      "ability_datadriven"
-                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
-                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
+	 
+	        }
+	"garen_spin"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
+	                "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AOE"
+	                "AbilityUnitDamageType"                 "DAMAGE_TYPE_PHYSICAL" 
 				"AbilityTextureName"			"Garen_E1"
- 
-                // Casting
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityCastPoint"                              "0"
- 
-                // Time        
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityCooldown"                               "10"
- 
-                // Cost
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityManaCost"                               "0"
-               
-                // Special
-                //-------------------------------------------------------------------------------------------------------------               
-            "OnToggleOn"
-            {
-                "ApplyModifier"
-                {
-                        "Target"                "CASTER"
-                    "ModifierName"      "garen_damageaura"
-                }
-            }
+	 
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCastPoint"                              "0"
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "10"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------               
+	            "OnToggleOn"
+	            {
+	                "ApplyModifier"
+	                {
+	                        "Target"                "CASTER"
+	                    "ModifierName"      "garen_damageaura"
+	                }
+	            }
 				"OnToggleOff"
 				{
-
+	
 						"RemoveModifier"
-                        {
-                                "Target"                "CASTER"
-                                "ModifierName"  "garen_damageaura"
-                        }
+	                        {
+	                                "Target"                "CASTER"
+	                                "ModifierName"  "garen_damageaura"
+	                        }
 				}
-            "Modifiers"
-            {
-
-
+	            "Modifiers"
+	            {
+	
+	
 				"garen_damageaura"
 				{
 							"OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
 							"OnCreated"
 							{
 								"RunScript"
-                                {
-                                                "Function"              "GarenSpinDamage"
-                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                                {
+	                                                "Function"              "GarenSpinDamage"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
 												"BaseDamage" "%spin_damage"
 												"ADRatio" "%adratio"
 												"Radius" "300"
-                                }
+	                                }
 								"FireSound"
 								{
-                                                "EffectName"            "Tower.Fire.Attack"
-                                                "Target"                        "CASTER"
+	                                                "EffectName"            "Tower.Fire.Attack"
+	                                                "Target"                        "CASTER"
 								}
 							  "ApplyModifier"
 							  {		
-                                "Target"                "CASTER"
-                                "ModifierName"  "garen_disarmself"
+	                                "Target"                "CASTER"
+	                                "ModifierName"  "garen_disarmself"
 							  }
 							}
 							"OnDestroy"
 							{
 			                  "RunScript"
-                                         {
-                                                "Function"              "GarenSpin"
-                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
-                                         }
+	                                         {
+	                                                "Function"              "GarenSpin"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                                         }
 							  "RemoveModifier"
 							  {		
-                                "Target"                "CASTER"
-                                "ModifierName"  "garen_disarmself"
+	                                "Target"                "CASTER"
+	                                "ModifierName"  "garen_disarmself"
 							  }
 							}
 						"Duration" "%duration"
-                        "ThinkInterval" "0.75"
-                        "OnIntervalThink"
-                        {
+	                        "ThinkInterval" "0.75"
+	                        "OnIntervalThink"
+	                        {
 								"RunScript"
-                                {
-                                                "Function"              "GarenSpinDamage"
-                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	                                {
+	                                                "Function"              "GarenSpinDamage"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
 												"BaseDamage" "%spin_damage"
 												"ADRatio" "%adratio"
 												"Radius" "300"
-                                }
+	                                }
 							"FireSound"
 							{
-                                                "EffectName"            "Tower.Fire.Attack"
-                                                "Target"                        "CASTER"
+	                                                "EffectName"            "Tower.Fire.Attack"
+	                                                "Target"                        "CASTER"
 							}
 						}
 				}
@@ -1586,7 +1611,7 @@
 					"MODIFIER_STATE_DISARMED" "MODIFIER_STATE_VALUE_ENABLED"
 					}
 				}
-            }
+	            }
 			 // Special	
 			//-------------------------------------------------------------------------------------------------------------
 			"AbilitySpecial"
@@ -1612,13 +1637,13 @@
 			 "adratio"				"70 80 90 100 110"
 			 }
 			}
- 
-        }
-		"garen_ult"
-        {
-                // General
-                //-------------------------------------------------------------------------------------------------------------
-                "BaseClass"      "ability_datadriven"
+	 
+	        }
+	"garen_ult"
+	        {
+	                // General
+	                //-------------------------------------------------------------------------------------------------------------
+	                "BaseClass"      "ability_datadriven"
 				"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 				"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 				"AbilityTextureName"			"Garen_R"
@@ -1626,34 +1651,34 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"AbilityCastPoint"				"0.4"
 				"AbilityCastRange"				"300"
-"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
+	"AbilityUnitDamageType"                 "DAMAGE_TYPE_MAGICAL" 
 				"MaxLevel"						"3"
- 
-                // Casting
-                //-------------------------------------------------------------------------------------------------------------
-
- 
-                // Time        
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityCooldown"                               "60"
- 
-                // Cost
-                //-------------------------------------------------------------------------------------------------------------
-                "AbilityManaCost"                               "0"
-               
-                // Special
-                //-------------------------------------------------------------------------------------------------------------
-
+	 
+	                // Casting
+	                //-------------------------------------------------------------------------------------------------------------
+	
+	 
+	                // Time        
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityCooldown"                               "60"
+	 
+	                // Cost
+	                //-------------------------------------------------------------------------------------------------------------
+	                "AbilityManaCost"                               "0"
+	               
+	                // Special
+	                //-------------------------------------------------------------------------------------------------------------
+	
 			"OnSpellStart"
-            {
-                            "RunScript"
-                                        {
-                                                "Function"              "GarenUlt"
-                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
+	            {
+	                            "RunScript"
+	                                        {
+	                                                "Function"              "GarenUlt"
+	                                                "ScriptFile"    "scripts/vscripts/heroes/hero_garen/skills.lua"
 						"MissHPPercent" "%dmgpct"
 						"MagicDamage" "%damage"
-                                        }
-            }
+	                                        }
+	            }
 			 // Special	
 			//-------------------------------------------------------------------------------------------------------------
 			"AbilitySpecial"
@@ -1669,8 +1694,8 @@
 			 "damage"				"175 350 525"
 			 }
 			}
- 
-        }
+	 
+	        }
 	//=========================================================
 	// Karthus' Passive: Death Defied
 	// Author: Capruce
@@ -2149,7 +2174,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"wall_length"			"587 660 733 807 880" \\ 800 900 1000 1100 1200 (LoL Units)
+				"wall_length"			"587 660 733 807 880" // 800 900 1000 1100 1200 (LoL Units)
 			}
 			"02"
 			{
@@ -2164,7 +2189,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"obelisk_vision_radius"	"953 972 990 1008 1027" \\ 1300 1325 1350 1375 1400 (LoL Units)
+				"obelisk_vision_radius"	"953 972 990 1008 1027" // 1300 1325 1350 1375 1400 (LoL Units)
 			}
 			"05"
 			{
@@ -3557,6 +3582,293 @@
 			}
 		}
 	}
+	"lol_brush_revealer_passive"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"			"dotl_placeholder"
+		"MaxLevel"					 	"1"
+		
+		"Modifiers"
+		{
+			"Programmed as a Minion"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_BLOCK_DISABLED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_LOW_ATTACK_PRIORITY"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"							"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SOFT_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+	
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Building Invincibility
+	//=================================================================================
+	"lol_building_invincibility"
+	{
+		"AbilityName"			"lol_tower_invincibility"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"1"
+		"IsPassive"				"1"
+	
+		"Modifiers"
+		{	
+			"Invicibility"
+			{
+			}
+		}
+	}
+	//=================================================================================
+	// Inhibitor Armor
+	//=================================================================================
+	"lol_inhibitor_armor"
+	{
+		"AbilityName"			"lol_inhibitor_armor"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	}	
+	//=================================================================================
+	// Nexus End
+	//=================================================================================
+	"lol_nexus_end"
+	{
+		"AbilityName"			"lol_nexus_end"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	}
+	//=================================================================================
+	// Obelisk Laser
+	//=================================================================================
+	"lol_obelisk_laser"
+	{
+		"AbilityName"			"lol_obelisk_laser"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+		
+		"Modifiers"
+		{
+			"Dodge Piercing"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Obelisk Overkill
+	//=================================================================================
+	"lol_obelisk_overkill"
+	{
+		"AbilityName"			"lol_obelisk_overkill"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	}
+	//=================================================================================
+	// A Wizard Did It
+	//=================================================================================
+	"lol_tower_a_wizard_did_it"
+	{
+		"AbilityName"			"lol_tower_a_wizard_did_it"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Fortification
+	//=================================================================================
+	"lol_tower_fortification"
+	{
+		"AbilityName"			"lol_tower_fortification"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Lightning Rod - This one is actually just here for show
+	//=================================================================================
+	"lol_tower_lightning_rod"
+	{
+		"AbilityName"			"lol_tower_lightning_rod"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+		"Modifiers"
+		{
+			"Dodge Piercing"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
+	//=================================================================================
+	"lol_tower_penetrating_bullets"
+	{
+		"AbilityName"			"lol_tower_penetrating_bullets"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+	
+		"Modifiers"
+		{
+			"Dodge Piercing"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Reinforced Armor
+	//=================================================================================
+	"lol_tower_reinforced_armor"
+	{
+		"AbilityName"			"lol_tower_reinforced_armor"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Vanguard
+	//=================================================================================
+	"lol_tower_vanguard"
+	{
+		"AbilityName"			"lol_tower_vanguard"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Wardens Eye
+	//=================================================================================
+	"lol_tower_wardens_eye"
+	{
+		"AbilityName"			"lol_tower_wardens_eye"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+	
+		"Modifiers"
+		{	
+			"True Sight"
+			{
+				"IsHidden"				"1"
+				"IsPassive"				"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}					
+				}
+	
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+	
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}								
+			}
+		}
+	}
 	//=========================================================
 	// Lux' Ultimate: Final Spark
 	// Author: Capruce
@@ -4370,167 +4682,6 @@
 	//Date 06/2015
 	"mundo_infected_cleaver"
 	{
-	    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-	    "BaseClass"                       "ability_datadriven"
-	    "AbilityTextureName"              "mundo_infected_cleaver"
-	    "MaxLevel"                        "5"
-	
-	    //Stats
-	    //-------------------------------------------------------------------------------
-	    "AbilityCastRange"                "730"
-	    "AbilityCastPoint"                "0.0"
-	    "AbilityCooldown"                 "4.0"
-	    "AbilityManaCost"                 "50 60 70 80 90"
-	    "AbilityDamage"                   "15 18 21 23 25"
-	    "AbilityUnitDamageType"           "DAMAGE_TYPE_MAGICAL"
-	
-	    //Special
-	    //-------------------------------------------------------------------------------
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "projectile_speed"       "1467"
-	        }
-	        "02"
-	        {
-	            "var_type"               "FIELD_FLOAT"
-	            "radius"                 "44"
-	        }
-	        "03"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "range"                  "733"
-	        }
-	        "04"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "vision_radius"          "50"
-	        }
-	        "05"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "duration"               "2"
-	        }
-	        "06"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "bonus_movement_speed"   "-40"
-	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "RunScript"
-	        {
-	            "ScriptFile"            "heroes/hero_mundo/mundo_infected_cleaver.lua"
-	            "Function"              "mundo_infected_cleaver_check_health"
-	            "projectile_speed"      "%projectile_speed"
-	            "radius"                "%radius"
-	            "range"                 "%range"
-	            "vision_radius"         "%vision_radius"
-	            "Target"                "POINT"
-	        }
-	    }
-	
-	    "OnProjectileHitUnit"
-	    {
-	        "DeleteOnHit"               "1"
-	        "RunScript"
-	        {
-	            "ScriptFile"            "heroes/hero_mundo/mundo_infected_cleaver.lua"
-	            "Function"              "mundo_infected_cleaver"
-	        }
-	        "ApplyModifier"
-	        {
-	            "ModifierName"          "cleaver_slow"
-	            "Target"                "TARGET"
-	            "Duration"              "%duration"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "cleaver_slow"
-	        {
-	            "Passive"               "0"
-	            "IsHidden"              "0"
-	            "IsDebuff"              "1"
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
-	            }
-	        }
-	    }
-	}
-	//LoL Mundo Dota Port
-	//Author: TheAlpacalypse
-	//Date 06/2015
-	"mundo_masochism"
-	{
-	    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "BaseClass"                       "ability_datadriven"
-	    "AbilityTextureName"              "mundo_masochism"
-	    "MaxLevel"                        "5"
-	
-	    //Stats
-	    //-------------------------------------------------------------------------------
-	    "AbilityCooldown"                 "7.0"
-	    "AbilityManaCost"                 "10 15 20 25 30"
-	    "AbilityDamage"                   "35 50 65 80 95"
-	
-	    //Special
-	    //-------------------------------------------------------------------------------
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "duration"               "5"
-	        }
-	        "02"
-	        {
-	            "var_type"               "FIELD_INTEGER"
-	            "strength_bonus"         "1 2 3 4 5"
-	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "ApplyModifier"
-	        {
-	            "ModifierName"          "masochism_buff"
-	            "Target"                "CASTER"
-	            "Duration"              "%duration"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "masochism_buff"
-	        {
-	            "Passive"             "0"
-	            "IsHidden"            "0"
-	            "IsDebuff"            "0"
-	            "IsBuff"              "1"
-	
-	            "EffectName"          "particle_name"
-	            "EffectAttachType"    "follow_origin"
-	
-	            "Attributes"          "MODIFIER_ATTRIBUTE_MULTIPLE"
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_bonus"
-	            }
-	        }
-	    }
-	}
-	//LoL Mundo Dota Port
-	//Author: TheAlpacalypse
-	//Date 06/2015
-	"mundo_infected_cleaver"
-	{
 	    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_AURA"
 	    "AbilityType"                     "DOTA_ABILITY_TYPE_ULTIMATE"
 	    "BaseClass"                       "ability_datadriven"
@@ -4617,317 +4768,67 @@
 	        }
 	    }
 	}
-	"lol_brush_revealer_passive"
+	//LoL Mundo Dota Port
+	//Author: TheAlpacalypse
+	//Date 06/2015
+	"mundo_masochism"
 	{
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
-		"AbilityTextureName"			"dotl_placeholder"
-		"MaxLevel"					 	"1"
-		
-		"Modifiers"
-		{
-			"Programmed as a Minion"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_ATTACK_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_BLOCK_DISABLED"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_LOW_ATTACK_PRIORITY"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"							"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SOFT_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+	    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "BaseClass"                       "ability_datadriven"
+	    "AbilityTextureName"              "mundo_masochism"
+	    "MaxLevel"                        "5"
 	
-				}
-			}
-		}
-	}
-	//-------------------
-	// Dummy stuff
-	//-------------------
-	"dotl_dummy_unit"
-	{
-	    "AbilityBehavior" 		        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "BaseClass" 					"ability_datadriven"
-		"AbilityTextureName"            "rubick_empty1"
-	    "MaxLevel"                      "1"
+	    //Stats
+	    //-------------------------------------------------------------------------------
+	    "AbilityCooldown"                 "7.0"
+	    "AbilityManaCost"                 "10 15 20 25 30"
+	    "AbilityDamage"                   "35 50 65 80 95"
+	
+	    //Special
+	    //-------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"               "FIELD_INTEGER"
+	            "duration"               "5"
+	        }
+	        "02"
+	        {
+	            "var_type"               "FIELD_INTEGER"
+	            "strength_bonus"         "1 2 3 4 5"
+	        }
+	    }
+	
+	    "OnSpellStart"
+	    {
+	        "ApplyModifier"
+	        {
+	            "ModifierName"          "masochism_buff"
+	            "Target"                "CASTER"
+	            "Duration"              "%duration"
+	        }
+	    }
 	
 	    "Modifiers"
-		{
-			"dummy_unit"
+	    {
+	        "masochism_buff"
 	        {
-	            "Passive"                        "1"
-	            "IsHidden"                       "1"
-	            "States"
+	            "Passive"             "0"
+	            "IsHidden"            "0"
+	            "IsDebuff"            "0"
+	            "IsBuff"              "1"
+	
+	            "EffectName"          "particle_name"
+	            "EffectAttachType"    "follow_origin"
+	
+	            "Attributes"          "MODIFIER_ATTRIBUTE_MULTIPLE"
+	            "Properties"
 	            {
-	                "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
-	                "MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
-	                "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-	          }
+	                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%strength_bonus"
+	            }
 	        }
-		}
-	}
-	//=================================================================================
-	// Inhibitor Armor
-	//=================================================================================
-	"lol_inhibitor_armor"
-	{
-		"AbilityName"			"lol_inhibitor_armor"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	}	
-	//=================================================================================
-	// Nexus End
-	//=================================================================================
-	"lol_nexus_end"
-	{
-		"AbilityName"			"lol_nexus_end"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	}
-	//=================================================================================
-	// Obelisk Laser
-	//=================================================================================
-	"lol_obelisk_laser"
-	{
-		"AbilityName"			"lol_obelisk_laser"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-		
-		"Modifiers"
-		{
-			"Dodge Piercing"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Obelisk Overkill
-	//=================================================================================
-	"lol_obelisk_overkill"
-	{
-		"AbilityName"			"lol_obelisk_overkill"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	}
-	//=================================================================================
-	// A Wizard Did It
-	//=================================================================================
-	"lol_tower_a_wizard_did_it"
-	{
-		"AbilityName"			"lol_tower_a_wizard_did_it"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Fortification
-	//=================================================================================
-	"lol_tower_fortification"
-	{
-		"AbilityName"			"lol_tower_fortification"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Building Invincibility
-	//=================================================================================
-	"lol_building_invincibility"
-	{
-		"AbilityName"			"lol_tower_invincibility"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"1"
-		"IsPassive"				"1"
-	
-		"Modifiers"
-		{	
-			"Invicibility"
-			{
-			}
-		}
-	}
-	//=================================================================================
-	// Lightning Rod - This one is actually just here for show
-	//=================================================================================
-	"lol_tower_lightning_rod"
-	{
-		"AbilityName"			"lol_tower_lightning_rod"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-		"Modifiers"
-		{
-			"Dodge Piercing"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
-	//=================================================================================
-	"lol_tower_penetrating_bullets"
-	{
-		"AbilityName"			"lol_tower_penetrating_bullets"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-	
-		"Modifiers"
-		{
-			"Dodge Piercing"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Reinforced Armor
-	//=================================================================================
-	"lol_tower_reinforced_armor"
-	{
-		"AbilityName"			"lol_tower_reinforced_armor"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Vanguard
-	//=================================================================================
-	"lol_tower_vanguard"
-	{
-		"AbilityName"			"lol_tower_vanguard"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Wardens Eye
-	//=================================================================================
-	"lol_tower_wardens_eye"
-	{
-		"AbilityName"			"lol_tower_wardens_eye"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-	
-		"Modifiers"
-		{	
-			"True Sight"
-			{
-				"IsHidden"				"1"
-				"IsPassive"				"1"
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"Target"		"CASTER"
-						"ModifierName"	"modifier_truesight"
-					}
-				}
-	
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}					
-				}
-	
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-	
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}								
-			}
-		}
+	    }
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Sona Aria of Perseverance

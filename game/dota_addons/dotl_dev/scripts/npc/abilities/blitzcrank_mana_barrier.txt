@@ -1,0 +1,96 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Blitzcrank Mana Barrier
+// Author: Zarthbenn
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
+"blitzcrank_mana_barrier"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"            "blitzcrank_mana_barrier"
+    "MaxLevel"                      "1"
+
+    "AbilityCooldown"               "90"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                      "FIELD_INTEGER"
+            "auto_learn"              "1"
+        }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+        "particle"                  "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+    }
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    
+    "OnSpellStart"
+    {
+        "ApplyModifier"     
+        {
+            "ModifierName"      "modifier_mana_barrier_check"
+            "Target"            "CASTER"
+        }
+    }
+    
+    "Modifiers"
+    {
+        "modifier_mana_barrier_check"
+        {
+            "Passive"       "1"
+            "IsHidden"      "1"
+            
+            "OnTakeDamage"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"        "heroes/blitzcrank/mana_barrier.lua"
+                    "Function"          "ManaBarrierCheck"
+                    "Target"            "CASTER"
+                }   
+            }
+        }
+        "modifier_mana_barrier"
+        {
+            "IsBuff"            "1"
+            "Duration"          "10"
+        
+            "ThinkInterval"     "0.03"
+
+            "EffectName"        "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+            "EffectAttachType"  "follow_origin" 
+
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/blitzcrank/mana_barrier.lua"
+                    "Function"      "ManaShieldHealth"
+                }
+            }
+
+            "OnTakeDamage"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/blitzcrank/mana_barrier.lua"
+                    "Function"      "ManaShieldAbsorb"
+                    "DamageTaken"   "%attack_damage"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,173 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Sona Hymn of Valor
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"sona_hymn_of_valor"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"sona_hymn_of_valor"
+	"MaxLevel"						"5"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
+		"particle" 			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"620"
+	"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"8.0"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"40 80 120 160 200"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"45 50 55 60 65"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"area_of_effect"		"620"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"1600"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"aura_radius"			"255"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"buff_base_damage"		"20 30 40 50 60"   
+		}
+		"05"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"buff_ap_ratio"			"0.2"
+		}
+		"06"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crescendo_bonus_damage"	"0 10 20 40"
+		}
+		"07"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"base_ap_ratio"				"0.5"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Necrolyte.DeathPulse"
+		}
+
+		"RemoveModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"		"modifier_sona_valor_aura"
+		}
+		"RemoveModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"		"modifier_sona_celerity_aura"
+		}
+		"RemoveModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"		"modifier_sona_perseverance_aura"
+		}
+		"ApplyModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"	"modifier_sona_valor_aura"
+		}
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/sona/power_chord.lua"
+			"Function"			"PowerChord"
+			"trigger"			"hymn"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"Damage"
+		{
+			"Target"
+			{
+				"Center"	"TARGET"
+				"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			}
+			"Type"		"DAMAGE_TYPE_MAGICAL"
+			"Damage"	"%AbilityDamage"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_sona_valor_aura"
+		{
+			"IsBuff"			"1"
+			"Duration"			"3"
+
+			"Aura"        "aura_valor_effect"
+    		"Aura_Radius" "%aura_radius"
+    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+    		"OnCreated"
+    		{
+    			"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+					"EffectAttachType"	"follow_origin"
+					"Target"			"CASTER"
+					"ControlPoints"
+					{
+						"00" "0 0 0"
+						"01" "%aura_radius 1 1"
+						"15" "25 150 25"
+						"16" "1 0 0"
+					}
+				}
+    		}
+		}
+		"aura_valor_effect"
+		{
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	"%bonus_damage"
+	        }
+		}
+	}
+}

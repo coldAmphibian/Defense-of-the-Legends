@@ -1,0 +1,107 @@
+//=========================================================
+// Lux' Third Ability: Lucent Singularity
+// Author: Capruce
+//=========================================================
+"lux_illumination"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"MaxLevel"						"1"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"lux_illumination"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"0"
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"0"
+
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"auto_learn"			"1"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"ap_scaling"				"0.20"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"debuff_duration"			"6"
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"base_damage"				"10"
+		}
+		"05"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"level_multiplier"			"8"
+		}
+	}
+
+	"precache"
+	{	
+		"particle"		"particles/units/heroes/hero_ursa/ursa_fury_swipes.vpcf"
+		"particle"		"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
+	}
+
+	"Modifiers"
+	{
+
+		"modifier_lux_illumination_caster"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"IsPurgable"		"0"
+
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"			"heroes/lux/modifier_lux_illumination.lua"
+					"Function"				"OnAttackLanded"
+				}
+			}
+		}
+
+		"modifier_lux_illumination"
+		{
+			"IsDebuff"			"1"
+			"IsHidden"			"0"
+			"IsPurgable"		"1"
+			"Duration"			"%debuff_duration"
+
+			"EffectName"				"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
+			"EffectAttachType"			"follow_overhead"
+			
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"Target"				"TARGET"
+					"EffectName"			"particles/units/heroes/hero_ursa/ursa_fury_swipes.vpcf"
+					"EffectAttachType"		"follow_overhead"
+				}
+			}
+		}
+	}
+}

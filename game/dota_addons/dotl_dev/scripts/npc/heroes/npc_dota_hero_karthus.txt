@@ -5,11 +5,6 @@
 	"VisionNighttimeRange"		"800"									// Range of vision at night time.
 	"MovementSpeed"				"245"									// Speed.
 	"MovementTurnRate"			"10"									// Turning rate.
-
-	"Model"						"models/champions/karthus/karthus.vmdl"
-	"HeroID"					"125"
-	"ModelScale"				"1"
-	"Enabled"					"1"
 	
 	// Abilities
 	//-------------------------------------------------------------------------------------------------------------
@@ -41,29 +36,4 @@
 	"ManaGain"					"61"
 	"StatusManaRegen"			"6"										// Mana regeneration rate.
 	"ManaRegenGain"				"0.8"
-
-	"AttachWearables"
-		{
-			"Wearable1"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable2"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable3"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable4"
-			{
-				"ItemDef" "0"
-			}
-			"Wearable5"
-			{
-				"ItemDef" "0"
-			}
-		}
-	"ItemSlots" {}
 }

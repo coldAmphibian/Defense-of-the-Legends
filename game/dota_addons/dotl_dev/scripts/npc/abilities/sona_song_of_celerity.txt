@@ -1,0 +1,164 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Sona Song of Celerity
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"sona_song_of_celerity"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"sona_song_of_celerity"
+	"MaxLevel"						"5"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf"
+		"particle"			"particles/units/heroes/hero_siren/naga_siren_song_aura.vpcf"
+		"particle" 			 "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"255"
+	"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"12.0"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"65"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"area_of_effect"		"255"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"1600"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"aura_radius"			"255"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"aura_movespeed"		"13 14 15 16 17"   //-- + 7.5% per 100 AP + 2% x Crescendo.png Crescendos rank
+	}
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Necrolyte.DeathPulse"
+		}
+
+		"ActOnTargets"
+		{
+			"Target"
+            {
+                "Center" "CASTER"
+                "Radius" "%area_of_effect"
+                "Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY" 
+                "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                "MaxTargets"	"2"
+                "Random"	"1"
+            }
+
+            "Action"
+            {
+            	"TrackingProjectile"
+				{
+				    "Target"			"TARGET"
+				    "EffectName"		"particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+				    "Dodgeable"        "0"
+				    "ProvidesVision"   "0"
+				    //"VisionRadius"     "300"
+				    "MoveSpeed"        "%projectile_speed"
+				    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
+				}
+            }
+		}
+		"ApplyModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"	"modifier_sona_celerity_aura"
+		}
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/hero_sona/sona_power_chord.lua"
+			"Function"			"PowerChord"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"ApplyModifier"
+		{
+			"Target"		"TARGET"
+			"ModifierName"	"modifier_sona_celerity_effect"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_sona_celerity_aura"
+		{
+			"IsBuff"			"1"
+			"Duration"			"3"
+
+			"Aura"        "aura_celerity_effect"
+    		"Aura_Radius" "%aura_radius"
+    		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    		"Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+    		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    		
+
+    		"OnCreated"
+    		{
+    			"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+					"EffectAttachType"	"follow_origin"
+					"Target"			"CASTER"
+					"ControlPoints"
+					{
+						"00" "0 0 0"
+						"01" "%aura_radius 1 1"
+						"15" "25 150 25"
+						"16" "1 0 0"
+					}
+				}
+    		}
+        	
+		}
+		"aura_celerity_effect"
+		{
+	        "Properties" 
+	        {
+	            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%aura_movespeed"
+	        }
+		}
+	}
+}

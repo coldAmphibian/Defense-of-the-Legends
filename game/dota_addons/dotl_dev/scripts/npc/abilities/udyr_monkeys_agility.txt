@@ -1,0 +1,82 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Udyr Monkey's Agility
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"udyr_monkeys_agility"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityTextureName"			"udyr_monkeys_agility"
+	"MaxLevel"						"1"
+
+	"AbilityCooldown"				"0"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		
+	}
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityDamage"					"100"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"champion_passive"	"1"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_monkeys_agility"
+		{
+			"IsBuff"			"1"
+			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Duration"			"5"
+		}
+		"modifier_monkey_1"
+		{
+			"IsHidden"			"1"
+			"Duration"			"5"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" 		"5" 
+			}
+		}
+		"modifier_monkey_2"
+		{
+			"IsHidden"			"1"
+			"Duration"			"5"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" 		"10" 
+			}
+		}
+		"modifier_monkey_3"
+		{
+			"IsHidden"			"1"
+			"Duration"			"5"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" 		"15" 
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+//=================================================================================
+// A Wizard Did It
+//=================================================================================
+"lol_tower_a_wizard_did_it"
+{
+	"AbilityName"			"lol_tower_a_wizard_did_it"
+	"BaseClass" 			"ability_datadriven"
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" 	"dotl_placeholder"
+	"IsHidden"				"0"
+
+}

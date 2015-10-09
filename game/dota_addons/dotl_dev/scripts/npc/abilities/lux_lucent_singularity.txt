@@ -1,0 +1,237 @@
+//=========================================================
+// Lux' Third Ability: Lucent Singularity
+// Author: Capruce
+//=========================================================
+"lux_lucent_singularity"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"MaxLevel"						"5"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName"			"lux_lucent_singularity"
+	"AOERadius"						"%singularity_radius"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"807" //1100 (LoL Units)
+	"AbilityCastPoint"				"0.0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"10.0"
+	"AbilityDuration"				"5.0"
+	
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"60 105 150 195 240"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"70 85 100 115 130"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"ap_scaling"				"0.60"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"projectile_distance"		"807" //1100 (LoL Units)
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"projectile_speed"			"1025" //A guess
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"singularity_radius"		"257" //350 (LoL Units)
+		}
+		"05"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"singularity_vision_radius"	"300" //A guess
+		}
+		"06"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"singularity_max_duration"	"5.0"
+		}
+		"07"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"movement_speed_pct"		"-20 -24 -28 -32 -36"
+		}
+		"08"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"think_interval"			"0.03"
+		}
+	}
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+		"particle"			"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+		"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+		"particle"			"particles/status_fx/status_effect_frost_armor.vpcf"
+
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+		"particle"  		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"	}
+
+	"OnUpgrade"
+	{
+		"LevelUpAbility"
+		{
+			"Target" 		"CASTER"
+			"AbilityName"	"lux_lucent_singularity_detonate"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/lux/lux_lucent_singularity.lua"
+			"Function"			"OnSpellStart"
+			"Target"			"POINT"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"				"0"
+	}
+
+	"OnProjectileFinish"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/lux/lux_lucent_singularity.lua"
+			"Function"			"OnProjectileHit"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_lux_lucent_singularity_thinker"
+		{
+			"Aura"					"modifier_lux_lucent_singularity"
+			"Aura_Radius"			"%singularity_radius"
+			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+
+			"ThinkInterval" 		"%think_interval"
+		    "OnIntervalThink"
+		    {
+		        "RunScript"
+		        {
+		            "ScriptFile" 	"heroes/lux/lux_lucent_singularity.lua"
+		            "Function"   	"Thinker_OnIntervalThink"
+		        }
+		    }
+
+			"OnCreated"
+			{
+ 				"RunScript"
+		        {
+		            "ScriptFile" 	"heroes/lux/lux_lucent_singularity.lua"
+		            "Function"   	"Thinker_OnCreated"
+		        }
+
+				"AttachEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+					"EffectAttachType"  "follow_overhead"
+					"Target"            "TARGET"
+
+					"ControlPoints"
+					{
+						"01"	"%singularity_radius 0 0"
+						"05"	"%singularity_radius 0 0"
+					}
+				}
+
+				"ApplyModifier"
+				{
+					"Target" 			"CASTER"
+					"ModifierName"		"modifier_lux_lucent_singularity_detonate_timer"
+				}
+			}
+
+			"OnDestroy"
+			{
+
+				"RunScript"
+				{
+					"ScriptFile" 	"heroes/lux/lux_lucent_singularity.lua"
+		            "Function"   	"Thinker_OnDestroy"
+				}
+
+				"AttachEffect"
+				{
+				 	"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf"
+				 	"EffectAttachType"	"follow_origin"
+				 	"Target"			"TARGET"
+				 	"ControlPointEntities"
+		            {
+		                "TARGET"    "attach_origin"
+		                "TARGET"    "attach_origin"
+		            }
+				}
+
+				"FireSound"
+				{
+					"EffectName"	"Hero_Abaddon.AphoticShield.Destroy"
+					"Target" 		"TARGET"
+				}
+
+				"RemoveModifier"
+				{
+					"Target" 			"CASTER"
+					"ModifierName"		"modifier_lux_lucent_singularity_detonate_timer"
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_FIXED_DAY_VISION"	"%vision_radius"
+				"MODIFIER_PROPERTY_FIXED_NIGHT_VISION"	"%vision_radius"
+				//"MODIFIER_PROPERTY_FORCE_DRAW_MINIMAP"	"1"
+			}
+		}
+
+		"modifier_lux_lucent_singularity_detonate_timer"
+		{
+			"IsBuff"			"1"
+			"Duration"			"%singularity_duration"
+		}
+
+		"modifier_lux_lucent_singularity"
+		{
+			"IsDebuff"		"1"
+	
+			"StatusEffectName" 		"particles/status_fx/status_effect_frost_armor.vpcf" 	   
+			"StatusEffectPriority"  "10"
+
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed_pct" 
+			}
+		}
+	}
+}

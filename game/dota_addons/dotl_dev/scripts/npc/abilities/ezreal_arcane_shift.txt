@@ -1,0 +1,90 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Ezreal's Arcane Shift
+// Author: wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
+"ezreal_arcane_shift"
+{
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"ezreal_arcane_shift"
+	"MaxLevel"						"5"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityCooldown"				"19 17 15 13 11"
+	"AbilityManaCost"				"90"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AbilityDamage"					"75 125 175 225 275"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"  "particles/heroes/ezreal/arcane_shift.vpcf"
+		"particle"  "particles/heroes/ezreal/arcane_shift_projectile.vpcf"
+	}
+
+	// Special	
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"2200"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"blink_range"			"348"	
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"search_range"			"550"	
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"vision_radius"			"0"	
+		}
+		"05"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_ratio" 				"0.75"	
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/ezreal/arcane_shift.lua"
+			"Function"			"OnSpellStart"
+			"projectile_speed"	"%projectile_speed"
+			"search_range"		"%search_range"
+			"vision_radius"		"%vision_radius"
+			"blink_range"		"%blink_range"
+			"effect_name"		"particles/heroes/ezreal/arcane_shift_projectile.vpcf"
+			"Target"			"POINT"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/ezreal/arcane_shift.lua"
+			"Function"		"OnProjectileHitUnit"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/ezreal/rising_spell_force.lua"
+			"Function"		"OnProjectileHitUnit"
+		}
+	}
+}

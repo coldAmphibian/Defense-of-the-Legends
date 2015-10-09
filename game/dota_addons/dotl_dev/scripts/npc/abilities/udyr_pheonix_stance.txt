@@ -1,0 +1,205 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Udyr Pheonix Stance
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"udyr_pheonix_stance"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityTextureName"			"udyr_pheonix_stance"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"MaxLevel"						"5"
+
+	"AbilityCooldown"				"6"
+	"AbilityManaCost"				"47 44 41 38 35"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"  "particles/generic_gameplay/generic_stunned.vpcf"
+		"particle"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		"particle"  "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf"
+	}
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"				"FIELD_FLOAT"
+			"damage_wave"		"15 25 35 45 55"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"damage_wave_ratio"		"0.25"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"on_hit_damage"			"40 80 120 160 200"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"hit_damage_ratio"		"0.45"
+		}
+	}
+	
+	
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/udyr/monkeys_agility.lua"
+			"Function"		"GlobalCooldown"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/udyr/monkeys_agility.lua"
+			"Function"		"MonkeysAgility"
+		}
+		"RemoveModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_turtle_persist"
+		}
+		"RemoveModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_tiger_persist"
+		}
+		"RemoveModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_bear_persist"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_pheonix_activate"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_pheonix_persist"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_pheonix_stack"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_pheonix_attack"
+		}
+	}
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"0"
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/udyr/pheonix_stance.lua"
+			"Function"		"PheonixHit"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_pheonix_activate"
+		{
+			"IsBuff"			"1"
+			"Duration"			"5"
+			
+			"ThinkInterval"		"1"
+			"OnIntervalThink"
+			{
+				"FireEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+					"EffectAttachType"	"attach_origin"
+					"Target"			"CASTER"
+				}
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center" "CASTER"
+						"Radius" "182"
+						"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					}
+					"Action"
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"heroes/udyr/pheonix_stance.lua"
+							"Function"		"WaveDamageTick"
+						}
+					}
+				}
+			}
+		}
+		"modifier_pheonix_persist"
+		{
+			"IsBuff"	"1"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/udyr/pheonix_stance.lua"
+					"Function"		"PheonixStack"
+				}
+			}
+			"OnDestroy"
+			{
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_pheonix_stack"
+					"Target"		"CASTER"
+				}
+			}
+		}
+		"modifier_pheonix_stack"
+		{
+			"IsHidden"			"1"
+			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+		}
+		"modifier_pheonix_attack"
+		{
+			"IsHidden"			"1"
+			"IsBuff"			"1"
+			"OnAttackLanded"
+			{
+				"LinearProjectile"
+				{
+					"Target"		"TARGET"
+					"EffectName"	 "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf"
+					"MoveSpeed"		 "900"
+					"StartRadius"	 "150"
+					"StartPosition"  "attach_attack1"
+					"EndRadius"      "350"
+					"HasFrontalCone" "1"
+					"FixedDistance"  "456"
+					"TargetTeams"	 "DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"TargetTypes"	 "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+					"TargetFlags"	 "DOTA_UNIT_TARGET_FLAG_NONE"						
+				    "ProvidesVision" "1"
+				    "VisionRadius" 	 "%vision_radius"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_pheonix_attack"
+					"Target" 		"CASTER"
+				}
+				
+			}
+		}
+		
+	}
+}

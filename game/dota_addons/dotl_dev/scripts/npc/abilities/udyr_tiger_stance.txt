@@ -1,0 +1,145 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Udyr Tiger Stance
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"udyr_tiger_stance"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityTextureName"			"udyr_tiger_stance"
+	"MaxLevel"						"5"
+
+	"AbilityCooldown"				"6"
+	"AbilityManaCost"				"47 44 41 38 35"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+	}
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"30 80 130 180 230"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"				"FIELD_FLOAT"
+			"bonus_attack_speed"	"30 40 50 60 70"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"attack_damage_ratio"	"1.2 1.3 1.4 1.5 1.6"
+		}
+	}
+	
+	
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/udyr/monkeys_agility.lua"
+			"Function"		"GlobalCooldown"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/udyr/monkeys_agility.lua"
+			"Function"		"MonkeysAgility"
+		}
+		"RemoveModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_turtle_persist"
+		}
+		"RemoveModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_bear_persist"
+		}
+		"RemoveModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_pheonix_persist"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_tiger_activate"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_tiger_persist"
+		}
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_tiger_strike"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_tiger_activate"
+		{
+			"IsBuff"			"1"
+			"Duration"			"5"
+			
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+			}
+		}
+		"modifier_tiger_strike"
+		{
+			"IsHidden"			"1"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/udyr/tiger_stance.lua"
+					"Function"		"StrikeHit"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_tiger_strike"
+					"Target" 		"CASTER"
+				}
+			}
+		}
+		"modifier_tiger_strike_dot"
+		{
+			"IsDebuff"		"1"
+			"Duration"		"2"
+
+			"EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_buff.vpcf"
+			"EffectAttachType"	"follow_origin"	
+
+			"ThinkInterval"  "0.5"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/udyr/tiger_stance.lua"
+					"Function"		"StrikeDot"
+				}
+			}
+		}
+		"modifier_tiger_persist"
+		{
+			"IsBuff"	"1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "15"
+			}
+		}
+		
+	}
+}

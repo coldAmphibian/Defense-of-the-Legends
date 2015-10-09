@@ -1,0 +1,106 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Leona Shield of Daybreak
+// Author: Zarthbenn with modifications by wFX
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
+"leona_shield_of_daybreak"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityTextureName"			"leona_shield_of_daybreak"
+	"MaxLevel"						"5"
+
+	"AbilityCooldown"				"11 10 9 8 7"
+	"AbilityManaCost"				"45 50 55 60 65"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.1"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"40 70 100 130 160"	//-- +30% Ability Power
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{	
+			"var_type"			"FIELD_FLOAT"
+			"stun_duration"		"1.25"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"modifier_duration"  	"10"
+		}
+	}
+	
+	// Data driven
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+		"particle"				"particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+	}
+	
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_leona_shield_of_daybreak"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_leona_shield_of_daybreak"
+		{
+			"IsBuff"	"1"
+			"Duration"	"%modifier_duration"
+			
+			"OnAttackLanded"
+			{
+
+				"Stun"
+				{
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+					"Duration"			"%stun_duration"
+					"Target"			"TARGET"
+				}
+
+				"Damage"
+				{
+					"Target"		"TARGET"
+					"Type"			"DAMAGE_TYPE_MAGICAL"
+					"Damage"		"%AbilityDamage"
+				}
+
+				"RemoveModifier"
+				{
+					"ModifierName"		"modifier_leona_shield_of_daybreak"
+					"Target"			"CASTER"
+				}
+
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/leona/sunlight.lua"
+					"Function"			"ApplyModifier"
+				}
+			}
+		}
+	}
+}

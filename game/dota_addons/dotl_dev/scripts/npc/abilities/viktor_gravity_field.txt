@@ -1,0 +1,155 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Viktor Gravity Field
+// Author: Zarthbenn
+// Date: 07/2015
+//-------------------------------------------------------------------------------------------------------------
+"viktor_gravity_field"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"1"
+
+	"AbilityTextureName"			"viktor_gravity_field"
+	"MaxLevel"						"5"
+
+	"precache"
+	{
+		"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		"particle"			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+	}
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"511"
+	"AbilityCastPoint"				"0.1"
+	"AOERadius"						"%radius"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"17 16 15 14 13"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"65"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow_percentage"	"-28 -32 -36 -40 -44"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius"			"200"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration"			"4"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"tick_rate"				"0.5"
+		}
+	}
+
+	"OnSpellStart"
+	{
+	 	"CreateThinker"
+	 	{
+	 		"ModifierName"	"modifier_viktor_gravity_field_thinker"
+	 		"Target" 		"POINT"
+	 	}
+	} 
+	"Modifiers"
+	{
+		"modifier_viktor_gravity_field_thinker"
+		{
+			"Aura"					"modifier_viktor_gravity_field_thinker_aura"
+			"Aura_Radius"			"%radius"
+			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			"Duration"				"%duration"
+
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+					"EffectAttachType"	"follow_origin"
+					"Target"			"TARGET"
+					"ControlPoints"
+					{
+						"00" "0 0 0"
+						"01" "%radius 1 1"
+						"15" "25 150 25"
+						"16" "1 0 0"
+					}
+				}
+			}
+		}
+
+		"modifier_viktor_gravity_field_thinker_aura"
+		{
+			"IsDebuff"		"1"
+			"ThinkInterval"	"%tick_rate"
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_percentage" 
+			}
+	
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/viktor/gravity_field.lua"
+					"Function"		"GravityFieldThink"
+				}
+			}
+			"OnDestroy"
+			{
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_viktor_gravity_field_stack"
+					"Target" 		"TARGET"
+				}
+			}
+		}
+		"modifier_viktor_gravity_field_stack"
+		{
+			"IsDebuff"			"1"
+			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+		}
+		"modifier_viktor_gravity_field_stun"
+		{
+			"IsDebuff"			"1"
+			"Duration"			"1.5"
+			
+			"OverrideAnimation"	"ACT_DOTA_DISABLED"
+			"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"	"follow_overhead"
+			
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+		"modifier_viktor_gravity_field_stunned"
+		{
+			"IsHidden"			"4"
+			"Duration"			"4"
+		}
+	}
+}

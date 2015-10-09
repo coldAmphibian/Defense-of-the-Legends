@@ -1,0 +1,12 @@
+//=================================================================================
+// Reinforced Armor
+//=================================================================================
+"lol_tower_reinforced_armor"
+{
+	"AbilityName"			"lol_tower_reinforced_armor"
+	"BaseClass" 			"ability_datadriven"
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityTextureName" 	"dotl_placeholder"
+	"IsHidden"				"0"
+
+}

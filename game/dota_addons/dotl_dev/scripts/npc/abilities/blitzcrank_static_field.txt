@@ -1,0 +1,159 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Blitzcrank Static Field
+// Author: Zarthbenn
+// Date: 06/2015
+//-------------------------------------------------------------------------------------------------------------
+"blitzcrank_static_field"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"blitzcrank_static_field"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"MaxLevel"						"3"
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	 {
+	  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+	  "particle"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+	  "particle"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+	 }
+
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0.1 0.1 0.1"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"30"
+	"AbilityDuration"				"1"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"250 375 500" //-- +100% AP
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"100"
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crush_radius"				"438"
+		}
+		"02"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"silence_duration"				"1"
+		}
+		//only for tooltip
+		"03"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"passive_damage"				"100 200 300"
+		}
+	}
+	"OnUpgrade"
+	{
+		"AddAbility"
+		{
+			"AbilityName"		"blitzcrank_static_field_passive"
+			"Target"			"CASTER"
+		}
+		"LevelUpAbility"
+		{
+			"AbilityName"		"blitzcrank_static_field_passive"
+			"Target"			"CASTER"
+		}
+	}
+	"OnSpellStart"
+	{
+		
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"EffectAttachType"	"attach_origin"
+			"Target"	"CASTER"
+
+		}
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+			"EffectAttachType" "attach_origin"
+			"Target"	"CASTER" 
+		}
+		"FireSound"
+		{
+			"EffectName" "Hero_Slardar.Slithereen_Crush"
+			"Target"	"CASTER"
+		}
+		"RemoveModifier"
+		{
+			"ModifierName"			"modifier_blitzcrank_static_field_passive"
+			"Target"				"CASTER"
+		}
+		"ActOnTargets"
+		{
+			"Target"
+			{
+				"Center" "CASTER"
+				"Radius" "%crush_radius"
+				"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+				"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"Action"
+			{
+				"ApplyModifier"
+				{
+					"Target" "TARGET"
+					"ModifierName" 	"modifier_blitzcrank_static_field_silence"
+					"Duration"		"%silence_duration"
+				}
+				
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_PHYSICAL"
+					"Damage"	"%AbilityDamage"
+				}
+
+			}
+		}
+		
+	}
+	"Modifiers"
+	{
+		"modifier_blitzcrank_static_field_silence"
+		{
+			"IsDebuff"			"1"
+
+			"EffectName"		"particles/generic_gameplay/generic_silenced.vpcf"
+			"EffectAttachType"	"follow_overhead"
+
+			"States"
+			{
+				"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}			
+		}
+		
+	}
+
+}

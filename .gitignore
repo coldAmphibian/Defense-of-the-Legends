@@ -2,24 +2,27 @@
 *.bin
 
 # Compiled formats
-*.vpcf_c
-*.vtex_c
-*.vsndevts_c
-*.vmat_c
+*.vagrp_c
+*.vanim_c
+*.vcss_c
 *.vjs_c
+*.vmat_c
+*.vpcf_c
+*.vsndevts_c
+*.vtex_c
 *.vxml_c
 *.vcss_c
 *.vmdl_c
 *.vmesh_c
-*.vanim_c
+=======
 
 # Map files
-*.vpk
+# *.vpk
 
 # Map overviews
-content/dota_addons/dotacraft/materials/overviews/*
-game/dota_addons/dotacraft/materials/overviews/*
-game/dota_addons/dotacraft/resource/overviews/*
+# content/dota_addons/dotacraft/materials/overviews/*
+# game/dota_addons/dotacraft/materials/overviews/*
+# game/dota_addons/dotacraft/resource/overviews/*
 
 #Github dump
 *.stackdump

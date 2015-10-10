@@ -47,7 +47,7 @@
         "npc_dota_hero_kunkka"			"0"
         "npc_dota_hero_legion_commander"	"0"
         "npc_dota_hero_leshrac"			"0"
-        "npc_dota_hero_lich"			"0"
+        "npc_dota_hero_lich"			"1"
         "npc_dota_hero_life_stealer"		"0"
         "npc_dota_hero_lina"			"0"
         "npc_dota_hero_lion"			"1"

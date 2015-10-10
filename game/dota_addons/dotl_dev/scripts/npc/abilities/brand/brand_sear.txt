@@ -1,0 +1,96 @@
+//-------------------------------------------------------------------------------------------------------------
+// Name: Brand's Sear
+// Author: wFX
+// Date: 10/2015
+//-------------------------------------------------------------------------------------------------------------
+
+"brand_sear"
+{
+
+	"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"BaseClass"				"ability_datadriven"
+	"AbilityTextureName"	"brand_sear"
+	"MaxLevel"				"5"
+
+
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+
+	"AbilityCastRange"				"1050"
+	"AbilityCastPoint"				"0.0"  // This defines the channeling time, think Caitlyn's Q
+	"AbilityCooldown"				"8 7.5 7 6.5 6"  // Cooldown per rank using space as separator
+	"AbilityManaCost"				"28 31 34 37 40" // Mana cost per rank
+	"AbilityDamage"					"80 120 160 200 240" // damage per rank
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL" // Damage type
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1" // Which animation should play
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+	}
+
+	// Special	
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		// Velocity of Sear projectile
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"projectile_speed"		"1500"
+		}
+
+		// Impact radius
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"radius"				"150"
+		}
+
+		// AP ratio of the ability
+		"03"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"ap_ratio"				"0.65"		
+		}
+
+		// Stun duration 
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"stun_duration"			"2"		
+		}
+
+		// Travel Distance
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"range"					"1050"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/brand/sear.lua"
+			"Function"			"OnSpellStart"
+			"projectile_speed"	"%projectile_speed"
+			"radius"			"%radius"
+			"range"				"%range"
+			"vision_radius"		"%radius"
+			"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"Target"			"POINT"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+		"RunScript"
+		{
+			"ScriptFile"		"heroes/brand/sear.lua"
+			"Function"			"OnProjectileHitUnit"
+		}
+	}
+}

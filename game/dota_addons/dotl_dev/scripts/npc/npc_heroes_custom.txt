@@ -11,7 +11,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/blitzcrank/blitzcrank.vmdl"
 		"ModelScale"				"1.15"	
-		////"HeroID"					"116"
+		// "HeroID"					"116"
 		"Enabled"					"1"
 		
 		// Abilities
@@ -83,6 +83,90 @@
 	
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// Name: Brand
+	// Author: wFX
+	// Date: 07/2015
+	//-------------------------------------------------------------------------------------------------------------
+	"npc_dota_hero_brand"
+	{
+		"override_hero"				"npc_dota_hero_lich"					// Hero to override
+		"MovementTurnRate"			"10"									// Turning rate.
+		// "Model"						"models/champions/ezreal/ezreal.vmdl"
+		"ModelScale"				"1"	
+		// "HeroID"					"114"
+		"Enabled"					"1"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"				"5"
+		"Ability1"					"brand_sear"							// Ability 1
+		"Ability2"					""							// Ability 2
+		"Ability3"					""							// Ability 3
+		"Ability4"					""						// Ability 4
+		"Ability5"					""						// Ability 5
+	
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"0"										// Base strength
+		"AttributeStrengthGain"		"0"										// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"										// Base intelligence
+		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"										// Base agility
+		"AttributeAgilityGain"		"0"										// Agility bonus per level.
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"55"										// Damage range min.
+		"AttackDamageMax"			"45"										// Damage range max.
+		"AttackRate"				"1.6"										// Speed of attack.
+	
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"238"									// Speed.
+		"MovementTurnRate"			"1.0"									// Turning rate.
+	
+		"StatusHealth"				"484.4"									// Base health.
+		"StatusHealthRegen"			"1.0"									// Health regeneration rate.
+		"HealthGain"				"40"
+		"HealthRegenGain"			"0.75"
+	
+		"StatusMana"				"310.6"									// Base mana.
+		"StatusManaRegen"			"1.0"									// Mana regeneration rate.
+		"ManaGain"					"40"
+		"ManaRegenGain"				"0.8"
+	
+		"ArmorPhysical"				"2.67"									// Physical protection.
+		"MagicalResistance"			"25"									// Magical protection (percentage).
+	
+		"VisionNighttimeRange"		"800"									// Range of vision at night time.
+	
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable2"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable3"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable4"
+			{
+				"ItemDef" "0"
+			}
+			"Wearable5"
+			{
+				"ItemDef" "0"
+			}
+		}
+		"ItemSlots" {}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// Name: Ezreal
 	// Author: wFX
 	// Date: 07/2015
@@ -93,7 +177,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/ezreal/ezreal.vmdl"
 		"ModelScale"				"0.9"	
-		//"HeroID"					"114"
+		// "HeroID"					"114"
 		"Enabled"					"1"
 		
 		// Abilities
@@ -177,7 +261,7 @@
 			"Ability5"					"garen_ult"
 			"AbilityLayout"				"5"
 			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			//"HeroID"					"113"
+			// "HeroID"					"113"
 			"Enabled"					"1"
 			"AttachWearables"
 			{
@@ -252,7 +336,7 @@
 		"VisionNighttimeRange"		"800"										// Range of vision at night time.
 	
 		"Model"						"models/champions/kassadin/kassadin.vmdl"
-		//"HeroID"					"123"
+		// "HeroID"					"123"
 		"ModelScale"				"0.8"
 		"Enabled"					"1"
 		
@@ -323,7 +407,7 @@
 		"Model"						"models/champions/leona/leona.vmdl"
 		"ModelScale"				"1.15"
 		"MovementTurnRate"			"10"											// Turning rate.
-		//"HeroID"					"115"
+		// "HeroID"					"115"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -404,7 +488,7 @@
 	
 		"Model"						"models/champions/lux/lux.vmdl"
 		"ModelScale"				"1.1"	
-		//"HeroID"					"119"
+		// "HeroID"					"119"
 		"Enabled"					"1"
 		
 		// Abilities
@@ -525,7 +609,7 @@
 		"Model"						"models/champions/sona/sona.vmdl"
 		"ModelScale"				"1"
 		"MovementTurnRate"			"10"											// Turning rate.
-		//"HeroID"					"120"
+		// "HeroID"					"120"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -610,7 +694,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/taric/taric.vmdl"
 		"ModelScale"				"0.9"	
-		//"HeroID"					"117"
+		// "HeroID"					"117"
 		"Enabled"					"1"
 	
 		// Abilities
@@ -691,7 +775,7 @@
 		"MovementTurnRate"			"10"									// Turning rate.
 		"Model"						"models/champions/udyr/udyr.vmdl"
 		"ModelScale"				"1"	
-		//"HeroID"					"122"
+		// "HeroID"					"122"
 		"Enabled"					"1"
 	
 		// Abilities

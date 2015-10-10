@@ -9,7 +9,7 @@
 		"Ability5"					"garen_ult"
 		"AbilityLayout"				"5"
 		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-		"HeroID"					"113"
+		// "HeroID"					"113"
 		"Enabled"					"1"
 		"AttachWearables"
 		{

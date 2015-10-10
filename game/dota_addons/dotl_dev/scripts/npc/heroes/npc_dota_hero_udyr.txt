@@ -9,7 +9,7 @@
 	"MovementTurnRate"			"10"									// Turning rate.
 	"Model"						"models/champions/udyr/udyr.vmdl"
 	"ModelScale"				"1"	
-	"HeroID"					"122"
+	// "HeroID"					"122"
 	"Enabled"					"1"
 
 	// Abilities

@@ -9,7 +9,7 @@
 	"Model"						"models/champions/leona/leona.vmdl"
 	"ModelScale"				"1.15"
 	"MovementTurnRate"			"10"											// Turning rate.
-	"HeroID"					"115"
+	// "HeroID"					"115"
 	"Enabled"					"1"
 
 	// Abilities

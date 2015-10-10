@@ -11,7 +11,7 @@
 
 	"Model"						"models/champions/lux/lux.vmdl"
 	"ModelScale"				"1.1"	
-	"HeroID"					"119"
+	// "HeroID"					"119"
 	"Enabled"					"1"
 	
 	// Abilities

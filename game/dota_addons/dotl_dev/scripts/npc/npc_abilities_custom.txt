@@ -764,6 +764,102 @@
 			}
 		}
 	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Name: Brand's Sear
+	// Author: wFX
+	// Date: 10/2015
+	//-------------------------------------------------------------------------------------------------------------
+	
+	"brand_sear"
+	{
+	
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"				"ability_datadriven"
+		"AbilityTextureName"	"brand_sear"
+		"MaxLevel"				"5"
+	
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+	
+		"AbilityCastRange"				"1050"
+		"AbilityCastPoint"				"0.0"  // This defines the channeling time, think Caitlyn's Q
+		"AbilityCooldown"				"8 7.5 7 6.5 6"  // Cooldown per rank using space as separator
+		"AbilityManaCost"				"28 31 34 37 40" // Mana cost per rank
+		"AbilityDamage"					"80 120 160 200 240" // damage per rank
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL" // Damage type
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1" // Which animation should play
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		}
+	
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			// Velocity of Sear projectile
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1500"
+			}
+	
+			// Impact radius
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"150"
+			}
+	
+			// AP ratio of the ability
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_ratio"				"0.65"		
+			}
+	
+			// Stun duration 
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"			"2"		
+			}
+	
+			// Travel Distance
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1050"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/brand/sear.lua"
+				"Function"			"OnSpellStart"
+				"projectile_speed"	"%projectile_speed"
+				"radius"			"%radius"
+				"range"				"%range"
+				"vision_radius"		"%radius"
+				"effect_name"		"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+				"Target"			"POINT"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/brand/sear.lua"
+				"Function"			"OnProjectileHitUnit"
+			}
+		}
+	}
 	//-------------------
 	// Dummy stuff
 	//-------------------
@@ -787,6 +883,293 @@
 	                "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
 	          }
 	        }
+		}
+	}
+	"lol_brush_revealer_passive"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"			"dotl_placeholder"
+		"MaxLevel"					 	"1"
+		
+		"Modifiers"
+		{
+			"Programmed as a Minion"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_BLOCK_DISABLED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_LOW_ATTACK_PRIORITY"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"							"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SOFT_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+	
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Building Invincibility
+	//=================================================================================
+	"lol_building_invincibility"
+	{
+		"AbilityName"			"lol_tower_invincibility"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"1"
+		"IsPassive"				"1"
+	
+		"Modifiers"
+		{	
+			"Invicibility"
+			{
+			}
+		}
+	}
+	//=================================================================================
+	// Inhibitor Armor
+	//=================================================================================
+	"lol_inhibitor_armor"
+	{
+		"AbilityName"			"lol_inhibitor_armor"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	}	
+	//=================================================================================
+	// Nexus End
+	//=================================================================================
+	"lol_nexus_end"
+	{
+		"AbilityName"			"lol_nexus_end"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	}
+	//=================================================================================
+	// Obelisk Laser
+	//=================================================================================
+	"lol_obelisk_laser"
+	{
+		"AbilityName"			"lol_obelisk_laser"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+		
+		"Modifiers"
+		{
+			"Dodge Piercing"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Obelisk Overkill
+	//=================================================================================
+	"lol_obelisk_overkill"
+	{
+		"AbilityName"			"lol_obelisk_overkill"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	}
+	//=================================================================================
+	// A Wizard Did It
+	//=================================================================================
+	"lol_tower_a_wizard_did_it"
+	{
+		"AbilityName"			"lol_tower_a_wizard_did_it"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Fortification
+	//=================================================================================
+	"lol_tower_fortification"
+	{
+		"AbilityName"			"lol_tower_fortification"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Lightning Rod - This one is actually just here for show
+	//=================================================================================
+	"lol_tower_lightning_rod"
+	{
+		"AbilityName"			"lol_tower_lightning_rod"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+		"Modifiers"
+		{
+			"Dodge Piercing"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
+	//=================================================================================
+	"lol_tower_penetrating_bullets"
+	{
+		"AbilityName"			"lol_tower_penetrating_bullets"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+	
+		"Modifiers"
+		{
+			"Dodge Piercing"
+			{
+				"Passive"						"1"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=================================================================================
+	// Reinforced Armor
+	//=================================================================================
+	"lol_tower_reinforced_armor"
+	{
+		"AbilityName"			"lol_tower_reinforced_armor"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Vanguard
+	//=================================================================================
+	"lol_tower_vanguard"
+	{
+		"AbilityName"			"lol_tower_vanguard"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_"
+		"AbilityTextureName" 	"dotl_placeholder"
+		"IsHidden"				"0"
+	
+	}
+	//=================================================================================
+	// Wardens Eye
+	//=================================================================================
+	"lol_tower_wardens_eye"
+	{
+		"AbilityName"			"lol_tower_wardens_eye"
+		"BaseClass" 			"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 	"dotl_placeholder"
+	
+		"Modifiers"
+		{	
+			"True Sight"
+			{
+				"IsHidden"				"1"
+				"IsPassive"				"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}					
+				}
+	
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+	
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
+						"Function"				"RemoveInvincibility"
+					}
+				}								
+			}
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -1697,572 +2080,6 @@
 	 
 	        }
 	//=========================================================
-	// Karthus' Passive: Death Defied
-	// Author: Capruce
-	//=========================================================
-	"karthus_death_defied"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"MaxLevel"						"1"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"karthus_death_defied"
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"champion_passive"		"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ghost_duration"		"7.0"
-			}
-		}
-	
-		"precache"
-		{
-			"particle"			"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
-			"particle"			"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
-		}
-	
-		"OnOwnerSpawned"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
-				"Function"		"OnOwnerSpawned"
-			}
-		}
-	
-		"OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
-				"Function"		"OnOwnerDied"
-			}
-		}
-	
-		"Modifiers"
-		{
-			"modifier_karthus_death_defied"
-			{
-				"IsBuff"		"1"
-				"Passive"		"1"
-				"IsHidden"		"1"
-	
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
-						"Function"		"OnTakeDamage"	
-					}
-				}
-			}
-			
-			"modifier_karthus_death_defied_ghost_form"
-			{
-				"IsBuff"		"1"
-				"Duration"		"%ghost_duration"
-				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
-	
-				"StatusEffectName" 			"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
-				"StatusEffectPriority" 		"15"
-	
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
-						"Function"		"OnCreated"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
-						"Function"		"OnDestroy"
-					}
-				}
-	
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
-						"Function"		"OnAbilityExecuted"
-					}
-				}
-	
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=========================================================
-	// Karthus' Third Ability: Defile
-	// Author: Capruce
-	//=========================================================
-	"karthus_defile"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"5"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"karthus_defile"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"310"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-	
-		/ Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"30 50 70 90 110"
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ap_scaling"			"0.20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_per_second"		"30 42 54 66 78"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"think_interval"		"1.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"			"312" //425 (LoL Units)
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_per_kill"			"20 27 34 41 48"
-			}
-		}
-	
-		"precache"
-		{
-			
-		}
-	
-		"OnToggleOn"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"		"modifier_karthus_defile_passive"
-				"Target"			"CASTER"
-			}
-	
-			"ApplyModifier"
-			{
-				"ModifierName"		"modifier_karthus_defile_aura"
-				"Target"			"CASTER"
-			}
-		}
-	
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"		"modifier_karthus_defile_aura"
-				"Target"			"CASTER"
-			}
-	
-			"ApplyModifier"
-			{
-				"ModifierName"		"modifier_karthus_defile_passive"
-				"Target"			"CASTER"
-			}
-		}
-	
-		"Modifiers"
-		{
-			"modifier_karthus_defile_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-	
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_defile.lua"
-						"Function"		"OnKill"
-					}
-				}
-			}
-	
-			"modifier_karthus_defile_aura"
-			{
-				"IsHidden"			"1"
-				"ThinkInterval"		"%think_interval"
-	
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_defile.lua"
-						"Function"		"OnIntervalThink"
-					}
-				}
-			}
-		}
-	}
-	//=========================================================
-	// Karthus' First Ability: Lay Waste
-	// Author: Capruce
-	//=========================================================
-	"karthus_lay_waste"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"5"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"karthus_lay_waste"
-		"AOERadius"						"%explosion_radius"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"642" //875 (LoL Units)
-		"AbilityCastPoint"				"0"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20 26 32 38 44"
-	
-		/ Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"40 60 80 100 120"
-	
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"ap_scaling"				"0.30"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"explosion_delay"			"0.5"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"explosion_radius"			"147" // 200 (LoL Units)
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"single_target_multiplier"	"2"
-			}
-		}
-	
-		"precache"
-		{
-			
-		}
-	
-		"OnSpellStart"
-		{
-			"RunScript"
-	        {
-	            "ScriptFile"    "heroes/karthus/karthus_lay_waste.lua"
-	            "Function"  	"OnSpellStart"
-	        }
-		}
-	
-		"Modifiers"
-		{
-			"modifier_karthus_lay_waste_thinker"
-			{
-				"Duration"		"%explosion_delay"
-	
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "heroes/karthus/karthus_lay_waste.lua"
-		            	"Function"  	"OnCreated"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					 "RunScript"
-					{
-						"ScriptFile"    "heroes/karthus/karthus_lay_waste.lua"
-		            	"Function"  	"OnDestroy"
-					}
-				}
-			}
-		}
-	}
-	//=========================================================
-	// Karthus' Ultimate: Requiem
-	// Author: Capruce
-	//=========================================================
-	"karthus_requiem"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"2"
-		"AbilityTextureName"			"karthus_requiem"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-		"AbilityChannelTime"			"3.0"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"200 180 160"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200"
-	
-		/ Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"250 400 550"
-	
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ap_scaling"		"0.6"
-			}
-		}
-	
-		"precache"
-		{
-			
-		}
-	
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
-				"Function"		"OnSpellStart"
-			}
-		}
-	
-		"OnChannelFinish"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
-				"Function"		"OnChannelFinish"
-			}
-		}
-	
-		"OnChannelSucceeded"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
-				"Function"		"OnChannelSucceeded"
-			}
-		}
-	
-		"Modifiers"
-		{
-			"modifier_karthus_requiem"
-			{
-				"IsDebuff"		"1"
-			}
-		}
-	}
-	//=========================================================
-	// Karthus' Third Ability: Wall of Pain
-	// Author: Capruce
-	//=========================================================
-	"karthus_wall_of_pain"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"5"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"karthus_wall_of_pain"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"733" // 1000 (LoL Units)
-		"AbilityCastPoint"				"0"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"wall_length"			"587 660 733 807 880" // 800 900 1000 1100 1200 (LoL Units)
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_thickness"		"50" //A guess
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"wall_duration"			"5.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"obelisk_vision_radius"	"953 972 990 1008 1027" // 1300 1325 1350 1375 1400 (LoL Units)
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_pct"	"-40 -50 -60 -70 -80"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"debuff_duration"		"5.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance_pct"	"-15"
-			}
-		}
-	
-		"precache"
-		{
-			
-		}
-	
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/karthus/karthus_wall_of_pain.lua"
-				"Function"		"OnSpellStart"
-			}
-		}
-	
-		"Modifiers"
-		{
-			"modifier_karthus_wall_of_pain_thinker"
-			{
-				"Duration"		"%wall_duration"
-	
-				"ThinkInterval"	"0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_wall_of_pain.lua"
-						"Function"		"OnIntervalThink"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/karthus/karthus_wall_of_pain.lua"
-						"Function"		"OnDestroy"
-					}
-				}
-			}
-	
-			"modifier_karthus_wall_of_pain"
-			{
-				"IsDebuff"		"1"
-				"IsPurgable"	"1"
-				"Duration"		"%debuff_duration"
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed_pct"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance_pct"
-				}
-			}
-		}
-	}
-	//=========================================================
 	// Kassadin's Third Ability: Force Pulse
 	// Author: Capruce
 	//=========================================================
@@ -2865,6 +2682,572 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' Passive: Death Defied
+	// Author: Capruce
+	//=========================================================
+	"karthus_death_defied"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_death_defied"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"champion_passive"		"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ghost_duration"		"7.0"
+			}
+		}
+	
+		"precache"
+		{
+			"particle"			"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
+			"particle"			"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+		}
+	
+		"OnOwnerSpawned"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+				"Function"		"OnOwnerSpawned"
+			}
+		}
+	
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+				"Function"		"OnOwnerDied"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_death_defied"
+			{
+				"IsBuff"		"1"
+				"Passive"		"1"
+				"IsHidden"		"1"
+	
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+						"Function"		"OnTakeDamage"	
+					}
+				}
+			}
+			
+			"modifier_karthus_death_defied_ghost_form"
+			{
+				"IsBuff"		"1"
+				"Duration"		"%ghost_duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+	
+				"StatusEffectName" 			"particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+				"StatusEffectPriority" 		"15"
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+						"Function"		"OnCreated"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+						"Function"		"OnDestroy"
+					}
+				}
+	
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_death_defied.lua"
+						"Function"		"OnAbilityExecuted"
+					}
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' Third Ability: Defile
+	// Author: Capruce
+	//=========================================================
+	"karthus_defile"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_defile"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"310"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"30 50 70 90 110"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ap_scaling"			"0.20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_second"		"30 42 54 66 78"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_interval"		"1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"			"312" //425 (LoL Units)
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_kill"			"20 27 34 41 48"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnToggleOn"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_passive"
+				"Target"			"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_aura"
+				"Target"			"CASTER"
+			}
+		}
+	
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_aura"
+				"Target"			"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_karthus_defile_passive"
+				"Target"			"CASTER"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_defile_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+	
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_defile.lua"
+						"Function"		"OnKill"
+					}
+				}
+			}
+	
+			"modifier_karthus_defile_aura"
+			{
+				"IsHidden"			"1"
+				"ThinkInterval"		"%think_interval"
+	
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_defile.lua"
+						"Function"		"OnIntervalThink"
+					}
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' First Ability: Lay Waste
+	// Author: Capruce
+	//=========================================================
+	"karthus_lay_waste"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_lay_waste"
+		"AOERadius"						"%explosion_radius"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"642" //875 (LoL Units)
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"20 26 32 38 44"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40 60 80 100 120"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"ap_scaling"				"0.30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"explosion_delay"			"0.5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"explosion_radius"			"147" // 200 (LoL Units)
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"single_target_multiplier"	"2"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+	        {
+	            "ScriptFile"    "heroes/karthus/karthus_lay_waste.lua"
+	            "Function"  	"OnSpellStart"
+	        }
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_lay_waste_thinker"
+			{
+				"Duration"		"%explosion_delay"
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "heroes/karthus/karthus_lay_waste.lua"
+		            	"Function"  	"OnCreated"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					 "RunScript"
+					{
+						"ScriptFile"    "heroes/karthus/karthus_lay_waste.lua"
+		            	"Function"  	"OnDestroy"
+					}
+				}
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' Ultimate: Requiem
+	// Author: Capruce
+	//=========================================================
+	"karthus_requiem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"karthus_requiem"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityChannelTime"			"3.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"200 180 160"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 175 200"
+	
+		/ Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"250 400 550"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ap_scaling"		"0.6"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
+				"Function"		"OnSpellStart"
+			}
+		}
+	
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
+				"Function"		"OnChannelFinish"
+			}
+		}
+	
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/karthus/karthus_requiem.lua"
+				"Function"		"OnChannelSucceeded"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_requiem"
+			{
+				"IsDebuff"		"1"
+			}
+		}
+	}
+	//=========================================================
+	// Karthus' Third Ability: Wall of Pain
+	// Author: Capruce
+	//=========================================================
+	"karthus_wall_of_pain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"karthus_wall_of_pain"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"733" // 1000 (LoL Units)
+		"AbilityCastPoint"				"0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"wall_length"			"587 660 733 807 880" // 800 900 1000 1100 1200 (LoL Units)
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wall_thickness"		"50" //A guess
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"wall_duration"			"5.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"obelisk_vision_radius"	"953 972 990 1008 1027" // 1300 1325 1350 1375 1400 (LoL Units)
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_pct"	"-40 -50 -60 -70 -80"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_duration"		"5.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance_pct"	"-15"
+			}
+		}
+	
+		"precache"
+		{
+			
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/karthus/karthus_wall_of_pain.lua"
+				"Function"		"OnSpellStart"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_karthus_wall_of_pain_thinker"
+			{
+				"Duration"		"%wall_duration"
+	
+				"ThinkInterval"	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_wall_of_pain.lua"
+						"Function"		"OnIntervalThink"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/karthus/karthus_wall_of_pain.lua"
+						"Function"		"OnDestroy"
+					}
+				}
+			}
+	
+			"modifier_karthus_wall_of_pain"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"%debuff_duration"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed_pct"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance_pct"
 				}
 			}
 		}
@@ -3579,293 +3962,6 @@
 					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_UNSELECTABLE" 	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}
-		}
-	}
-	"lol_brush_revealer_passive"
-	{
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
-		"AbilityTextureName"			"dotl_placeholder"
-		"MaxLevel"					 	"1"
-		
-		"Modifiers"
-		{
-			"Programmed as a Minion"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_ATTACK_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_BLOCK_DISABLED"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_LOW_ATTACK_PRIORITY"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"							"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SOFT_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-	
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Building Invincibility
-	//=================================================================================
-	"lol_building_invincibility"
-	{
-		"AbilityName"			"lol_tower_invincibility"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"1"
-		"IsPassive"				"1"
-	
-		"Modifiers"
-		{	
-			"Invicibility"
-			{
-			}
-		}
-	}
-	//=================================================================================
-	// Inhibitor Armor
-	//=================================================================================
-	"lol_inhibitor_armor"
-	{
-		"AbilityName"			"lol_inhibitor_armor"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	}	
-	//=================================================================================
-	// Nexus End
-	//=================================================================================
-	"lol_nexus_end"
-	{
-		"AbilityName"			"lol_nexus_end"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	}
-	//=================================================================================
-	// Obelisk Laser
-	//=================================================================================
-	"lol_obelisk_laser"
-	{
-		"AbilityName"			"lol_obelisk_laser"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-		
-		"Modifiers"
-		{
-			"Dodge Piercing"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Obelisk Overkill
-	//=================================================================================
-	"lol_obelisk_overkill"
-	{
-		"AbilityName"			"lol_obelisk_overkill"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	}
-	//=================================================================================
-	// A Wizard Did It
-	//=================================================================================
-	"lol_tower_a_wizard_did_it"
-	{
-		"AbilityName"			"lol_tower_a_wizard_did_it"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Fortification
-	//=================================================================================
-	"lol_tower_fortification"
-	{
-		"AbilityName"			"lol_tower_fortification"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Lightning Rod - This one is actually just here for show
-	//=================================================================================
-	"lol_tower_lightning_rod"
-	{
-		"AbilityName"			"lol_tower_lightning_rod"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-		"Modifiers"
-		{
-			"Dodge Piercing"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Penetrating Bullets - 30% armor pen, +37.5% dmg per consecutive shot (75% max), +25% dmg per consecutive shot on champion/hero (50% max)
-	//=================================================================================
-	"lol_tower_penetrating_bullets"
-	{
-		"AbilityName"			"lol_tower_penetrating_bullets"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-	
-		"Modifiers"
-		{
-			"Dodge Piercing"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	//=================================================================================
-	// Reinforced Armor
-	//=================================================================================
-	"lol_tower_reinforced_armor"
-	{
-		"AbilityName"			"lol_tower_reinforced_armor"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Vanguard
-	//=================================================================================
-	"lol_tower_vanguard"
-	{
-		"AbilityName"			"lol_tower_vanguard"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_"
-		"AbilityTextureName" 	"dotl_placeholder"
-		"IsHidden"				"0"
-	
-	}
-	//=================================================================================
-	// Wardens Eye
-	//=================================================================================
-	"lol_tower_wardens_eye"
-	{
-		"AbilityName"			"lol_tower_wardens_eye"
-		"BaseClass" 			"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 	"dotl_placeholder"
-	
-		"Modifiers"
-		{	
-			"True Sight"
-			{
-				"IsHidden"				"1"
-				"IsPassive"				"1"
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"Target"		"CASTER"
-						"ModifierName"	"modifier_truesight"
-					}
-				}
-	
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}					
-				}
-	
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-	
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/lol_scripts.lua"
-						"Function"				"RemoveInvincibility"
-					}
-				}								
 			}
 		}
 	}

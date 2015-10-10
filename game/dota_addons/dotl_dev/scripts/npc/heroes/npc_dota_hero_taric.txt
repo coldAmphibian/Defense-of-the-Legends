@@ -9,7 +9,7 @@
 	"MovementTurnRate"			"10"									// Turning rate.
 	"Model"						"models/champions/taric/taric.vmdl"
 	"ModelScale"				"0.9"	
-	"HeroID"					"117"
+	// "HeroID"					"117"
 	"Enabled"					"1"
 
 	// Abilities

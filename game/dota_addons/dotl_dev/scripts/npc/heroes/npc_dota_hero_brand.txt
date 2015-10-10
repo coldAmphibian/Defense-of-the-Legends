@@ -1,30 +1,29 @@
 //-------------------------------------------------------------------------------------------------------------
-// Name: Hero Sona
-// Author: Zarthbenn
+// Name: Brand
+// Author: wFX
 // Date: 07/2015
 //-------------------------------------------------------------------------------------------------------------
-"npc_dota_hero_sona"
+"npc_dota_hero_brand"
 {
-	"override_hero"				"npc_dota_hero_wisp"					// Hero to override
-	"Model"						"models/champions/sona/sona.vmdl"
-	"ModelScale"				"1"
-	"MovementTurnRate"			"10"											// Turning rate.
-	// "HeroID"					"120"
+	"override_hero"				"npc_dota_hero_lich"					// Hero to override
+	"MovementTurnRate"			"10"									// Turning rate.
+	// "Model"						"models/champions/ezreal/ezreal.vmdl"
+	"ModelScale"				"1"	
+	// "HeroID"					"114"
 	"Enabled"					"1"
-
+	
 	// Abilities
-	//-------------------------------------------------------------------------------------------------------------							
+	//-------------------------------------------------------------------------------------------------------------
 	"AbilityLayout"				"5"
-	"Ability1"					"sona_hymn_of_valor"					// Ability 1
-	"Ability2"					"sona_aria_of_perseverance"				// Ability 2
-	"Ability3"					"sona_song_of_celerity"					// Ability 3
-	"Ability4"					"sona_power_chord"						// Ability 4
-	"Ability5"					"sona_crescendo"						// Ability 5
-	
-	
+	"Ability1"					"brand_sear"							// Ability 1
+	"Ability2"					""							// Ability 2
+	"Ability3"					""							// Ability 3
+	"Ability4"					""						// Ability 4
+	"Ability5"					""						// Ability 5
+
 	// Attributes
 	//-------------------------------------------------------------------------------------------------------------
-	"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+	"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 	"AttributeBaseStrength"		"0"										// Base strength
 	"AttributeStrengthGain"		"0"										// Strength bonus per level.
 	"AttributeBaseIntelligence"	"0"										// Base intelligence
@@ -32,7 +31,7 @@
 	"AttributeBaseAgility"		"0"										// Base agility
 	"AttributeAgilityGain"		"0"										// Agility bonus per level.
 
-	// Base Stats
+	// Stats
 	//-------------------------------------------------------------------------------------------------------------
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageMin"			"55"										// Damage range min.
@@ -43,18 +42,18 @@
 	"MovementSpeed"				"238"									// Speed.
 	"MovementTurnRate"			"1.0"									// Turning rate.
 
-	"StatusHealth"				"482"									// Base health.
-	"HealthGain"				"77"
-	"StatusHealthRegen"			"5.4"									// Health regeneration rate.
-	"HealthRegenGain"			"0.6"
-	
-	"StatusMana"				"341"									// Base mana.
-	"ManaGain"					"45"
-	"StatusManaRegen"			"9"										// Mana regeneration rate.
-	"ManaRegenGain"				"0.4"
+	"StatusHealth"				"484.4"									// Base health.
+	"StatusHealthRegen"			"1.0"									// Health regeneration rate.
+	"HealthGain"				"40"
+	"HealthRegenGain"			"0.75"
 
-	"ArmorPhysical"				"3.41"									// Physical protection.
-	"MagicalResistance"			"30"									// Magical protection (percentage).
+	"StatusMana"				"310.6"									// Base mana.
+	"StatusManaRegen"			"1.0"									// Mana regeneration rate.
+	"ManaGain"					"40"
+	"ManaRegenGain"				"0.8"
+
+	"ArmorPhysical"				"2.67"									// Physical protection.
+	"MagicalResistance"			"25"									// Magical protection (percentage).
 
 	"VisionNighttimeRange"		"800"									// Range of vision at night time.
 

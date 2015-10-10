@@ -6,7 +6,7 @@
 	"VisionNighttimeRange"		"800"										// Range of vision at night time.
 
 	"Model"						"models/champions/kassadin/kassadin.vmdl"
-	"HeroID"					"123"
+	// "HeroID"					"123"
 	"ModelScale"				"0.8"
 	"Enabled"					"1"
 	

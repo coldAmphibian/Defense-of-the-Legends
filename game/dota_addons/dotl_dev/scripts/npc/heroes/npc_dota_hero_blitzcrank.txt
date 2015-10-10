@@ -9,7 +9,7 @@
 	"MovementTurnRate"			"10"									// Turning rate.
 	"Model"						"models/champions/blitzcrank/blitzcrank.vmdl"
 	"ModelScale"				"1.15"	
-	"HeroID"					"116"
+	// "HeroID"					"116"
 	"Enabled"					"1"
 	
 	// Abilities

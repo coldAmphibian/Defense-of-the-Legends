@@ -25,38 +25,39 @@ function OnSpellStart(event)
  	local pBlink = ParticleManager:CreateParticle("particles/heroes/ezreal/arcane_shift.vpcf", PATTACH_ABSORIGIN, caster)
  	ParticleManager:SetParticleControl(pBlink, 1, target_point)
  	--ParticleManager:SetParticleControl(pBlink, 0, caster:GetAbsOrigin())
+ 	Timers:CreateTimer(0.1, function()
+		local nearby_enemy_units =
+			FindUnitsInRadius(
+				caster:GetTeam(),
+				caster:GetAbsOrigin(),
+				nil,
+				event.search_range,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				DOTA_UNIT_TARGET_FLAG_NONE,
+				FIND_ANY_ORDER,
+				false
+			)
 
-	local nearby_enemy_units =
-		FindUnitsInRadius(
-			caster:GetTeam(),
-			caster:GetAbsOrigin(),
-			nil,
-			event.search_range,
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_ANY_ORDER,
-			false
-		)
-
-	local target = nearby_enemy_units[1]
-	if target ~= nil then
-		local info = 
-		{
-			Target = target,
-			Source = caster,
-			Ability = ability,	
-			EffectName = event.effect_name,
-			vSourceLoc = caster:GetAbsOrigin(),
-			iMoveSpeed = event.projectile_speed,
-			bProvidesVision = false,
-			bDrawsOnMinimap = false,
-			bDodgeable = true,
-			bVisibleToEnemies = true,
-			bReplaceExisting = false
-		}
-		projectile = ProjectileManager:CreateTrackingProjectile(info)
-	end	
+		local target = nearby_enemy_units[1]
+		if target ~= nil then
+			local info = 
+			{
+				Target = target,
+				Source = caster,
+				Ability = ability,	
+				EffectName = event.effect_name,
+				vSourceLoc = caster:GetAbsOrigin(),
+				iMoveSpeed = event.projectile_speed,
+				bProvidesVision = false,
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false
+			}
+			projectile = ProjectileManager:CreateTrackingProjectile(info)
+		end	
+	end)
 end
 
 function OnProjectileHitUnit(event)

@@ -185,3 +185,7 @@ function giveUnitDataDrivenModifier(source, target, modifier, dur)
     local item = CreateItem( "lol_modifiers", source, source)
     item:ApplyDataDrivenModifier(source, target, modifier, {duration=dur})
 end
+
+function toLolUnits(value)
+	return value*0.66
+end

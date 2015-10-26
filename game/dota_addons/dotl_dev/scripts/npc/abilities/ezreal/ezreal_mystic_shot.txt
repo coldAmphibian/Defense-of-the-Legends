@@ -5,7 +5,7 @@
 //-------------------------------------------------------------------------------------------------------------
 "ezreal_mystic_shot"
 {
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 	"BaseClass"						"ability_datadriven"
 	"AbilityTextureName"			"ezreal_mystic_shot"
 	"MaxLevel"						"5"
@@ -13,11 +13,12 @@
 	// Stats
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastRange"				"840"
-	"AbilityCastPoint"				"0.0"
 	"AbilityCooldown"				"6 5.5 5 5.5 4"
 	"AbilityManaCost"				"28 31 34 37 40"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 	"AbilityDamage"					"35 55 75 95 115"
+	//"AbilityCastPoint"				"0.3"
+	"AbilityChannelTime"            "0.3"
 	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 	// Stats
@@ -69,7 +70,7 @@
 
 	}
 
-	"OnSpellStart"
+	"OnChannelSucceeded"
 	{
 		"RunScript"
 		{

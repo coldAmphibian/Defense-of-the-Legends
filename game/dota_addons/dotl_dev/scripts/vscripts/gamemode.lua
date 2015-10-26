@@ -96,7 +96,7 @@ end
 ]]
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
-  self:StartSpawners()
+  -- self:StartSpawners()
 end
 
 
@@ -117,13 +117,13 @@ function GameMode:InitGameMode()
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 
-  GameRules:GetGameModeEntity():SetThink("OnUnitThink", self, "UnitThink", 1)
-  self.UnitThinkerList = {}
+  -- GameRules:GetGameModeEntity():SetThink("OnUnitThink", self, "UnitThink", 1)
+  -- self.UnitThinkerList = {}
   -- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1134)
   -- GameRules:SetPreGameTime(0)
   -- GameRules:SetGoldPerTick(100000)
   self:SelectTowerLogic()
-  self:CreateInhibitors()
+  -- self:CreateInhibitors()
   print("GameMode Initialised")
 end
 

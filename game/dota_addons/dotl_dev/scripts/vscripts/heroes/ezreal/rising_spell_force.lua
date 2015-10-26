@@ -6,12 +6,12 @@
 function OnProjectileHitUnit(event)
 	local caster = event.caster
 	local innate = caster:FindAbilityByName("ezreal_rising_spell_force")
-	local duration = innate:GetLevelSpecialValueFor('buff_duration', 0)
+	local duration = innate:GetSpecialValueFor("buff_duration")
 	if innate ~= nil then
 		local current_stack = caster:GetModifierStackCount("modifier_rising_spell_force", nil)	
 		caster:RemoveModifierByName("modifier_rising_spell_force")
 		innate:ApplyDataDrivenModifier(caster, caster, "modifier_rising_spell_force", {duration = duration})
-		local max_stack = innate:GetLevelSpecialValueFor("max_stacks", 0)
+		local max_stack = innate:GetSpecialValueFor("max_stacks")
 		if current_stack >= max_stack then
 			caster:SetModifierStackCount("modifier_rising_spell_force", innate, max_stack)
 		else

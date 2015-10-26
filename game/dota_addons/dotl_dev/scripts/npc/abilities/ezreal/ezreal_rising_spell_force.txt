@@ -25,8 +25,13 @@
 		}
 		"03"
 		{
-			"var_type"						"FIELD_INTEGER"
+			"var_type"					"FIELD_INTEGER"
 			"auto_learn"				"1"
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"buff_duration"					"6"
 		}
 	}
 

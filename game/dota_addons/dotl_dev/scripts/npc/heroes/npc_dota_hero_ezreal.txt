@@ -38,6 +38,11 @@
 	"AttackDamageMax"			"45"										// Damage range max.
 	"AttackRate"				"1.6"										// Speed of attack.
 
+	"AttackAnimationPoint"		"0.33"									// Normalized time in animation cycle to attack.
+	"AttackAcquisitionRange"	"800"									// Range within a target can be acquired.
+	"AttackRange"				"550"									// Range within a target can be attacked.
+	"ProjectileSpeed"			"1000"									// Speed of projectile.
+
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 	"MovementSpeed"				"238"									// Speed.
 	"MovementTurnRate"			"1.0"									// Turning rate.

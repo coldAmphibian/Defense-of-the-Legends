@@ -764,6 +764,63 @@
 			}
 		}
 	}
+	"brand_pillar_of_flame"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"brand_pillar_of_flame"
+		"MaxLevel" 						"5"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+	
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"70 75 80 85 90"
+		"AbilityDamage"					"75 120 165 210 255"
+		"AOERadius"						"%radius"
+	
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+			"particle"  "particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"250"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay"				"0.625"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"extra_damage"		"0.25"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/brand/pillar_of_flame.lua"
+				"Function"		"OnSpellStart"
+				"particle_instant"		"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+				"particle_delayed"		"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+				"TARGET"		"POINT"
+			}
+		}
+	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Brand's Sear
 	// Author: wFX
@@ -1179,18 +1236,19 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ezreal_arcane_shift"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"ezreal_arcane_shift"
 		"MaxLevel"						"5"
 	
 		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
+		//-------------------------------------------------------------------------------------------------------------	
 		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilityManaCost"				"90"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"					"75 125 175 225 275"
+	//	"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"            "0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 	
 		// Stats
@@ -1232,7 +1290,7 @@
 			}
 		}
 	
-		"OnSpellStart"
+		"OnChannelSucceeded"
 		{
 			"RunScript"
 			{
@@ -1269,7 +1327,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ezreal_essence_flux"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"ezreal_essence_flux"
 		"MaxLevel"						"5"
@@ -1277,11 +1335,11 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"733"
-		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"					"70 115 160 205 250"
+		"AbilityChannelTime"            "0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 	
 		// Stats
@@ -1327,8 +1385,8 @@
 			}
 	
 		}
-	
-		"OnSpellStart"
+		
+		"OnChannelSucceeded"
 		{
 			"RunScript"
 			{
@@ -1381,7 +1439,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ezreal_mystic_shot"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"ezreal_mystic_shot"
 		"MaxLevel"						"5"
@@ -1389,11 +1447,12 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"840"
-		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"6 5.5 5 5.5 4"
 		"AbilityManaCost"				"28 31 34 37 40"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityDamage"					"35 55 75 95 115"
+		//"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"            "0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 	
 		// Stats
@@ -1445,7 +1504,7 @@
 	
 		}
 	
-		"OnSpellStart"
+		"OnChannelSucceeded"
 		{
 			"RunScript"
 			{
@@ -1502,8 +1561,13 @@
 			}
 			"03"
 			{
-				"var_type"						"FIELD_INTEGER"
+				"var_type"					"FIELD_INTEGER"
 				"auto_learn"				"1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"buff_duration"					"6"
 			}
 		}
 	
@@ -1530,13 +1594,13 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ezreal_trueshot_barrage"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"ezreal_trueshot_barrage"
 		"MaxLevel"						"3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastPoint"				"1"
+		"AbilityCastPoint"				"1.1"
 		"AbilityCooldown"				"80"
 		"AbilityManaCost"				"100"
 		"AbilityDamage"					"350 500 650"

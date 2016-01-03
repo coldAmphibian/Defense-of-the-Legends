@@ -64,8 +64,8 @@
 		}
 		"07"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"cd_change"				"1"		
+			"var_type"				"FIELD_FLOAT"
+			"cd_change"				"1.5"		
 		}
 
 	}

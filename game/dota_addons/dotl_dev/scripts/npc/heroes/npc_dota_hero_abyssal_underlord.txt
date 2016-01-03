@@ -1,0 +1,38 @@
+"npc_dota_hero_test"
+{
+	"override_hero"				"npc_dota_hero_abyssal_underlord"					// Hero to override
+	"MovementTurnRate"			"10"									// Turning rate.
+	"ModelScale"				"1"	
+	// "Enabled"					"1"
+	// "HeroID"					"108"
+	
+	// Abilities
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityLayout"				"1"
+	"Ability1"					"abystest_swap"						// Ability 1
+	
+	// "AttachWearables"
+	// {
+	// 	"Wearable1"
+	// 	{
+	// 		"ItemDef" "0"
+	// 	}
+	// 	"Wearable2"
+	// 	{
+	// 		"ItemDef" "0"
+	// 	}
+	// 	"Wearable3"
+	// 	{
+	// 		"ItemDef" "0"
+	// 	}
+	// 	"Wearable4"
+	// 	{
+	// 		"ItemDef" "0"
+	// 	}
+	// 	"Wearable5"
+	// 	{
+	// 		"ItemDef" "0"
+	// 	}
+	// }
+	// "ItemSlots" {}
+}

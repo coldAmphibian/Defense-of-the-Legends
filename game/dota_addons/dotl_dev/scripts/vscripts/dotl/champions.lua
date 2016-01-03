@@ -21,15 +21,15 @@ function IsChampionInnate( ability )
 	return ability:GetLevelSpecialValueFor('auto_learn', 0) == 1
 end
 
-function IsScaledByLevel( ability )
+function IsScaledByLevel(ability)
 	return ability:GetLevelSpecialValueFor('level_scale', 0) ~= 0
 end
 
-function IsSummonerSpell( ability )
+function IsSummonerSpell(ability)
 	return ability:GetLevelSpecialValueFor('summoner_spell', 0) == 1
 end
 
-function Champion:Create( unit )
+function Champion:Create(unit)
 	if not unit:IsHero() or IsChampion( unit ) then
 		return
 	end
@@ -113,6 +113,7 @@ function Champion:Create( unit )
 		end
 	end
 
+	-- unit:OverrideHeroAssets(cID)
 	unit:AddNewModifier(unit, nil, "modifier_champion", {})
 
 	unit:LearnInnateSpells()

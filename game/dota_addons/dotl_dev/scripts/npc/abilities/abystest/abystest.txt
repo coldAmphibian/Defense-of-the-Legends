@@ -1,0 +1,18 @@
+"abystest_swap"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"ability_name"
+	"MaxLevel" 						"1"	
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"dotl/swap.lua"
+			"Function"		"TestFunction"
+		}
+	}
+}

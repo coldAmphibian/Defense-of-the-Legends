@@ -1,0 +1,39 @@
+// Lol's Flash implementation
+// wFX - 10/2015
+
+"summoner_flash"
+{
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"BaseClass"             		"ability_datadriven"
+	"MaxLevel"						"1"
+	"AbilityCooldown"				"300"
+	"AbilityManaCost"				"0"
+
+	"AbilityCastRange"				"425"
+	"AbilityCastPoint"				"0"
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"range"				"425"
+		}
+
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"auto_learn"		"1"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"dotl/spells.lua"
+			"Function"		"Flash"
+			"TARGET"		"POINT"
+		}
+	}
+}

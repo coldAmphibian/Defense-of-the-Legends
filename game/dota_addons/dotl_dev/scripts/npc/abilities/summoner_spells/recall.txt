@@ -1,0 +1,58 @@
+// Lol's Recall implementation
+// wFX - 10/2015
+
+"summoner_recall"
+{
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"BaseClass"             		"ability_datadriven"
+
+	"MaxLevel"						"1"
+	"AbilityCooldown"				"0"
+	"AbilityManaCost"				"0"
+
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0"
+	"AbilityChannelTime"            "8.0"
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"auto_learn"		"1"
+		}
+	}
+
+	"OnChannelSucceeded"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"dotl/spells.lua"
+			"Function"		"Recall"
+		}
+	}
+
+	// "Modifiers"
+	// {
+	// 	"modifier_recall"
+	// 	{
+	// 		"IsHidden"			"0"
+	// 		"IsPurgable"		"0"
+	// 		"IsBuff"			"0"
+	// 		"IsDebuff"			"0"
+	// 		"IsStunDebuff"		"0"
+
+	// 		//"EffectName"		"particle_name"
+	// 		//"EffectAttachType"	"follow_origin"
+
+	// 		"OnTakeDamage"
+	// 		{
+	// 			"RunScript"
+	// 			{
+	// 				"ScriptFile"	"dotl/spells.lua"
+	// 				"Function"		"Recall_Damage"
+	// 			}
+	// 		}
+	// 	}
+	// }
+}

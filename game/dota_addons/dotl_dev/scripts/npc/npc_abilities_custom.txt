@@ -1,5 +1,23 @@
 "DOTAAbilities"
 {
+	"abystest_swap"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"ability_name"
+		"MaxLevel" 						"1"	
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"dotl/swap.lua"
+				"Function"		"TestFunction"
+			}
+		}
+	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Blitzcrank Mana Barrier
 	// Author: Zarthbenn
@@ -764,6 +782,127 @@
 			}
 		}
 	}
+	// Brand's Innate - Blaze
+	// wFX - 10/2015
+	
+	"brand_blaze"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"brand_blaze"
+		"MaxLevel" 						"1"
+	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"monster_cap"		"320"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"health_ratio"		"8.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"buff_duration"		"4"	
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"auto_learn"				"1"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_blaze"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"		"1"
+				"IsBuff"			"0"
+				"IsDebuff"			"1"
+	
+				"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+				"EffectAttachType"		"follow_origin"
+	
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/brand/blaze.lua"
+						"Function"		"OnIntervalThink"
+					}
+				}
+			}
+		}
+	}
+	// Brand's E - Conflagration
+	// wFX - 10/2015
+	
+	"brand_conflagration"
+	{
+	
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"brand_conflagration"
+		"MaxLevel" 						"5"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+		"AbilityCastRange"				"625"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+	
+		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilityManaCost"				"70 75 80 85 90"
+		"AbilityDamage"					"70 105 140 175 210"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"%spread_radius"
+	
+		"precache"
+		{
+			//"particle"  "particle_name"
+			//"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ap_ratio"			"0.55"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spread_radius"		"300"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/brand/conflagration.lua"
+				"Function"		"OnSpellStart"
+			}
+		}	
+	}
+	// Brand's W
+	// wFX - 10/2015
+	
 	"brand_pillar_of_flame"
 	{
 		"BaseClass"             		"ability_datadriven"
@@ -807,6 +946,16 @@
 				"var_type"			"FIELD_FLOAT"
 				"extra_damage"		"0.25"
 			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"base_ap"			"0.60"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"blaze_ap"			"0.75"
+			}
 		}
 	
 		"OnSpellStart"
@@ -849,7 +998,7 @@
 	
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"particle"  "particles\generic_gameplay\generic_stunned.vpcf"
 		}
 	
 		// Special	
@@ -914,6 +1063,25 @@
 			{
 				"ScriptFile"		"heroes/brand/sear.lua"
 				"Function"			"OnProjectileHitUnit"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_sear_stun"
+			{
+				"IsPurgable"		"1"
+				"IsBuff"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"		"1"
+	
+				"EffectName" 		"particles\generic_gameplay\generic_stunned.vpcf"
+				"EffectAttachType"  "follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}			
 			}
 		}
 	}
@@ -1498,8 +1666,8 @@
 			}
 			"07"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cd_change"				"1"		
+				"var_type"				"FIELD_FLOAT"
+				"cd_change"				"1.5"		
 			}
 	
 		}
@@ -5846,6 +6014,103 @@
 		        }
 			}
 		}
+	}
+	// Lol's Flash implementation
+	// wFX - 10/2015
+	
+	"summoner_flash"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"             		"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"300"
+		"AbilityManaCost"				"0"
+	
+		"AbilityCastRange"				"425"
+		"AbilityCastPoint"				"0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"425"
+			}
+	
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"auto_learn"		"1"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"dotl/spells.lua"
+				"Function"		"Flash"
+				"TARGET"		"POINT"
+			}
+		}
+	}
+	// Lol's Recall implementation
+	// wFX - 10/2015
+	
+	"summoner_recall"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"             		"ability_datadriven"
+	
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+	
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0"
+		"AbilityChannelTime"            "8.0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"auto_learn"		"1"
+			}
+		}
+	
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"dotl/spells.lua"
+				"Function"		"Recall"
+			}
+		}
+	
+		// "Modifiers"
+		// {
+		// 	"modifier_recall"
+		// 	{
+		// 		"IsHidden"			"0"
+		// 		"IsPurgable"		"0"
+		// 		"IsBuff"			"0"
+		// 		"IsDebuff"			"0"
+		// 		"IsStunDebuff"		"0"
+	
+		// 		//"EffectName"		"particle_name"
+		// 		//"EffectAttachType"	"follow_origin"
+	
+		// 		"OnTakeDamage"
+		// 		{
+		// 			"RunScript"
+		// 			{
+		// 				"ScriptFile"	"dotl/spells.lua"
+		// 				"Function"		"Recall_Damage"
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Taric Dazzle

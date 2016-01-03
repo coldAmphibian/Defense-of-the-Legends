@@ -41,5 +41,17 @@ function OnProjectileHitUnit(event)
 			ability = ability
 		}
 		ApplyDamage(damageTable)
+
+		local mod = target:FindModifierByName('modifier_blaze')
+		if mod ~= nil then
+			local duration = ability:GetSpecialValueFor('stun_duration')
+			ability:ApplyDataDrivenModifier(caster, target,'modifier_sear_stun', {duration = duration})
+		end
+
+		local innate = caster:FindAbilityByName("brand_blaze")
+		if innate ~= nil then
+			local duration = innate:GetSpecialValueFor('buff_duration')
+			innate:ApplyDataDrivenModifier(caster, target, 'modifier_blaze', {duration = duration})
+		end
 	end
 end

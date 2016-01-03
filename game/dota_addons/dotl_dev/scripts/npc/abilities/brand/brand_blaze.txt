@@ -1,0 +1,65 @@
+// Brand's Innate - Blaze
+// wFX - 10/2015
+
+"brand_blaze"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"brand_blaze"
+	"MaxLevel" 						"1"
+
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"monster_cap"		"320"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"health_ratio"		"8.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"buff_duration"		"4"	
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"auto_learn"				"1"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_blaze"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsPurgable"		"1"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+
+			"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+			"EffectAttachType"		"follow_origin"
+
+			"ThinkInterval"  "1.0"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/brand/blaze.lua"
+					"Function"		"OnIntervalThink"
+				}
+			}
+		}
+	}
+}

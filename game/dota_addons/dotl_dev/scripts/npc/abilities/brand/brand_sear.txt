@@ -26,7 +26,7 @@
 
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+		"particle"  "particles\generic_gameplay\generic_stunned.vpcf"
 	}
 
 	// Special	
@@ -91,6 +91,25 @@
 		{
 			"ScriptFile"		"heroes/brand/sear.lua"
 			"Function"			"OnProjectileHitUnit"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_sear_stun"
+		{
+			"IsPurgable"		"1"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+			"IsStunDebuff"		"1"
+
+			"EffectName" 		"particles\generic_gameplay\generic_stunned.vpcf"
+			"EffectAttachType"  "follow_overhead"
+
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}			
 		}
 	}
 }

@@ -33,14 +33,32 @@ function OnSpellStart(event)
 		ParticleManager:SetParticleControl(particle_delayed, 1, Vector(radius, 0, 0))
 
 		for _,unit in pairs(caught_units) do
+			local damage = ability:GetAbilityDamage()
+			if unit:FindModifierByName('modifier_blaze') ~= nil then
+				damage = damage * (1 + ability:GetSpecialValueFor('extra_damage'))
+				if IsChampion(caster) then
+					damage = damage + (caster:GetAbilityPower() * ability:GetSpecialValueFor('blaze_ap'))
+				end
+			else
+				if IsChampion(caster) then
+					damage = damage + (caster:GetAbilityPower() * ability:GetSpecialValueFor('base_ap'))
+				end
+			end
+
 			local damageTable = {
 				attacker = caster,
 				victim = unit,
-				damage = ability:GetAbilityDamage(),
+				damage = damage,
 				damage_type = ability:GetAbilityDamageType(),
 				ability = ability
 				}
 			ApplyDamage(damageTable)
+
+			local innate = caster:FindAbilityByName("brand_blaze")
+			if innate ~= nil then
+				local duration = innate:GetSpecialValueFor('buff_duration')
+				innate:ApplyDataDrivenModifier(caster, unit, 'modifier_blaze', {duration = duration})
+			end
 		end
 	end)
 end

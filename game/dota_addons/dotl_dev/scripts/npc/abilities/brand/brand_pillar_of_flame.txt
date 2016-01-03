@@ -1,3 +1,6 @@
+// Brand's W
+// wFX - 10/2015
+
 "brand_pillar_of_flame"
 {
 	"BaseClass"             		"ability_datadriven"
@@ -40,6 +43,16 @@
 		{
 			"var_type"			"FIELD_FLOAT"
 			"extra_damage"		"0.25"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"base_ap"			"0.60"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"blaze_ap"			"0.75"
 		}
 	}
 

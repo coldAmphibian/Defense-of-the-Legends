@@ -17,8 +17,8 @@
 	"AbilityLayout"				"5"
 	"Ability1"					"brand_sear"							// Ability 1
 	"Ability2"					"brand_pillar_of_flame"							// Ability 2
-	"Ability3"					""							// Ability 3
-	"Ability4"					""						// Ability 4
+	"Ability3"					"brand_conflagration"							// Ability 3
+	"Ability4"					"brand_blaze"						// Ability 4
 	"Ability5"					""						// Ability 5
 
 	// Attributes

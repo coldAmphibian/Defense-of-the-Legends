@@ -1,5 +1,43 @@
 "DOTAHeroes"
 {
+	"npc_dota_hero_test"
+	{
+		"override_hero"				"npc_dota_hero_abyssal_underlord"					// Hero to override
+		"MovementTurnRate"			"10"									// Turning rate.
+		"ModelScale"				"1"	
+		// "Enabled"					"1"
+		// "HeroID"					"108"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"				"1"
+		"Ability1"					"abystest_swap"						// Ability 1
+		
+		// "AttachWearables"
+		// {
+		// 	"Wearable1"
+		// 	{
+		// 		"ItemDef" "0"
+		// 	}
+		// 	"Wearable2"
+		// 	{
+		// 		"ItemDef" "0"
+		// 	}
+		// 	"Wearable3"
+		// 	{
+		// 		"ItemDef" "0"
+		// 	}
+		// 	"Wearable4"
+		// 	{
+		// 		"ItemDef" "0"
+		// 	}
+		// 	"Wearable5"
+		// 	{
+		// 		"ItemDef" "0"
+		// 	}
+		// }
+		// "ItemSlots" {}
+	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Name: Hero Blitzcrank
 	// Author: Zarthbenn
@@ -101,8 +139,8 @@
 		"AbilityLayout"				"5"
 		"Ability1"					"brand_sear"							// Ability 1
 		"Ability2"					"brand_pillar_of_flame"							// Ability 2
-		"Ability3"					""							// Ability 3
-		"Ability4"					""						// Ability 4
+		"Ability3"					"brand_conflagration"							// Ability 3
+		"Ability4"					"brand_blaze"						// Ability 4
 		"Ability5"					""						// Ability 5
 	
 		// Attributes

@@ -1,0 +1,53 @@
+// Brand's E - Conflagration
+// wFX - 10/2015
+
+"brand_conflagration"
+{
+
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"brand_conflagration"
+	"MaxLevel" 						"5"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	"AbilityCastRange"				"625"
+	"AbilityCastPoint"				"0"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+	"AbilityCooldown"				"12 11 10 9 8"
+	"AbilityManaCost"				"70 75 80 85 90"
+	"AbilityDamage"					"70 105 140 175 210"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AOERadius"						"%spread_radius"
+
+	"precache"
+	{
+		//"particle"  "particle_name"
+		//"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"ap_ratio"			"0.55"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"spread_radius"		"300"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/brand/conflagration.lua"
+			"Function"		"OnSpellStart"
+		}
+	}	
+}

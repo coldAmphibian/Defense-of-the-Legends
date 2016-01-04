@@ -1,0 +1,38 @@
+"item_recipe_dotl_phage"
+{
+	"ID" 		"1502"
+    "BaseClass" "item_datadriven"
+
+    "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName" "dotl_phage"
+    // "Model"        "models/props_gameplay/recipe.vmdl" 
+    // "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    // "ItemQuality"  "artifact"
+
+    "SideShop"     "0" 
+    "SecretShop"   "0"
+
+    
+	"ItemCost" "500"
+	"ItemKillable" "0" 
+	"ItemSellable" "1"
+	"ItemPurchasable" "1"
+	"ItemDroppable" "0"
+	"ItemShareability" "ITEM_NOT_SHAREABLE"
+	// "ItemInitialCharges" "1" //How many charges should the item start with - Tango x3 
+	// "ItemDisplayCharges" "1" //Hide the charges of the item - Aegis 
+	// "ItemRequiresCharges" "1" //The active ability needs charges to be used - Urn
+	"ItemStackable" "0"
+	"ItemPermanent" "1"
+	"ItemCastOnPickup" "0"
+	// "MaxUpgradeLevel" "5" // Dagon - 5
+	// "ItemBaseLevel" "1" //You'll need 5 different items, and change each accordingly
+	"ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+	"ItemRecipe" "1"
+	"ItemResult"          "item_dotl_phage" //the result of combining the ItemRequirements
+    "ItemRequirements"
+    {
+        "01" "item_dotl_long_sword;item_dotl_ruby_crystal;"
+    }
+}

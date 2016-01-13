@@ -141,7 +141,7 @@
 		"Ability2"					"brand_pillar_of_flame"							// Ability 2
 		"Ability3"					"brand_conflagration"							// Ability 3
 		"Ability4"					"brand_blaze"						// Ability 4
-		"Ability5"					""						// Ability 5
+		"Ability5"					"brand_pyroclasm"						// Ability 5
 	
 		// Attributes
 		//-------------------------------------------------------------------------------------------------------------

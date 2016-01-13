@@ -971,6 +971,78 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// Name: Brand's Pyroclasm
+	// Author: wFX
+	// Date: 01/2016
+	//-------------------------------------------------------------------------------------------------------------
+	
+	"brand_pyroclasm"
+	{
+	
+		"BaseClass"				"ability_datadriven"
+		"AbilityTextureName"	"brand_pyroclasm"
+		"MaxLevel"				"3"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+	
+		"AbilityCooldown"				"105 90 75"
+		"AbilityManaCost"				"100"
+		"AbilityDamage"					"150 250 350"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			//"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ap_ratio"			"0.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_bounce"		"4"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"search_radius"		"500"	
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/brand/pyroclasm.lua"
+				"Function"		"OnSpellStart"
+				"particle_name"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/brand/pyroclasm.lua"
+				"Function"		"OnProjectileHitUnit"
+				"particle_name"	"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// Name: Brand's Sear
 	// Author: wFX
 	// Date: 10/2015

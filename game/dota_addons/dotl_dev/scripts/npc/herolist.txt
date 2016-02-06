@@ -10,6 +10,7 @@
         "npc_dota_hero_ancient_apparition"	"0"
         "npc_dota_hero_antimage"		"0"
         "npc_dota_hero_axe"			"0"
+        "npc_dota_hero_arc_warden"              "0"
         "npc_dota_hero_bane"			"0"
         "npc_dota_hero_batrider"		"0"
         "npc_dota_hero_beastmaster"		"0"

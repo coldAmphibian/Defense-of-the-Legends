@@ -122,7 +122,6 @@ function GameMode:InitGameMode()
   -- GameRules:GetGameModeEntity():SetCameraDistanceOverride(1134)
   -- GameRules:SetPreGameTime(0)
   -- GameRules:SetGoldPerTick(100000)
-  self:SelectTowerLogic()
   -- self:CreateInhibitors()
   print("GameMode Initialised")
 end
@@ -158,45 +157,14 @@ function GameMode:ExampleConsoleCommand()
   print( '*********************************************' )
 end
 
---Selects tower logic to use
-function GameMode:SelectTowerLogic()
-  MapName = GetMapName()
-  if MapName == "brush_test" or MapName == "summoners_rift" then
-    file = "summoners_rift_tower_logic"
-  end
 
-  if MapName == "howling_abyss" or MapName == "howling_abyss_45" then
-    file = "howling_abyss_tower_logic"
-  end
-
-  if file == nil then
-    print("no tower logic loaded")
-  else
-    require("dotl/" .. file)
-  end
-end
-
-function GameMode:CreateInhibitors()
-  -- Howling Abyss Inhibitors Spawning
-  -- Blue Side
-  local bpos = Vector(-2325, -2225, 75)
-  local blue = CreateUnitByName("npc_lol_sr_inhibitor", bpos, true, nil, nil, DOTA_TEAM_GOODGUYS)  
-  Timers:CreateTimer(function() blue:SetAbsOrigin(bpos) end)
-
-  -- Red Side
-  local rpos = Vector(2410, 2345, 75)
-  local red = CreateUnitByName("npc_lol_sr_inhibitor", rpos, true, nil, nil, DOTA_TEAM_BADGUYS)  
-  Timers:CreateTimer(function() red:SetAbsOrigin(rpos) end)
-
-end
-
-function GameMode:StartSpawners()
-  Timers:CreateTimer(function()
-    spawnedUnit = CreateUnitByName("npc_dota_creep_goodguys_melee", Vector(-2800,-2800,75), true, nil, nil, DOTA_TEAM_GOODGUYS)
-    table.insert(self.UnitThinkerList, spawnedUnit)
-    return 10
-  end)
-end
+-- function GameMode:StartSpawners()
+--   Timers:CreateTimer(function()
+--     spawnedUnit = CreateUnitByName("npc_dota_creep_goodguys_melee", Vector(-2800,-2800,75), true, nil, nil, DOTA_TEAM_GOODGUYS)
+--     table.insert(self.UnitThinkerList, spawnedUnit)
+--     return 10
+--   end)
+-- end
 
 -- Evaluate the state of the game
 function GameMode:OnThink()
